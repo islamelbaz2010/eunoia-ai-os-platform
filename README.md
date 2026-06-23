@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eunoia AI OS
 
-## Getting Started
+AI Operating System for hotels, resorts, hospitality groups, and diving centers
+across Egypt, the UAE, and Saudi Arabia.
 
-First, run the development server:
+## Setup
+
+1. Copy `.env.example` to `.env.local` and fill in your Supabase project credentials.
+2. Run the migration in `supabase/migrations/0001_init.sql` against your Supabase
+   project (via the SQL editor or the Supabase CLI) to create the organizations,
+   RBAC, CRM, Knowledge Base, audit log, and usage tracking schema.
+3. Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Phase 1 scope
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Authentication (Supabase Auth)
+- Organizations & RBAC (`owner` / `admin` / `member` / `viewer`)
+- Dashboard shell with KPI overview
+- CRM
+- Knowledge Base
+- RAG Assistant (UI scaffold; retrieval pipeline pending)
+- Audit Logs
+- Usage Tracking
+- Super Admin
 
-## Learn More
+## Architecture notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 App Router. Route protection lives in `proxy.ts` (Next 16 renamed
+  Middleware to Proxy) and `src/lib/supabase/proxy.ts`.
+- Supabase clients: `src/lib/supabase/client.ts` (browser),
+  `src/lib/supabase/server.ts` (server components/actions).
+- Auth/session/role lookups are centralized in `src/lib/auth/dal.ts`.
+- Authorization is enforced primarily via Postgres Row Level Security
+  (see the migration); the proxy/DAL checks are optimistic, not the source of
+  truth.
