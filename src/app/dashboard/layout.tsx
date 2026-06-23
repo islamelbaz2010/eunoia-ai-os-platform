@@ -9,8 +9,9 @@ import {
   ShieldCheck,
   Settings,
 } from "lucide-react";
-import { getActiveOrganization, getProfile, verifySession } from "@/lib/auth/dal";
+import { getActiveOrganization, getMemberships, getProfile, verifySession } from "@/lib/auth/dal";
 import { NavLink } from "./nav-link";
+import { OrgSwitcher } from "./org-switcher";
 import { logout } from "@/lib/auth/actions";
 
 export default async function DashboardLayout({
@@ -21,6 +22,7 @@ export default async function DashboardLayout({
   await verifySession();
   const profile = await getProfile();
   const membership = await getActiveOrganization();
+  const memberships = await getMemberships();
 
   if (!membership) {
     redirect("/onboarding");
@@ -40,9 +42,13 @@ export default async function DashboardLayout({
       <aside className="hidden w-64 flex-col border-r border-border bg-surface/60 p-4 backdrop-blur-xl sm:flex">
         <div className="px-2 py-3">
           <p className="text-lg font-semibold tracking-tight">Eunoia AI OS</p>
-          <p className="mt-0.5 truncate text-xs text-white/50">
-            {membership?.organization.name ?? "No organization"}
-          </p>
+          {memberships.length > 1 ? (
+            <OrgSwitcher memberships={memberships} activeOrganizationId={membership.organization.id} />
+          ) : (
+            <p className="mt-0.5 truncate text-xs text-white/50">
+              {membership.organization.name}
+            </p>
+          )}
         </div>
 
         <nav className="mt-4 flex flex-1 flex-col gap-1">

@@ -1,8 +1,10 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import * as z from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { ACTIVE_ORG_COOKIE, getMemberships } from "@/lib/auth/dal";
 
 const credentialsSchema = z.object({
   email: z.email({ error: "Enter a valid email address." }),
@@ -70,4 +72,29 @@ export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login");
+}
+
+export async function switchOrganization(formData: FormData) {
+  const organizationId = formData.get("organizationId");
+
+  if (!organizationId || typeof organizationId !== "string") {
+    throw new Error("Missing organization id.");
+  }
+
+  const memberships = await getMemberships();
+  const isMember = memberships.some((m) => m.organization.id === organizationId);
+
+  if (!isMember) {
+    throw new Error("You are not a member of that organization.");
+  }
+
+  const cookieStore = await cookies();
+  cookieStore.set(ACTIVE_ORG_COOKIE, organizationId, {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+  });
+
+  redirect("/dashboard");
 }

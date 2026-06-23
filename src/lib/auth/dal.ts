@@ -1,9 +1,12 @@
 import "server-only";
 
 import { cache } from "react";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { OrgRole, Organization, Profile } from "@/lib/types";
+
+export const ACTIVE_ORG_COOKIE = "eunoia_active_org";
 
 export const verifySession = cache(async () => {
   const supabase = await createClient();
@@ -48,5 +51,13 @@ export const getMemberships = cache(async () => {
 
 export const getActiveOrganization = cache(async () => {
   const memberships = await getMemberships();
-  return memberships[0] ?? null;
+  if (memberships.length === 0) return null;
+
+  const cookieStore = await cookies();
+  const activeId = cookieStore.get(ACTIVE_ORG_COOKIE)?.value;
+  const match = activeId
+    ? memberships.find((m) => m.organization.id === activeId)
+    : undefined;
+
+  return match ?? memberships[0];
 });
