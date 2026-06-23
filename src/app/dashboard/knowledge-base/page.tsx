@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
+import { DocumentForm } from "./document-form";
 
 export default async function KnowledgeBasePage() {
   const membership = await getActiveOrganization();
@@ -22,6 +23,8 @@ export default async function KnowledgeBasePage() {
           Italian.
         </p>
       </div>
+
+      <DocumentForm />
 
       <div className="glass-panel overflow-hidden">
         <table className="w-full text-left text-sm">

@@ -1,3 +1,5 @@
+import { AssistantChat } from "./chat";
+
 export default function AssistantPage() {
   return (
     <div className="space-y-6">
@@ -8,14 +10,7 @@ export default function AssistantPage() {
         </p>
       </div>
 
-      <div className="glass-panel flex min-h-[400px] flex-col items-center justify-center p-8 text-center">
-        <p className="text-white/60">
-          The assistant will answer using your published Knowledge Base documents.
-        </p>
-        <p className="mt-2 text-sm text-white/40">
-          Connect an embeddings pipeline to knowledge_base_chunks to enable retrieval.
-        </p>
-      </div>
+      <AssistantChat />
     </div>
   );
 }
