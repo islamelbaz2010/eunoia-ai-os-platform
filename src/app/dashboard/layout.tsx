@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import {
   LayoutDashboard,
   Users,
@@ -20,6 +21,10 @@ export default async function DashboardLayout({
   await verifySession();
   const profile = await getProfile();
   const membership = await getActiveOrganization();
+
+  if (!membership) {
+    redirect("/onboarding");
+  }
 
   const navItems = [
     { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },

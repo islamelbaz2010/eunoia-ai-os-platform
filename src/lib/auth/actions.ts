@@ -63,7 +63,7 @@ export async function signup(
     return { error: error.message };
   }
 
-  redirect("/dashboard");
+  redirect("/onboarding");
 }
 
 export async function logout() {
