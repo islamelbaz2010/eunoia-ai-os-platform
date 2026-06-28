@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /dashboard/
+Disallow: /invite/
+Disallow: /api/
+Allow: /
+Allow: /login
+Allow: /signup
+
+Sitemap: https://eunoiaos.com/sitemap.xml

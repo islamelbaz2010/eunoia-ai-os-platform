@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
+import { hasRole } from "@/lib/types";
 import { ContactForm } from "./contact-form";
+import { ContactRow } from "./contact-row";
 
 export default async function CrmPage() {
   const membership = await getActiveOrganization();
@@ -12,7 +14,10 @@ export default async function CrmPage() {
         .select("id, full_name, email, phone, company, status, created_at")
         .eq("organization_id", membership.organization.id)
         .order("created_at", { ascending: false })
+        .limit(200)
     : { data: [] };
+
+  const canDelete = !!membership && hasRole(membership.role, "admin");
 
   return (
     <div className="space-y-6">
@@ -33,24 +38,20 @@ export default async function CrmPage() {
               <th className="px-5 py-3 font-medium">Email</th>
               <th className="px-5 py-3 font-medium">Company</th>
               <th className="px-5 py-3 font-medium">Status</th>
+              <th className="px-5 py-3" />
             </tr>
           </thead>
           <tbody>
             {(contacts ?? []).map((contact) => (
-              <tr key={contact.id} className="border-b border-border/60 last:border-0">
-                <td className="px-5 py-3">{contact.full_name}</td>
-                <td className="px-5 py-3 text-white/60">{contact.email ?? "—"}</td>
-                <td className="px-5 py-3 text-white/60">{contact.company ?? "—"}</td>
-                <td className="px-5 py-3">
-                  <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs capitalize">
-                    {contact.status}
-                  </span>
-                </td>
-              </tr>
+              <ContactRow
+                key={contact.id}
+                contact={contact}
+                canDelete={canDelete}
+              />
             ))}
             {(!contacts || contacts.length === 0) && (
               <tr>
-                <td colSpan={4} className="px-5 py-6 text-center text-white/40">
+                <td colSpan={5} className="px-5 py-6 text-center text-white/40">
                   No contacts yet.
                 </td>
               </tr>

@@ -3,7 +3,7 @@ import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import type { OrgRole, Organization, Profile } from "@/lib/types";
+import type { OrganizationMembership, Profile } from "@/lib/types";
 
 export const verifySession = cache(async () => {
   const supabase = await createClient();
@@ -31,22 +31,28 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
   return data ?? null;
 });
 
-export const getMemberships = cache(async () => {
+export const getMemberships = cache(async (): Promise<OrganizationMembership[]> => {
   const session = await verifySession();
   const supabase = await createClient();
 
   const { data } = await supabase
     .from("organization_members")
-    .select("role, organization:organizations(id, name, slug, is_super_admin_org)")
+    .select(`
+      role,
+      organization:organizations(
+        id,
+        name,
+        slug,
+        is_super_admin_org
+      )
+    `)
     .eq("user_id", session.userId);
 
-  return (data ?? []) as unknown as {
-    role: OrgRole;
-    organization: Organization;
-  }[];
+  return (data ?? []) as unknown as OrganizationMembership[];
 });
 
 export const getActiveOrganization = cache(async () => {
   const memberships = await getMemberships();
   return memberships[0] ?? null;
 });
+

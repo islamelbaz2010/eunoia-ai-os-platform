@@ -10,6 +10,7 @@ const credentialsSchema = z.object({
 });
 
 export type AuthFormState = { error?: string } | undefined;
+export type ResetPasswordState = { error?: string; success?: boolean } | undefined;
 
 export async function login(
   _prevState: AuthFormState,
@@ -70,4 +71,51 @@ export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login");
+}
+
+export async function requestPasswordReset(
+  _prevState: ResetPasswordState,
+  formData: FormData
+): Promise<ResetPasswordState> {
+  const parsed = z
+    .email({ error: "Enter a valid email address." })
+    .safeParse(formData.get("email"));
+
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "Invalid email." };
+  }
+
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://eunoiaos.com";
+  const supabase = await createClient();
+
+  // Always return success to prevent email enumeration.
+  await supabase.auth.resetPasswordForEmail(parsed.data, {
+    redirectTo: `${appUrl}/auth/callback?next=/auth/update-password`,
+  });
+
+  return { success: true };
+}
+
+export async function updatePassword(
+  _prevState: ResetPasswordState,
+  formData: FormData
+): Promise<ResetPasswordState> {
+  const password = String(formData.get("password") ?? "");
+  const confirmPassword = String(formData.get("confirmPassword") ?? "");
+
+  if (password.length < 8) {
+    return { error: "Password must be at least 8 characters." };
+  }
+  if (password !== confirmPassword) {
+    return { error: "Passwords do not match." };
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.auth.updateUser({ password });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  redirect("/dashboard");
 }

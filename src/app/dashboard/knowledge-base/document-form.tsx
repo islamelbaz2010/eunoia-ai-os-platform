@@ -31,6 +31,7 @@ export function DocumentForm() {
         placeholder="Paste policy, FAQ, or procedure content here..."
         required
         rows={6}
+        maxLength={50000}
         className="rounded-lg border border-border bg-white/5 px-3 py-2 text-sm outline-none focus:border-accent"
       />
       {state?.error && <p className="text-sm text-red-400">{state.error}</p>}

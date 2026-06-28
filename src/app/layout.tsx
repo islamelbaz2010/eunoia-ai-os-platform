@@ -12,9 +12,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://eunoiaos.com";
+
 export const metadata: Metadata = {
-  title: "Eunoia AI OS",
-  description: "AI Operating System for Hotels, Resorts & Hospitality Groups",
+  metadataBase: new URL(APP_URL),
+  title: {
+    default: "Eunoia AI OS",
+    template: "%s | Eunoia AI OS",
+  },
+  description:
+    "AI Operating System for Hotels, Resorts & Hospitality Groups across Egypt, UAE, and Saudi Arabia.",
+  openGraph: {
+    title: "Eunoia AI OS",
+    description:
+      "AI Operating System for Hotels, Resorts & Hospitality Groups.",
+    url: APP_URL,
+    siteName: "Eunoia AI OS",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eunoia AI OS",
+    description:
+      "AI Operating System for Hotels, Resorts & Hospitality Groups.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 };
 
 export default function RootLayout({

@@ -9,6 +9,7 @@ export default async function SettingsPage() {
   const profile = await getProfile();
   const membership = await getActiveOrganization();
   const canManage = membership ? hasRole(membership.role, "admin") : false;
+  const isOwner = membership?.role === "owner";
 
   const supabase = await createClient();
 
@@ -17,6 +18,7 @@ export default async function SettingsPage() {
         .from("organization_members")
         .select("id, role, profile:profiles(id, full_name)")
         .eq("organization_id", membership.organization.id)
+        .limit(100)
     : { data: [] };
 
   const { data: invites } = membership && canManage
@@ -25,6 +27,7 @@ export default async function SettingsPage() {
         .select("id, email, role")
         .eq("organization_id", membership.organization.id)
         .eq("status", "pending")
+        .limit(50)
     : { data: [] };
 
   return (
@@ -69,6 +72,7 @@ export default async function SettingsPage() {
                 }
                 role={member.role}
                 canManage={canManage}
+                isOwner={isOwner}
               />
             ))}
           </tbody>
@@ -79,7 +83,7 @@ export default async function SettingsPage() {
         <div className="glass-panel p-5">
           <h2 className="text-sm font-medium text-white/70">Invite a teammate</h2>
           <div className="mt-3">
-            <InviteForm />
+            <InviteForm isOwner={isOwner} />
           </div>
 
           {(invites ?? []).length > 0 && (

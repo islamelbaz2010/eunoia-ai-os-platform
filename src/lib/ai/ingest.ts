@@ -10,6 +10,7 @@ export async function ingestDocument(params: {
   content: string;
 }) {
   const supabase = await createClient();
+
   const chunks = chunkText(params.content);
 
   await supabase
@@ -25,8 +26,15 @@ export async function ingestDocument(params: {
     document_id: params.documentId,
     organization_id: params.organizationId,
     content,
-    embedding: JSON.stringify(embeddings[index]),
+    embedding: embeddings[index],
   }));
 
-  await supabase.from("knowledge_base_chunks").insert(rows);
+  const { error } = await supabase
+    .from("knowledge_base_chunks")
+    .insert(rows);
+
+  if (error) {
+    throw error;
+  }
 }
+

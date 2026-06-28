@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { createInvite } from "./actions";
 
-export function InviteForm() {
+export function InviteForm({ isOwner }: { isOwner: boolean }) {
   const [state, action, pending] = useActionState(createInvite, undefined);
 
   return (
@@ -28,7 +28,7 @@ export function InviteForm() {
           <option value="viewer">Viewer</option>
           <option value="member">Member</option>
           <option value="admin">Admin</option>
-          <option value="owner">Owner</option>
+          {isOwner && <option value="owner">Owner</option>}
         </select>
       </div>
       <button

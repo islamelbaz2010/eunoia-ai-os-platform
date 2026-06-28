@@ -50,6 +50,12 @@ export default function LoginPage() {
           >
             {pending ? "Signing in..." : "Sign in"}
           </button>
+
+          <p className="text-right text-sm">
+            <Link href="/auth/forgot-password" className="text-white/50 hover:text-white/80">
+              Forgot password?
+            </Link>
+          </p>
         </form>
 
         <p className="mt-6 text-center text-sm text-white/60">

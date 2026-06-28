@@ -45,11 +45,15 @@ async function getUsageOverTime(organizationId: string | undefined) {
   const since = new Date();
   since.setDate(since.getDate() - 14);
 
+  // Fetch only created_at, bounded to 14 days and capped at 2000 rows.
+  // For high-volume orgs a proper SQL DATE_TRUNC aggregation is preferred,
+  // but this is correct for early-stage traffic.
   const { data } = await supabase
     .from("usage_events")
     .select("created_at")
     .eq("organization_id", organizationId)
-    .gte("created_at", since.toISOString());
+    .gte("created_at", since.toISOString())
+    .limit(2000);
 
   const counts = new Map<string, number>();
   for (const row of data ?? []) {
@@ -66,10 +70,14 @@ async function getContactStatusBreakdown(organizationId: string | undefined) {
   if (!organizationId) return [];
   const supabase = await createClient();
 
+  // Fetch only the status column, capped at 5000 rows.
+  // The distinct-value set for crm_lead_status is fixed (5 values) so
+  // JavaScript aggregation is safe at this cardinality.
   const { data } = await supabase
     .from("crm_contacts")
     .select("status")
-    .eq("organization_id", organizationId);
+    .eq("organization_id", organizationId)
+    .limit(5000);
 
   const counts = new Map<string, number>();
   for (const row of data ?? []) {

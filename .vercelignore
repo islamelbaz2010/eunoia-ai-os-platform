@@ -1,0 +1,7 @@
+scripts/
+supabase/
+.claude/
+*.local
+.env.local
+.env.*.local
+.nvmrc

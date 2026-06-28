@@ -12,6 +12,7 @@ export function ContactForm() {
         name="fullName"
         placeholder="Full name"
         required
+        maxLength={100}
         className="rounded-lg border border-border bg-white/5 px-3 py-2 text-sm outline-none focus:border-accent"
       />
       <input
@@ -23,11 +24,13 @@ export function ContactForm() {
       <input
         name="phone"
         placeholder="Phone"
+        maxLength={30}
         className="rounded-lg border border-border bg-white/5 px-3 py-2 text-sm outline-none focus:border-accent"
       />
       <input
         name="company"
         placeholder="Company"
+        maxLength={100}
         className="rounded-lg border border-border bg-white/5 px-3 py-2 text-sm outline-none focus:border-accent"
       />
       {state?.error && (

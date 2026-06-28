@@ -5,12 +5,13 @@ import * as z from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
 import { logAuditEvent, logUsageEvent } from "@/lib/auth/audit";
+import { hasRole } from "@/lib/types";
 
 const contactSchema = z.object({
-  fullName: z.string().min(2, { error: "Name is required." }),
+  fullName: z.string().min(2, { error: "Name is required." }).max(100, { error: "Name must be 100 characters or fewer." }),
   email: z.email({ error: "Enter a valid email." }).optional().or(z.literal("")),
-  phone: z.string().optional(),
-  company: z.string().optional(),
+  phone: z.string().max(30, { error: "Phone must be 30 characters or fewer." }).optional(),
+  company: z.string().max(100, { error: "Company must be 100 characters or fewer." }).optional(),
 });
 
 export type ContactFormState = { error?: string } | undefined;
@@ -55,20 +56,49 @@ export async function createContact(
     return { error: error.message };
   }
 
-  await Promise.all([
-    logAuditEvent({
-      organizationId: membership.organization.id,
-      actorId: session.userId,
-      action: "crm_contact.created",
-      targetType: "crm_contact",
-      targetId: data.id,
-    }),
-    logUsageEvent({
-      organizationId: membership.organization.id,
-      actorId: session.userId,
-      eventType: "crm_contact_created",
-    }),
-  ]);
+  // Fire-and-forget: audit/usage failures must not surface to the user.
+  void logAuditEvent({
+    organizationId: membership.organization.id,
+    actorId: session.userId,
+    action: "crm_contact.created",
+    targetType: "crm_contact",
+    targetId: data.id,
+  });
+  void logUsageEvent({
+    organizationId: membership.organization.id,
+    actorId: session.userId,
+    eventType: "crm_contact_created",
+  });
+
+  revalidatePath("/dashboard/crm");
+}
+
+export async function deleteContact(contactId: string): Promise<void> {
+  const session = await verifySession();
+  const membership = await getActiveOrganization();
+
+  if (!membership || !hasRole(membership.role, "admin")) {
+    throw new Error("Only admins and owners can delete contacts.");
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("crm_contacts")
+    .delete()
+    .eq("id", contactId)
+    .eq("organization_id", membership.organization.id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  void logAuditEvent({
+    organizationId: membership.organization.id,
+    actorId: session.userId,
+    action: "crm_contact.deleted",
+    targetType: "crm_contact",
+    targetId: contactId,
+  });
 
   revalidatePath("/dashboard/crm");
 }

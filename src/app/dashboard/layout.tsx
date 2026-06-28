@@ -1,15 +1,8 @@
-import {
-  LayoutDashboard,
-  Users,
-  BookOpen,
-  Bot,
-  ScrollText,
-  BarChart3,
-  ShieldCheck,
-  Settings,
-} from "lucide-react";
+
+import { redirect } from "next/navigation";
 import { getActiveOrganization, getProfile, verifySession } from "@/lib/auth/dal";
 import { NavLink } from "./nav-link";
+import type { IconName } from "./nav-link";
 import { logout } from "@/lib/auth/actions";
 
 export default async function DashboardLayout({
@@ -21,13 +14,19 @@ export default async function DashboardLayout({
   const profile = await getProfile();
   const membership = await getActiveOrganization();
 
-  const navItems = [
-    { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-    { href: "/dashboard/crm", icon: Users, label: "CRM" },
-    { href: "/dashboard/knowledge-base", icon: BookOpen, label: "Knowledge Base" },
-    { href: "/dashboard/assistant", icon: Bot, label: "RAG Assistant" },
-    { href: "/dashboard/audit-logs", icon: ScrollText, label: "Audit Logs" },
-    { href: "/dashboard/usage", icon: BarChart3, label: "Usage" },
+  // New users with no organization must complete onboarding first.
+  // Super admins may operate without an org (platform-level access only).
+  if (!membership && !profile?.is_super_admin) {
+    redirect("/onboarding");
+  }
+
+  const navItems: { href: string; icon: IconName; label: string }[] = [
+    { href: "/dashboard", icon: "dashboard", label: "Dashboard" },
+    { href: "/dashboard/crm", icon: "users", label: "CRM" },
+    { href: "/dashboard/knowledge-base", icon: "book", label: "Knowledge Base" },
+    { href: "/dashboard/assistant", icon: "bot", label: "RAG Assistant" },
+    { href: "/dashboard/audit-logs", icon: "audit", label: "Audit Logs" },
+    { href: "/dashboard/usage", icon: "usage", label: "Usage" },
   ];
 
   return (
@@ -46,12 +45,12 @@ export default async function DashboardLayout({
           ))}
 
           {profile?.is_super_admin && (
-            <NavLink href="/dashboard/admin" icon={ShieldCheck} label="Super Admin" />
+            <NavLink href="/dashboard/admin" icon="admin" label="Super Admin" />
           )}
         </nav>
 
         <div className="mt-4 flex flex-col gap-1 border-t border-border pt-4">
-          <NavLink href="/dashboard/settings" icon={Settings} label="Settings" />
+          <NavLink href="/dashboard/settings" icon="settings" label="Settings" />
           <form action={logout}>
             <button
               type="submit"
