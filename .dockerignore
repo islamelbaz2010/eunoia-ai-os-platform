@@ -1,0 +1,53 @@
+# .dockerignore — excludes files from Docker build context for faster builds
+
+# Dependencies (re-installed inside container)
+node_modules
+npm-debug.log*
+
+# Build artifacts (rebuilt inside container)
+.next
+out
+
+# Source control
+.git
+.gitignore
+
+# Development / local files
+.env.local
+.env.*.local
+*.local
+
+# IDE and OS files
+.DS_Store
+.vscode
+*.swp
+*.swo
+
+# Test / CI
+coverage
+.nyc_output
+
+# Ops scripts (not needed at runtime)
+ops/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# PM2
+.pm2
+
+# Backups and logs
+.backups/
+.deploy-logs/
+.next-backup-*
+.next-failed-*
+
+# TypeScript cache
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Editor configs
+.editorconfig
+.eslintcache

@@ -92,7 +92,7 @@ function httpGet(url, timeoutMs = 5000) {
     const req = mod.get(url, { timeout: timeoutMs }, (res) => {
       let body = "";
       res.on("data", (d) => (body += d));
-      res.on("end", () => resolve({ status: res.statusCode, body }));
+      res.on("end", () => resolve({ status: res.statusCode, body, headers: res.headers }));
     });
     req.on("timeout", () => { req.destroy(); reject(new Error("timeout")); });
     req.on("error", reject);
@@ -212,10 +212,8 @@ section("5 · Environment Variables");
     { key: "FROM_EMAIL",                desc: "Sender email (invite emails)" },
   ];
 
-  let reqOk = 0;
   for (const { key, desc } of required) {
     if (process.env[key]) {
-      reqOk++;
       ok(key, desc);
     } else {
       fail(key, `${desc} — MISSING`);
@@ -243,19 +241,65 @@ if (SKIP_EXT) {
       warn("Supabase REST", "env vars missing — skipped");
       return;
     }
-    const start = Date.now();
+
+    // Auth service (/auth/v1/settings) is a public endpoint — no table access required.
+    const startAuth = Date.now();
     try {
-      const res = await httpGet(
-        `${url}/rest/v1/organizations?select=id&limit=0`,
-      );
-      const ms = Date.now() - start;
+      const res = await httpGet(`${url}/auth/v1/settings`);
+      const ms = Date.now() - startAuth;
       if (res.status === 200) {
-        ok("Supabase REST", `${ms}ms`);
+        ok("Supabase Auth", `${ms}ms`);
       } else {
-        fail("Supabase REST", `HTTP ${res.status}`);
+        fail("Supabase Auth", `HTTP ${res.status}`);
       }
     } catch (e) {
-      fail("Supabase REST", e.message.slice(0, 60));
+      fail("Supabase Auth", e.message.slice(0, 60));
+    }
+
+    // DB + PostgREST: call public.healthcheck() via RPC (migration 0008).
+    // This avoids querying any business table as anon (which RLS blocks).
+    const startDb = Date.now();
+    try {
+      const result = await new Promise((resolve, reject) => {
+        const body = "{}";
+        const mod = url.startsWith("https://") ? https : http;
+        const urlObj = new URL(`${url}/rest/v1/rpc/healthcheck`);
+        const req = mod.request(
+          {
+            hostname: urlObj.hostname,
+            port: urlObj.port || (url.startsWith("https://") ? 443 : 80),
+            path: urlObj.pathname,
+            method: "POST",
+            headers: {
+              "apikey": key,
+              "Authorization": `Bearer ${key}`,
+              "Content-Type": "application/json",
+              "Content-Length": Buffer.byteLength(body),
+            },
+            timeout: 5000,
+          },
+          (res) => {
+            let data = "";
+            res.on("data", (d) => (data += d));
+            res.on("end", () => resolve({ status: res.statusCode, body: data }));
+          }
+        );
+        req.on("timeout", () => { req.destroy(); reject(new Error("timeout")); });
+        req.on("error", reject);
+        req.write(body);
+        req.end();
+      });
+      const ms = Date.now() - startDb;
+      if (result.status === 200) {
+        const body = JSON.parse(result.body);
+        ok("Supabase DB (healthcheck)", `${ms}ms · db=${body.database ?? "?"}`);
+      } else if (result.status === 404) {
+        warn("Supabase DB (healthcheck)", "healthcheck() not found — apply migration 0008_health_check.sql");
+      } else {
+        fail("Supabase DB (healthcheck)", `HTTP ${result.status}`);
+      }
+    } catch (e) {
+      fail("Supabase DB (healthcheck)", e.message.slice(0, 60));
     }
   })();
 }
@@ -359,34 +403,59 @@ if (SKIP_EXT) {
   })();
 }
 
-// ── check 9: health endpoint ─────────────────────────────────────────────────
+// ── check 9: health endpoints ─────────────────────────────────────────────────
+// Three-tier health design:
+//   GET /api/live           — liveness  (process alive, no external calls)
+//   GET /api/health         — readiness (infrastructure checks, 30s cache)
+//   GET /api/admin/system   — diagnostics (authenticated, full detail)
 
-section("9 · Health Endpoint");
+section("9 · Health Endpoints");
 if (SKIP_EXT) {
   console.log(`  ${C.grey}(skipped — --skip-ext)${C.reset}`);
 } else {
   await (async () => {
     const appUrl = process.env.NEXT_PUBLIC_APP_URL;
     if (!appUrl) {
-      warn("Health endpoint", "NEXT_PUBLIC_APP_URL not set");
+      warn("Health endpoints", "NEXT_PUBLIC_APP_URL not set");
       return;
     }
-    const healthUrl = appUrl.replace(/\/$/, "") + "/api/health";
-    const start = Date.now();
+    const base = appUrl.replace(/\/$/, "");
+
+    // Liveness — process alive, no external calls.
+    const startLive = Date.now();
     try {
-      const res = await httpGet(healthUrl, 6000);
-      const ms = Date.now() - start;
+      const res = await httpGet(`${base}/api/live`, 3000);
+      const ms = Date.now() - startLive;
       const body = JSON.parse(res.body);
       if (res.status === 200 && body.status === "ok") {
-        ok("Health endpoint", `${ms}ms · all checks ok`);
-      } else if (res.status === 503) {
-        warn("Health endpoint", `degraded — ${JSON.stringify(body.checks)}`);
+        ok("/api/live (liveness)", `${ms}ms`);
       } else {
-        warn("Health endpoint", `HTTP ${res.status} (server may not be running)`);
+        warn("/api/live (liveness)", `HTTP ${res.status} (server may not be running)`);
       }
     } catch (e) {
-      warn("Health endpoint", `unreachable — ${e.message.slice(0, 50)}`);
+      warn("/api/live (liveness)", `unreachable — ${e.message.slice(0, 50)}`);
     }
+
+    // Readiness — infrastructure checks (DB, Auth, Storage). May be cached 30s.
+    const startReady = Date.now();
+    try {
+      const res = await httpGet(`${base}/api/health`, 8000);
+      const ms = Date.now() - startReady;
+      const body = JSON.parse(res.body);
+      const cache = res.headers?.["x-cache"] ?? "?";
+      if (res.status === 200 && body.status === "ready") {
+        ok("/api/health (readiness)", `${ms}ms · v${body.version ?? "?"} · cache=${cache}`);
+      } else if (res.status === 503) {
+        fail("/api/health (readiness)", `not_ready — infrastructure check failed`);
+      } else {
+        warn("/api/health (readiness)", `HTTP ${res.status}`);
+      }
+    } catch (e) {
+      warn("/api/health (readiness)", `unreachable — ${e.message.slice(0, 50)}`);
+    }
+
+    // Diagnostics — authenticated; 401 is correct for unauthenticated check.
+    console.log(`  ${C.grey}ℹ  /api/admin/system (diagnostics) requires auth — test manually after login${C.reset}`);
   })();
 }
 

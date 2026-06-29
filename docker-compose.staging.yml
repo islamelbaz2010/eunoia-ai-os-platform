@@ -1,0 +1,64 @@
+# docker-compose.staging.yml — Staging deployment
+#
+# Usage:
+#   docker compose -f docker-compose.staging.yml up -d
+#
+# Differences from production:
+#   - Port 3001 (staging runs alongside production)
+#   - LOG_LEVEL=debug for verbose output
+#   - Relaxed resource limits
+#   - Uses .env.staging for staging credentials
+
+version: "3.8"
+
+services:
+  app-staging:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        BUILD_VERSION: "${BUILD_VERSION:-staging}"
+
+    image: eunoia-ai-os:${BUILD_VERSION:-staging}
+    container_name: eunoia-app-staging
+
+    restart: unless-stopped
+
+    ports:
+      - "${STAGING_PORT:-3001}:3000"
+
+    env_file:
+      - .env.staging  # or .env.local for single-server setups
+
+    environment:
+      NODE_ENV: production   # Next.js always needs "production" for optimised build
+      PORT: 3000
+      BUILD_VERSION: "${BUILD_VERSION:-staging}"
+      LOG_LEVEL: debug       # verbose logging in staging
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+    networks:
+      - eunoia-staging-net
+
+networks:
+  eunoia-staging-net:
+    driver: bridge

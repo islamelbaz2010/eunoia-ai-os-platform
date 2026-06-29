@@ -13,6 +13,20 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // Underscore-prefixed parameters are intentionally unused (interface contracts,
+  // future extensibility, or required positional signatures).
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
+  },
   // scripts/ are plain Node.js CJS files — allow require() imports.
   {
     files: ["scripts/**/*.js"],

@@ -1,6 +1,6 @@
 # ACTIVE TASKS
 
-**Updated**: 2026-06-29 (Session 2)  
+**Updated**: 2026-06-29 (Session 10 — P0 Login Crash FIXED)  
 **Next session should start here.**
 
 ---
@@ -11,23 +11,62 @@ Nothing actively in flight. Pick the top P0 task.
 
 ---
 
-## P0 — NEXT UP (Launch Blockers)
+## RECENTLY COMPLETED (Session 10 — 2026-06-29, P0 Login Crash Fix)
 
-- [ ] **Sentry error monitoring** — `npx @sentry/wizard@latest -i nextjs`  
-  Add DSN to Vercel env vars. Instrument error boundary in `src/app/error.tsx`.  
-  Effort: 4 hours. Files: `next.config.ts`, `src/app/layout.tsx`, `src/app/error.tsx`
+- [x] **Root cause identified**: `turbopack: { root: __dirname }` in `next.config.ts` broke Turbopack's module resolution for `lucide-react` in RSC context
+- [x] **Fix applied**: Removed `turbopack: { root: __dirname }` from `next.config.ts`
+- [x] **Verified**: GET /dashboard returns 307 (not 500), GET /login returns 200
+- [x] **Build verified**: `next build` clean, 22 routes
+- [x] **All checks pass**: 62/62 tests, TypeScript 0 errors, Lint clean
+- [x] **ROOT_CAUSE_ANALYSIS.md** written with full timeline, stack trace, and regression notes
 
-- [ ] **Commit all untracked files to git**  
-  `git add -A && git commit -m "Add Phase 1+2 source files, migrations, CI, and engineering OS"`  
-  Effort: 30 min. Risk: Zero.
+---
 
-- [ ] **Apply migration 0007 to production Supabase**  
-  Paste `supabase/migrations/0007_get_usage_totals.sql` into Supabase SQL Editor → Run.  
+## P0 — MANUAL: Apply migration 0009 to Supabase
+
+```
+-- Run in Supabase SQL Editor in this order:
+supabase/migrations/0009_enterprise_multitenant.sql
+```
+
+This migration MUST be run before any Sprint 4 features work in production.
+Note: ALTER TYPE ADD VALUE commits non-transactionally — run in a single editor session.
+
+---
+
+## P0 — MANUAL DEPLOYMENT STEPS (not code — do in Vercel/Supabase)
+
+- [ ] **Set NEXT_PUBLIC_SENTRY_DSN and SENTRY_DSN in Vercel**  
+  From sentry.io → Project Settings → Client Keys → copy DSN.  
+  Vercel Dashboard → Project → Settings → Environment Variables.  
   Effort: 5 min manual.
+
+- [ ] **Set METRICS_TOKEN in Vercel**  
+  Generate: `openssl rand -base64 32`. Add as `METRICS_TOKEN`.  
+  Without this, `/api/metrics` is open to the internet.  
+  Effort: 5 min manual.
+
+- [ ] **Apply migration 0007 + 0008 to production Supabase**  
+  Paste each file into Supabase SQL Editor → Run in order.  
+  `supabase/migrations/0007_get_usage_totals.sql`  
+  `supabase/migrations/0008_health_check.sql`  
+  Effort: 10 min manual.
 
 - [ ] **Set RESEND_API_KEY and FROM_EMAIL in Vercel dashboard**  
   Without this, invite emails are silently skipped.  
   Effort: 5 min manual.
+
+- [ ] **Add SENTRY_AUTH_TOKEN + SENTRY_ORG + SENTRY_PROJECT to GitHub Actions secrets**  
+  Required for source maps in CI builds (makes Sentry stack traces readable).  
+  Settings → Secrets → Actions → New repository secret.  
+  Effort: 5 min manual.
+
+## P0 — NEXT CODE TASK
+
+- [ ] **CRM: edit contact** — inline status dropdown + edit modal  
+  Add `updateContact(id, data)` to `crm/actions.ts`. Update `ContactRow` to support status change.  
+  Files: `src/app/dashboard/crm/actions.ts`, `src/app/dashboard/crm/contact-row.tsx`  
+  Effort: 4 hours
 
 ---
 
@@ -102,6 +141,63 @@ Nothing actively in flight. Pick the top P0 task.
 
 - [ ] **Remove unused clsx** — `npm uninstall clsx` (verify: `grep -r "clsx" src/` → no results)  
   Effort: 2 min
+
+---
+
+## RECENTLY COMPLETED (Session 7 — 2026-06-29, Production Infrastructure Phase 2)
+
+- [x] Sentry v10.62.0 installed — client, server, edge configs + instrumentation hook
+- [x] `withSentryConfig` wrapping `next.config.ts` — sourcemaps, tunnel, no-logger
+- [x] `src/app/global-error.tsx` — root error boundary with Sentry capture + inline styles
+- [x] `src/app/error.tsx` — updated with `Sentry.captureException` in useEffect
+- [x] `src/lib/logger.ts` — rewritten: 6 levels, LOG_LEVEL, 25-key sanitizer, JSON output
+- [x] `src/lib/logger/types.ts` + `context.ts` — LogLevel, LogContext, AsyncLocalStorage context
+- [x] `src/lib/supabase/proxy.ts` — X-Request-ID correlation, propagated to all response types
+- [x] `/api/metrics` route — Prometheus text format, Bearer auth, 15 metrics
+- [x] `src/lib/health/report-history.ts` — check counters (total, healthy) for Prometheus
+- [x] `.env.example` — SENTRY_*, METRICS_TOKEN added
+- [x] `docs/operations/sentry.md` — setup guide, rollback, troubleshooting
+- [x] `docs/operations/logging.md` — levels, format, usage examples, aggregation
+- [x] `docs/operations/prometheus.md` — metrics reference, config, Docker Compose, alert rules
+- [x] `docs/operations/grafana/eunoia-system-health.json` — 10-panel importable dashboard
+- [x] `docs/operations/grafana.md` — import guide, alert config
+- [x] `docs/operations/uptime-monitoring.md` — Better Stack, UptimeRobot, SLA calculation
+- [x] 12 runbooks: incident-response, database-down, openai-down, storage-down, email-down, cache-down, queue-down, high-cpu, high-memory, deployment-failure, rollback, recovery-checklist
+- [x] `PRODUCTION_READINESS_REPORT.md` — 97/100 score, all gates, 8-phase delivery summary
+- [x] All gates: 29/29 tests ✅, TypeScript 0 errors ✅, Lint clean ✅, Build 22 routes ✅
+
+## RECENTLY COMPLETED (Session 6 — 2026-06-29, Health Framework Polish)
+
+- [x] `HealthProvider<TMetadata>` generic with typed metadata per provider
+- [x] `safeCheck()` wrapper — explicit Promise.allSettled isolation layer
+- [x] Feature flags: `isEnabled()` util + 5 provider flags in `.env.example`
+- [x] Ring buffer: `report-history.ts` (100 entries, O(1) push, in-memory only)
+- [x] `recordReport()` wired into `/api/health` (cache MISS) and `/api/admin/system`
+- [x] `history` field added to `/api/admin/system` response
+- [x] `AlertProvider` interface + integration guide for future Slack/Discord/PagerDuty
+- [x] Extension point docs added to `providers/index.ts` and `manager.ts`
+- [x] Commented-out TODO blocks removed from `cache.ts` and `queue.ts` (RULES compliance)
+- [x] Production build verified clean (21 routes)
+
+## RECENTLY COMPLETED (Session 5 — 2026-06-29, Enterprise Health Framework)
+
+- [x] Three-tier endpoints: `/api/live`, `/api/health`, `/api/admin/system`
+- [x] `runHealthCheck()` pure function — Promise.allSettled, shared AbortController
+- [x] 30s readiness cache with `X-Cache: HIT/MISS` headers
+- [x] `BUILD_VERSION` injected at build time via `next.config.ts`
+- [x] 8 health providers registered in `providers/index.ts`
+- [x] `PROCESS_STARTED_AT` and memory metrics in admin endpoint
+- [x] 401 JSON for unauthenticated `/api/*` requests (proxy.ts)
+- [x] `ecosystem.config.js` PM2 config versioned
+- [x] ESLint `argsIgnorePattern: '^_'` registered globally
+- [x] `scripts/doctor.js` check 9 updated for three-tier design
+
+## RECENTLY COMPLETED (Session 3 — 2026-06-29, Production Fix)
+
+- [x] Health endpoint root cause fixed — `public.ping()` migration + full rewrite of `route.ts`
+- [x] `ecosystem.config.js` — PM2 config added to version control
+- [x] `scripts/doctor.js` — check 6 (Supabase) + check 9 (status value) bugs fixed
+- [x] `npm run doctor` scripts added to `package.json`
 
 ---
 

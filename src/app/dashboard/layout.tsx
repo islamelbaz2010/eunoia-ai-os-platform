@@ -1,9 +1,14 @@
-
 import { redirect } from "next/navigation";
-import { getActiveOrganization, getProfile, verifySession } from "@/lib/auth/dal";
+import {
+  getActiveOrganization,
+  getActiveMemberships,
+  getProfile,
+  verifySession,
+} from "@/lib/auth/dal";
 import { NavLink } from "./nav-link";
 import type { IconName } from "./nav-link";
 import { logout } from "@/lib/auth/actions";
+import { OrgSwitcher } from "./org-switcher";
 
 export default async function DashboardLayout({
   children,
@@ -13,9 +18,8 @@ export default async function DashboardLayout({
   await verifySession();
   const profile = await getProfile();
   const membership = await getActiveOrganization();
+  const memberships = await getActiveMemberships();
 
-  // New users with no organization must complete onboarding first.
-  // Super admins may operate without an org (platform-level access only).
   if (!membership && !profile?.is_super_admin) {
     redirect("/onboarding");
   }
@@ -34,9 +38,18 @@ export default async function DashboardLayout({
       <aside className="hidden w-64 flex-col border-r border-border bg-surface/60 p-4 backdrop-blur-xl sm:flex">
         <div className="px-2 py-3">
           <p className="text-lg font-semibold tracking-tight">Eunoia AI OS</p>
-          <p className="mt-0.5 truncate text-xs text-white/50">
-            {membership?.organization.name ?? "No organization"}
-          </p>
+          {memberships.length > 1 ? (
+            <div className="mt-1">
+              <OrgSwitcher
+                memberships={memberships}
+                activeOrgId={membership?.organization.id ?? ""}
+              />
+            </div>
+          ) : (
+            <p className="mt-0.5 truncate text-xs text-white/50">
+              {membership?.organization.name ?? "No organization"}
+            </p>
+          )}
         </div>
 
         <nav className="mt-4 flex flex-1 flex-col gap-1">
@@ -64,9 +77,18 @@ export default async function DashboardLayout({
 
       <div className="flex flex-1 flex-col">
         <header className="flex items-center justify-between border-b border-border px-6 py-4">
-          <p className="text-sm text-white/50">
-            {membership?.role ? `Role: ${membership.role}` : ""}
-          </p>
+          <div className="flex items-center gap-2">
+            {membership?.role && (
+              <span className="rounded-full border border-border px-2 py-0.5 text-xs text-white/40 capitalize">
+                {membership.role.replace("_", " ")}
+              </span>
+            )}
+            {membership?.organization.subscription_tier && membership.organization.subscription_tier !== "free" && (
+              <span className="rounded-full border border-border px-2 py-0.5 text-xs text-white/40 uppercase">
+                {membership.organization.subscription_tier}
+              </span>
+            )}
+          </div>
           <p className="text-sm text-white/70">{profile?.full_name ?? ""}</p>
         </header>
         <main className="flex-1 p-6">{children}</main>
