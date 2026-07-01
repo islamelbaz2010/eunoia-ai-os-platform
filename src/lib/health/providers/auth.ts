@@ -14,8 +14,8 @@ export const authProvider: HealthProvider<AuthMetadata> = {
   critical: true,
 
   async check(signal: AbortSignal): Promise<ProviderResult<AuthMetadata>> {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
     if (!url || !key) {
       return { status: "misconfigured", latency_ms: 0 };

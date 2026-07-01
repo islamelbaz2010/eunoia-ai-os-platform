@@ -45,8 +45,8 @@ export async function updateSession(request: NextRequest) {
   // absent (misconfigured Vercel), safe-fail as unauthenticated rather than
   // crashing every route and taking the app offline.
   let user = null;
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
   if (supabaseUrl && supabaseKey) {
     try {
