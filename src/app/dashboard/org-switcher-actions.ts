@@ -10,7 +10,9 @@ export async function switchOrganization(orgId: string): Promise<void> {
 
   const memberships = await getMemberships();
   const match = memberships.find(
-    (m) => m.organization.id === orgId && m.organization.status === "active"
+    (m) =>
+      m.organization.id === orgId &&
+      (m.organization.status === undefined || m.organization.status === "active")
   );
 
   if (!match) {
