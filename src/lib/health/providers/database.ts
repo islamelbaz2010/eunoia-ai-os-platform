@@ -4,8 +4,7 @@ import type { HealthProvider, ProviderResult } from "../types";
 
 // Calls public.healthcheck() via PostgREST RPC.
 // Verifies: PostgreSQL is accepting connections, PostgREST is running, anon key is valid.
-// Falls back to checking the PostgREST root if the function doesn't exist yet
-// (i.e., before migration 0008 has been applied in production).
+// Falls back gracefully when the function isn't deployed yet (migration 0008 pending).
 
 interface DatabaseMetadata {
   database: string | undefined;
@@ -56,10 +55,18 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
         };
       }
 
-      // 404 means the healthcheck() function isn't deployed yet (migration 0008 pending).
-      // Fall back to verifying PostgREST is up via its root endpoint.
+      // 404 PGRST202 = PostgREST is up + DB is connected, but the function
+      // isn't deployed yet (migration 0008 pending).
+      // A structured JSON error from PostgREST proves the DB is reachable.
       if (res.status === 404) {
-        return await postgrestFallback(url, key, signal);
+        const body = (await res.json().catch(() => ({}))) as { code?: string };
+        if (body.code === "PGRST202") {
+          return {
+            status: "ok",
+            latency_ms,
+            metadata: { database: undefined, server_time: undefined },
+          };
+        }
       }
 
       return { status: `error:${res.status}`, latency_ms };
@@ -68,25 +75,3 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
     }
   },
 };
-
-async function postgrestFallback(
-  url: string,
-  key: string,
-  signal: AbortSignal
-): Promise<ProviderResult<DatabaseMetadata>> {
-  const start = Date.now();
-  try {
-    // GET /rest/v1/ returns the OpenAPI schema — proves PostgREST + DB are live.
-    const res = await fetch(`${url}/rest/v1/`, {
-      headers: { apikey: key, Authorization: `Bearer ${key}` },
-      signal,
-    });
-    return {
-      status: res.ok ? "ok" : `error:${res.status}`,
-      latency_ms: Date.now() - start,
-      metadata: { database: undefined, server_time: undefined },
-    };
-  } catch {
-    return { status: "timeout", latency_ms: Date.now() - start };
-  }
-}
