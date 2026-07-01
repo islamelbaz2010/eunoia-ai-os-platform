@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { randomUUID } from "node:crypto";
 import * as z from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
@@ -9,6 +10,24 @@ import { AuthorizationService } from "@/lib/auth/authorization";
 import { Permissions } from "@/lib/auth/permissions";
 import { hasRole, type OrgRole, type OrgSettings } from "@/lib/types";
 import { sendInviteEmail } from "@/lib/email";
+
+// Translate raw Supabase error codes into safe user-facing messages.
+// Never expose internal function names, table names, or schema details to clients.
+function dbError(error: { code?: string; message?: string }): string {
+  switch (error.code) {
+    case "23505": return "This record already exists.";
+    case "23503": return "A required related record was not found.";
+    case "PGRST202":
+    case "PGRST205": return "This feature requires a pending database migration. Please contact support.";
+    default:
+      // Surface intentional business-logic errors from RAISE EXCEPTION in RPCs,
+      // but only if they don't look like internal schema details.
+      if (error.message && !error.message.includes("schema cache") && !error.message.includes("public.")) {
+        return error.message;
+      }
+      return "An unexpected error occurred. Please try again.";
+  }
+}
 
 export type SettingsFormState = { error?: string; success?: string } | undefined;
 
@@ -77,7 +96,8 @@ export async function createInvite(
     .single();
 
   if (error) {
-    return { error: error.message };
+    if (error.code === "23505") return { error: "An invite for this email is already pending." };
+    return { error: dbError(error) };
   }
 
   if (invite?.token) {
@@ -135,22 +155,26 @@ export async function resendInvite(inviteId: string): Promise<SettingsFormState>
   const { session, membership } = await requirePermission(Permissions.ORG_MEMBERS_INVITE);
   const supabase = await createClient();
 
-  const { data: newToken, error } = await supabase.rpc("resend_org_invite", {
-    invite_id: inviteId,
-  });
+  // Rotate the token and extend expiry directly — no resend_org_invite RPC needed.
+  // The RPC (migration 0009) additionally tracks resend_count/last_resent_at, which
+  // are non-critical and will be added once that migration is applied.
+  const newToken = randomUUID();
+  const expiresAt = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
 
-  if (error) {
-    return { error: error.message };
-  }
-
-  // Re-fetch invite details to resend email
-  const { data: invite } = await supabase
+  const { data: invite, error } = await supabase
     .from("organization_invites")
-    .select("email, role")
+    .update({ token: newToken, expires_at: expiresAt })
     .eq("id", inviteId)
+    .eq("organization_id", membership.organization.id)
+    .eq("status", "pending")
+    .select("email, role")
     .single();
 
-  if (invite && newToken) {
+  if (error || !invite) {
+    return { error: "Invite not found or is no longer pending." };
+  }
+
+  if (invite) {
     const { data: profile } = await supabase
       .from("profiles")
       .select("full_name")
@@ -299,7 +323,7 @@ export async function acceptInvite(
   });
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   revalidatePath("/dashboard");
@@ -378,7 +402,7 @@ export async function updateOrgSettings(
   });
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   void logAuditEvent({
@@ -411,7 +435,7 @@ export async function transferOwnership(newOwnerId: string): Promise<SettingsFor
   });
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   void logAuditEvent({
@@ -441,7 +465,7 @@ export async function archiveOrganization(): Promise<SettingsFormState> {
   });
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   void logAuditEvent({

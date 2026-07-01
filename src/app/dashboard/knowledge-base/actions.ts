@@ -9,6 +9,11 @@ import { ingestDocument } from "@/lib/ai/ingest";
 import { logger } from "@/lib/logger";
 import { hasRole } from "@/lib/types";
 
+function dbError(error: { code?: string; message?: string }): string {
+  if (error.code === "23505") return "A document with this title already exists.";
+  return "An unexpected error occurred. Please try again.";
+}
+
 // 50 000 chars ≈ 50 KB ≈ 50 embedding chunks.
 // Keeps per-document embedding cost under ~$0.001 and ingest well within
 // the 60-second Vercel function timeout even on cold starts.
@@ -63,7 +68,7 @@ export async function createDocument(
     .single();
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   try {
@@ -137,7 +142,7 @@ export async function deleteDocument(documentId: string): Promise<void> {
     .eq("organization_id", membership.organization.id);
 
   if (error) {
-    throw new Error(error.message);
+    throw new Error(dbError(error));
   }
 
   void logAuditEvent({

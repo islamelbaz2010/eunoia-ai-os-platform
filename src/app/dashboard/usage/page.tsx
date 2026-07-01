@@ -1,13 +1,41 @@
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
 
+type UsageTotals = { event_type: string; total: number };
+
 export default async function UsagePage() {
   const membership = await getActiveOrganization();
   const supabase = await createClient();
 
-  const { data: totals } = membership
-    ? await supabase.rpc("get_usage_totals", { org_id: membership.organization.id })
-    : { data: [] };
+  let totals: UsageTotals[] = [];
+  if (membership) {
+    // Try the O(1) SQL RPC first; fall back to in-memory aggregation if
+    // the migration has not yet been applied in this environment.
+    const { data: rpcResult, error: rpcError } = await supabase.rpc(
+      "get_usage_totals",
+      { org_id: membership.organization.id }
+    );
+
+    if (!rpcError && rpcResult) {
+      totals = rpcResult as UsageTotals[];
+    } else {
+      const { data: events } = await supabase
+        .from("usage_events")
+        .select("event_type")
+        .eq("organization_id", membership.organization.id)
+        .limit(10000);
+
+      if (events && events.length > 0) {
+        const counts = (events as { event_type: string }[]).reduce<Record<string, number>>(
+          (acc, e) => { acc[e.event_type] = (acc[e.event_type] ?? 0) + 1; return acc; },
+          {}
+        );
+        totals = Object.entries(counts)
+          .map(([event_type, total]) => ({ event_type, total }))
+          .sort((a, b) => b.total - a.total);
+      }
+    }
+  }
 
   return (
     <div className="space-y-6">

@@ -1,13 +1,13 @@
 # CURRENT STATE
 
-**Last updated**: 2026-07-01 (Session 11 — Production Health Fix)  
+**Last updated**: 2026-07-02 (Session 12 — Sprint 0.9 Production Hardening)  
 **Branch**: main  
 **Tests**: 62/62 passing  
 **TypeScript**: Clean (0 errors)  
 **Lint**: Clean  
 **Build**: Clean (22 routes)  
-**Commercial Readiness**: 92%  
-**Production Readiness**: 99/100  
+**Commercial Readiness**: 55% (existing users ✅; new user onboarding ❌ until migrations applied)  
+**Production Readiness**: 84/100  
 
 **Production Status**: 🟢 LIVE — https://eunoia-ai-os-platform.vercel.app  
 - `/api/health` → `{"status":"ready"}` ✅  
@@ -24,7 +24,7 @@
 | Auth: signup/login/logout | ✅ | Supabase GoTrue, HTTP-only cookies |
 | Auth: password reset | ✅ | `requestPasswordReset` + `updatePassword` actions, `/auth/forgot-password` + `/auth/update-password` pages |
 | Auth: PKCE callback | ✅ | `/auth/callback/route.ts` |
-| Onboarding (org creation) | ✅ | `create_organization` RPC, max 3 orgs/user |
+| Onboarding (org creation) | ⚠️ | `create_organization` RPC — migration 0005 NOT applied; new users see friendly error |
 | CRM: create contacts | ✅ | Zod-validated, audit-logged |
 | CRM: delete contacts | ✅ | Admin/owner only (RLS + app check), `deleteContact` action |
 | Knowledge Base: add docs | ✅ | Auto-ingests + embeds on save |
@@ -39,7 +39,7 @@
 | Member removal | ✅ | Admin-gated, self-removal blocked |
 | Audit logs | ✅ | Immutable, fire-and-forget |
 | Usage tracking | ✅ | Per-event, aggregated via SQL RPC |
-| Usage page | ✅ | SQL GROUP BY via `get_usage_totals` RPC (O(1), not O(N)) |
+| Usage page | ✅ | RPC fallback to direct query — shows real data in all environments |
 | Dashboard KPIs + charts | ✅ | COUNT queries + Recharts AreaChart/PieChart |
 | Super admin panel | ✅ | Platform-wide org list |
 | Health: liveness (`/api/live`) | ✅ | Public, no external calls, maps to K8s `livenessProbe` |

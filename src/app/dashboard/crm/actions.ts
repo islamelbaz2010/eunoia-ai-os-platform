@@ -7,6 +7,11 @@ import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
 import { logAuditEvent, logUsageEvent } from "@/lib/auth/audit";
 import { hasRole } from "@/lib/types";
 
+function dbError(error: { code?: string; message?: string }): string {
+  if (error.code === "23505") return "A contact with this email already exists.";
+  return "An unexpected error occurred. Please try again.";
+}
+
 const contactSchema = z.object({
   fullName: z.string().min(2, { error: "Name is required." }).max(100, { error: "Name must be 100 characters or fewer." }),
   email: z.email({ error: "Enter a valid email." }).optional().or(z.literal("")),
@@ -53,7 +58,7 @@ export async function createContact(
     .single();
 
   if (error) {
-    return { error: error.message };
+    return { error: dbError(error) };
   }
 
   // Fire-and-forget: audit/usage failures must not surface to the user.
@@ -89,7 +94,7 @@ export async function deleteContact(contactId: string): Promise<void> {
     .eq("organization_id", membership.organization.id);
 
   if (error) {
-    throw new Error(error.message);
+    throw new Error(dbError(error));
   }
 
   void logAuditEvent({

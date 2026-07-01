@@ -1,13 +1,15 @@
 # ACTIVE TASKS
 
-**Updated**: 2026-06-29 (Session 10 — P0 Login Crash FIXED)  
+**Updated**: 2026-07-02 (Session 12 — Sprint 0.9 Production Hardening COMPLETE)  
 **Next session should start here.**
 
 ---
 
 ## IN PROGRESS
 
-Nothing actively in flight. Pick the top P0 task.
+Nothing actively in flight. Sprint 0.9 is DONE.  
+⚠️ Waiting for user to apply DB migrations before new user onboarding works.  
+⚠️ Waiting for explicit approval before beginning Sprint 1.
 
 ---
 

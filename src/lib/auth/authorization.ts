@@ -28,14 +28,16 @@ export const resolvePermissions = cache(
 
     const base = new Set<PermissionKey>(ROLE_PERMISSION_DEFAULTS[role]);
 
-    // Load member-level overrides — empty for most users, skips a DB call path
+    // Load member-level overrides — empty for most users.
+    // Silently skips if the member_permissions table hasn't been migrated yet
+    // (PGRST205 = table not in schema cache). Falls back to role defaults only.
     const supabase = await createClient();
-    const { data: overrides } = await supabase
+    const { data: overrides, error: overrideError } = await supabase
       .from("member_permissions")
       .select("permission_key, granted")
       .eq("organization_id", orgId);
 
-    if (overrides && overrides.length > 0) {
+    if (!overrideError && overrides && overrides.length > 0) {
       for (const row of overrides) {
         const key = row.permission_key as PermissionKey;
         if (row.granted) {

@@ -4,6 +4,35 @@ Engineering session log. Newest first.
 
 ---
 
+## Session 12 — 2026-07-02 (Sprint 0.9 — Production Hardening)
+
+**Duration**: ~2 hours  
+**Tests**: 62/62 ✅  
+**TypeScript**: 0 errors ✅  
+
+**Summary**: Full QA audit of all pages, routes, server actions, auth flows, and RBAC rules. Found and fixed 4 bugs in code; identified 5 that require manual migration steps to resolve.
+
+**Bugs fixed in code**:
+- Usage page always showed empty — added RPC fallback to direct `usage_events` aggregation
+- Supabase internal error messages exposed to clients — added `dbError()` sanitizer across 5 files
+- `resendInvite` called non-existent RPC — inlined token rotation + email resend
+- Authorization service generating DB error noise — added error guard on `member_permissions` query
+
+**Deliverables created**:
+- `docs/sprint-0.9/QA_REPORT.md` — full screen-by-screen audit
+- `docs/sprint-0.9/BUG_REPORT.md` — 13 bugs classified P0–P3
+- `docs/sprint-0.9/TECH_DEBT.md` — 10 debt items
+- `docs/sprint-0.9/RELEASE_NOTES.md` — what changed and why
+- `docs/sprint-0.9/PRODUCTION_READINESS.md` — GO/NO-GO with scores and risk table
+
+**Manual steps still required (BLOCKING for new users)**:
+- Apply migrations 0003–0009 in Supabase SQL Editor (15 min)
+- Set RESEND_API_KEY + FROM_EMAIL in Vercel (5 min)
+- Set SENTRY_DSN + NEXT_PUBLIC_SENTRY_DSN in Vercel (5 min)
+- Set METRICS_TOKEN in Vercel (5 min)
+
+---
+
 ## Session 10 — 2026-06-29 (P0 Production Blocker — Login Crash Fix)
 
 **Duration**: ~45 min  
