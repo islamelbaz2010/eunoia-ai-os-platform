@@ -1,5 +1,5 @@
 scripts/
-supabase/
+/supabase/
 .claude/
 *.local
 .env.local
