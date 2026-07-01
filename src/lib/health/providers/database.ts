@@ -69,13 +69,13 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
         }
       }
 
-      return { status: `error:${res.status}`, latency_ms };
+      return { status: `error:${res.status}`, latency_ms, metadata: { database: undefined, server_time: undefined } };
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
       return {
-        status: `error:${msg.slice(0, 60)}`,
+        status: "timeout",
         latency_ms: Date.now() - start,
-        metadata: { database: undefined, server_time: undefined, error: msg },
+        metadata: { database: undefined, server_time: undefined, error: msg.slice(0, 120) },
       };
     }
   },

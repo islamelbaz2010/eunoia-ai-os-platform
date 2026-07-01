@@ -2,13 +2,18 @@ import "server-only";
 
 import type { HealthProvider, ProviderResult } from "../types";
 
+interface AuthMetadata {
+  error?: string;
+  [key: string]: unknown;
+}
+
 // /auth/v1/settings is a genuinely public GoTrue endpoint — no auth required.
 // Returns 200 with enabled provider config on any valid Supabase project.
-export const authProvider: HealthProvider = {
+export const authProvider: HealthProvider<AuthMetadata> = {
   name: "auth",
   critical: true,
 
-  async check(signal: AbortSignal): Promise<ProviderResult> {
+  async check(signal: AbortSignal): Promise<ProviderResult<AuthMetadata>> {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -28,7 +33,11 @@ export const authProvider: HealthProvider = {
       };
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      return { status: `error:${msg.slice(0, 60)}`, latency_ms: Date.now() - start };
+      return {
+        status: "timeout",
+        latency_ms: Date.now() - start,
+        metadata: { error: msg.slice(0, 120) },
+      };
     }
   },
 };
