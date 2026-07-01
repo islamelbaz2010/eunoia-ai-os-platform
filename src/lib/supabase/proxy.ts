@@ -61,9 +61,16 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // If getUser() throws (network error, invalid credentials, Supabase timeout),
+  // treat the session as absent — public routes pass through, protected routes
+  // redirect to /login. Never crash the proxy and take down all routes.
+  let user = null;
+  try {
+    const { data } = await supabase.auth.getUser();
+    user = data.user;
+  } catch {
+    // Supabase unreachable: safe-fail as unauthenticated
+  }
 
   const path = request.nextUrl.pathname;
   const isPublicRoute = PUBLIC_ROUTES.includes(path);
