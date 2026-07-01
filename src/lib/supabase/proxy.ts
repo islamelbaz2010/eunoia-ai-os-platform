@@ -16,6 +16,7 @@ const PUBLIC_ROUTES = [
   "/api/health",
   "/api/metrics",          // Prometheus scrape endpoint — auth handled by METRICS_TOKEN
   "/monitoring-tunnel",    // Sentry event tunnel
+  "/api/health-debug",     // TEMPORARY — remove after production diagnosis
 ];
 
 export async function updateSession(request: NextRequest) {
