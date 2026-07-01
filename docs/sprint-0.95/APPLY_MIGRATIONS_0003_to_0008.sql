@@ -70,10 +70,12 @@ create index if not exists usage_events_org_type_idx
 -- RLS policies -------------------------------------------------------------
 
 -- Members can delete their own org's chunks (required for re-ingestion)
+drop policy if exists "members can delete kb chunks" on public.knowledge_base_chunks;
 create policy "members can delete kb chunks" on public.knowledge_base_chunks
   for delete using (public.is_org_member(organization_id) or public.is_super_admin());
 
 -- Members can update kb documents (status changes, edits)
+drop policy if exists "members can update kb documents" on public.knowledge_base_documents;
 create policy "members can update kb documents" on public.knowledge_base_documents
   for update using (public.is_org_member(organization_id));
 
@@ -89,27 +91,27 @@ create policy "members can update kb documents" on public.knowledge_base_documen
 -- hits RESTRICT on every table below, blocking the delete entirely.
 
 ALTER TABLE public.crm_contacts
-  DROP CONSTRAINT crm_contacts_created_by_fkey,
+  DROP CONSTRAINT IF EXISTS crm_contacts_created_by_fkey,
   ADD  CONSTRAINT crm_contacts_created_by_fkey
     FOREIGN KEY (created_by) REFERENCES public.profiles (id) ON DELETE SET NULL;
 
 ALTER TABLE public.knowledge_base_documents
-  DROP CONSTRAINT knowledge_base_documents_created_by_fkey,
+  DROP CONSTRAINT IF EXISTS knowledge_base_documents_created_by_fkey,
   ADD  CONSTRAINT knowledge_base_documents_created_by_fkey
     FOREIGN KEY (created_by) REFERENCES public.profiles (id) ON DELETE SET NULL;
 
 ALTER TABLE public.audit_logs
-  DROP CONSTRAINT audit_logs_actor_id_fkey,
+  DROP CONSTRAINT IF EXISTS audit_logs_actor_id_fkey,
   ADD  CONSTRAINT audit_logs_actor_id_fkey
     FOREIGN KEY (actor_id) REFERENCES public.profiles (id) ON DELETE SET NULL;
 
 ALTER TABLE public.usage_events
-  DROP CONSTRAINT usage_events_actor_id_fkey,
+  DROP CONSTRAINT IF EXISTS usage_events_actor_id_fkey,
   ADD  CONSTRAINT usage_events_actor_id_fkey
     FOREIGN KEY (actor_id) REFERENCES public.profiles (id) ON DELETE SET NULL;
 
 ALTER TABLE public.organization_invites
-  DROP CONSTRAINT organization_invites_invited_by_fkey,
+  DROP CONSTRAINT IF EXISTS organization_invites_invited_by_fkey,
   ADD  CONSTRAINT organization_invites_invited_by_fkey
     FOREIGN KEY (invited_by) REFERENCES public.profiles (id) ON DELETE SET NULL;
 
@@ -117,6 +119,7 @@ ALTER TABLE public.organization_invites
 -- Needed so the server action can clean up an orphaned document row when
 -- embedding generation fails after the INSERT has already committed.
 
+DROP POLICY IF EXISTS "creator can delete own kb documents" ON public.knowledge_base_documents;
 CREATE POLICY "creator can delete own kb documents" ON public.knowledge_base_documents
   FOR DELETE USING (created_by = auth.uid());
 
@@ -261,6 +264,9 @@ as $$
   group by event_type
   order by total desc;
 $$;
+
+grant execute on function public.get_usage_totals(uuid) to authenticated;
+grant execute on function public.get_usage_totals(uuid) to service_role;
 
 
 -- ============================================================
