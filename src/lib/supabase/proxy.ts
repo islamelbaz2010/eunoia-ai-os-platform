@@ -36,40 +36,40 @@ export async function updateSession(request: NextRequest) {
   });
 
   // ── Supabase session ───────────────────────────────────────────────────────
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
-          // Rebuild the response preserving the request ID header.
-          supabaseResponse = NextResponse.next({
-            request: { headers: requestHeaders },
-          });
-          supabaseResponse.headers.set("x-request-id", requestId);
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          );
-        },
-      },
-    }
-  );
-
-  // If getUser() throws (network error, invalid credentials, Supabase timeout),
-  // treat the session as absent — public routes pass through, protected routes
-  // redirect to /login. Never crash the proxy and take down all routes.
+  // Guard: createServerClient throws if URL/key are missing. If env vars are
+  // absent (misconfigured Vercel), safe-fail as unauthenticated rather than
+  // crashing every route and taking the app offline.
   let user = null;
-  try {
-    const { data } = await supabase.auth.getUser();
-    user = data.user;
-  } catch {
-    // Supabase unreachable: safe-fail as unauthenticated
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && supabaseKey) {
+    try {
+      const supabase = createServerClient(supabaseUrl, supabaseKey, {
+        cookies: {
+          getAll() {
+            return request.cookies.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value }) =>
+              request.cookies.set(name, value)
+            );
+            // Rebuild the response preserving the request ID header.
+            supabaseResponse = NextResponse.next({
+              request: { headers: requestHeaders },
+            });
+            supabaseResponse.headers.set("x-request-id", requestId);
+            cookiesToSet.forEach(({ name, value, options }) =>
+              supabaseResponse.cookies.set(name, value, options)
+            );
+          },
+        },
+      });
+      const { data } = await supabase.auth.getUser();
+      user = data.user;
+    } catch {
+      // Supabase unreachable or crashed: safe-fail as unauthenticated
+    }
   }
 
   const path = request.nextUrl.pathname;
