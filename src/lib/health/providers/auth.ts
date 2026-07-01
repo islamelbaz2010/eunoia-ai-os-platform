@@ -26,8 +26,9 @@ export const authProvider: HealthProvider = {
         status: res.ok ? "ok" : `error:${res.status}`,
         latency_ms: Date.now() - start,
       };
-    } catch {
-      return { status: "timeout", latency_ms: Date.now() - start };
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      return { status: `error:${msg.slice(0, 60)}`, latency_ms: Date.now() - start };
     }
   },
 };

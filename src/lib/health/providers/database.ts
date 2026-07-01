@@ -9,6 +9,7 @@ import type { HealthProvider, ProviderResult } from "../types";
 interface DatabaseMetadata {
   database: string | undefined;
   server_time: string | undefined;
+  error?: string;
   [key: string]: unknown;
 }
 
@@ -57,7 +58,6 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
 
       // 404 PGRST202 = PostgREST is up + DB is connected, but the function
       // isn't deployed yet (migration 0008 pending).
-      // A structured JSON error from PostgREST proves the DB is reachable.
       if (res.status === 404) {
         const body = (await res.json().catch(() => ({}))) as { code?: string };
         if (body.code === "PGRST202") {
@@ -70,8 +70,13 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
       }
 
       return { status: `error:${res.status}`, latency_ms };
-    } catch {
-      return { status: "timeout", latency_ms: Date.now() - start };
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      return {
+        status: `error:${msg.slice(0, 60)}`,
+        latency_ms: Date.now() - start,
+        metadata: { database: undefined, server_time: undefined, error: msg },
+      };
     }
   },
 };
