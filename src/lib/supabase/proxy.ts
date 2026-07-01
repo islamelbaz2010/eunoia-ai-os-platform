@@ -8,10 +8,14 @@ const PUBLIC_ROUTES = [
   "/signup",
   "/auth/callback",
   "/auth/forgot-password",
+  "/auth/update-password", // Password-reset page — reached via emailed link before session exists
+  "/invite",               // Invite-accept page — reached by unauthenticated invitees
+  "/manifest.webmanifest", // PWA manifest — must be publicly accessible
+  "/sitemap.xml",          // SEO sitemap — must be publicly accessible
   "/api/live",
   "/api/health",
-  "/api/metrics",       // Prometheus scrape endpoint — auth handled by METRICS_TOKEN
-  "/monitoring-tunnel", // Sentry event tunnel
+  "/api/metrics",          // Prometheus scrape endpoint — auth handled by METRICS_TOKEN
+  "/monitoring-tunnel",    // Sentry event tunnel
 ];
 
 export async function updateSession(request: NextRequest) {
