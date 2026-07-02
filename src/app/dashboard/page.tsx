@@ -1,8 +1,20 @@
-import { Users, BookOpen, MessageSquare, Activity } from "lucide-react";
+import Link from "next/link";
+import { Users, BookOpen, MessageSquare, Activity, TrendingUp } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
 import { UsageChart } from "./usage-chart";
 import { StatusChart } from "./status-chart";
+
+type CrmMetrics = {
+  total_contacts: number;
+  new_contacts_30d: number;
+  qualified_count: number;
+  won_count: number;
+  lost_count: number;
+  pipeline_count: number;
+  pipeline_value: number | null;
+  conversion_rate: number | null;
+};
 
 async function getKpis(organizationId: string | undefined) {
   if (!organizationId) {
@@ -36,6 +48,13 @@ async function getKpis(organizationId: string | undefined) {
     usageEvents: usageEvents.count ?? 0,
     auditEvents: auditEvents.count ?? 0,
   };
+}
+
+async function getCrmMetrics(organizationId: string | undefined): Promise<CrmMetrics | null> {
+  if (!organizationId) return null;
+  const supabase = await createClient();
+  const { data } = await supabase.rpc("get_crm_metrics", { org_id: organizationId });
+  return (data as CrmMetrics | null) ?? null;
 }
 
 async function getUsageOverTime(organizationId: string | undefined) {
@@ -91,10 +110,11 @@ export default async function DashboardPage() {
   const membership = await getActiveOrganization();
   const orgId = membership?.organization.id;
 
-  const [kpis, usageOverTime, statusBreakdown] = await Promise.all([
+  const [kpis, usageOverTime, statusBreakdown, crmMetrics] = await Promise.all([
     getKpis(orgId),
     getUsageOverTime(orgId),
     getContactStatusBreakdown(orgId),
+    getCrmMetrics(orgId),
   ]);
 
   const cards = [
@@ -122,6 +142,39 @@ export default async function DashboardPage() {
           </div>
         ))}
       </div>
+
+      {/* CRM Pipeline Metrics */}
+      {crmMetrics && (
+        <div className="mt-6">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-sm font-medium text-white/70">CRM Pipeline</p>
+            <Link href="/dashboard/crm" className="text-xs text-accent hover:underline">View CRM →</Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              { label: "New (30d)", value: crmMetrics.new_contacts_30d },
+              { label: "Qualified", value: crmMetrics.qualified_count },
+              { label: "In Pipeline", value: crmMetrics.pipeline_count },
+              { label: "Won", value: crmMetrics.won_count },
+              { label: "Lost", value: crmMetrics.lost_count },
+              {
+                label: "Conversion",
+                value: crmMetrics.conversion_rate !== null
+                  ? `${Math.round(crmMetrics.conversion_rate)}%`
+                  : "—",
+              },
+            ].map(c => (
+              <div key={c.label} className="kpi-card p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs text-white/50">{c.label}</p>
+                  <TrendingUp size={12} className="text-accent/40" />
+                </div>
+                <p className="text-xl font-semibold">{c.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="glass-panel p-5 lg:col-span-2">
