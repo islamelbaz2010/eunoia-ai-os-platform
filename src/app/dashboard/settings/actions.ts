@@ -1,7 +1,6 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { randomUUID } from "node:crypto";
 import * as z from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
@@ -17,14 +16,8 @@ function dbError(error: { code?: string; message?: string }): string {
   switch (error.code) {
     case "23505": return "This record already exists.";
     case "23503": return "A required related record was not found.";
-    case "PGRST202":
-    case "PGRST205": return "This feature requires a pending database migration. Please contact support.";
     default:
-      // Surface intentional business-logic errors from RAISE EXCEPTION in RPCs,
-      // but only if they don't look like internal schema details.
-      if (error.message && !error.message.includes("schema cache") && !error.message.includes("public.")) {
-        return error.message;
-      }
+      if (error.message) return error.message;
       return "An unexpected error occurred. Please try again.";
   }
 }
@@ -155,24 +148,19 @@ export async function resendInvite(inviteId: string): Promise<SettingsFormState>
   const { session, membership } = await requirePermission(Permissions.ORG_MEMBERS_INVITE);
   const supabase = await createClient();
 
-  // Rotate the token and extend expiry directly — no resend_org_invite RPC needed.
-  // The RPC (migration 0009) additionally tracks resend_count/last_resent_at, which
-  // are non-critical and will be added once that migration is applied.
-  const newToken = randomUUID();
-  const expiresAt = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
+  const { data: newToken, error: rpcError } = await supabase.rpc("resend_org_invite", {
+    invite_id: inviteId,
+  });
 
-  const { data: invite, error } = await supabase
-    .from("organization_invites")
-    .update({ token: newToken, expires_at: expiresAt })
-    .eq("id", inviteId)
-    .eq("organization_id", membership.organization.id)
-    .eq("status", "pending")
-    .select("email, role")
-    .single();
-
-  if (error || !invite) {
-    return { error: "Invite not found or is no longer pending." };
+  if (rpcError || !newToken) {
+    return { error: rpcError?.message ?? "Invite not found or is no longer pending." };
   }
+
+  const { data: invite } = await supabase
+    .from("organization_invites")
+    .select("email, role")
+    .eq("id", inviteId)
+    .single();
 
   if (invite) {
     const { data: profile } = await supabase
@@ -187,7 +175,7 @@ export async function resendInvite(inviteId: string): Promise<SettingsFormState>
       inviterName: profile?.full_name ?? session.email ?? "A team member",
       orgName: membership.organization.name,
       role: invite.role,
-      inviteUrl: `${appUrl}/invite?token=${newToken}`,
+      inviteUrl: `${appUrl}/invite?token=${newToken as string}`,
     });
   }
 

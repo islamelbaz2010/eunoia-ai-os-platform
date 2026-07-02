@@ -71,7 +71,6 @@ function write(level: LogLevel, message: string, context?: LogContext): void {
 
 // ── Public API ───────────────────────────────────────────────────────────────
 //
-// Backward-compatible with the previous logger.ts API.
 // Optionally pass a LogContext for structured enrichment:
 //
 //   logger.info("Contact created", { user_id, organization_id, contact_id });

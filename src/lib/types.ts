@@ -54,12 +54,11 @@ export type Organization = {
   id: string;
   name: string;
   slug: string;
-  // Fields added by migration 0009 — optional until that migration is applied in production.
-  status?: OrgStatus;
-  archived_at?: string | null;
-  subscription_tier?: string;
-  settings?: OrgSettings;
-  metadata?: Record<string, unknown>;
+  status: OrgStatus;
+  archived_at: string | null;
+  subscription_tier: string;
+  settings: OrgSettings;
+  metadata: Record<string, unknown>;
   is_super_admin_org: boolean;
 };
 

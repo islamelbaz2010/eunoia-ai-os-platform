@@ -80,8 +80,6 @@ export async function createDocument(
   } catch (err) {
     // Embedding failed — clean up the orphaned document row so the user
     // can retry without accumulating unindexed document records.
-    // The "creator can delete own kb documents" RLS policy (migration 0005)
-    // allows this cleanup even for non-admin members.
     await supabase
       .from("knowledge_base_documents")
       .delete()

@@ -1,5 +1,5 @@
 // Permission key registry — single source of truth for all permission strings.
-// These keys mirror the `permissions` table seeded in migration 0009.
+// These keys mirror the `permissions` table in the database.
 // Add new permissions in a new migration; update this file in the same PR.
 
 export const Permissions = {
@@ -40,9 +40,9 @@ export const Permissions = {
 
 export type PermissionKey = (typeof Permissions)[keyof typeof Permissions];
 
-// Local permission registry: mirrors the DB seed in migration 0009.
+// Local permission registry: mirrors the DB seed in the `role_permissions` table.
 // Used by the AuthorizationService as a performance cache — the DB is the
-// authoritative source, this is only consulted for the default role grants.
+// authoritative source, this is only consulted for default role grants.
 // Member-level overrides ALWAYS require a DB read.
 import type { OrgRole } from "@/lib/types";
 

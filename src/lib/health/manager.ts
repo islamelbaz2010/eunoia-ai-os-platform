@@ -46,7 +46,7 @@ async function safeCheck(
  *      respect the signal will abort; those that don't are left to settle.
  *   3. Promise.allSettled collects all outcomes.
  *   4. For each outcome: fulfilled → record entry; rejected (safeCheck bug)
- *      → fallback timeout entry (defensive dead-code branch).
+ *      → fallback timeout entry (unreachable in practice).
  *   5. healthy=false if any critical provider has status !== "ok".
  *
  * Adding a new provider:

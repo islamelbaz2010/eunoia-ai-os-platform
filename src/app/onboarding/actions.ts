@@ -36,13 +36,7 @@ export async function createOrganization(
   });
 
   if (error) {
-    if (error.code === "PGRST202" || error.code === "PGRST205") {
-      return { error: "Workspace creation is temporarily unavailable. Please contact support." };
-    }
-    if (error.message && !error.message.includes("public.") && !error.message.includes("schema cache")) {
-      return { error: error.message };
-    }
-    return { error: "Failed to create workspace. Please try again." };
+    return { error: error.message || "Failed to create workspace. Please try again." };
   }
 
   redirect("/dashboard");

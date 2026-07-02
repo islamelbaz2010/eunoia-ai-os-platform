@@ -493,9 +493,6 @@ CREATE INDEX IF NOT EXISTS organizations_status_active_idx
 CREATE INDEX IF NOT EXISTS role_permissions_role_key_idx
   ON public.role_permissions (role, permission_key);
 
-CREATE INDEX IF NOT EXISTS member_permissions_org_user_key_idx
-  ON public.member_permissions (organization_id, user_id, permission_key);
-
 CREATE INDEX IF NOT EXISTS org_invites_pending_email_org_idx
   ON public.organization_invites (email, organization_id, status)
   WHERE status = 'pending';

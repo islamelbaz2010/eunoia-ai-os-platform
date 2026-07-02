@@ -4,7 +4,6 @@ import type { HealthProvider, ProviderResult } from "../types";
 
 // Calls public.healthcheck() via PostgREST RPC.
 // Verifies: PostgreSQL is accepting connections, PostgREST is running, anon key is valid.
-// Falls back gracefully when the function isn't deployed yet (migration 0008 pending).
 
 interface DatabaseMetadata {
   database: string | undefined;
@@ -54,19 +53,6 @@ export const databaseProvider: HealthProvider<DatabaseMetadata> = {
             server_time: data.server_time,
           },
         };
-      }
-
-      // 404 PGRST202 = PostgREST is up + DB is connected, but the function
-      // isn't deployed yet (migration 0008 pending).
-      if (res.status === 404) {
-        const body = (await res.json().catch(() => ({}))) as { code?: string };
-        if (body.code === "PGRST202") {
-          return {
-            status: "ok",
-            latency_ms,
-            metadata: { database: undefined, server_time: undefined },
-          };
-        }
       }
 
       return { status: `error:${res.status}`, latency_ms, metadata: { database: undefined, server_time: undefined } };
