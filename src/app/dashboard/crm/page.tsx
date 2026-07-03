@@ -172,12 +172,6 @@ export default async function CrmPage({
           ))}
 
           {/* Status filter */}
-          <select
-            value={sp.status ?? ""}
-            onChange={() => {}}
-            className="sr-only"
-            aria-hidden
-          />
           <a
             href={buildUrl({ status: undefined, page: "1" })}
             className={`rounded-lg px-3 py-1 text-xs transition ${
