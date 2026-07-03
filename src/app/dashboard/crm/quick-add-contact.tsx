@@ -1,29 +1,33 @@
 "use client";
 
-import { useState, useActionState, useEffect, useRef } from "react";
+import { useState, useTransition, useRef } from "react";
 import { toast } from "sonner";
-import { createContact } from "./actions";
+import { createContact, type ContactFormState } from "./actions";
 
 export function QuickAddContact() {
   const [open, setOpen] = useState(false);
-  const [state, action, pending] = useActionState(createContact, undefined);
-  const wasSubmitting = useRef(false);
+  const [state, setState] = useState<ContactFormState>(undefined);
+  const [pending, startTransition] = useTransition();
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // Detect completed submission: pending transitions true → false
-  useEffect(() => {
-    if (wasSubmitting.current && !pending) {
-      if (!state?.error && !state?.duplicates) {
+  function submit(confirmed: boolean) {
+    const fd = new FormData(formRef.current!);
+    if (confirmed) fd.set("confirmed", "true");
+    startTransition(async () => {
+      const result = await createContact(state, fd);
+      setState(result);
+      if (!result?.error && !result?.duplicates) {
         toast.success("Contact added.");
+        formRef.current?.reset();
         setOpen(false);
       }
-    }
-    wasSubmitting.current = pending;
-  }, [pending, state]);
+    });
+  }
 
   if (!open) {
     return (
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => { setState(undefined); setOpen(true); }}
         className="flex items-center gap-2 rounded-xl border border-dashed border-border/60 px-5 py-3 text-sm text-white/40 hover:text-white hover:border-border transition w-full"
       >
         <span className="text-base leading-none">+</span>
@@ -34,7 +38,8 @@ export function QuickAddContact() {
 
   return (
     <form
-      action={action}
+      ref={formRef}
+      onSubmit={(e) => { e.preventDefault(); submit(false); }}
       className="glass-panel p-5 space-y-3"
     >
       <div className="flex items-center justify-between">
@@ -92,8 +97,12 @@ export function QuickAddContact() {
               <li key={d.id}>• {d.full_name} {d.email ? `(${d.email})` : ""}</li>
             ))}
           </ul>
-          <button type="submit" name="confirmed" value="true"
-            className="text-yellow-300 underline text-xs">
+          <button
+            type="button"
+            onClick={() => submit(true)}
+            disabled={pending}
+            className="text-yellow-300 underline text-xs disabled:opacity-50"
+          >
             Add anyway
           </button>
         </div>
