@@ -73,6 +73,35 @@ export type KnowledgeReviewStatus = "draft" | "pending_review" | "approved" | "r
 export type KnowledgeBusinessCriticality = "critical" | "high" | "medium" | "low";
 export type KnowledgeStatus = "active" | "draft" | "archived" | "deprecated" | "pending";
 
+// ─── KB-2: Enterprise lifecycle & governance ──────────────────────────────────
+
+export type AssetLifecycleStatus =
+  | "Draft"
+  | "Imported"
+  | "Normalized"
+  | "Extracted"
+  | "Validated"
+  | "Indexed"
+  | "Published"
+  | "Archived"
+  | "Rejected";
+
+export type AssetVisibility = "Public" | "Internal" | "Confidential" | "Restricted";
+export type SecurityLevel = "Low" | "Medium" | "High" | "Critical";
+export type AssetClassification =
+  | "Business"
+  | "Marketing"
+  | "Sales"
+  | "Operations"
+  | "Finance"
+  | "HR"
+  | "Legal"
+  | "Technology"
+  | "Client"
+  | "Vendor"
+  | "Project"
+  | "Company";
+
 // ─── Knowledge domain taxonomy ────────────────────────────────────────────────
 
 export type KnowledgeDomain =
@@ -267,6 +296,19 @@ export interface KnowledgeAsset {
   readonly source: KnowledgeSource;
   readonly references: readonly KnowledgeReference[];
   readonly referenceCount: number; // how many other assets cite this one (caller-managed)
+  // ── KB-2: Enterprise governance ─────────────────────────────────────────────
+  readonly sourceId: string | null;                    // FK → SourceRecord
+  readonly assetVersion: number;                        // increments on each save
+  readonly processingStatus: AssetLifecycleStatus;
+  readonly validationStatus: "pending" | "valid" | "invalid";
+  readonly visibility: AssetVisibility;                 // enterprise access control
+  readonly classification: AssetClassification;
+  readonly securityLevel: SecurityLevel;
+  readonly reviewedBy: string | null;
+  readonly approvedBy: string | null;
+  readonly publishedAt: string | null;                  // ISO 8601 — set on publish
+  readonly hash: string;                                // SHA-256 of cleaned content
+  readonly etag: string;                                // "${hash}:${assetVersion}"
 }
 
 // KnowledgeDocument is a backwards-compatible alias for KnowledgeAsset.
@@ -310,6 +352,11 @@ export interface RawAssetInput {
   readonly category?: KnowledgeCategory;
   readonly metadata?: Partial<KnowledgeMetadata>;
   readonly source?: Partial<KnowledgeSource>;
+  // KB-2 optional overrides (defaults are set by processAsset)
+  readonly visibility?: AssetVisibility;
+  readonly classification?: AssetClassification;
+  readonly securityLevel?: SecurityLevel;
+  readonly sourceId?: string | null;
 }
 
 // Backwards-compatible alias
