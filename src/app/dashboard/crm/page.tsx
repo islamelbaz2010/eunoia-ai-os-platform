@@ -148,7 +148,12 @@ export default async function CrmPage({
 
       {/* Filters */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <CrmSearch defaultValue={sp.q ?? ""} buildUrl={buildUrl} />
+        <CrmSearch
+          defaultValue={sp.q ?? ""}
+          currentStatus={sp.status}
+          currentStage={sp.stage}
+          currentView={view === "active" ? undefined : view}
+        />
 
         <div className="flex flex-wrap gap-2">
           {/* View tabs */}

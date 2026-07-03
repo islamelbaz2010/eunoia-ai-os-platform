@@ -5,21 +5,36 @@ import { useRef, useTransition } from "react";
 
 export function CrmSearch({
   defaultValue,
-  buildUrl,
+  currentStatus,
+  currentStage,
+  currentView,
 }: {
   defaultValue: string;
-  buildUrl: (params: Record<string, string | undefined>) => string;
+  currentStatus?: string;
+  currentStage?: string;
+  currentView?: string;
 }) {
   const router = useRouter();
   const [, startTransition] = useTransition();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function buildSearchUrl(q: string | undefined) {
+    const params: Record<string, string> = {};
+    if (q) params.q = q;
+    if (currentStatus) params.status = currentStatus;
+    if (currentStage) params.stage = currentStage;
+    if (currentView && currentView !== "active") params.view = currentView;
+    params.page = "1";
+    const qs = new URLSearchParams(params).toString();
+    return `/dashboard/crm${qs ? `?${qs}` : ""}`;
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const q = e.target.value.trim();
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
       startTransition(() => {
-        router.push(buildUrl({ q: q || undefined, page: "1" }));
+        router.push(buildSearchUrl(q || undefined));
       });
     }, 300);
   }
