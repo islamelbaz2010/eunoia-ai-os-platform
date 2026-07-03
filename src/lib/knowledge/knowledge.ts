@@ -13,6 +13,8 @@ import type {
   DuplicatePair,
 } from "./types";
 import { ASSET_TYPE } from "./types";
+import type { ProcessingReport } from "./repository/types";
+import { sha256 } from "./repository/checksum";
 import { extractEntities } from "./extractors/entities";
 import { extractKeywords } from "./extractors/keywords";
 import { buildRelationships } from "./relationships/builder";
@@ -123,6 +125,8 @@ export function processAsset(raw: RawAssetInput): KnowledgeAsset {
     weight: Math.max(1 - i * 0.11, 0.2),
   }));
 
+  const contentHash = sha256(cleanContent);
+
   return {
     id,
     canonicalId,
@@ -140,6 +144,19 @@ export function processAsset(raw: RawAssetInput): KnowledgeAsset {
     source,
     references: [],
     referenceCount: 0,
+    // KB-2 governance fields
+    sourceId: raw.sourceId ?? null,
+    assetVersion: 1,
+    processingStatus: "Extracted",
+    validationStatus: "pending",
+    visibility: raw.visibility ?? "Internal",
+    classification: raw.classification ?? "Business",
+    securityLevel: raw.securityLevel ?? "Low",
+    reviewedBy: null,
+    approvedBy: null,
+    publishedAt: null,
+    hash: contentHash,
+    etag: `${contentHash}:1`,
   };
 }
 
@@ -223,6 +240,35 @@ export function findDuplicates(
   return findDuplicateAssets(assets, threshold);
 }
 
+// ─── processAssetWithReport ───────────────────────────────────────────────────
+
+/**
+ * Processes raw input into a KnowledgeAsset and returns a ProcessingReport
+ * with total wall-clock timing and estimated per-phase breakdown.
+ */
+export function processAssetWithReport(raw: RawAssetInput): {
+  readonly asset: KnowledgeAsset;
+  readonly report: ProcessingReport;
+} {
+  const t0 = Date.now();
+  const asset = processAsset(raw);
+  const total = Date.now() - t0;
+
+  // Estimated proportions: normalise 5%, extract 50%, keyword 30%, rel 15%
+  const report: ProcessingReport = {
+    assetId: asset.id,
+    processedAt: new Date().toISOString(),
+    normalizationDurationMs: Math.round(total * 0.05),
+    extractionDurationMs: Math.round(total * 0.50),
+    keywordDurationMs: Math.round(total * 0.30),
+    relationshipDurationMs: Math.round(total * 0.15),
+    totalDurationMs: total,
+    stepsCompleted: ["Imported", "Normalized", "Extracted"],
+  };
+
+  return { asset, report };
+}
+
 // ─── Re-exports ───────────────────────────────────────────────────────────────
 
 export type {
@@ -258,6 +304,11 @@ export type {
   KnowledgeBusinessCriticality,
   KnowledgeStatus,
   KnowledgeDomain,
+  // KB-2 governance types
+  AssetLifecycleStatus,
+  AssetVisibility,
+  SecurityLevel,
+  AssetClassification,
 } from "./types";
 
 export { ASSET_TYPE, DEPARTMENT, INDUSTRY } from "./types";
@@ -271,6 +322,7 @@ export {
   searchDocuments,
   findRelatedDocuments,
 } from "./search/index";
+export type { AssetSearchOptions } from "./search/index";
 export {
   normalizeWhitespace,
   normalizeForComparison,
@@ -279,3 +331,38 @@ export {
   detectLanguage,
 } from "./normalizers/text";
 export { detectDuplicates, computeSimilarity } from "./normalizers/duplicates";
+
+// ─── KB-2: Repository layer ───────────────────────────────────────────────────
+
+export { KnowledgeRepository, validateAsset, ImportManifestBuilder } from "./repository/index";
+export { sha256, makeEtag } from "./repository/checksum";
+export type {
+  SourceRecord,
+  SourceType,
+  SourceStatus,
+  KnowledgeObject,
+  KnowledgeObjectType,
+  AssetVersion,
+  ValidationReport,
+  ProcessingReport,
+  ImportManifest,
+  ImportError,
+  ImportStatistics,
+  KnowledgeJob,
+  KnowledgeQueue,
+  KnowledgeJobType,
+  KnowledgeJobStatus,
+  AssetIndex,
+  EntityIndex,
+  RelationshipIndex,
+  SourceIndex,
+  CategoryIndex,
+  DepartmentIndex,
+  IndustryIndex,
+  AssetFilter,
+  AssetPatch,
+  SaveOptions,
+  UpdateOptions,
+  SaveResult,
+  UpdateResult,
+} from "./repository/index";

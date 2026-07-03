@@ -1,6 +1,30 @@
-import type { KnowledgeAsset, KnowledgeSearchResult } from "../types";
+import type {
+  KnowledgeAsset,
+  KnowledgeSearchResult,
+  KnowledgeCategory,
+  AssetType,
+  Department,
+  KnowledgeLanguage,
+  AssetLifecycleStatus,
+  AssetVisibility,
+} from "../types";
 import { normalizeForComparison } from "../normalizers/text";
 import { extractKeywords } from "../extractors/keywords";
+
+export interface AssetSearchOptions {
+  readonly maxResults?: number;
+  readonly minRelevance?: number;
+  // pre-filter by metadata (applied before scoring)
+  readonly category?: KnowledgeCategory;
+  readonly assetType?: AssetType;
+  readonly department?: Department;
+  readonly language?: KnowledgeLanguage;
+  readonly processingStatus?: AssetLifecycleStatus;
+  readonly visibility?: AssetVisibility;
+  readonly dateAfter?: string;       // metadata.modified >= dateAfter (ISO 8601)
+  readonly dateBefore?: string;      // metadata.modified <= dateBefore (ISO 8601)
+  readonly minConfidence?: number;   // scores.confidence >= minConfidence
+}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -80,13 +104,21 @@ function relevanceScore(
 export function searchAssets(
   assets: readonly KnowledgeAsset[],
   query: string,
-  options: {
-    readonly maxResults?: number;
-    readonly category?: KnowledgeAsset["category"];
-    readonly minRelevance?: number;
-  } = {}
+  options: AssetSearchOptions = {}
 ): KnowledgeSearchResult[] {
-  const { maxResults = 10, category, minRelevance = 0.05 } = options;
+  const {
+    maxResults = 10,
+    minRelevance = 0.05,
+    category,
+    assetType,
+    department,
+    language,
+    processingStatus,
+    visibility,
+    dateAfter,
+    dateBefore,
+    minConfidence,
+  } = options;
 
   if (!query.trim()) return [];
 
@@ -100,9 +132,25 @@ export function searchAssets(
     queryTokens.add(syn);
   }
 
-  const candidates = category
-    ? assets.filter((a) => a.category === category)
-    : assets;
+  const candidates = assets.filter((a) => {
+    if (category !== undefined && a.category !== category) return false;
+    if (assetType !== undefined && a.assetType !== assetType) return false;
+    if (department !== undefined && a.metadata.department !== department)
+      return false;
+    if (language !== undefined && a.metadata.language !== language) return false;
+    if (
+      processingStatus !== undefined &&
+      a.processingStatus !== processingStatus
+    )
+      return false;
+    if (visibility !== undefined && a.visibility !== visibility) return false;
+    if (dateAfter !== undefined && a.metadata.modified < dateAfter) return false;
+    if (dateBefore !== undefined && a.metadata.modified > dateBefore)
+      return false;
+    if (minConfidence !== undefined && a.scores.confidence < minConfidence)
+      return false;
+    return true;
+  });
 
   return candidates
     .map((asset) => {
