@@ -1,11 +1,24 @@
 "use client";
 
-import { useState, useActionState } from "react";
+import { useState, useActionState, useEffect, useRef } from "react";
+import { toast } from "sonner";
 import { createContact } from "./actions";
 
 export function QuickAddContact() {
   const [open, setOpen] = useState(false);
   const [state, action, pending] = useActionState(createContact, undefined);
+  const wasSubmitting = useRef(false);
+
+  // Detect completed submission: pending transitions true → false
+  useEffect(() => {
+    if (wasSubmitting.current && !pending) {
+      if (!state?.error && !state?.duplicates) {
+        toast.success("Contact added.");
+        setOpen(false);
+      }
+    }
+    wasSubmitting.current = pending;
+  }, [pending, state]);
 
   if (!open) {
     return (
@@ -21,11 +34,7 @@ export function QuickAddContact() {
 
   return (
     <form
-      action={async (fd) => {
-        await action(fd);
-        // Stay open only on duplicate warning
-        if (!state?.duplicates) setOpen(false);
-      }}
+      action={action}
       className="glass-panel p-5 space-y-3"
     >
       <div className="flex items-center justify-between">
@@ -33,6 +42,7 @@ export function QuickAddContact() {
         <button
           type="button"
           onClick={() => setOpen(false)}
+          aria-label="Close form"
           className="text-white/40 hover:text-white text-lg leading-none"
         >
           ×

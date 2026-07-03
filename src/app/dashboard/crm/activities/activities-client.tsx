@@ -106,7 +106,7 @@ export function ActivitiesClient({
                     </div>
                   </div>
                   {canEdit && (
-                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
+                    <div className="flex items-center gap-2 opacity-40 sm:opacity-0 group-hover:opacity-100 transition">
                       <button
                         disabled={isUpdating}
                         onClick={() => transition(async () => {

@@ -142,7 +142,7 @@ export function ContactTimeline({
                       disabled={isDeleting}
                       onClick={() => handleDelete(event.id)}
                       aria-label="Delete event"
-                      className="opacity-0 group-hover:opacity-100 text-[10px] text-red-400/60 hover:text-red-400 transition disabled:opacity-30"
+                      className="opacity-40 sm:opacity-0 group-hover:opacity-100 text-[10px] text-red-400/60 hover:text-red-400 transition disabled:opacity-20"
                     >
                       ×
                     </button>

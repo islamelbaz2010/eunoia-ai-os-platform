@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { updateContact, type ContactFormState } from "../actions";
 import type { CrmContact } from "@/lib/types";
@@ -17,6 +17,14 @@ export function EditContactModal({
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<ContactFormState>(undefined);
   const [pending, startTransition] = useTransition();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (open) {
+      firstInputRef.current?.focus();
+    }
+  }, [open]);
 
   function openModal() {
     setState(undefined);
@@ -26,6 +34,7 @@ export function EditContactModal({
   function closeModal() {
     setState(undefined);
     setOpen(false);
+    triggerRef.current?.focus();
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -48,6 +57,7 @@ export function EditContactModal({
   if (!open) {
     return (
       <button
+        ref={triggerRef}
         onClick={openModal}
         className="shrink-0 rounded-lg border border-border px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 transition"
       >
@@ -90,6 +100,7 @@ export function EditContactModal({
             <form id="edit-contact-form" onSubmit={handleSubmit} className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <input
+                  ref={firstInputRef}
                   name="fullName"
                   defaultValue={contact.full_name}
                   placeholder="Full name *"
