@@ -131,6 +131,7 @@ export async function createContact(
   });
 
   revalidatePath("/dashboard/crm");
+  revalidatePath("/dashboard/crm/pipeline");
 }
 
 // ─── Update contact ───────────────────────────────────────────────────────────
@@ -203,6 +204,7 @@ export async function updateContact(
   });
 
   revalidatePath("/dashboard/crm");
+  revalidatePath("/dashboard/crm/pipeline");
   revalidatePath(`/dashboard/crm/${contactId}`);
 }
 
