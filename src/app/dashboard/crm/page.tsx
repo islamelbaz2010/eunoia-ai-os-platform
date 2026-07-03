@@ -174,7 +174,6 @@ export default async function CrmPage({
           {/* Status filter */}
           <select
             value={sp.status ?? ""}
-            onChange={() => {}}
             className="sr-only"
             aria-hidden
           />
