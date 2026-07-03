@@ -536,7 +536,16 @@ export async function deleteTimelineEvent(contactId: string, eventId: string): P
 const activitySchema = z.object({
   type:      z.enum(["task","follow_up","call","meeting","email"]),
   title:     z.string().min(1, { error: "Title is required." }).max(200, { error: "Title must be 200 characters or fewer." }).trim(),
-  dueAt:     z.string().datetime({ offset: true }).optional().or(z.literal("")),
+  dueAt:     z.preprocess(
+    (v): unknown => {
+      if (!v || v === "") return undefined;
+      const s = String(v as string);
+      // datetime-local produces "YYYY-MM-DDTHH:mm" without timezone — append UTC offset
+      if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return `${s}:00.000Z`;
+      return s;
+    },
+    z.string().datetime({ offset: true }).optional()
+  ),
   ownerId:   z.string().uuid().optional().or(z.literal("")),
   contactId: z.string().uuid().optional().or(z.literal("")),
 });
