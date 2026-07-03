@@ -1,14 +1,18 @@
 import { randomUUID } from "crypto";
 
 import type {
+  AssetType,
+  Department,
+  Industry,
+  KnowledgeAsset,
   KnowledgeCategory,
   KnowledgeChunk,
-  KnowledgeDocument,
   KnowledgeMetadata,
   KnowledgeSource,
-  RawKnowledgeInput,
+  RawAssetInput,
   DuplicatePair,
 } from "./types";
+import { ASSET_TYPE } from "./types";
 import { extractEntities } from "./extractors/entities";
 import { extractKeywords } from "./extractors/keywords";
 import { buildRelationships } from "./relationships/builder";
@@ -17,12 +21,22 @@ import {
   normalizeWhitespace,
   stripHtml,
   truncate,
+  detectLanguage,
 } from "./normalizers/text";
 import { detectDuplicates } from "./normalizers/duplicates";
 
+// ─── CanonicalId counter ──────────────────────────────────────────────────────
+// Resets on process restart. Callers requiring stable cross-restart IDs must
+// seed from the database after they persist the asset.
+
+let _assetSeq = 0;
+function nextCanonicalId(): string {
+  return `KB-${String(++_assetSeq).padStart(6, "0")}`;
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-const DEFAULT_CHUNK_SIZE = 500; // words per chunk
+const DEFAULT_CHUNK_SIZE = 500;
 
 function generateSummary(content: string, maxLength = 300): string {
   const paragraphs = content.split(/\n{2,}/);
@@ -40,31 +54,48 @@ function splitIntoChunks(content: string, wordCount: number): string[] {
   return chunks;
 }
 
-// ─── processDocument ─────────────────────────────────────────────────────────
+// ─── processAsset ─────────────────────────────────────────────────────────────
 
 /**
- * Converts raw input into a fully-annotated KnowledgeDocument.
+ * Converts raw input into a fully-annotated KnowledgeAsset.
  *
- * Performs: text normalisation → entity extraction → keyword extraction
- *   → relationship inference → scoring → tag generation
+ * Pipeline: text normalisation → language detection → entity extraction
+ *   → keyword extraction → relationship inference → scoring → tag generation
  *
- * No external service or embedding is invoked.
+ * Pure: no I/O, no external services, no embeddings.
  */
-export function processDocument(raw: RawKnowledgeInput): KnowledgeDocument {
+export function processAsset(raw: RawAssetInput): KnowledgeAsset {
   const id = randomUUID();
+  const canonicalId = nextCanonicalId();
   const now = new Date().toISOString();
 
   const cleanContent = normalizeWhitespace(stripHtml(raw.content));
   const cleanTitle = normalizeWhitespace(raw.title);
   const category: KnowledgeCategory = raw.category ?? "General";
+  const assetType: AssetType = raw.assetType ?? ASSET_TYPE.DOCUMENT;
+
+  const detectedLang = detectLanguage(cleanContent);
 
   const metadata: KnowledgeMetadata = {
+    // Temporal
     created: raw.metadata?.created ?? now,
     modified: raw.metadata?.modified ?? now,
+    lastVerifiedAt: raw.metadata?.lastVerifiedAt ?? null,
+    // Authorship
     author: raw.metadata?.author ?? null,
-    language: raw.metadata?.language ?? "en",
+    owner: raw.metadata?.owner ?? null,
+    reviewer: raw.metadata?.reviewer ?? null,
+    // Classification
+    language: raw.metadata?.language ?? detectedLang,
     documentType: raw.metadata?.documentType ?? "document",
+    department: (raw.metadata?.department ?? "General") as Department,
+    industry: (raw.metadata?.industry ?? "Other") as Industry,
     version: raw.metadata?.version ?? "1.0",
+    // Governance
+    visibility: raw.metadata?.visibility ?? "internal",
+    reviewStatus: raw.metadata?.reviewStatus ?? "draft",
+    businessCriticality: raw.metadata?.businessCriticality ?? "medium",
+    sourcePriority: raw.metadata?.sourcePriority ?? 5,
     sourceUrl: raw.metadata?.sourceUrl ?? null,
   };
 
@@ -94,6 +125,8 @@ export function processDocument(raw: RawKnowledgeInput): KnowledgeDocument {
 
   return {
     id,
+    canonicalId,
+    assetType,
     title: cleanTitle,
     summary: generateSummary(cleanContent),
     content: cleanContent,
@@ -106,28 +139,34 @@ export function processDocument(raw: RawKnowledgeInput): KnowledgeDocument {
     scores,
     source,
     references: [],
+    referenceCount: 0,
   };
 }
 
-// ─── chunkDocument ────────────────────────────────────────────────────────────
+/** Backwards-compatible alias for processAsset. */
+export function processDocument(raw: RawAssetInput): KnowledgeAsset {
+  return processAsset(raw);
+}
+
+// ─── chunkAsset ───────────────────────────────────────────────────────────────
 
 /**
- * Splits a KnowledgeDocument into ordered KnowledgeChunks.
+ * Splits a KnowledgeAsset into ordered KnowledgeChunks.
  * Each chunk is independently annotated with entities and keywords.
- * Intended as input to embedding pipelines — not called in this sprint.
+ * Intended as input to embedding pipelines.
  */
-export function chunkDocument(
-  doc: KnowledgeDocument,
+export function chunkAsset(
+  asset: KnowledgeAsset,
   chunkSize = DEFAULT_CHUNK_SIZE
 ): KnowledgeChunk[] {
-  const rawChunks = splitIntoChunks(doc.content, chunkSize);
+  const rawChunks = splitIntoChunks(asset.content, chunkSize);
 
   return rawChunks.map((content, i) => {
     const chunkEntities = extractEntities(content);
     const { primary } = extractKeywords(content);
     return {
       id: randomUUID(),
-      documentId: doc.id,
+      documentId: asset.id,
       sequence: i,
       content,
       summary: generateSummary(content, 150),
@@ -137,22 +176,30 @@ export function chunkDocument(
   });
 }
 
-// ─── findDuplicates ───────────────────────────────────────────────────────────
+/** Backwards-compatible alias for chunkAsset. */
+export function chunkDocument(
+  asset: KnowledgeAsset,
+  chunkSize = DEFAULT_CHUNK_SIZE
+): KnowledgeChunk[] {
+  return chunkAsset(asset, chunkSize);
+}
+
+// ─── findDuplicateAssets ──────────────────────────────────────────────────────
 
 /**
- * Detects duplicate and near-duplicate documents by comparing both title
+ * Detects duplicate and near-duplicate assets by comparing both title
  * and content similarity. Returns all pairs that exceed the threshold.
  */
-export function findDuplicates(
-  documents: readonly KnowledgeDocument[],
+export function findDuplicateAssets(
+  assets: readonly KnowledgeAsset[],
   threshold = 0.8
 ): DuplicatePair[] {
   const titlePairs = detectDuplicates(
-    documents.map((d) => d.title),
+    assets.map((a) => a.title),
     threshold
   );
   const contentPairs = detectDuplicates(
-    documents.map((d) => d.content),
+    assets.map((a) => a.content),
     threshold
   );
 
@@ -168,9 +215,18 @@ export function findDuplicates(
   return merged;
 }
 
+/** Backwards-compatible alias for findDuplicateAssets. */
+export function findDuplicates(
+  assets: readonly KnowledgeAsset[],
+  threshold = 0.8
+): DuplicatePair[] {
+  return findDuplicateAssets(assets, threshold);
+}
+
 // ─── Re-exports ───────────────────────────────────────────────────────────────
 
 export type {
+  KnowledgeAsset,
   KnowledgeDocument,
   KnowledgeChunk,
   KnowledgeEntity,
@@ -191,18 +247,35 @@ export type {
   KnowledgeReference,
   KnowledgeSearchResult,
   DuplicatePair,
+  RawAssetInput,
   RawKnowledgeInput,
+  AssetType,
+  Department,
+  Industry,
+  KnowledgeLanguage,
+  KnowledgeVisibility,
+  KnowledgeReviewStatus,
+  KnowledgeBusinessCriticality,
+  KnowledgeStatus,
+  KnowledgeDomain,
 } from "./types";
 
+export { ASSET_TYPE, DEPARTMENT, INDUSTRY } from "./types";
 export { extractEntities } from "./extractors/entities";
 export { extractKeywords } from "./extractors/keywords";
 export { buildRelationships } from "./relationships/builder";
 export { scoreDocument } from "./scoring/scorer";
-export { searchDocuments, findRelatedDocuments } from "./search/index";
+export {
+  searchAssets,
+  findRelatedAssets,
+  searchDocuments,
+  findRelatedDocuments,
+} from "./search/index";
 export {
   normalizeWhitespace,
   normalizeForComparison,
   stripHtml,
   truncate,
+  detectLanguage,
 } from "./normalizers/text";
 export { detectDuplicates, computeSimilarity } from "./normalizers/duplicates";

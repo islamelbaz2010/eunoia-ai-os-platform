@@ -1,26 +1,39 @@
 # Knowledge Brain — Extraction Reference
 
-## Entity Extraction
+## Entity Extraction — Rule Engine
 
-### Pattern-Based Entities
+Extraction runs through three ordered tiers. Entities with the same `(type, normalized)` key are merged across tiers; the first tier's confidence wins and occurrences are summed.
 
-All patterns run on the NFC-normalised, whitespace-collapsed text. Matches are deduplicated by `(type, normalized_value)`.
+### Tier 1 — PatternRules (regex, priority 1–3)
+
+All patterns run on the NFC-normalised, whitespace-collapsed text.
 
 | Entity Type | Pattern Approach | Confidence | Examples |
 |------------|-----------------|-----------|---------|
 | Email | RFC 5321 local@domain.tld regex | 0.99 | `hello@acme.com` |
-| Website | https?://... URL regex | 0.99 | `https://acme.com/about` |
+| Website | `https?://...` URL regex | 0.99 | `https://acme.com/about` |
 | Phone | ±country (3) (3) (4) digit patterns | 0.90 | `+1 555-123-4567`, `(555) 123 4567` |
 | Company | Title-Case words + legal suffix | 0.85 | `Acme Solutions Ltd`, `TechVentures LLC` |
-| Person | Two consecutive Title-Case words | 0.55 | `John Smith`, `Sarah Chen` |
 
-**Person false-positive suppression**: `"New York"`, `"United Kingdom"`, `"Visual Studio"`, and 10 other common named-location / product phrases are on an explicit deny list.
+**Company legal suffixes**: `Ltd`, `LLC`, `LLP`, `Inc`, `Corp`, `GmbH`, `Pty`, `Co.`, `S.A.`, `Limited`, `Incorporated`, `Corporation`, `Group`, `Holdings`, `International`, `Ventures`, `Studios`, `Solutions`, `Technologies`, `Services`, `Consulting`, `Agency`, `Partners`, `Associates`
 
-**Company requirements**: the entity must end with a recognised legal suffix (`Ltd`, `LLC`, `LLP`, `Inc`, `Corp`, `GmbH`, `Pty`, `Limited`, `Incorporated`, `Corporation`, `Group`, `Holdings`, `International`, `Ventures`, `Studios`, `Solutions`, `Technologies`, `Services`, `Consulting`, `Agency`, `Partners`, `Associates`). Plain company names without a suffix are not extracted to avoid false positives.
+---
 
-### Dictionary-Based Entities
+### Tier 2 — DictionaryRules (keyword lookup, priority 2)
 
-A curated map of ~60 Technology, Platform, and Tool names is matched against the lowercased document text using word-boundary detection. The map is deliberately narrow — only widely-recognised names with low ambiguity are included.
+#### Known Company Dictionary (confidence 0.90)
+
+Well-known brands recognised without a legal suffix. Matched case-insensitively with word boundaries.
+
+| Segment | Names |
+|---------|-------|
+| Eunoia ecosystem | eunoia, radix |
+| Big tech | google, apple, microsoft, meta, amazon, netflix, tesla, spotify, airbnb, uber |
+| Enterprise | twitter, linkedin, paypal, samsung, oracle, ibm, adobe, nvidia |
+
+#### Technology / Platform / Tool Dictionary (confidence 0.95)
+
+~65 widely-recognised technical names matched against lowercased text.
 
 **Technologies**: react, next.js, typescript, javascript, python, node.js, postgresql, mongodb, redis, elasticsearch, openai, gpt-4, claude, anthropic, langchain, pinecone, weaviate, qdrant, aws, gcp, azure, docker, kubernetes, terraform, cloudflare, graphql, rest, websocket, mysql, sqlite, huggingface
 
@@ -28,11 +41,46 @@ A curated map of ~60 Technology, Platform, and Tool names is matched against the
 
 **Tools**: github, gitlab, jira, notion, slack, figma, linear, hubspot, salesforce, zapier, make, airtable, stripe, twilio, sendgrid, resend
 
+---
+
+### Tier 3 — HeuristicRules (context-based, priority 5)
+
+| Entity Type | Pattern Approach | Confidence | Examples |
+|------------|-----------------|-----------|---------|
+| Person | Two consecutive Title-Case words | 0.55 | `John Smith`, `Sarah Chen` |
+
+**Person false-positive suppression**: explicit deny-list of 17 common named-location / product phrases: `"New York"`, `"United Kingdom"`, `"Visual Studio"`, `"Machine Learning"`, `"Artificial Intelligence"`, and others.
+
+---
+
 ### Adding New Entity Types
 
 1. Add the type string to `KnowledgeEntityType` in `types.ts`
-2. Add a pattern to `PATTERN_RULES` in `extractors/entities.ts`, or add keywords to `TECHNOLOGY_TERMS`
+2. Choose a tier:
+   - Regex match → add to `PATTERN_RULES` in `extractors/rules/pattern.ts`
+   - Keyword lookup → extend `TECHNOLOGY_TERMS` or `KNOWN_COMPANIES` in `extractors/rules/dictionary.ts`
+   - Context heuristic → add a new `ExtractionRule` in `extractors/rules/heuristic.ts`
 3. Add tests in `knowledge.test.ts`
+
+---
+
+## Language Detection
+
+`detectLanguage(text: string): KnowledgeLanguage`
+
+Heuristic — no external library. Compares Arabic-script character count vs Latin character count:
+
+```
+arabicFraction = arabicChars / (arabicChars + latinChars)
+
+>= 0.8         → "ar"
+<= 0.2         → "en"
+in between     → "mixed"
+< 5 meaningful → "unknown"
+text < 10 chars → "unknown"
+```
+
+**Arabic ranges**: U+0600-U+06FF (Arabic), U+0750-U+077F (Arabic Supplement), U+08A0-U+08FF (Arabic Extended-A)
 
 ---
 
@@ -93,7 +141,7 @@ Special case: if normalised strings are identical → return 1.0 immediately.
 | Threshold | Meaning |
 |-----------|---------|
 | 1.0 | Exact match after normalisation |
-| ≥ 0.9 | Almost certainly duplicate (only stop-word or trivial differences) |
+| ≥ 0.9 | Almost certainly duplicate |
 | ≥ 0.8 | Near-duplicate (recommended default) |
 | 0.6–0.8 | High similarity (same topic, different detail) |
 | < 0.6 | Related but distinct |
@@ -101,6 +149,25 @@ Special case: if normalised strings are identical → return 1.0 immediately.
 ---
 
 ## Scoring Reference
+
+### New Dimensions (KB-1.1)
+
+| Score | Formula | Range |
+|-------|---------|-------|
+| `knowledgeFreshness` | Age since `lastVerifiedAt` (0 = never verified) | 0–1 |
+| `verificationScore` | `approved`=1.0, `pending_review`=0.7, `archived`=0.5, `draft`=0.3, `rejected`=0.1 | 0–1 |
+
+### Knowledge Freshness Curve
+
+```
+Age since lastVerifiedAt   knowledgeFreshness
+Never verified (null)      0.0
+≤ 30 days                  1.0
+≤ 90 days                  0.8
+≤ 180 days                 0.6
+≤ 365 days                 0.4
+> 365 days                 0.2
+```
 
 ### Category Weights
 
@@ -118,10 +185,10 @@ Special case: if normalised strings are identical → return 1.0 immediately.
 | Processes | 0.65 | 0.50 | 0.90 |
 | General | 0.35 | 0.25 | 0.30 |
 
-### Freshness Curve
+### Document Freshness Curve (based on `modified` date)
 
 ```
-Age        Score
+Age        freshness
 ≤ 7 days   1.00
 ≤ 30 days  0.90
 ≤ 90 days  0.75

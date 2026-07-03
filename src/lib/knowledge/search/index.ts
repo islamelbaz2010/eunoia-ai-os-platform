@@ -1,4 +1,4 @@
-import type { KnowledgeDocument, KnowledgeSearchResult } from "../types";
+import type { KnowledgeAsset, KnowledgeSearchResult } from "../types";
 import { normalizeForComparison } from "../normalizers/text";
 import { extractKeywords } from "../extractors/keywords";
 
@@ -21,7 +21,7 @@ function overlap(a: Set<string>, b: Set<string>): number {
 }
 
 /**
- * Scores how relevant a document is to a query token set.
+ * Scores how relevant an asset is to a query token set.
  *
  * Matching in the title earns 3× weight.
  * Matching a primary keyword earns 2× weight.
@@ -29,21 +29,19 @@ function overlap(a: Set<string>, b: Set<string>): number {
  * Matching body content earns 1× weight.
  *
  * The raw match score is normalised by query length, then blended with
- * the document's own importance score (20% weight) so high-value
- * documents are mildly preferred when relevance is equal.
+ * the asset's own importance score (20% weight).
  */
 function relevanceScore(
-  doc: KnowledgeDocument,
+  asset: KnowledgeAsset,
   queryTokens: Set<string>
 ): { score: number; matched: string[] } {
   if (queryTokens.size === 0) return { score: 0, matched: [] };
 
   const matched = new Set<string>();
-
-  const titleTokens = tokenSet(doc.title);
-  const primarySet = new Set(doc.keywords.primary);
-  const secondarySet = new Set(doc.keywords.secondary);
-  const contentTokens = tokenSet(doc.content);
+  const titleTokens = tokenSet(asset.title);
+  const primarySet = new Set(asset.keywords.primary);
+  const secondarySet = new Set(asset.keywords.secondary);
+  const contentTokens = tokenSet(asset.content);
 
   let raw = 0;
 
@@ -63,9 +61,8 @@ function relevanceScore(
     }
   }
 
-  // Normalise by query size so a 1-word query matching perfectly isn't penalised
   const normalised = raw / (queryTokens.size * 3);
-  const blended = normalised * 0.8 + doc.scores.importance * 0.2;
+  const blended = normalised * 0.8 + asset.scores.importance * 0.2;
 
   return { score: Math.min(blended, 1), matched: Array.from(matched) };
 }
@@ -73,19 +70,19 @@ function relevanceScore(
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
- * Keyword-based full-text search across a collection of KnowledgeDocuments.
+ * Keyword-based full-text search across a collection of KnowledgeAssets.
  *
  * Returns results sorted by relevance descending, filtered to score > 0.
  * Category filter narrows results before scoring.
  *
  * No embedding or external service is used.
  */
-export function searchDocuments(
-  documents: readonly KnowledgeDocument[],
+export function searchAssets(
+  assets: readonly KnowledgeAsset[],
   query: string,
   options: {
     readonly maxResults?: number;
-    readonly category?: KnowledgeDocument["category"];
+    readonly category?: KnowledgeAsset["category"];
     readonly minRelevance?: number;
   } = {}
 ): KnowledgeSearchResult[] {
@@ -99,34 +96,31 @@ export function searchDocuments(
     ...queryKeywords.primary,
   ]);
 
-  // Overlap with synonym expansions
   for (const syn of queryKeywords.synonyms) {
     queryTokens.add(syn);
   }
 
   const candidates = category
-    ? documents.filter((d) => d.category === category)
-    : documents;
+    ? assets.filter((a) => a.category === category)
+    : assets;
 
-  const scored = candidates
-    .map((doc) => {
-      const { score, matched } = relevanceScore(doc, queryTokens);
-      return { document: doc, relevance: score, matchedKeywords: matched };
+  return candidates
+    .map((asset) => {
+      const { score, matched } = relevanceScore(asset, queryTokens);
+      return { asset, relevance: score, matchedKeywords: matched };
     })
     .filter((r) => r.relevance >= minRelevance)
     .sort((a, b) => b.relevance - a.relevance)
     .slice(0, maxResults);
-
-  return scored;
 }
 
 /**
- * Returns the documents most similar to a seed document by keyword overlap.
- * Useful for "related documents" features.
+ * Returns the assets most similar to a seed asset by keyword overlap.
+ * Useful for "related assets" / "you may also like" features.
  */
-export function findRelatedDocuments(
-  seed: KnowledgeDocument,
-  corpus: readonly KnowledgeDocument[],
+export function findRelatedAssets(
+  seed: KnowledgeAsset,
+  corpus: readonly KnowledgeAsset[],
   maxResults = 5
 ): KnowledgeSearchResult[] {
   const seedTokens = new Set([
@@ -135,21 +129,25 @@ export function findRelatedDocuments(
   ]);
 
   return corpus
-    .filter((d) => d.id !== seed.id)
-    .map((doc) => {
-      const docTokens = new Set([
-        ...doc.keywords.primary,
-        ...tokenSet(doc.title),
+    .filter((a) => a.id !== seed.id)
+    .map((asset) => {
+      const assetTokens = new Set([
+        ...asset.keywords.primary,
+        ...tokenSet(asset.title),
       ]);
-      const hits = overlap(seedTokens, docTokens);
+      const hits = overlap(seedTokens, assetTokens);
       const relevance = hits / Math.max(seedTokens.size, 1);
       return {
-        document: doc,
+        asset,
         relevance: Math.min(relevance, 1),
-        matchedKeywords: Array.from(seedTokens).filter((t) => docTokens.has(t)),
+        matchedKeywords: Array.from(seedTokens).filter((t) => assetTokens.has(t)),
       };
     })
     .filter((r) => r.relevance > 0)
     .sort((a, b) => b.relevance - a.relevance)
     .slice(0, maxResults);
 }
+
+// Backwards-compatible aliases
+export const searchDocuments = searchAssets;
+export const findRelatedDocuments = findRelatedAssets;

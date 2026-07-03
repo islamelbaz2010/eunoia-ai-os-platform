@@ -5,6 +5,7 @@ import {
   normalizeForComparison,
   stripHtml,
   truncate,
+  detectLanguage,
 } from "./normalizers/text";
 import {
   computeSimilarity,
@@ -14,8 +15,8 @@ import { extractEntities } from "./extractors/entities";
 import { extractKeywords } from "./extractors/keywords";
 import { buildRelationships } from "./relationships/builder";
 import { scoreDocument } from "./scoring/scorer";
-import { searchDocuments, findRelatedDocuments } from "./search/index";
-import { processDocument, findDuplicates } from "./knowledge";
+import { searchAssets, findRelatedAssets } from "./search/index";
+import { processAsset, findDuplicateAssets } from "./knowledge";
 import type { KnowledgeEntity } from "./types";
 
 // ─── Text normalisation ───────────────────────────────────────────────────────
@@ -44,7 +45,7 @@ describe("normalizeWhitespace", () => {
   it("applies NFC unicode normalisation", () => {
     // café composed (U+00E9) vs decomposed (e + combining accent)
     const composed = "café";
-    const decomposed = "café";
+    const decomposed = "café";
     expect(normalizeWhitespace(decomposed)).toBe(normalizeWhitespace(composed));
   });
 });
@@ -93,6 +94,30 @@ describe("truncate", () => {
   it("truncated length is at most maxLength + 1 (for the ellipsis char)", () => {
     const result = truncate("hello world foo bar baz", 15);
     expect(result.length).toBeLessThanOrEqual(16);
+  });
+});
+
+// ─── Language detection ───────────────────────────────────────────────────────
+
+describe("detectLanguage", () => {
+  it("detects English text", () => {
+    expect(detectLanguage("The quick brown fox jumps over the lazy dog")).toBe("en");
+  });
+
+  it("detects Arabic text", () => {
+    expect(detectLanguage("مرحبا بكم في فندق عالي الجودة وخدمات ممتازة")).toBe("ar");
+  });
+
+  it("detects mixed language text", () => {
+    expect(detectLanguage("Hotel management فندق خدمات hospitality عالية")).toBe("mixed");
+  });
+
+  it("returns unknown for very short text", () => {
+    expect(detectLanguage("hi")).toBe("unknown");
+  });
+
+  it("returns unknown for empty string", () => {
+    expect(detectLanguage("")).toBe("unknown");
   });
 });
 
@@ -199,6 +224,33 @@ describe("extractEntities — companies", () => {
     const entities = extractEntities("the limited scope of this project");
     const companies = entities.filter((e) => e.type === "Company");
     expect(companies).toHaveLength(0);
+  });
+});
+
+describe("extractEntities — known companies (no suffix required)", () => {
+  it("extracts Google as a Company", () => {
+    const entities = extractEntities("We integrated with Google for authentication.");
+    const companies = entities.filter((e) => e.type === "Company");
+    expect(companies.some((c) => c.normalized === "google")).toBe(true);
+  });
+
+  it("extracts Microsoft as a Company", () => {
+    const entities = extractEntities("Our team uses Microsoft for productivity tools.");
+    const companies = entities.filter((e) => e.type === "Company");
+    expect(companies.some((c) => c.normalized === "microsoft")).toBe(true);
+  });
+
+  it("extracts Eunoia as a Company", () => {
+    const entities = extractEntities("Eunoia provides AI-powered CRM solutions.");
+    const companies = entities.filter((e) => e.type === "Company");
+    expect(companies.some((c) => c.normalized === "eunoia")).toBe(true);
+  });
+
+  it("assigns confidence >= 0.9 to known companies", () => {
+    const entities = extractEntities("Meta acquired Instagram.");
+    const meta = entities.find((e) => e.normalized === "meta" && e.type === "Company");
+    expect(meta).toBeDefined();
+    expect(meta!.confidence).toBeGreaterThanOrEqual(0.9);
   });
 });
 
@@ -371,82 +423,116 @@ describe("scoreDocument", () => {
     const inv = scoreDocument("Invoices", { modified: recentDate, documentType: "document" }, [], 500, 5);
     expect(kb.aiUsefulness).toBeGreaterThan(inv.aiUsefulness);
   });
+
+  it("knowledgeFreshness is 1.0 when verified within 30 days", () => {
+    const scores = scoreDocument(
+      "General",
+      { modified: recentDate, documentType: "document", lastVerifiedAt: recentDate },
+      [],
+      500,
+      5
+    );
+    expect(scores.knowledgeFreshness).toBe(1.0);
+  });
+
+  it("knowledgeFreshness is 0 when never verified", () => {
+    const scores = scoreDocument(
+      "General",
+      { modified: recentDate, documentType: "document", lastVerifiedAt: null },
+      [],
+      500,
+      5
+    );
+    expect(scores.knowledgeFreshness).toBe(0);
+  });
+
+  it("verificationScore is highest for approved status", () => {
+    const approved = scoreDocument("General", { modified: recentDate, documentType: "document", reviewStatus: "approved" }, [], 500, 5);
+    const draft = scoreDocument("General", { modified: recentDate, documentType: "document", reviewStatus: "draft" }, [], 500, 5);
+    expect(approved.verificationScore).toBeGreaterThan(draft.verificationScore);
+    expect(approved.verificationScore).toBe(1.0);
+  });
+
+  it("verificationScore defaults to draft (0.3) when omitted", () => {
+    const scores = scoreDocument("General", { modified: recentDate, documentType: "document" }, [], 500, 5);
+    expect(scores.verificationScore).toBe(0.3);
+  });
 });
 
 // ─── Search ───────────────────────────────────────────────────────────────────
 
-describe("searchDocuments", () => {
-  const docA = processDocument({
+describe("searchAssets", () => {
+  const docA = processAsset({
     title: "Hotel Event Planning Services",
     content: "We provide comprehensive event planning and catering services for luxury hotels and resorts worldwide.",
     category: "Services",
   });
 
-  const docB = processDocument({
+  const docB = processAsset({
     title: "Client Invoice Management",
     content: "Automated invoice generation and payment tracking for all client accounts.",
     category: "Finance",
   });
 
-  it("returns relevant document for matching query", () => {
-    const results = searchDocuments([docA, docB], "event planning");
+  it("returns relevant asset for matching query", () => {
+    const results = searchAssets([docA, docB], "event planning");
     expect(results.length).toBeGreaterThan(0);
-    expect(results[0]!.document.id).toBe(docA.id);
+    expect(results[0]!.asset.id).toBe(docA.id);
   });
 
   it("returns empty array for empty query", () => {
-    expect(searchDocuments([docA, docB], "")).toHaveLength(0);
+    expect(searchAssets([docA, docB], "")).toHaveLength(0);
   });
 
   it("filters by category", () => {
-    const results = searchDocuments([docA, docB], "services", {
+    const results = searchAssets([docA, docB], "services", {
       category: "Finance",
     });
     for (const r of results) {
-      expect(r.document.category).toBe("Finance");
+      expect(r.asset.category).toBe("Finance");
     }
   });
 
   it("all returned relevance scores are in 0–1 range", () => {
-    const results = searchDocuments([docA, docB], "hotel catering invoice");
+    const results = searchAssets([docA, docB], "hotel catering invoice");
     for (const r of results) {
       expect(r.relevance).toBeGreaterThan(0);
       expect(r.relevance).toBeLessThanOrEqual(1);
     }
   });
 
-  it("matched keywords are a subset of query terms", () => {
-    const results = searchDocuments([docA, docB], "event planning catering");
+  it("matchedKeywords is an array", () => {
+    const results = searchAssets([docA, docB], "event planning catering");
     for (const r of results) {
       expect(r.matchedKeywords).toBeInstanceOf(Array);
     }
   });
 });
 
-describe("findRelatedDocuments", () => {
-  const seed = processDocument({
+describe("findRelatedAssets", () => {
+  const seed = processAsset({
     title: "Hospitality Services Overview",
     content: "Our hospitality services include event planning, catering, venue management and guest services.",
     category: "Services",
   });
 
-  const similar = processDocument({
+  const similar = processAsset({
     title: "Event Catering Services",
     content: "Premium catering and event services for corporate and private hospitality clients.",
     category: "Services",
   });
 
-  const unrelated = processDocument({
+  const unrelated = processAsset({
     title: "Annual Financial Report",
     content: "Revenue increased by twelve percent year-on-year. Operating costs were contained.",
     category: "Finance",
   });
 
-  it("ranks similar document higher than unrelated", () => {
-    const results = findRelatedDocuments(seed, [similar, unrelated]);
+  it("ranks similar asset higher than unrelated", () => {
+    const results = findRelatedAssets(seed, [similar, unrelated]);
     expect(results.length).toBeGreaterThan(0);
-    const simIdx = results.findIndex((r) => r.document.id === similar.id);
-    const unrelIdx = results.findIndex((r) => r.document.id === unrelated.id);
+    const simIdx = results.findIndex((r) => r.asset.id === similar.id);
+    const unrelIdx = results.findIndex((r) => r.asset.id === unrelated.id);
     if (simIdx !== -1 && unrelIdx !== -1) {
       expect(simIdx).toBeLessThan(unrelIdx);
     } else {
@@ -454,16 +540,16 @@ describe("findRelatedDocuments", () => {
     }
   });
 
-  it("does not include the seed document itself", () => {
-    const results = findRelatedDocuments(seed, [seed, similar, unrelated]);
-    expect(results.map((r) => r.document.id)).not.toContain(seed.id);
+  it("does not include the seed asset itself", () => {
+    const results = findRelatedAssets(seed, [seed, similar, unrelated]);
+    expect(results.map((r) => r.asset.id)).not.toContain(seed.id);
   });
 });
 
-// ─── processDocument (integration) ────────────────────────────────────────────
+// ─── processAsset — integration ───────────────────────────────────────────────
 
-describe("processDocument", () => {
-  const doc = processDocument({
+describe("processAsset", () => {
+  const asset = processAsset({
     title: "CRM Services for Hospitality Clients",
     content: `
       Our CRM platform helps hospitality businesses manage client relationships effectively.
@@ -474,33 +560,80 @@ describe("processDocument", () => {
     category: "Services",
   });
 
-  it("assigns a UUID to the document", () => {
-    expect(doc.id).toMatch(
+  it("assigns a UUID to the asset", () => {
+    expect(asset.id).toMatch(
       /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
     );
   });
 
+  it("assigns a canonical ID in KB-XXXXXX format", () => {
+    expect(asset.canonicalId).toMatch(/^KB-\d{6}$/);
+  });
+
+  it("defaults assetType to DOCUMENT", () => {
+    expect(asset.assetType).toBe("DOCUMENT");
+  });
+
+  it("accepts explicit assetType", () => {
+    const sop = processAsset({
+      title: "Check-in SOP",
+      content: "Standard procedure for guest check-in at the front desk.",
+      assetType: "SOP",
+    });
+    expect(sop.assetType).toBe("SOP");
+  });
+
+  it("defaults department to General", () => {
+    expect(asset.metadata.department).toBe("General");
+  });
+
+  it("accepts explicit department via metadata", () => {
+    const marketed = processAsset({
+      title: "Q4 Campaign",
+      content: "Marketing campaign plan for the fourth quarter including digital channels.",
+      metadata: { department: "Marketing" },
+    });
+    expect(marketed.metadata.department).toBe("Marketing");
+  });
+
+  it("defaults industry to Other", () => {
+    expect(asset.metadata.industry).toBe("Other");
+  });
+
+  it("referenceCount defaults to 0", () => {
+    expect(asset.referenceCount).toBe(0);
+  });
+
+  it("knowledgeFreshness is 0 when lastVerifiedAt is null", () => {
+    expect(asset.scores.knowledgeFreshness).toBe(0);
+  });
+
+  it("verificationScore is > 0 for default draft status", () => {
+    expect(asset.scores.verificationScore).toBeGreaterThan(0);
+    expect(asset.scores.verificationScore).toBeLessThanOrEqual(1);
+  });
+
   it("produces a non-empty title", () => {
-    expect(doc.title).toBe("CRM Services for Hospitality Clients");
+    expect(asset.title).toBe("CRM Services for Hospitality Clients");
   });
 
   it("produces a non-empty summary", () => {
-    expect(doc.summary.length).toBeGreaterThan(10);
+    expect(asset.summary.length).toBeGreaterThan(10);
   });
 
   it("extracts email entity from content", () => {
-    const email = doc.entities.find((e) => e.type === "Email");
+    const email = asset.entities.find((e) => e.type === "Email");
     expect(email).toBeDefined();
     expect(email!.value).toBe("hello@eunoiaos.com");
   });
 
   it("extracts website entity from content", () => {
-    const site = doc.entities.find((e) => e.type === "Website");
+    const site = asset.entities.find((e) => e.type === "Website");
     expect(site).toBeDefined();
   });
 
   it("extracts technology entities from content", () => {
-    const tech = doc.entities
+    const tech = asset.entities
       .filter((e) => e.type === "Technology" || e.type === "Platform")
       .map((e) => e.normalized);
     expect(tech).toContain("next.js");
@@ -509,45 +642,59 @@ describe("processDocument", () => {
   });
 
   it("produces primary keywords", () => {
-    expect(doc.keywords.primary.length).toBeGreaterThan(0);
+    expect(asset.keywords.primary.length).toBeGreaterThan(0);
   });
 
   it("category is preserved", () => {
-    expect(doc.category).toBe("Services");
+    expect(asset.category).toBe("Services");
   });
 
   it("all scores are in 0–1 range", () => {
-    for (const [, v] of Object.entries(doc.scores)) {
+    for (const [, v] of Object.entries(asset.scores)) {
       expect(v).toBeGreaterThanOrEqual(0);
       expect(v).toBeLessThanOrEqual(1);
     }
   });
 
   it("tags derive from primary keywords", () => {
-    expect(doc.tags.length).toBeGreaterThan(0);
-    for (const tag of doc.tags) {
+    expect(asset.tags.length).toBeGreaterThan(0);
+    for (const tag of asset.tags) {
       expect(tag.weight).toBeGreaterThan(0);
       expect(tag.weight).toBeLessThanOrEqual(1);
     }
   });
+
+  it("auto-detects English language", () => {
+    expect(asset.metadata.language).toBe("en");
+  });
+
+  it("auto-detects Arabic language", () => {
+    const arabicAsset = processAsset({
+      title: "خدمات الفندق",
+      content: "نقدم خدمات إدارة الفنادق والضيافة على أعلى مستوى لعملائنا الكرام في جميع أنحاء المنطقة العربية",
+    });
+    expect(arabicAsset.metadata.language).toBe("ar");
+  });
 });
 
-describe("findDuplicates (integration)", () => {
-  it("flags identical documents as exact duplicates", () => {
+// ─── findDuplicateAssets — integration ────────────────────────────────────────
+
+describe("findDuplicateAssets", () => {
+  it("flags identical assets as exact duplicates", () => {
     const raw = {
       title: "Service Overview",
       content: "We provide hospitality management services to luxury hotels worldwide.",
     };
-    const a = processDocument(raw);
-    const b = processDocument(raw);
-    const pairs = findDuplicates([a, b]);
+    const a = processAsset(raw);
+    const b = processAsset(raw);
+    const pairs = findDuplicateAssets([a, b]);
     expect(pairs.length).toBeGreaterThan(0);
     expect(pairs[0]!.type).toBe("exact");
   });
 
-  it("returns no duplicates for clearly different documents", () => {
-    const a = processDocument({ title: "Invoice March 2025", content: "Invoice total is five thousand dollars for web development services." });
-    const b = processDocument({ title: "HR Policy Manual", content: "All employees must adhere to the code of conduct outlined in this document." });
-    expect(findDuplicates([a, b], 0.9)).toHaveLength(0);
+  it("returns no duplicates for clearly different assets", () => {
+    const a = processAsset({ title: "Invoice March 2025", content: "Invoice total is five thousand dollars for web development services." });
+    const b = processAsset({ title: "HR Policy Manual", content: "All employees must adhere to the code of conduct outlined in this document." });
+    expect(findDuplicateAssets([a, b], 0.9)).toHaveLength(0);
   });
 });
