@@ -5,10 +5,10 @@ import { verifySession } from "@/lib/auth/dal";
 export default async function InvitePage({
   searchParams,
 }: {
-  searchParams: Promise<{ token?: string }>;
+  searchParams: { token?: string };
 }) {
   await verifySession();
-  const { token } = await searchParams;
+  const { token } = searchParams;
 
   if (!token) {
     redirect("/dashboard");

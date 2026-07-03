@@ -22,15 +22,15 @@ type View = "active" | "archived" | "deleted";
 export default async function CrmPage({
   searchParams,
 }: {
-  searchParams: Promise<{
+  searchParams: {
     q?: string;
     status?: string;
     stage?: string;
     view?: View;
     page?: string;
-  }>;
+  };
 }) {
-  const sp = await searchParams;
+  const sp = searchParams;
   const membership = await getActiveOrganization();
   const supabase = await createClient();
 
