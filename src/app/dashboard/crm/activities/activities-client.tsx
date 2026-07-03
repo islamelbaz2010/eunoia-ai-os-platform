@@ -1,7 +1,9 @@
 "use client";
 
 import { useTransition, useActionState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast } from "sonner";
 import { completeActivity, deleteActivity, createActivity } from "../actions";
 import type { CrmActivity, CrmActivityType } from "@/lib/types";
 
@@ -40,7 +42,8 @@ export function ActivitiesClient({
   canEdit: boolean;
   activityLabels: Record<CrmActivityType, string>;
 }) {
-  const [, transition] = useTransition();
+  const router = useRouter();
+  const [isUpdating, transition] = useTransition();
   const [formState, formAction, formPending] = useActionState(createActivity, undefined);
 
   return (
@@ -105,14 +108,24 @@ export function ActivitiesClient({
                   {canEdit && (
                     <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
                       <button
-                        onClick={() => transition(() => { void completeActivity(a.id, a.contact_id ?? undefined); })}
-                        className="text-xs text-emerald-400 hover:underline"
+                        disabled={isUpdating}
+                        onClick={() => transition(async () => {
+                          await completeActivity(a.id, a.contact_id ?? undefined);
+                          router.refresh();
+                          toast.success("Activity completed.");
+                        })}
+                        className="text-xs text-emerald-400 hover:underline disabled:opacity-40"
                       >
                         Complete
                       </button>
                       <button
-                        onClick={() => transition(() => { void deleteActivity(a.id, a.contact_id ?? undefined); })}
-                        className="text-xs text-red-400/60 hover:text-red-400"
+                        disabled={isUpdating}
+                        onClick={() => transition(async () => {
+                          await deleteActivity(a.id, a.contact_id ?? undefined);
+                          router.refresh();
+                          toast.success("Activity deleted.");
+                        })}
+                        className="text-xs text-red-400/60 hover:text-red-400 disabled:opacity-40"
                       >
                         Delete
                       </button>
