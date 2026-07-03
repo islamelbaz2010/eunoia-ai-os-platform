@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
 import {
   softDeleteContact,
   restoreContact,
@@ -48,13 +49,19 @@ export function ContactRow({
   isArchived: boolean;
 }) {
   const [error, setError] = useState<string | null>(null);
-  const [, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
-  function run(fn: () => Promise<void>) {
+  function run(fn: () => Promise<void>, successMsg: string) {
     setError(null);
     startTransition(async () => {
-      try { await fn(); }
-      catch (e) { setError(e instanceof Error ? e.message : "Action failed."); }
+      try {
+        await fn();
+        toast.success(successMsg);
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : "Action failed.";
+        setError(msg);
+        toast.error(msg);
+      }
     });
   }
 
@@ -100,37 +107,50 @@ export function ContactRow({
               </Link>
             )}
             {!isDeleted && !isArchived && canDelete && (
-              <button onClick={() => run(() => archiveContact(contact.id))}
-                className="hover:text-white transition">
+              <button
+                disabled={isPending}
+                onClick={() => run(() => archiveContact(contact.id), "Contact archived.")}
+                className="hover:text-white transition disabled:opacity-40"
+              >
                 Archive
               </button>
             )}
             {!isDeleted && isArchived && canRestore && (
-              <button onClick={() => run(() => unarchiveContact(contact.id))}
-                className="hover:text-white transition">
+              <button
+                disabled={isPending}
+                onClick={() => run(() => unarchiveContact(contact.id), "Contact restored.")}
+                className="hover:text-white transition disabled:opacity-40"
+              >
                 Restore
               </button>
             )}
             {isDeleted && canRestore && (
-              <button onClick={() => run(() => restoreContact(contact.id))}
-                className="hover:text-emerald-400 transition">
+              <button
+                disabled={isPending}
+                onClick={() => run(() => restoreContact(contact.id), "Contact restored.")}
+                className="hover:text-emerald-400 transition disabled:opacity-40"
+              >
                 Restore
               </button>
             )}
             {!isDeleted && canDelete && (
-              <button onClick={() => run(() => softDeleteContact(contact.id))}
-                className="hover:text-red-400 transition">
+              <button
+                disabled={isPending}
+                onClick={() => run(() => softDeleteContact(contact.id), "Contact deleted.")}
+                className="hover:text-red-400 transition disabled:opacity-40"
+              >
                 Delete
               </button>
             )}
             {isDeleted && canDelete && (
               <button
+                disabled={isPending}
                 onClick={() => {
                   if (confirm(`Permanently delete "${contact.full_name}"? This cannot be undone.`)) {
-                    run(() => hardDeleteContact(contact.id));
+                    run(() => hardDeleteContact(contact.id), "Contact permanently deleted.");
                   }
                 }}
-                className="hover:text-red-400 transition"
+                className="hover:text-red-400 transition disabled:opacity-40"
               >
                 Purge
               </button>
