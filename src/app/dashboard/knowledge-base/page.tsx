@@ -1,8 +1,10 @@
+import { BookOpen } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
 import { hasRole } from "@/lib/types";
 import { DocumentForm } from "./document-form";
 import { DocumentRow } from "./document-row";
+import { EmptyState } from "../empty-state";
 
 export default async function KnowledgeBasePage() {
   const [session, membership] = await Promise.all([
@@ -27,9 +29,8 @@ export default async function KnowledgeBasePage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Knowledge Base</h1>
-        <p className="mt-1 text-sm text-white/60">
-          Documents that power your RAG assistant, in English, Arabic, Russian, and
-          Italian.
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-white/60">
+          Add the policies, menus, FAQs, and SOPs your team already uses. Each document becomes source material for cited AI answers.
         </p>
       </div>
 
@@ -56,8 +57,13 @@ export default async function KnowledgeBasePage() {
             ))}
             {(!documents || documents.length === 0) && (
               <tr>
-                <td colSpan={4} className="px-5 py-6 text-center text-white/40">
-                  No documents yet.
+                <td colSpan={4} className="px-5 py-8">
+                  <EmptyState
+                    icon={BookOpen}
+                    title="Your assistant is waiting for its first source"
+                    description="Paste one high-value policy, FAQ, menu, or procedure above. After embedding, staff can ask questions and see source citations."
+                    actions={[{ href: "/dashboard/assistant", label: "Open assistant", variant: "secondary" }]}
+                  />
                 </td>
               </tr>
             )}

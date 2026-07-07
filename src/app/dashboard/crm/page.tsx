@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { Users } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
 import { hasRole, PIPELINE_STAGES } from "@/lib/types";
 import { ContactRow } from "./contact-row";
 import { QuickAddContact } from "./quick-add-contact";
 import { CrmSearch } from "./crm-search";
+import { EmptyState } from "../empty-state";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "CRM — Eunoia AI OS" };
@@ -108,8 +110,8 @@ export default async function CrmPage({
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">CRM</h1>
-          <p className="mt-0.5 text-sm text-white/50">
-            Manage contacts, leads, and pipeline for your property.
+          <p className="mt-0.5 max-w-2xl text-sm leading-6 text-white/55">
+            Manage leads, guests, travel agents, and partners. Start with one contact, then move them through the pipeline as conversations progress.
           </p>
         </div>
         <div className="flex gap-2">
@@ -259,14 +261,33 @@ export default async function CrmPage({
             ))}
             {contacts.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-5 py-12 text-center text-sm text-white/30">
-                  {sp.q
-                    ? `No contacts match "${sp.q}".`
-                    : view === "deleted"
-                    ? "No deleted contacts."
-                    : view === "archived"
-                    ? "No archived contacts."
-                    : "No contacts yet. Add your first contact above."}
+                <td colSpan={5} className="px-5 py-8">
+                  <EmptyState
+                    icon={Users}
+                    title={
+                      sp.q
+                        ? "No matching contacts"
+                        : view === "deleted"
+                        ? "No deleted contacts"
+                        : view === "archived"
+                        ? "No archived contacts"
+                        : "Start your CRM with one real relationship"
+                    }
+                    description={
+                      sp.q
+                        ? `No contacts match "${sp.q}". Try a broader search or clear the current filters.`
+                        : view === "deleted"
+                        ? "Deleted contacts will appear here when an admin removes records from active CRM."
+                        : view === "archived"
+                        ? "Archived contacts will appear here when you move older relationships out of the active list."
+                        : "Add a guest, lead, travel agent, or partner. You can enrich the record with notes, source, and pipeline stage."
+                    }
+                    actions={
+                      view === "active" && !sp.q
+                        ? [{ href: "/dashboard/crm", label: "Use quick add above" }]
+                        : [{ href: buildUrl({ q: undefined, status: undefined, stage: undefined, page: "1" }), label: "Clear filters" }]
+                    }
+                  />
                 </td>
               </tr>
             )}

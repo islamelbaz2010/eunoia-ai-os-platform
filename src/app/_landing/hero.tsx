@@ -114,10 +114,10 @@ export function Hero() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="#demo"
+                href="/signup"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-xl shadow-indigo-500/25"
               >
-                Book a Demo
+                Start Free Trial
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -133,8 +133,8 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
               {[
                 "Live in 2 hours",
+                "No credit card to start",
                 "No setup fees",
-                "Cancel anytime",
               ].map((t) => (
                 <span key={t} className="flex items-center gap-1.5 text-sm text-white/40">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

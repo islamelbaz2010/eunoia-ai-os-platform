@@ -17,7 +17,7 @@ export function QuickAddContact() {
       const result = await createContact(state, fd);
       setState(result);
       if (!result?.error && !result?.duplicates) {
-        toast.success("Contact added.");
+        toast.success("Contact added to CRM.");
         formRef.current?.reset();
         setOpen(false);
       }
@@ -28,10 +28,13 @@ export function QuickAddContact() {
     return (
       <button
         onClick={() => { setState(undefined); setOpen(true); }}
-        className="flex items-center gap-2 rounded-xl border border-dashed border-border/60 px-5 py-3 text-sm text-white/40 hover:text-white hover:border-border transition w-full"
+        className="flex w-full items-center justify-between rounded-xl border border-dashed border-border/60 px-5 py-3 text-left transition hover:border-border hover:bg-white/[0.02]"
       >
-        <span className="text-base leading-none">+</span>
-        Add contact
+        <span>
+          <span className="block text-sm font-medium text-white/70">Add your first contact</span>
+          <span className="mt-0.5 block text-xs text-white/38">Lead, guest, partner, travel agent, or supplier</span>
+        </span>
+        <span className="text-lg leading-none text-accent-2">+</span>
       </button>
     );
   }
@@ -43,7 +46,12 @@ export function QuickAddContact() {
       className="glass-panel p-5 space-y-3"
     >
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium">New contact</span>
+        <div>
+          <span className="text-sm font-medium">New contact</span>
+          <p className="mt-1 text-xs text-white/42">
+            Name is enough to start. Add details as the relationship develops.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => setOpen(false)}
@@ -87,7 +95,9 @@ export function QuickAddContact() {
         className="input-field w-full resize-none" />
 
       {state?.error && (
-        <p className="text-sm text-red-400">{state.error}</p>
+        <div className="rounded-lg border border-red-400/25 bg-red-400/8 px-3 py-2 text-sm text-red-200">
+          {state.error}
+        </div>
       )}
       {state?.duplicates && state.duplicates.length > 0 && (
         <div className="rounded-lg border border-yellow-400/30 bg-yellow-400/5 p-3 text-xs">
@@ -110,8 +120,8 @@ export function QuickAddContact() {
 
       <div className="flex gap-2">
         <button type="submit" disabled={pending}
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50">
-          {pending ? "Adding…" : "Add contact"}
+          className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:cursor-wait disabled:opacity-60">
+          {pending ? "Saving contact..." : "Add contact"}
         </button>
         <button type="button" onClick={() => setOpen(false)}
           className="rounded-lg border border-border px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 transition">

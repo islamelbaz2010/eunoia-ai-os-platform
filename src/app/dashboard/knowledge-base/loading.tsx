@@ -1,7 +1,10 @@
 export default function KnowledgeBaseLoading() {
   return (
     <div className="space-y-6">
-      <div className="h-8 w-48 animate-pulse rounded-lg bg-white/5" />
+      <div className="space-y-3">
+        <div className="h-8 w-48 animate-pulse rounded-lg bg-white/8" />
+        <div className="h-4 w-full max-w-xl animate-pulse rounded-lg bg-white/5" />
+      </div>
       <div className="glass-panel h-40 animate-pulse p-5" />
       <div className="glass-panel animate-pulse overflow-hidden">
         {Array.from({ length: 4 }).map((_, i) => (
