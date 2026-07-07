@@ -1,6 +1,8 @@
 "use client";
 
 import { useActionState, useTransition, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { createActivity, completeActivity, deleteActivity } from "../actions";
 import type { CrmActivity, CrmActivityType } from "@/lib/types";
 
@@ -35,14 +37,20 @@ export function ContactActivities({
   orgId: string;
   canEdit: boolean;
 }) {
-  const [, transition] = useTransition();
+  const router = useRouter();
+  const [isUpdating, transition] = useTransition();
 
   const boundCreate = useCallback(
-    (prev: { error?: string } | undefined, fd: FormData) => {
+    async (prev: { error?: string } | undefined, fd: FormData) => {
       fd.set("contactId", contactId);
-      return createActivity(prev, fd);
+      const result = await createActivity(prev, fd);
+      if (!result?.error) {
+        router.refresh();
+        toast.success("Activity added.");
+      }
+      return result;
     },
-    [contactId]
+    [contactId, router]
   );
   const [state, formAction, pending] = useActionState(boundCreate, undefined);
 
@@ -108,16 +116,26 @@ export function ContactActivities({
                 </p>
               )}
             </div>
-            <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition">
+            <div className="flex items-center gap-1 opacity-40 sm:opacity-0 group-hover:opacity-100 transition">
               <button
-                onClick={() => transition(() => { void completeActivity(a.id, contactId); })}
-                className="text-[10px] text-emerald-400/70 hover:text-emerald-400"
+                disabled={isUpdating}
+                onClick={() => transition(async () => {
+                  await completeActivity(a.id, contactId);
+                  router.refresh();
+                  toast.success("Activity marked as done.");
+                })}
+                className="text-[10px] text-emerald-400/70 hover:text-emerald-400 disabled:opacity-40"
               >
                 Done
               </button>
               <button
-                onClick={() => transition(() => { void deleteActivity(a.id, contactId); })}
-                className="text-[10px] text-red-400/60 hover:text-red-400"
+                disabled={isUpdating}
+                onClick={() => transition(async () => {
+                  await deleteActivity(a.id, contactId);
+                  router.refresh();
+                  toast.success("Activity deleted.");
+                })}
+                className="text-[10px] text-red-400/60 hover:text-red-400 disabled:opacity-40"
               >
                 ×
               </button>

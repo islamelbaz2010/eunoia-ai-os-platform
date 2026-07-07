@@ -1,5 +1,7 @@
+import { Activity } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
+import { EmptyState } from "../empty-state";
 
 type UsageTotals = { event_type: string; total: number };
 
@@ -19,8 +21,8 @@ export default async function UsagePage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Usage</h1>
-        <p className="mt-1 text-sm text-white/60">
-          Track activity across CRM, Knowledge Base, and the RAG Assistant.
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-white/60">
+          Track activity across CRM, Knowledge Base, and the RAG Assistant. This page starts filling in as your team uses the workspace.
         </p>
       </div>
 
@@ -34,7 +36,17 @@ export default async function UsagePage() {
           </div>
         ))}
         {(!totals || totals.length === 0) && (
-          <p className="text-white/40">No usage recorded yet.</p>
+          <div className="sm:col-span-2 lg:col-span-3">
+            <EmptyState
+              icon={Activity}
+              title="No usage recorded yet"
+              description="Ask one AI question, add a knowledge document, or update CRM to create the first usage events."
+              actions={[
+                { href: "/dashboard/assistant", label: "Ask AI" },
+                { href: "/dashboard/knowledge-base", label: "Add knowledge", variant: "secondary" },
+              ]}
+            />
+          </div>
         )}
       </div>
     </div>

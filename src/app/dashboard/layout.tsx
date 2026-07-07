@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { Toaster } from "sonner";
 import {
   getActiveOrganization,
   getActiveMemberships,
@@ -93,6 +94,7 @@ export default async function DashboardLayout({
         </header>
         <main className="flex-1 p-6">{children}</main>
       </div>
+      <Toaster position="bottom-right" richColors closeButton />
     </div>
   );
 }

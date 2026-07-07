@@ -1,0 +1,30 @@
+ID,Severity,Category,Title,File,Line,Evidence,Fix,Effort,Status
+TD-001,CRITICAL,Build,TypeScript error: FileMetadata not imported,scripts/knowledge/quality-report.ts,58,npm run build output,Add import type { FileMetadata } from ../../src/lib/knowledge/importer/types,1 min,OPEN
+TD-002,CRITICAL,Build,13 ESLint errors in knowledge layer,scripts/knowledge/watch-assets.ts + 2 others,multiple,npm run lint output,Prefix unused vars with _ and type any properly,30 min,OPEN
+TD-003,CRITICAL,Deployment,Docker healthcheck checks wrong string,Dockerfile,84,grep for status:live but route returns status:ok,Change grep string to status:ok,1 min,OPEN
+TD-004,CRITICAL,Deployment,output:standalone missing from next.config.ts,next.config.ts,entire file,Dockerfile copies .next/standalone which won't exist,Add output: standalone to nextConfig,5 min,OPEN
+TD-005,HIGH,Database,4 orphan duplicate migration files,supabase/migrations/,multiple,Directory listing,Move to archive/ with DO_NOT_APPLY suffix,10 min,OPEN
+TD-006,HIGH,Backend,updateDocument action not implemented,src/app/dashboard/knowledge-base/actions.ts,n/a,No function found,Implement updateDocument + re-ingest pipeline,6 hours,OPEN
+TD-007,HIGH,Documentation,CURRENT_STATE.md claims 62 tests actual is 309,\.claude/CURRENT_STATE.md,multiple,npm test output shows 309,Update documentation,20 min,OPEN
+TD-008,HIGH,Dependencies,mammoth/pdf-parse/natural/chokidar/fast-glob in prod deps,package.json,multiple,Not imported in Next.js app,Move to devDependencies,30 min,OPEN
+TD-009,HIGH,Security,Sensitive Arabic business PDFs committed to repo,knowledge/assets/raw/,multiple,File listing,Add to .gitignore + git filter-repo to remove history,2 hours,OPEN
+TD-010,HIGH,Observability,Sentry deprecation warnings on every build,next.config.ts (withSentryConfig),multiple,Build output,Replace disableLogger and automaticVercelMonitors,30 min,OPEN
+TD-011,MEDIUM,Code Quality,crm/actions.ts is 650+ lines,src/app/dashboard/crm/actions.ts,entire file,wc -l output,Split into contacts/tags/timeline/activities files,2 hours,OPEN
+TD-012,MEDIUM,Frontend,No pagination on any list view,all list pages,n/a,Code review,Implement cursor-based pagination,1 day,OPEN
+TD-013,MEDIUM,Performance,Usage aggregation in JavaScript (2000-7000 rows),src/app/dashboard/page.tsx,60-110,Code review,Replace with SQL DATE_TRUNC aggregation,2 hours,OPEN
+TD-014,MEDIUM,UX,No streaming RAG responses,src/app/dashboard/assistant/,n/a,Code review,Implement streaming via Route Handler,1 day,OPEN
+TD-015,MEDIUM,Performance,Rate limiting uses DB count not Redis,crm/actions.ts + assistant/actions.ts,multiple,Code review,Add Upstash Redis sliding window,4 hours,OPEN
+TD-016,LOW,Code Quality,deleteContact is backward-compat alias,src/app/dashboard/crm/actions.ts,280,Code review,Remove alias and update callers,30 min,OPEN
+TD-017,LOW,UX,PWA icons missing,public/,n/a,ls public/ output,Create icon.png and icon-512.png,1 hour,OPEN
+TD-018,LOW,UX,Default Next.js favicon,src/app/favicon.ico,n/a,File inspection,Replace with branded favicon,30 min,OPEN
+TD-019,LOW,Cleanup,Scaffold SVGs in public/,public/,n/a,ls public/ output,Delete unused SVG files,2 min,OPEN
+TD-020,LOW,Documentation,CI release summary hardcodes 29/29 tests,.github/workflows/ci.yml,release job,Code review,Update to dynamic or remove count,5 min,OPEN
+TD-021,LOW,Cleanup,.DS_Store files committed to git,multiple directories,n/a,File listing,Add to .gitignore and git rm --cached,5 min,OPEN
+SEC-001,HIGH,Security,METRICS_TOKEN not set in Vercel = open Prometheus endpoint,Vercel env config,n/a,Env var table in CURRENT_STATE.md,Set METRICS_TOKEN in Vercel dashboard,5 min,OPEN
+SEC-002,MEDIUM,Security,RESEND_API_KEY not set = invite emails silently fail,Vercel env config,n/a,Env var table,Set RESEND_API_KEY in Vercel,5 min,OPEN
+SEC-003,MEDIUM,Security,Sentry DSN not configured = no error tracking in prod,Vercel env config,n/a,Env var table,Set SENTRY_DSN + NEXT_PUBLIC_SENTRY_DSN,5 min,OPEN
+PERF-001,MEDIUM,Performance,Missing composite index for rate-limit queries,supabase/migrations/,n/a,Query analysis,Add index on usage_events(org_id+actor_id+event_type+created_at),2 hours,OPEN
+PERF-002,MEDIUM,Performance,No ISR on public pages,src/app/page.tsx src/app/login/,n/a,Code review,Add generateStaticParams or revalidate config,4 hours,OPEN
+BIZ-001,CRITICAL,Business,Zero billing/payment code,entire codebase,n/a,grep for stripe,Implement Stripe integration,3 days,OPEN
+BIZ-002,HIGH,Business,No usage quota enforcement,src/app/dashboard/assistant/actions.ts,n/a,Code review,Add quota check before rate limit,4 hours (after Stripe),OPEN
+ARCH-001,MEDIUM,Architecture,Knowledge brain not connected to RAG pipeline,knowledge/ + src/lib/knowledge/,n/a,Code review,Build importer that pushes to Supabase KB,2 days,OPEN

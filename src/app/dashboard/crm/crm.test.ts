@@ -214,6 +214,9 @@ describe("timeline event validation", () => {
 
 // ─── Activity validation schema ───────────────────────────────────────────────
 
+// dueAt uses z.preprocess in actions.ts to normalise "YYYY-MM-DDTHH:mm"
+// (browser datetime-local) to "YYYY-MM-DDTHH:mm:00.000Z" before validation.
+// The local schema mirrors the post-normalisation state for unit-test purposes.
 const activitySchema = z.object({
   type:  z.enum(["task","follow_up","call","meeting","email"]),
   title: z.string().min(1).max(200).trim(),
@@ -237,6 +240,17 @@ describe("activity validation", () => {
       type: "call",
       title: "Follow up call",
       dueAt: "2026-08-01T10:00:00+04:00",
+    });
+    expect(r.success).toBe(true);
+  });
+
+  it("accepts datetime-local format after normalisation (UTC suffix appended)", () => {
+    // actions.ts preprocesses "2026-08-01T10:00" → "2026-08-01T10:00:00.000Z"
+    // This test validates the normalised form that reaches the Zod schema.
+    const r = activitySchema.safeParse({
+      type: "call",
+      title: "Follow up call",
+      dueAt: "2026-08-01T10:00:00.000Z",
     });
     expect(r.success).toBe(true);
   });

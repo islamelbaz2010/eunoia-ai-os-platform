@@ -1,6 +1,8 @@
 "use client";
 
 import { useActionState, useCallback, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { createTimelineEvent, deleteTimelineEvent } from "../actions";
 import type { CrmTimelineEvent, CrmTimelineEventType } from "@/lib/types";
 
@@ -39,26 +41,37 @@ export function ContactTimeline({
   orgId: _orgId,
   canEdit,
   canAdmin,
+  currentUserId,
 }: {
   contactId: string;
   events: CrmTimelineEvent[];
   orgId: string;
   canEdit: boolean;
   canAdmin: boolean;
+  currentUserId: string;
 }) {
+  const router = useRouter();
   const [showForm, setShowForm] = useState(false);
-  const [, deleteTransition] = useTransition();
+  const [isDeleting, deleteTransition] = useTransition();
 
   const boundCreate = useCallback(
-    (prev: { error?: string } | undefined, fd: FormData) =>
-      createTimelineEvent(contactId, prev, fd),
-    [contactId]
+    async (prev: { error?: string } | undefined, fd: FormData) => {
+      const result = await createTimelineEvent(contactId, prev, fd);
+      if (!result?.error) {
+        router.refresh();
+        toast.success("Event logged.");
+      }
+      return result;
+    },
+    [contactId, router]
   );
   const [state, formAction, pending] = useActionState(boundCreate, undefined);
 
   function handleDelete(eventId: string) {
     deleteTransition(async () => {
       await deleteTimelineEvent(contactId, eventId);
+      router.refresh();
+      toast.success("Event deleted.");
     });
   }
 
@@ -124,10 +137,12 @@ export function ContactTimeline({
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="text-[10px] text-white/30">{timeAgo(event.created_at)}</span>
-                  {(canAdmin || event.created_by !== null) && (
+                  {(canAdmin || event.created_by === currentUserId) && (
                     <button
+                      disabled={isDeleting}
                       onClick={() => handleDelete(event.id)}
-                      className="opacity-0 group-hover:opacity-100 text-[10px] text-red-400/60 hover:text-red-400 transition"
+                      aria-label="Delete event"
+                      className="opacity-40 sm:opacity-0 group-hover:opacity-100 text-[10px] text-red-400/60 hover:text-red-400 transition disabled:opacity-20"
                     >
                       ×
                     </button>

@@ -26,7 +26,7 @@ export default async function ContactDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  await verifySession();
+  const session = await verifySession();
   const { id } = await params;
   const membership = await getActiveOrganization();
   if (!membership) notFound();
@@ -223,6 +223,7 @@ export default async function ContactDetailPage({
           orgId={membership.organization.id}
           canEdit={canEdit && !c.deleted_at}
           canAdmin={canAdmin}
+          currentUserId={session.userId}
         />
       </div>
     </div>

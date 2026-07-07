@@ -30,7 +30,7 @@ const documentSchema = z.object({
   language: z.enum(["en", "ar", "ru", "it"]),
 });
 
-export type DocumentFormState = { error?: string } | undefined;
+export type DocumentFormState = { error?: string; success?: boolean } | undefined;
 
 export async function createDocument(
   _prevState: DocumentFormState,
@@ -106,6 +106,7 @@ export async function createDocument(
   });
 
   revalidatePath("/dashboard/knowledge-base");
+  return { success: true };
 }
 
 export async function deleteDocument(documentId: string): Promise<void> {

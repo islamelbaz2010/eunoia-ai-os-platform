@@ -1,0 +1,6 @@
+embeddings/
+processed/cache/
+logs/
+*.tmp
+*.cache
+*.bin

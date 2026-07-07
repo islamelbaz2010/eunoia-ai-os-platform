@@ -1,6 +1,8 @@
 "use client";
 
 import { useTransition, useState, useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { assignTag, removeTag, createTag } from "../actions";
 import type { CrmTag } from "@/lib/types";
 
@@ -19,7 +21,8 @@ export function ContactTags({
   canEdit: boolean;
   canAdmin: boolean;
 }) {
-  const [, transition] = useTransition();
+  const router = useRouter();
+  const [isPending, transition] = useTransition();
   const [showNewTag, setShowNewTag] = useState(false);
   const [tagState, tagAction, tagPending] = useActionState(createTag, undefined);
   const [color, setColor] = useState("#6366f1");
@@ -53,8 +56,14 @@ export function ContactTags({
             {tag.name}
             {canEdit && (
               <button
-                onClick={() => transition(() => { void removeTag(contactId, tag.id); })}
-                className="opacity-60 hover:opacity-100 ml-0.5 leading-none"
+                disabled={isPending}
+                onClick={() => transition(async () => {
+                  await removeTag(contactId, tag.id);
+                  router.refresh();
+                  toast.success(`Tag "${tag.name}" removed.`);
+                })}
+                aria-label={`Remove tag ${tag.name}`}
+                className="opacity-60 hover:opacity-100 ml-0.5 leading-none disabled:opacity-30"
               >
                 ×
               </button>
@@ -69,8 +78,13 @@ export function ContactTags({
           {unassigned.map(tag => (
             <button
               key={tag.id}
-              onClick={() => transition(() => { void assignTag(contactId, tag.id); })}
-              className="flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs border border-dashed transition hover:opacity-80"
+              disabled={isPending}
+              onClick={() => transition(async () => {
+                await assignTag(contactId, tag.id);
+                router.refresh();
+                toast.success(`Tag "${tag.name}" assigned.`);
+              })}
+              className="flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs border border-dashed transition hover:opacity-80 disabled:opacity-40"
               style={{ borderColor: `${tag.color}40`, color: `${tag.color}80` }}
             >
               + {tag.name}

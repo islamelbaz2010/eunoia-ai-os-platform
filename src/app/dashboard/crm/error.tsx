@@ -8,15 +8,16 @@ export default function CrmError({
   reset: () => void;
 }) {
   return (
-    <div className="glass-panel p-6 text-center">
-      <p className="text-sm text-white/60">
-        Failed to load CRM.{error.digest ? ` (${error.digest})` : ""}
+    <div className="glass-panel mx-auto max-w-xl p-6 text-center">
+      <h1 className="text-lg font-semibold text-white">CRM could not load</h1>
+      <p className="mt-2 text-sm leading-6 text-white/60">
+        The workspace is still safe. Refresh this view to reload contacts, filters, and pipeline data.{error.digest ? ` Reference: ${error.digest}` : ""}
       </p>
       <button
         onClick={reset}
-        className="mt-3 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+        className="mt-5 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:opacity-90"
       >
-        Try again
+        Reload CRM
       </button>
     </div>
   );

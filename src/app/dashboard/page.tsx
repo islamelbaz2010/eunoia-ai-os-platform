@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Users, BookOpen, MessageSquare, Activity, TrendingUp } from "lucide-react";
+import { Users, BookOpen, MessageSquare, Activity, TrendingUp, Bot, ArrowRight } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization } from "@/lib/auth/dal";
 import { UsageChart } from "./usage-chart";
 import { StatusChart } from "./status-chart";
+import { EmptyState } from "./empty-state";
 
 type CrmMetrics = {
   total_contacts: number;
@@ -123,13 +124,93 @@ export default async function DashboardPage() {
     { label: "Usage Events", value: kpis.usageEvents, icon: Activity },
     { label: "Audit Events", value: kpis.auditEvents, icon: MessageSquare },
   ];
+  const isFirstRun = kpis.contacts === 0 && kpis.documents === 0 && kpis.usageEvents === 0;
+  const setupSteps = [
+    {
+      title: "Add your first knowledge document",
+      description: "Paste a policy, menu, FAQ, or SOP so the assistant has trusted source material.",
+      href: "/dashboard/knowledge-base",
+      cta: "Add knowledge",
+      icon: BookOpen,
+    },
+    {
+      title: "Ask a cited AI question",
+      description: "Test the assistant with a real staff question and verify the source panel.",
+      href: "/dashboard/assistant",
+      cta: "Ask assistant",
+      icon: Bot,
+    },
+    {
+      title: "Add a CRM contact",
+      description: "Capture a lead, travel agent, guest, or partner to see the pipeline come alive.",
+      href: "/dashboard/crm",
+      cta: "Add contact",
+      icon: Users,
+    },
+  ];
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold tracking-tight">Overview</h1>
-      <p className="mt-1 text-sm text-white/60">
-        Welcome to your Eunoia AI OS workspace.
-      </p>
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent-2">
+            {membership?.organization.name ?? "Workspace"}
+          </p>
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight">Overview</h1>
+          <p className="mt-1 max-w-2xl text-sm leading-6 text-white/60">
+            {isFirstRun
+              ? "Your workspace is ready. Start with knowledge, then test the assistant and add the first CRM contact."
+              : "Monitor knowledge, CRM, usage, and audit activity across your hospitality workspace."}
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/dashboard/assistant" className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90">
+            Ask AI
+          </Link>
+          <Link href="/dashboard/knowledge-base" className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-white/5 hover:text-white">
+            Add knowledge
+          </Link>
+        </div>
+      </div>
+
+      {isFirstRun && (
+        <section className="mt-6 rounded-2xl border border-accent/20 bg-accent/8 p-5">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-white">First five minutes</p>
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-white/58">
+                Complete these three actions to turn an empty workspace into a working customer demo.
+              </p>
+            </div>
+            <span className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/55">
+              0 of 3 completed
+            </span>
+          </div>
+          <div className="mt-5 grid grid-cols-1 gap-3 lg:grid-cols-3">
+            {setupSteps.map((step, index) => (
+              <Link
+                key={step.href}
+                href={step.href}
+                className="group rounded-xl border border-white/10 bg-[#08090d]/45 p-4 transition hover:border-accent/35 hover:bg-white/[0.04]"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-2">
+                    <step.icon size={17} />
+                  </span>
+                  <ArrowRight size={16} className="text-white/25 transition group-hover:translate-x-0.5 group-hover:text-white/60" />
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm font-medium text-white">
+                    {index + 1}. {step.title}
+                  </p>
+                  <p className="mt-2 text-xs leading-5 text-white/50">{step.description}</p>
+                  <p className="mt-3 text-xs font-medium text-accent-2">{step.cta}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
@@ -183,9 +264,15 @@ export default async function DashboardPage() {
             {usageOverTime.length > 0 ? (
               <UsageChart data={usageOverTime} />
             ) : (
-              <p className="py-16 text-center text-sm text-white/40">
-                No usage data yet.
-              </p>
+              <EmptyState
+                icon={Activity}
+                title="Usage will appear after the first action"
+                description="Ask the assistant, add knowledge, or update CRM records to start building an activity timeline."
+                actions={[
+                  { href: "/dashboard/assistant", label: "Ask AI" },
+                  { href: "/dashboard/knowledge-base", label: "Add knowledge", variant: "secondary" },
+                ]}
+              />
             )}
           </div>
         </div>
@@ -196,9 +283,12 @@ export default async function DashboardPage() {
             {statusBreakdown.length > 0 ? (
               <StatusChart data={statusBreakdown} />
             ) : (
-              <p className="py-16 text-center text-sm text-white/40">
-                No contacts yet.
-              </p>
+              <EmptyState
+                icon={Users}
+                title="No contacts yet"
+                description="Add your first lead, guest, travel agent, or partner to start tracking pipeline health."
+                actions={[{ href: "/dashboard/crm", label: "Open CRM" }]}
+              />
             )}
           </div>
         </div>
