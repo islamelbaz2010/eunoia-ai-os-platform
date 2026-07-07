@@ -122,7 +122,7 @@ class AssetParser {
     try {
       const parsed = JSON.parse(content);
       return JSON.stringify(parsed, null, 2);
-    } catch (error) {
+    } catch {
       // If JSON parsing fails, return raw content
       return content;
     }

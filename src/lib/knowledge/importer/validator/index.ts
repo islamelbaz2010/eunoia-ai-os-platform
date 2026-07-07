@@ -74,8 +74,9 @@ class AssetValidator {
 
     // Check for required fields
     if (opts.requiredFields) {
+      const metadataRecord: Record<string, unknown> = { ...metadata };
       for (const field of opts.requiredFields) {
-        if (!(field in metadata) || (metadata as any)[field] === null || (metadata as any)[field] === undefined) {
+        if (metadataRecord[field] === null || metadataRecord[field] === undefined) {
           errors.push(`Required field '${field}' is missing`);
         }
       }
@@ -161,14 +162,14 @@ class AssetValidator {
     }
 
     // Find duplicate hashes
-    for (const [hash, paths] of hashMap.entries()) {
+    for (const [_hash, paths] of hashMap.entries()) {
       if (paths.length > 1) {
         duplicateHashes.push(...paths);
       }
     }
 
     // Find duplicate files (same name)
-    for (const [name, paths] of pathMap.entries()) {
+    for (const [_name, paths] of pathMap.entries()) {
       if (paths.length > 1) {
         duplicateFiles.push(...paths);
       }

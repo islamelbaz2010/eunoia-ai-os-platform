@@ -5,10 +5,15 @@
 import { FileSystem } from "../../src/lib/knowledge/importer/filesystem";
 import { AssetScanner } from "../../src/lib/knowledge/importer/scanner";
 import { AssetParser } from "../../src/lib/knowledge/importer/parser";
-import { AssetClassifier } from "../../src/lib/knowledge/importer/classifier";
 import { processAsset } from "../../src/lib/knowledge/knowledge";
 import chokidar from "chokidar";
-import type { WatchOptions } from "../../src/lib/knowledge/importer/types";
+import type {
+  AssetIndexEntry,
+  CategoryIndexEntry,
+  EntityIndexEntry,
+  RelationshipIndexEntry,
+  WatchOptions,
+} from "../../src/lib/knowledge/importer/types";
 
 /**
  * Watch knowledge/assets directory for changes and regenerate indexes.
@@ -30,7 +35,6 @@ async function main() {
 
   const scanner = new AssetScanner(fs);
   const parser = new AssetParser(fs);
-  const classifier = new AssetClassifier();
   const outputFs = new FileSystem(".");
 
   // Create output directory
@@ -78,9 +82,9 @@ async function main() {
       });
 
       // Process assets and generate indexes
-      const assetIndexEntries: any[] = [];
-      const entityIndexEntries: any[] = [];
-      const relationshipIndexEntries: any[] = [];
+      const assetIndexEntries: AssetIndexEntry[] = [];
+      const entityIndexEntries: EntityIndexEntry[] = [];
+      const relationshipIndexEntries: RelationshipIndexEntry[] = [];
       const categoryMap = new Map<string, { count: number; totalSize: number }>();
 
       for (const scannedAsset of scannedAssets) {
@@ -197,7 +201,7 @@ async function main() {
   }
 
   // CSV generation helpers
-  function generateAssetsCsv(entries: readonly any[]): string {
+  function generateAssetsCsv(entries: readonly AssetIndexEntry[]): string {
     const headers = "id,path,category,extension,size,checksum,modifiedAt,language";
     const rows = entries.map(
       (e) => `${e.id},"${e.path}","${e.category}",${e.extension},${e.size},${e.checksum},${e.modifiedAt},${e.language}`
@@ -205,7 +209,7 @@ async function main() {
     return [headers, ...rows].join("\n");
   }
 
-  function generateEntitiesCsv(entries: readonly any[]): string {
+  function generateEntitiesCsv(entries: readonly EntityIndexEntry[]): string {
     const headers = "assetId,entityType,entityValue,confidence,occurrences";
     const rows = entries.map(
       (e) => `${e.assetId},${e.entityType},"${e.entityValue}",${e.confidence},${e.occurrences}`
@@ -213,7 +217,7 @@ async function main() {
     return [headers, ...rows].join("\n");
   }
 
-  function generateRelationshipsCsv(entries: readonly any[]): string {
+  function generateRelationshipsCsv(entries: readonly RelationshipIndexEntry[]): string {
     const headers = "assetId,relationshipType,subject,object,confidence";
     const rows = entries.map(
       (e) => `${e.assetId},${e.relationshipType},"${e.subject}","${e.object}",${e.confidence}`
@@ -221,7 +225,7 @@ async function main() {
     return [headers, ...rows].join("\n");
   }
 
-  function generateCategoriesCsv(entries: readonly any[]): string {
+  function generateCategoriesCsv(entries: readonly CategoryIndexEntry[]): string {
     const headers = "category,assetCount,totalSize";
     const rows = entries.map(
       (e) => `"${e.category}",${e.assetCount},${e.totalSize}`
