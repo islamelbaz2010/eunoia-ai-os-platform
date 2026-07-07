@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
 import { logAuditEvent, logUsageEvent } from "@/lib/auth/audit";
 import { hasRole, type CrmPipelineStage, type CrmActivityType, type CrmTimelineEventType } from "@/lib/types";
+import { checkContactLimit } from "@/lib/stripe/quota";
 
 // ─── Shared error translation ─────────────────────────────────────────────────
 
@@ -79,6 +80,10 @@ export async function createContact(
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Invalid input." };
   }
+
+  // Quota check: enforce contact limit for the org's subscription tier.
+  const limitError = await checkContactLimit(membership.organization).catch(() => null);
+  if (limitError) return { error: limitError };
 
   const supabase = await createClient();
 

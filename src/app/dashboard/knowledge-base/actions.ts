@@ -8,6 +8,7 @@ import { logAuditEvent, logUsageEvent } from "@/lib/auth/audit";
 import { ingestDocument } from "@/lib/ai/ingest";
 import { logger } from "@/lib/logger";
 import { hasRole } from "@/lib/types";
+import { checkDocumentLimit } from "@/lib/stripe/quota";
 
 function dbError(error: { code?: string; message?: string }): string {
   if (error.code === "23505") return "A document with this title already exists.";
@@ -52,6 +53,10 @@ export async function createDocument(
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Invalid input." };
   }
+
+  // Quota check: enforce document limit for the org's subscription tier.
+  const limitError = await checkDocumentLimit(membership.organization).catch(() => null);
+  if (limitError) return { error: limitError };
 
   const supabase = await createClient();
   const { data, error } = await supabase

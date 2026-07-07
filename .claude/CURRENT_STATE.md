@@ -1,13 +1,13 @@
 # CURRENT STATE
 
-**Last updated**: 2026-07-03 (Session 13 — RC1 Cleanup)  
+**Last updated**: 2026-07-07 (Session 15 — Production Readiness Validation COMPLETE)  
 **Branch**: main  
-**Tests**: 62/62 passing  
+**Tests**: 309/309 passing  
 **TypeScript**: Clean (0 errors)  
 **Lint**: Clean  
-**Build**: Clean (22 routes)  
-**Commercial Readiness**: 65% (all migrations applied ✅; new user onboarding ✅)  
-**Production Readiness**: 87/100  
+**Build**: Clean (24 routes)  
+**Commercial Readiness**: 78% (Stripe billing implemented; awaiting env vars + Supabase migration 0011)  
+**Production Readiness**: 91/100  
 
 **Production Status**: 🟢 LIVE — https://eunoia-ai-os-platform.vercel.app  
 - `/api/health` → `{"status":"ready"}` ✅  
@@ -29,7 +29,8 @@
 | CRM: delete contacts | ✅ | Admin/owner only (RLS + app check), `deleteContact` action |
 | Knowledge Base: add docs | ✅ | Auto-ingests + embeds on save |
 | Knowledge Base: delete docs | ✅ | Admin/owner OR creator, `deleteDocument` action |
-| RAG Assistant | ✅ | Embed → HNSW search → GPT-4o-mini → cited answer |
+| RAG Assistant | ✅ | Embed → HNSW search → GPT-4o-mini → cited answer, **streaming** |
+| RAG: streaming responses | ✅ | `/api/assistant/stream` — SSE, sources first, tokens live |
 | RAG: source citations in UI | ✅ | `SourcesPanel` in `chat.tsx` shows sources with similarity |
 | RAG: rate limiting | ✅ | 50 queries/user/hour via `usage_events` count |
 | Team invites: create/revoke | ✅ | `createInvite` → email sent via Resend |
@@ -69,7 +70,7 @@
 | CRM: edit contact | P1 | Contacts can't be updated | 4 hours |
 | KB: edit document + re-ingest | P1 | Documents can't be corrected | 6 hours |
 | Org switcher | P1 | Multi-org users stuck on first org | 1 day |
-| Streaming RAG responses | P1 | 5-6 sec "Thinking..." blocks UX | 1 day |
+| Streaming RAG responses | ✅ DONE | `/api/assistant/stream` — real-time SSE | |
 | Chat history persistence | P2 | Refresh loses all conversation | 2 days |
 | Pagination on all tables | P2 | Silent 200/100/50 row truncation | 1 day |
 | Stripe billing | P2 | No revenue collection | 3 days |

@@ -32,6 +32,7 @@ export default async function DashboardLayout({
     { href: "/dashboard/assistant", icon: "bot", label: "RAG Assistant" },
     { href: "/dashboard/audit-logs", icon: "audit", label: "Audit Logs" },
     { href: "/dashboard/usage", icon: "usage", label: "Usage" },
+    { href: "/dashboard/billing", icon: "billing", label: "Billing" },
   ];
 
   return (

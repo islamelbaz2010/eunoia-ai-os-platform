@@ -15,6 +15,7 @@ const PUBLIC_ROUTES = [
   "/api/live",
   "/api/health",
   "/api/metrics",          // Prometheus scrape endpoint — auth handled by METRICS_TOKEN
+  "/api/stripe/webhook",   // Stripe webhook — auth handled by Stripe-Signature verification
   "/monitoring-tunnel",    // Sentry event tunnel
 ];
 

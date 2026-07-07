@@ -11,6 +11,7 @@ import {
   BarChart3,
   ShieldCheck,
   Settings,
+  CreditCard,
 } from "lucide-react";
 
 const icons = {
@@ -22,6 +23,7 @@ const icons = {
   usage: BarChart3,
   admin: ShieldCheck,
   settings: Settings,
+  billing: CreditCard,
 };
 
 export type IconName = keyof typeof icons;

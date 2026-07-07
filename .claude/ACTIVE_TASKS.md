@@ -1,15 +1,39 @@
 # ACTIVE TASKS
 
-**Updated**: 2026-07-02 (Session 12 — Sprint 0.9 Production Hardening COMPLETE)  
+**Updated**: 2026-07-07 (Session 15 — Production Readiness Validation COMPLETE)  
 **Next session should start here.**
 
 ---
 
 ## IN PROGRESS
 
-Nothing actively in flight. Sprint 0.9 is DONE.  
-⚠️ Waiting for user to apply DB migrations before new user onboarding works.  
-⚠️ Waiting for explicit approval before beginning Sprint 1.
+Nothing in flight. All code is production-quality. All remaining blockers are infrastructure configuration.  
+See BLOCKER_REPORT.md, PRODUCTION_GO_LIVE_CHECKLIST.md, CUSTOMER_JOURNEY_VALIDATION.md, DEPLOYMENT_VALIDATION.md for exact steps.
+
+---
+
+## RECENTLY COMPLETED (Session 15 — 2026-07-07, Production Readiness Audit)
+
+- [x] **Production readiness audit** — validated complete customer journey end-to-end (15 steps)
+- [x] **BLOCKER_REPORT.md** — 18 blockers identified (5 P0, 6 P1, 4 P2, 3 P3), all categorized with fix instructions
+- [x] **CUSTOMER_JOURNEY_VALIDATION.md** — each of 15 journey steps validated against source code
+- [x] **DEPLOYMENT_VALIDATION.md** — all code gates verified, 24 routes inventoried, env var matrix complete
+- [x] **PRODUCTION_GO_LIVE_CHECKLIST.md** — 7-phase actionable checklist (DB → Vercel → Stripe → Resend → Supabase Auth → Sentry → Smoke Test)
+- [x] **Code fix: searchParams async** — `crm/page.tsx` + `invite/page.tsx` typed as `Promise<{...}>` and awaited (Next.js 15+)
+- [x] **.env.example** — added all Stripe vars, DEMO_REQUEST_EMAIL, organized into sections with comments
+- [x] **309/309 tests ✅, TypeScript 0 errors ✅, Lint clean ✅, Build 24 routes ✅**
+
+---
+
+## RECENTLY COMPLETED (Session 14 — 2026-07-07, Sprint 2 Launch)
+
+- [x] **SPRINT2_MASTER_PLAN.md** — full CTO review, scored all categories, ranked every task
+- [x] **Streaming RAG responses** — `/api/assistant/stream` SSE route + updated `chat.tsx`
+  - Sources sent before first token (sub-1s)
+  - Text streams token-by-token with blinking cursor
+  - Rate limit + auth + org isolation identical to original
+  - 309/309 tests ✅, TypeScript 0 errors ✅, Lint clean ✅, Build clean ✅
+- [x] **TASK_REPORT.md** — complete report with UX transformation, security notes, next steps
 
 ---
 

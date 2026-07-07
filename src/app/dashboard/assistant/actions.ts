@@ -6,6 +6,7 @@ import { getActiveOrganization, verifySession } from "@/lib/auth/dal";
 import { logUsageEvent } from "@/lib/auth/audit";
 import { logger } from "@/lib/logger";
 import { embedText, getOpenAIClient, CHAT_MODEL } from "@/lib/ai/openai";
+import { getAiQueryRateLimit } from "@/lib/stripe/quota";
 
 const questionSchema = z
   .string()
@@ -17,9 +18,8 @@ const questionSchema = z
 // Returning them leads to hallucinated answers that reference unrelated content.
 const MIN_SIMILARITY = 0.3;
 
-// Per-user, per-org rate limit on AI queries. Keeps OpenAI costs predictable
-// for early-stage orgs and prevents runaway abuse before Stripe quotas exist.
-const RAG_RATE_LIMIT_PER_HOUR = 50;
+// Fallback rate limit used only if billing_subscriptions table is unreachable.
+const RAG_RATE_LIMIT_FALLBACK = 50;
 
 // Hard cap on generated tokens — GPT-4o-mini max is 16 384; 1024 is ample for
 // a hospitality FAQ answer and keeps per-query cost predictable.
@@ -46,18 +46,22 @@ export async function askAssistant(question: string): Promise<AssistantResult> {
 
   const supabase = await createClient();
 
-  // Enforce per-user hourly rate limit before calling OpenAI.
-  const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-  const { count: recentCount } = await supabase
-    .from("usage_events")
-    .select("id", { count: "exact", head: true })
-    .eq("organization_id", membership.organization.id)
-    .eq("actor_id", session.userId)
-    .eq("event_type", "rag_query")
-    .gte("created_at", since);
+  // Enforce per-user hourly rate limit based on the org's subscription tier.
+  const rateLimit = await getAiQueryRateLimit(membership.organization.id).catch(() => RAG_RATE_LIMIT_FALLBACK);
 
-  if ((recentCount ?? 0) >= RAG_RATE_LIMIT_PER_HOUR) {
-    return { error: `Rate limit reached. You can ask up to ${RAG_RATE_LIMIT_PER_HOUR} questions per hour.` };
+  if (rateLimit !== null) {
+    const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    const { count: recentCount } = await supabase
+      .from("usage_events")
+      .select("id", { count: "exact", head: true })
+      .eq("organization_id", membership.organization.id)
+      .eq("actor_id", session.userId)
+      .eq("event_type", "rag_query")
+      .gte("created_at", since);
+
+    if ((recentCount ?? 0) >= rateLimit) {
+      return { error: `Rate limit reached. Your plan allows up to ${rateLimit} AI queries per hour. Upgrade for more.` };
+    }
   }
 
   let queryEmbedding: number[];

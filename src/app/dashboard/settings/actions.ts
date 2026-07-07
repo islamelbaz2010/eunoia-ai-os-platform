@@ -9,6 +9,7 @@ import { AuthorizationService } from "@/lib/auth/authorization";
 import { Permissions } from "@/lib/auth/permissions";
 import { hasRole, type OrgRole, type OrgSettings } from "@/lib/types";
 import { sendInviteEmail } from "@/lib/email";
+import { checkMemberLimit } from "@/lib/stripe/quota";
 
 // Translate raw Supabase error codes into safe user-facing messages.
 // Never expose internal function names, table names, or schema details to clients.
@@ -75,6 +76,10 @@ export async function createInvite(
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Invalid input." };
   }
+
+  // Quota check: enforce member limit for the org's subscription tier.
+  const limitError = await checkMemberLimit(membership.organization).catch(() => null);
+  if (limitError) return { error: limitError };
 
   const supabase = await createClient();
   const { data: invite, error } = await supabase
