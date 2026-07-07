@@ -1,32 +1,54 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { LandingNav } from "./_landing/nav";
+import { Hero } from "./_landing/hero";
+import { Problem } from "./_landing/problem";
+import { Solution } from "./_landing/solution";
+import { HowItWorks } from "./_landing/how-it-works";
+import { Industries } from "./_landing/industries";
+import { AiFeatures } from "./_landing/ai-features";
+import { CrmSection } from "./_landing/crm-section";
+import { Roi } from "./_landing/roi";
+import { Pricing } from "./_landing/pricing";
+import { Faq } from "./_landing/faq";
+import { Demo } from "./_landing/demo";
+import { Footer } from "./_landing/footer";
+import { StickyCTA } from "./_landing/sticky-cta";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Eunoia AI OS — AI Knowledge & CRM for Hospitality",
+  description:
+    "Upload your policies, menus, and SOPs once. Your team gets instant, cited AI answers in Arabic or English. Built for hotels, resorts, and hospitality groups across Egypt, UAE, and Saudi Arabia.",
+  openGraph: {
+    title: "Eunoia AI OS — AI Knowledge & CRM for Hospitality",
+    description:
+      "The AI Operating System for hospitality teams. Knowledge Base + RAG Assistant + CRM. Live in 2 hours.",
+  },
+  twitter: {
+    title: "Eunoia AI OS — AI Knowledge & CRM for Hospitality",
+    description:
+      "The AI Operating System for hospitality teams. Knowledge Base + RAG Assistant + CRM. Live in 2 hours.",
+  },
+};
+
+export default function HomePage() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-      <span className="rounded-full border border-border bg-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/60">
-        AI Operating System for Hospitality
-      </span>
-      <h1 className="mt-6 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-        Eunoia AI OS
-      </h1>
-      <p className="mt-4 max-w-xl text-base text-white/60">
-        Built for hotels, resorts, hospitality groups, and diving centers across Egypt,
-        the UAE, and Saudi Arabia.
-      </p>
-      <div className="mt-8 flex gap-3">
-        <Link
-          href="/login"
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white hover:opacity-90"
-        >
-          Sign in
-        </Link>
-        <Link
-          href="/signup"
-          className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-white/5"
-        >
-          Get started
-        </Link>
-      </div>
-    </main>
+    <>
+      <LandingNav />
+      <main>
+        <Hero />
+        <Problem />
+        <Solution />
+        <HowItWorks />
+        <Industries />
+        <AiFeatures />
+        <CrmSection />
+        <Roi />
+        <Pricing />
+        <Faq />
+        <Demo />
+      </main>
+      <Footer />
+      <StickyCTA />
+    </>
   );
 }

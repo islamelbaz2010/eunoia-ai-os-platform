@@ -7,7 +7,7 @@ import { AssetScanner } from "../../src/lib/knowledge/importer/scanner";
 import { AssetParser } from "../../src/lib/knowledge/importer/parser";
 import { AssetValidator } from "../../src/lib/knowledge/importer/validator";
 import { QualityReporter } from "../../src/lib/knowledge/importer/reporter";
-import type { ValidatorOptions } from "../../src/lib/knowledge/importer/types";
+import type { ValidatorOptions, FileMetadata } from "../../src/lib/knowledge/importer/types";
 
 /**
  * Generate quality reports for knowledge assets.
