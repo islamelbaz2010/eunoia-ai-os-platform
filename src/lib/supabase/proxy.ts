@@ -6,6 +6,8 @@ const PUBLIC_ROUTES = [
   "/",
   "/login",
   "/signup",
+  "/privacy",              // Privacy policy — must be publicly accessible
+  "/terms",                // Terms of service — must be publicly accessible
   "/auth/callback",
   "/auth/forgot-password",
   "/auth/update-password", // Password-reset page — reached via emailed link before session exists

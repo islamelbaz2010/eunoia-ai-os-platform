@@ -482,7 +482,7 @@ const CRM_CONTACTS = [
     email: "marco.villas@mariottoegypt.com",
     phone: "+20 109 876 5432",
     company: "Mariotto Hotels Egypt",
-    pipeline_stage: "closed_won",
+    pipeline_stage: "won",
     status: "won",
     source: "exhibition",
     notes: "GM of Mariotto Zamalek. Signed Starter plan. 4 team members. First documents to upload: F&B menus + VIP protocol.",
@@ -657,7 +657,7 @@ async function main() {
       continue;
     }
 
-    // Insert document
+    // Insert document (status: "draft" while embedding, updated to "published" after)
     const { data: newDoc, error: docErr } = await supabase
       .from("knowledge_base_documents")
       .insert({
@@ -665,7 +665,7 @@ async function main() {
         title: doc.title,
         content: doc.content,
         language: doc.language,
-        status: "indexing",
+        status: "draft",
         created_by: userId,
       })
       .select("id")
@@ -758,9 +758,10 @@ async function main() {
       await supabase.from("crm_timeline_events").insert({
         contact_id: newContact.id,
         organization_id: orgId,
-        actor_id: userId,
+        created_by: userId,
         event_type: "note",
-        description: contact.notes,
+        title: "Initial note",
+        body: contact.notes,
       });
     } catch { /* table may not exist */ }
   }
@@ -769,33 +770,45 @@ async function main() {
   hdr("Step 6: Usage Events (Dashboard Chart Data)");
 
   if (!DRY_RUN) {
-    const events = [];
-    const now = new Date();
-    for (let d = 13; d >= 0; d--) {
-      const date = new Date(now);
-      date.setDate(date.getDate() - d);
-      const count = Math.floor(Math.random() * 8) + 2; // 2–10 events per day
-      for (let i = 0; i < count; i++) {
-        const eventTime = new Date(date);
-        eventTime.setMinutes(Math.floor(Math.random() * 60 * 8));
-        events.push({
-          organization_id: orgId,
-          actor_id: userId,
-          event_type: "ai_query",
-          metadata: { question: "demo_seed" },
-          created_at: eventTime.toISOString(),
-        });
-      }
-    }
-
-    const { error: usageErr } = await supabase
+    // Idempotency: skip if demo seed events already exist for this org
+    const { count: existingUsage } = await supabase
       .from("usage_events")
-      .insert(events);
+      .select("id", { count: "exact", head: true })
+      .eq("organization_id", orgId)
+      .eq("event_type", "ai_query")
+      .containedBy("metadata", { question: "demo_seed" });
 
-    if (usageErr) {
-      warn(`Usage events: ${usageErr.message}`);
+    if (existingUsage && existingUsage > 0) {
+      ok(`Usage events already seeded (${existingUsage} events) — skipping`);
     } else {
-      ok(`Inserted ${events.length} usage events across 14 days`);
+      const events = [];
+      const now = new Date();
+      for (let d = 13; d >= 0; d--) {
+        const date = new Date(now);
+        date.setDate(date.getDate() - d);
+        const count = Math.floor(Math.random() * 8) + 2; // 2–10 events per day
+        for (let i = 0; i < count; i++) {
+          const eventTime = new Date(date);
+          eventTime.setMinutes(Math.floor(Math.random() * 60 * 8));
+          events.push({
+            organization_id: orgId,
+            actor_id: userId,
+            event_type: "ai_query",
+            metadata: { question: "demo_seed" },
+            created_at: eventTime.toISOString(),
+          });
+        }
+      }
+
+      const { error: usageErr } = await supabase
+        .from("usage_events")
+        .insert(events);
+
+      if (usageErr) {
+        warn(`Usage events: ${usageErr.message}`);
+      } else {
+        ok(`Inserted ${events.length} usage events across 14 days`);
+      }
     }
   } else {
     inf("DRY RUN: would insert usage events");
@@ -805,23 +818,34 @@ async function main() {
   hdr("Step 7: Audit Log Entries");
 
   if (!DRY_RUN) {
-    const auditEvents = [
-      { event_type: "kb_document_created", description: "Added VIP Guest Protocol" },
-      { event_type: "kb_document_created", description: "Added F&B Menu document" },
-      { event_type: "crm_contact_created", description: "Added contact: Marco Villas" },
-      { event_type: "crm_contact_updated", description: "Updated stage: Omar Khalil → Qualified" },
-      { event_type: "member_invited",       description: "Invited team member (demo)" },
-    ];
+    // Idempotency: skip if audit entries already exist for this org
+    const { count: existingAudit } = await supabase
+      .from("audit_logs")
+      .select("id", { count: "exact", head: true })
+      .eq("organization_id", orgId)
+      .eq("actor_id", userId);
 
-    for (const event of auditEvents) {
-      const { error } = await supabase.from("audit_logs").insert({
-        organization_id: orgId,
-        actor_id: userId,
-        ...event,
-      });
-      if (error) warn(`Audit event failed: ${error.message}`);
+    if (existingAudit && existingAudit > 0) {
+      ok(`Audit entries already seeded (${existingAudit} entries) — skipping`);
+    } else {
+      const auditEvents = [
+        { action: "kb_document_created", metadata: { description: "Added VIP Guest Protocol" } },
+        { action: "kb_document_created", metadata: { description: "Added F&B Menu document" } },
+        { action: "crm_contact_created", metadata: { description: "Added contact: Marco Villas" } },
+        { action: "crm_contact_updated", metadata: { description: "Updated stage: Omar Khalil → Qualified" } },
+        { action: "member_invited",      metadata: { description: "Invited team member (demo)" } },
+      ];
+
+      for (const event of auditEvents) {
+        const { error } = await supabase.from("audit_logs").insert({
+          organization_id: orgId,
+          actor_id: userId,
+          ...event,
+        });
+        if (error) warn(`Audit event failed: ${error.message}`);
+      }
+      ok(`Inserted ${auditEvents.length} audit events`);
     }
-    ok(`Inserted ${auditEvents.length} audit events`);
   } else {
     inf("DRY RUN: would insert audit events");
   }

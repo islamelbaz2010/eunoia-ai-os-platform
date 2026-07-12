@@ -150,13 +150,14 @@ http_body() { curl -s --max-time 10 "$1" 2>/dev/null || echo ""; }
 SMOKE_PASS=0; SMOKE_FAIL=0
 
 check() {
-  local desc="$1" code actual
-  code="$2"
+  local desc="$1" code_pattern actual
+  code_pattern="$2"
   actual=$(http_code "$PROD_URL$3")
-  if [[ "$actual" == "$code"* ]]; then
-    ok "SMOKE: $desc → $actual"; ((SMOKE_PASS++))
+  # code_pattern supports pipe-separated values: "200|201" or single code "307"
+  if echo "$actual" | grep -qE "^(${code_pattern//\\/})$"; then
+    ok "SMOKE: $desc → $actual"; ((SMOKE_PASS++)) || true
   else
-    err "SMOKE: $desc → $actual (expected $code)"; ((SMOKE_FAIL++))
+    err "SMOKE: $desc → $actual (expected $code_pattern)"; ((SMOKE_FAIL++)) || true
   fi
 }
 
