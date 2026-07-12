@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 
 type Source = { id: string; content: string; similarity: number };
 type Message = { role: "user" | "assistant"; content: string; sources?: Source[] };
@@ -10,6 +10,33 @@ type SseEvent =
   | { type: "delta"; content: string }
   | { type: "done" }
   | { type: "error"; message: string };
+
+const SUGGESTED_QUESTIONS = [
+  "What is the check-in procedure for VIP guests?",
+  "What are the dietary options available on our menu?",
+  "How do we handle a guest medical emergency?",
+  "What documents do guests need for early check-in?",
+];
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = useCallback(() => {
+    void navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [text]);
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="mt-1 text-xs text-white/25 hover:text-white/50 transition-colors"
+      title="Copy answer"
+    >
+      {copied ? "Copied!" : "Copy"}
+    </button>
+  );
+}
 
 function SourcesPanel({ sources }: { sources: Source[] }) {
   const [open, setOpen] = useState(false);
@@ -156,10 +183,23 @@ export function AssistantChat() {
     <div className="glass-panel flex min-h-[500px] flex-col">
       <div className="flex-1 space-y-4 overflow-y-auto p-5">
         {messages.length === 0 && (
-          <p className="text-sm text-white/40">
-            Ask about policies, procedures, or guest-facing information from your
-            Knowledge Base.
-          </p>
+          <div>
+            <p className="text-sm text-white/40 mb-4">
+              Ask any question about your policies, procedures, or operations. The AI answers only from your Knowledge Base documents — with cited sources.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {SUGGESTED_QUESTIONS.map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => setQuestion(q)}
+                  className="rounded-lg border border-border bg-white/3 px-3 py-1.5 text-xs text-white/50 hover:text-white hover:border-accent/40 hover:bg-accent/8 transition-all text-left"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+          </div>
         )}
         {messages.map((message, index) => (
           <div
@@ -178,6 +218,9 @@ export function AssistantChat() {
                 <span className="ml-0.5 inline-block h-3.5 w-0.5 animate-pulse bg-white/60 align-middle" />
               )}
             </div>
+            {message.role === "assistant" && message.content && !streaming && (
+              <CopyButton text={message.content} />
+            )}
             {message.role === "assistant" && message.sources && (
               <SourcesPanel sources={message.sources} />
             )}

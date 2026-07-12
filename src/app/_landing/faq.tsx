@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Can team members have different access levels?",
-    a: "Yes. Eunoia AI OS has 9 role levels: Owner, Super Admin, Admin, Manager, Operator, Editor, Member, Viewer, and Guest. Owners and Admins can invite, revoke, and manage all team members. Viewers can read but not create or delete.",
+    a: "Yes. Eunoia AI OS has four access levels: Owner (full control), Admin (can invite and manage team members), Member (standard operational access), and Viewer (read-only). Owners and Admins can invite, revoke, and change roles for any team member.",
   },
   {
     q: "What is the cancellation policy?",

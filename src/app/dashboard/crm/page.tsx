@@ -229,14 +229,6 @@ export default async function CrmPage({
           <span className="text-xs text-white/40">
             {totalCount > 0 ? `${totalCount} contact${totalCount !== 1 ? "s" : ""}` : "No contacts"}
           </span>
-          {membership && view === "active" && (
-            <a
-              href={`/api/crm/export?org=${membership.organization.id}`}
-              className="text-xs text-white/40 hover:text-white transition"
-            >
-              Export CSV
-            </a>
-          )}
         </div>
         <table className="w-full text-left text-sm">
           <thead className="border-b border-border/60 text-white/40 text-xs uppercase tracking-wide">

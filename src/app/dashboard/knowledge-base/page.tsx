@@ -40,7 +40,14 @@ export default async function KnowledgeBasePage() {
         <table className="w-full text-left text-sm">
           <thead className="border-b border-border text-white/50">
             <tr>
-              <th className="px-5 py-3 font-medium">Title</th>
+              <th className="px-5 py-3 font-medium">
+                Title
+                {documents && documents.length > 0 && (
+                  <span className="ml-2 text-xs font-normal text-white/30">
+                    {documents.length}{documents.length === 100 ? " (showing first 100)" : ""}
+                  </span>
+                )}
+              </th>
               <th className="px-5 py-3 font-medium">Language</th>
               <th className="px-5 py-3 font-medium">Status</th>
               <th className="px-5 py-3" />

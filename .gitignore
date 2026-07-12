@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# secrets and bootstrap artifacts
+secrets/
+.env.production.master
+tools/bootstrap/.bootstrap.lock.json
+tools/bootstrap/BOOTSTRAP_REPORT.md

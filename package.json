@@ -18,7 +18,9 @@
     "doctor:build": "node scripts/doctor.js --build",
     "doctor:offline": "node scripts/doctor.js --skip-ext",
     "verify-migrations": "node scripts/verify-migrations.js",
-    "verify-crm": "node scripts/verify-crm.js"
+    "verify-crm": "node scripts/verify-crm.js",
+    "bootstrap": "tsx tools/bootstrap/index.ts",
+    "bootstrap:dry-run": "tsx tools/bootstrap/index.ts --dry-run"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.62.0",
@@ -52,7 +54,9 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
+    "tsx": "^4.23.0",
     "typescript": "^5",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.9",
+    "xlsx": "^0.18.5"
   }
 }

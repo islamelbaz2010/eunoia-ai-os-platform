@@ -11,6 +11,7 @@ const tiers = [
       "Unlimited AI queries (50/user/hr)",
       "50 Knowledge Base documents",
       "Full CRM with pipeline board",
+      "CSV import & export",
       "Team invites via email",
       "Audit logs",
       "Email support",
