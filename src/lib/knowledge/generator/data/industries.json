@@ -1,0 +1,200 @@
+{
+  "version": "1.0.0",
+  "totalIndustries": 5,
+  "industries": [
+    {
+      "id": "hotels",
+      "name": "Hotels",
+      "code": "HTL",
+      "description": "Hospitality and hotel management knowledge framework",
+      "naicsCode": "721110",
+      "domains": [
+        "hospitality",
+        "accommodation",
+        "guest-services",
+        "revenue-management"
+      ],
+      "promptContext": "You are generating enterprise knowledge for the hotel and hospitality industry. Focus on guest experience, operational excellence, revenue optimization, and brand standards. Use industry-standard terminology: PMS (Property Management System), RevPAR, ADR, OTA, STR, front desk, concierge, housekeeping.",
+      "keyTerminology": [
+        "PMS",
+        "RevPAR",
+        "ADR",
+        "OTA",
+        "GOP",
+        "occupancy rate",
+        "F&B",
+        "front desk",
+        "concierge",
+        "housekeeping",
+        "room nights",
+        "channel mix"
+      ],
+      "regulatoryContext": [
+        "PCI-DSS (payment processing)",
+        "ADA compliance",
+        "local hospitality licensing",
+        "fire safety codes",
+        "GDPR/CCPA (guest data)"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "restaurants",
+      "name": "Restaurants",
+      "code": "RST",
+      "description": "Food service and restaurant operations knowledge framework",
+      "naicsCode": "722511",
+      "domains": [
+        "food-service",
+        "kitchen-operations",
+        "front-of-house",
+        "menu-management"
+      ],
+      "promptContext": "You are generating enterprise knowledge for the restaurant and food service industry. Focus on service quality, kitchen efficiency, food safety, and guest experience. Use industry-standard terminology: FOH (Front of House), BOH (Back of House), POS, covers, COGS, mise en place, ticket time, table turn.",
+      "keyTerminology": [
+        "FOH",
+        "BOH",
+        "POS",
+        "covers",
+        "COGS",
+        "mise en place",
+        "ticket time",
+        "table turn",
+        "86",
+        "expediter",
+        "server",
+        "prep",
+        "chit"
+      ],
+      "regulatoryContext": [
+        "HACCP (food safety)",
+        "FDA Food Code",
+        "local health department codes",
+        "alcohol licensing (TABC, ABC)",
+        "labor law",
+        "allergen disclosure"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "medical-clinics",
+      "name": "Medical Clinics",
+      "code": "MED",
+      "description": "Primary care and specialty clinic knowledge framework",
+      "naicsCode": "621111",
+      "domains": [
+        "patient-care",
+        "clinical-operations",
+        "compliance",
+        "scheduling"
+      ],
+      "promptContext": "You are generating enterprise knowledge for medical clinics and healthcare practices. Focus on patient safety, clinical workflow, regulatory compliance, and operational efficiency. Use industry-standard terminology: EHR/EMR, SOAP notes, CPT codes, ICD-10, prior authorization, referral, HIPAA. Note: do not generate actual medical advice or clinical protocols.",
+      "keyTerminology": [
+        "EHR",
+        "EMR",
+        "SOAP",
+        "CPT",
+        "ICD-10",
+        "NPI",
+        "prior auth",
+        "copay",
+        "deductible",
+        "referral",
+        "HIPAA",
+        "PHI",
+        "telehealth",
+        "intake form"
+      ],
+      "regulatoryContext": [
+        "HIPAA",
+        "HITECH",
+        "state medical board regulations",
+        "CMS requirements",
+        "OSHA",
+        "state pharmacy board",
+        "DEA (controlled substances)"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate",
+      "code": "REA",
+      "description": "Real estate brokerage and property management knowledge framework",
+      "naicsCode": "531210",
+      "domains": [
+        "property-management",
+        "sales",
+        "leasing",
+        "market-analysis"
+      ],
+      "promptContext": "You are generating enterprise knowledge for real estate brokerages and property management firms. Focus on client service, transaction efficiency, market knowledge, and compliance. Use industry-standard terminology: MLS, CMA, escrow, cap rate, NOI, listing agreement, buyer representation, days on market, commission.",
+      "keyTerminology": [
+        "MLS",
+        "CMA",
+        "escrow",
+        "cap rate",
+        "NOI",
+        "DOM",
+        "contingency",
+        "earnest money",
+        "closing",
+        "title",
+        "appraisal",
+        "commission",
+        "listing",
+        "buyer agent"
+      ],
+      "regulatoryContext": [
+        "RESPA",
+        "fair housing (FHA)",
+        "state real estate licensing law",
+        "NAR code of ethics",
+        "TILA-RESPA (TRID)",
+        "ADA",
+        "local zoning ordinances"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "travel-agencies",
+      "name": "Travel Agencies",
+      "code": "TRV",
+      "description": "Travel planning and agency operations knowledge framework",
+      "naicsCode": "561510",
+      "domains": [
+        "trip-planning",
+        "booking-management",
+        "customer-service",
+        "destinations"
+      ],
+      "promptContext": "You are generating enterprise knowledge for travel agencies and tour operators. Focus on client experience, booking accuracy, destination expertise, and operational reliability. Use industry-standard terminology: GDS, IATA, PNR, booking class, itinerary, land package, commission, net rate, TICO/ASTA compliance.",
+      "keyTerminology": [
+        "GDS",
+        "IATA",
+        "PNR",
+        "booking class",
+        "fare rules",
+        "itinerary",
+        "land package",
+        "FIT",
+        "group tour",
+        "net rate",
+        "override commission",
+        "void",
+        "refund",
+        "BSP"
+      ],
+      "regulatoryContext": [
+        "IATA regulations",
+        "TICO (Ontario)",
+        "ASTA guidelines",
+        "consumer protection laws",
+        "GDPR/CCPA (client data)",
+        "airline liability (Montreal Convention)",
+        "travel insurance regulations"
+      ],
+      "enabled": true
+    }
+  ]
+}

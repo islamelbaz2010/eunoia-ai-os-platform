@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "layer": "global",
+  "description": "Platform-level and universal hospitality knowledge shared across all Eunoia AI OS organizations.",
+  "created_at": "2026-07-21T00:00:00.000Z",
+  "schema_version": "1.0.0",
+  "categories": {
+    "platform": {
+      "description": "Eunoia AI OS platform documentation and usage guides",
+      "document_count": 3
+    },
+    "hospitality": {
+      "description": "Universal hospitality service principles and standards",
+      "document_count": 3
+    },
+    "ai-practices": {
+      "description": "Best practices for using AI assistants effectively",
+      "document_count": 1
+    }
+  },
+  "total_documents": 7,
+  "documents": [
+    { "path": "platform/eunoia-platform-overview.json",   "category": "platform",       "language": "en" },
+    { "path": "platform/ai-assistant-guide.json",         "category": "platform",       "language": "en" },
+    { "path": "platform/knowledge-base-guide.json",       "category": "platform",       "language": "en" },
+    { "path": "hospitality/guest-service-excellence.json","category": "hospitality",    "language": "en" },
+    { "path": "hospitality/complaint-resolution.json",    "category": "hospitality",    "language": "en" },
+    { "path": "hospitality/communication-standards.json", "category": "hospitality",    "language": "en" },
+    { "path": "ai-practices/effective-questioning.json",  "category": "ai-practices",   "language": "en" }
+  ]
+}

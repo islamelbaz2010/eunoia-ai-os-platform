@@ -1,0 +1,37 @@
+{
+  "runId": "d1d90c61-6ea3-4927-8fa3-9a6f90cd04ec",
+  "startedAt": "2026-07-21T03:09:00.729Z",
+  "completedAt": "2026-07-21T03:09:00.745Z",
+  "durationMs": 16,
+  "mode": "single",
+  "scope": {
+    "industry": "hotels",
+    "department": "faq",
+    "topic": "general-information",
+    "language": "en",
+    "country": "EG"
+  },
+  "provider": "claude",
+  "dryRun": true,
+  "summary": {
+    "total": 1,
+    "succeeded": 0,
+    "failed": 0,
+    "quarantined": 0,
+    "skipped": 0,
+    "dryRun": 1
+  },
+  "documents": [
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "general-information",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/general-information.json",
+      "documentId": "52522d57-a5fc-447b-8855-e0244efd5371",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 0
+    }
+  ],
+  "errors": []
+}

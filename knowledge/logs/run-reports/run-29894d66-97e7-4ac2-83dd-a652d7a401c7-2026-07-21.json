@@ -1,0 +1,106 @@
+{
+  "runId": "29894d66-97e7-4ac2-83dd-a652d7a401c7",
+  "startedAt": "2026-07-21T03:09:07.029Z",
+  "completedAt": "2026-07-21T03:09:14.052Z",
+  "durationMs": 7023,
+  "mode": "department",
+  "scope": {
+    "industry": "hotels",
+    "department": "faq",
+    "language": "en",
+    "country": "EG"
+  },
+  "provider": "claude",
+  "dryRun": true,
+  "summary": {
+    "total": 8,
+    "succeeded": 0,
+    "failed": 0,
+    "quarantined": 0,
+    "skipped": 0,
+    "dryRun": 8
+  },
+  "documents": [
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "general-information",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/general-information.json",
+      "documentId": "28c925a7-9489-45f1-9f78-558f05767e4b",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 0
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "check-in-checkout-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/check-in-checkout-faq.json",
+      "documentId": "c8d99668-6b25-451e-8c3e-c753ebfede40",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 1
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "room-amenities-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/room-amenities-faq.json",
+      "documentId": "09762dec-2360-4d53-8d4c-f0e1fd7b05d2",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 1
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "dining-options-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/dining-options-faq.json",
+      "documentId": "2b11434c-cf18-4770-a47f-3011650bc5aa",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 1
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "parking-transportation-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/parking-transportation-faq.json",
+      "documentId": "ded4054b-de1d-4402-befb-8a8637ecd51a",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 0
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "pet-policy-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/pet-policy-faq.json",
+      "documentId": "725c7aa3-8492-42c9-910a-ec0f07f11d19",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 0
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "cancellation-refund-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/cancellation-refund-faq.json",
+      "documentId": "8ae1a46d-862a-4b96-9d24-dbd56018e659",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 1
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "accessibility-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/accessibility-faq.json",
+      "documentId": "a96c1df3-2f79-4500-bd8b-cc9a3fd2f814",
+      "qualityScore": 0,
+      "status": "dry-run",
+      "durationMs": 1
+    }
+  ],
+  "errors": []
+}

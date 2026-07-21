@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "totalLanguages": 8,
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "direction": "ltr",
+      "enabled": true,
+      "promptLanguage": "English"
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "direction": "rtl",
+      "enabled": true,
+      "promptLanguage": "Arabic"
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "nativeName": "Français",
+      "direction": "ltr",
+      "enabled": true,
+      "promptLanguage": "French"
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "nativeName": "Español",
+      "direction": "ltr",
+      "enabled": true,
+      "promptLanguage": "Spanish"
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "nativeName": "Deutsch",
+      "direction": "ltr",
+      "enabled": true,
+      "promptLanguage": "German"
+    },
+    {
+      "code": "zh",
+      "name": "Chinese (Simplified)",
+      "nativeName": "中文",
+      "direction": "ltr",
+      "enabled": false,
+      "promptLanguage": "Simplified Chinese"
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "nativeName": "Português",
+      "direction": "ltr",
+      "enabled": false,
+      "promptLanguage": "Portuguese"
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "direction": "ltr",
+      "enabled": false,
+      "promptLanguage": "Turkish"
+    }
+  ]
+}

@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // EPOS design artifacts — not part of the compiled source tree
+    ".ai/**",
+    "epos/**",
   ]),
   // Underscore-prefixed parameters are intentionally unused (interface contracts,
   // future extensibility, or required positional signatures).

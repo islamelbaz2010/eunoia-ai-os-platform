@@ -20,7 +20,11 @@
     "verify-migrations": "node scripts/verify-migrations.js",
     "verify-crm": "node scripts/verify-crm.js",
     "bootstrap": "tsx tools/bootstrap/index.ts",
-    "bootstrap:dry-run": "tsx tools/bootstrap/index.ts --dry-run"
+    "bootstrap:dry-run": "tsx tools/bootstrap/index.ts --dry-run",
+    "knowledge:generate": "tsx scripts/knowledge/generate.ts",
+    "knowledge:generate:dry": "tsx scripts/knowledge/generate.ts --dry-run",
+    "knowledge:import-global": "tsx scripts/knowledge/import-global.ts",
+    "knowledge:import-global:dry": "tsx scripts/knowledge/import-global.ts --dry-run"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.62.0",

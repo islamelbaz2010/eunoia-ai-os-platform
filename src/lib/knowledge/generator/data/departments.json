@@ -1,0 +1,188 @@
+{
+  "version": "1.0.0",
+  "totalDepartments": 13,
+  "departments": [
+    {
+      "id": "company",
+      "name": "Company",
+      "description": "Company profile, mission, vision, values, and organizational structure",
+      "schemaType": "department",
+      "documentTypes": [
+        "profile",
+        "org-chart",
+        "mission-statement",
+        "values-framework"
+      ],
+      "promptGuidance": "Generate structural frameworks and templates for company identity documents. Focus on organizational clarity, brand alignment, and cultural definition. Do not invent actual company names or values.",
+      "enabled": true
+    },
+    {
+      "id": "operations",
+      "name": "Operations",
+      "description": "Operational procedures, workflows, and standard operating guidelines",
+      "schemaType": "playbook",
+      "documentTypes": [
+        "sop",
+        "workflow",
+        "procedure",
+        "checklist"
+      ],
+      "promptGuidance": "Generate operational procedure frameworks and workflow structures. Focus on clarity, step sequencing, role assignment, and measurable outcomes. Do not generate specific company procedures.",
+      "enabled": true
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "description": "Sales processes, pipelines, offers, and customer acquisition frameworks",
+      "schemaType": "offer",
+      "documentTypes": [
+        "pipeline",
+        "offer",
+        "script",
+        "proposal"
+      ],
+      "promptGuidance": "Generate sales process frameworks, offer structures, and pipeline definitions. Focus on methodology, conversion optimization, and customer value delivery. Do not generate actual pricing or product details.",
+      "enabled": true
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "description": "Marketing campaigns, brand guidelines, persona definitions, and content strategy",
+      "schemaType": "campaign",
+      "documentTypes": [
+        "campaign",
+        "persona",
+        "brand-guide",
+        "content-calendar"
+      ],
+      "promptGuidance": "Generate marketing framework structures, campaign templates, and persona definitions. Focus on audience segmentation, channel strategy, and measurement frameworks. Do not generate actual creative content or copy.",
+      "enabled": true
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "description": "Customer support procedures, escalation paths, and resolution workflows",
+      "schemaType": "playbook",
+      "documentTypes": [
+        "escalation",
+        "resolution-flow",
+        "script",
+        "sla-definition"
+      ],
+      "promptGuidance": "Generate customer support workflow frameworks and escalation structures. Focus on response standards, resolution paths, and service level definitions. Do not generate specific product support scripts.",
+      "enabled": true
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "description": "Frequently asked questions schema and answer template structure",
+      "schemaType": "faq",
+      "documentTypes": [
+        "faq-item",
+        "faq-category",
+        "faq-collection"
+      ],
+      "promptGuidance": "Generate FAQ category structures and question template frameworks. Focus on common inquiry categories, answer structure, and cross-referencing. Generate category headers and question patterns — not actual answers.",
+      "enabled": true
+    },
+    {
+      "id": "templates",
+      "name": "Templates",
+      "description": "Reusable document and communication templates",
+      "schemaType": "template",
+      "documentTypes": [
+        "email",
+        "sms",
+        "letter",
+        "contract",
+        "report"
+      ],
+      "promptGuidance": "Generate communication template structures with variable placeholders. Focus on {{variable}} syntax, channel-appropriate formatting, and merge field definitions. Use placeholder variables — no actual message content.",
+      "enabled": true
+    },
+    {
+      "id": "prompts",
+      "name": "Prompts",
+      "description": "AI prompt structures, system instructions, and prompt engineering guidelines",
+      "schemaType": "prompt",
+      "documentTypes": [
+        "system-prompt",
+        "user-prompt",
+        "chain",
+        "persona-prompt"
+      ],
+      "promptGuidance": "Generate AI prompt structure definitions with variable schemas, model parameters, and output format specifications. Focus on prompt architecture, variable definitions, and guardrails — not actual prompt content.",
+      "enabled": true
+    },
+    {
+      "id": "policies",
+      "name": "Policies",
+      "description": "Business policies, compliance requirements, and regulatory guidelines",
+      "schemaType": "policy",
+      "documentTypes": [
+        "policy",
+        "procedure",
+        "compliance-rule",
+        "guideline"
+      ],
+      "promptGuidance": "Generate policy document frameworks and compliance structure templates. Focus on policy scope, enforcement mechanisms, and regulatory alignment. Do not generate actual policy text or legal content.",
+      "enabled": true
+    },
+    {
+      "id": "playbooks",
+      "name": "Playbooks",
+      "description": "Step-by-step operational playbooks and decision trees",
+      "schemaType": "playbook",
+      "documentTypes": [
+        "runbook",
+        "decision-tree",
+        "scenario",
+        "escalation-path"
+      ],
+      "promptGuidance": "Generate operational playbook frameworks with step sequences, decision points, and role assignments. Focus on trigger conditions, action steps, and escalation paths — using the playbook schema structure.",
+      "enabled": true
+    },
+    {
+      "id": "training",
+      "name": "Training",
+      "description": "Staff training materials, onboarding guides, and skill development resources",
+      "schemaType": "document",
+      "documentTypes": [
+        "module",
+        "quiz",
+        "onboarding-plan",
+        "competency-map"
+      ],
+      "promptGuidance": "Generate training module structures, competency frameworks, and onboarding plan templates. Focus on learning objectives, assessment structures, and skill progressions — not actual training content.",
+      "enabled": true
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "description": "Workflow automation specifications, trigger definitions, and action mappings",
+      "schemaType": "automation",
+      "documentTypes": [
+        "trigger",
+        "action",
+        "workflow-spec",
+        "integration-map"
+      ],
+      "promptGuidance": "Generate automation workflow specifications with trigger conditions, action sequences, and integration mappings. Focus on event definitions, conditional logic, and system integration points — using the automation schema structure.",
+      "enabled": true
+    },
+    {
+      "id": "analytics",
+      "name": "Analytics",
+      "description": "KPI definitions, reporting structures, and performance metric frameworks",
+      "schemaType": "kpi",
+      "documentTypes": [
+        "kpi",
+        "dashboard-spec",
+        "report-template",
+        "metric-definition"
+      ],
+      "promptGuidance": "Generate KPI definition structures, measurement frameworks, and dashboard specifications. Focus on metric formulas, target definitions, data sources, and reporting cadence — using the kpi schema structure.",
+      "enabled": true
+    }
+  ]
+}

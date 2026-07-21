@@ -1,0 +1,3 @@
+{"runId":"d1d90c61-6ea3-4927-8fa3-9a6f90cd04ec","startedAt":"2026-07-21T03:09:00.729Z","completedAt":"2026-07-21T03:09:00.745Z","mode":"single","summary":{"total":1,"succeeded":0,"failed":0,"quarantined":0,"skipped":0,"dryRun":1},"dryRun":true}
+{"runId":"29894d66-97e7-4ac2-83dd-a652d7a401c7","startedAt":"2026-07-21T03:09:07.029Z","completedAt":"2026-07-21T03:09:14.052Z","mode":"department","summary":{"total":8,"succeeded":0,"failed":0,"quarantined":0,"skipped":0,"dryRun":8},"dryRun":true}
+{"runId":"d9731a58-31a7-4972-a246-0082d74a897e","startedAt":"2026-07-21T03:09:18.102Z","completedAt":"2026-07-21T03:17:36.566Z","mode":"pack","summary":{"total":453,"succeeded":0,"failed":0,"quarantined":0,"skipped":0,"dryRun":453},"dryRun":true}

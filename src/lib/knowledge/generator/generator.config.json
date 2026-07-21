@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "packId": "demo-enterprise-v1",
+  "packVersion": "1.0.0",
+  "knowledgeRoot": "knowledge",
+  "packRoot": "knowledge/packs/demo-enterprise-v1",
+  "schemasRoot": "knowledge/schemas",
+  "provider": {
+    "primary": "claude",
+    "fallback": ["openai"],
+    "timeout": 60000,
+    "retries": 2,
+    "retryDelayMs": 2000,
+    "rateLimit": {
+      "requestsPerMinute": 60,
+      "tokensPerMinute": 1000000
+    },
+    "models": {
+      "gemini": "gemini-1.5-pro",
+      "claude": "claude-sonnet-4-6",
+      "openai": "gpt-4o"
+    }
+  },
+  "generation": {
+    "defaultLanguage": "en",
+    "defaultCountry": "EG",
+    "temperature": 0.3,
+    "maxTokens": 4096,
+    "dryRun": false,
+    "batchSize": 10,
+    "delayBetweenRequestsMs": 1000,
+    "schemaVersion": "1.0.0",
+    "defaultPriority": "medium",
+    "defaultStatus": "draft"
+  },
+  "validation": {
+    "requireAllRequiredFields": true,
+    "failOnWarnings": false,
+    "maxErrors": 0,
+    "maxWarnings": 5,
+    "checksumAlgorithm": "sha256",
+    "validateLanguageCode": true,
+    "validateCountryCode": true,
+    "validateUuid": true,
+    "validateSemver": true
+  },
+  "quality": {
+    "minimumScore": 60,
+    "quarantineBelowScore": 40,
+    "weights": {
+      "coverage": 0.35,
+      "metadata": 0.25,
+      "consistency": 0.25,
+      "completeness": 0.15
+    }
+  },
+  "output": {
+    "prettyPrint": true,
+    "overwriteExisting": false,
+    "quarantinePath": "knowledge/quarantine",
+    "logPath": "knowledge/logs/generation.log",
+    "reportPath": "knowledge/logs/run-reports"
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "includeTimestamps": true
+  }
+}
