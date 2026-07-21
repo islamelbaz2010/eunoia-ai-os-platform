@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f1c4d6e-9f3d-4b3a-a9e8-2d3f5c8e5b8f",
+  "title": "Guest Welcome Letter Template for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-12T14:32:00Z",
+  "template_type": "letter",
+  "subject_template": "Welcome to {{hotel_name}} - Your Home in Egypt",
+  "body_template": "<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; }\n    .header { font-size: 18px; font-weight: bold; }\n    .content { margin-top: 20px; }\n    .footer { margin-top: 30px; font-size: 12px; color: gray; }\n  </style>\n</head>\n<body>\n  <div class=\"header\">Welcome to {{hotel_name}}!</div>\n  <div class=\"content\">\n    <p>Dear {{guest_name}},</p>\n    <p>We are delighted to have you with us and hope you enjoy your stay at our hotel located in the heart of Egypt. Our team is committed to providing you with exceptional service and ensuring your comfort throughout your stay.</p>\n    <p>For your convenience, our front desk is available 24/7 to assist with any requests you may have. Whether you need information about local attractions, dining reservations, or transportation arrangements, our concierge is here to help.</p>\n    <p>We invite you to enjoy our amenities, including our {{amenities}}. Don’t forget to try our exquisite dining options at {{restaurant_name}}, where our chefs prepare a variety of local and international dishes.</p>\n    <p>Should you need anything during your stay, please do not hesitate to contact us at extension {{contact_extension}}.</p>\n    <p>Thank you for choosing {{hotel_name}}. We wish you a pleasant and memorable stay.</p>\n  </div>\n  <div class=\"footer\">\n    <p>Best regards,</p>\n    <p>{{general_manager_name}}<br>\n    General Manager, {{hotel_name}}</p>\n  </div>\n</body>\n</html>",
+  "variables": [
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "amenities",
+      "type": "string",
+      "description": "List of hotel amenities",
+      "required": true
+    },
+    {
+      "name": "restaurant_name",
+      "type": "string",
+      "description": "Name of the hotel's restaurant",
+      "required": true
+    },
+    {
+      "name": "contact_extension",
+      "type": "string",
+      "description": "Contact extension number for guest assistance",
+      "required": true
+    },
+    {
+      "name": "general_manager_name",
+      "type": "string",
+      "description": "Name of the general manager",
+      "required": true
+    }
+  ],
+  "channel": "print",
+  "tags": [
+    "hotels",
+    "templates",
+    "welcome-letter-template"
+  ],
+  "checksum": "sha256:fdb7df0c20aa1d4e752e6ad3783d74fb6f02a01dea569d709d0e20cefe465ac8"
+}

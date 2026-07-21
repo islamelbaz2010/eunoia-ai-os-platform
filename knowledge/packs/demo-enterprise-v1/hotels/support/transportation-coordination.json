@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3e7f5a1b-6b4d-4d3e-9f8b-2d4f4c5b8f9e",
+  "title": "Transportation Coordination for Hotel Guests in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Guest requests transportation services during their stay or upon arrival/departure.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive Transportation Request",
+      "action": "Front desk staff receives a transportation request from a guest, either in person, via phone, or through the hotel's PMS.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Verify Guest Details",
+      "action": "Verify the guest's details including name, room number, and preferred transportation type (e.g., taxi, shuttle, private car).",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Check Availability",
+      "action": "Check availability of the requested transportation service using the hotel's preferred vendors or internal resources.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Service available",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Service not available",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Vendor Contact List",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Confirm Booking",
+      "action": "Confirm the booking with the transportation provider and inform the guest of the details including pick-up time and location.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Telephone",
+        "Email"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Offer Alternative Solutions",
+      "action": "If the requested service is not available, offer alternative solutions such as different timings, another type of transportation, or a different provider.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Guest accepts alternative",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Guest declines alternative",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Vendor Contact List",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Escalate Issue",
+      "action": "If the guest declines all alternatives, escalate the issue to the Duty Manager for further assistance.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 45,
+  "tags": [
+    "hotels",
+    "support",
+    "transportation-coordination"
+  ],
+  "description": "This playbook outlines the steps for coordinating transportation services for hotel guests in Egypt, ensuring a seamless experience from request to fulfillment.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://www.organization.com/playbooks/transportation-coordination",
+  "attachments": [],
+  "external_id": "trans-coord-2023",
+  "locale_overrides": {},
+  "audience": [
+    "Front Desk Staff",
+    "Concierge",
+    "Duty Managers"
+  ],
+  "prerequisites": [
+    "Access to PMS",
+    "Vendor Contact List"
+  ],
+  "escalation_path": "Duty Manager",
+  "related_playbooks": [
+    "Guest Check-in Procedures",
+    "Concierge Services"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:d1ea2a080716d5272ce3063d363a19af56e46ec53f2f678f169252aa4615dccb"
+}

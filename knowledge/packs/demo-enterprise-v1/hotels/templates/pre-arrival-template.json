@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "id": "e4f0b1a0-3b6f-4e5b-9f2d-8f5c9a1e0e3d",
+  "title": "Pre-Arrival Guest Welcome Email Template",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "template_type": "email",
+  "subject_template": "Welcome to {{hotel_name}} - Your Upcoming Stay Details",
+  "body_template": "<p>Dear {{guest_name}},</p><p>We are delighted to welcome you to {{hotel_name}} for your upcoming stay from {{check_in_date}} to {{check_out_date}}. Our team is dedicated to ensuring you have a memorable experience.</p><p>Your reservation details are as follows:</p><ul><li>Room Type: {{room_type}}</li><li>Number of Guests: {{guest_count}}</li><li>Reservation Number: {{reservation_number}}</li></ul><p>To enhance your stay, we offer a variety of services including:</p><ul><li>Complimentary airport transfer - please provide your flight details if required.</li><li>Concierge services for personalized recommendations and bookings.</li><li>Access to our exclusive F&B outlets offering a range of international cuisines.</li></ul><p>Should you have any special requests or require assistance, please do not hesitate to contact us at {{hotel_contact_email}} or {{hotel_contact_phone}}.</p><p>We look forward to welcoming you soon.</p><p>Warm regards,</p><p>{{hotel_name}} Team</p>",
+  "variables": [
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "check_in_date",
+      "type": "date",
+      "description": "Guest's check-in date",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "check_out_date",
+      "type": "date",
+      "description": "Guest's check-out date",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "room_type",
+      "type": "string",
+      "description": "Type of room booked",
+      "required": true
+    },
+    {
+      "name": "guest_count",
+      "type": "number",
+      "description": "Number of guests",
+      "required": true
+    },
+    {
+      "name": "reservation_number",
+      "type": "string",
+      "description": "Reservation confirmation number",
+      "required": true
+    },
+    {
+      "name": "hotel_contact_email",
+      "type": "string",
+      "description": "Contact email for the hotel",
+      "required": true
+    },
+    {
+      "name": "hotel_contact_phone",
+      "type": "string",
+      "description": "Contact phone number for the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "pre-arrival-template"
+  ],
+  "checksum": "sha256:21d515acf97ef02a627ebf4418c0dd6d11da9c3297b6a619be9e1d6c9acb4d6f"
+}

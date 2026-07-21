@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "id": "9f8b7c2d-3e4a-4f7b-b8d5-5c6e7a8f9b10",
+  "title": "Net Promoter Score KPI for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-11-27T12:00:00Z",
+  "metric_name": "Net Promoter Score",
+  "metric_category": "customer",
+  "formula": "NPS = ((Number of Promoters - Number of Detractors) / Total Respondents) * 100",
+  "unit": "score",
+  "measurement_frequency": "monthly",
+  "target": {
+    "value": 50,
+    "direction": "higher-is-better",
+    "min": 30,
+    "max": 70,
+    "baseline": 45
+  },
+  "description": "The Net Promoter Score (NPS) is a key indicator of customer satisfaction and loyalty, measured by asking guests how likely they are to recommend the hotel to others. It is calculated by subtracting the percentage of detractors from the percentage of promoters. A higher score indicates better guest satisfaction and loyalty.",
+  "status": "draft",
+  "effective_date": "2023-12-01",
+  "expiry_date": "2024-12-01",
+  "review_date": "2024-06-01",
+  "created_by": "analytics@organization.com",
+  "approved_by": "director@organization.com",
+  "tags": [
+    "hotels",
+    "analytics",
+    "net-promoter-score-kpi"
+  ],
+  "data_source": "Guest Satisfaction Surveys, PMS",
+  "alert_thresholds": {
+    "warning": 40,
+    "critical": 30
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "customer-satisfaction-index",
+    "guest-loyalty-score"
+  ],
+  "checksum": "sha256:ad913bc1b652227546db982e36d224c3596658f1372d3d3d6435355619889f5e"
+}

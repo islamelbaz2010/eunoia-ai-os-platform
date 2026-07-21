@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Cancellation Policy Framework for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "policy_number": "EG-2023-001",
+  "scope": "This policy applies to all hotel properties operating under our brand in Egypt. It covers all guest reservations made directly through our website, via phone, or through OTAs. The policy is designed to manage cancellations effectively, ensuring a balance between guest satisfaction and revenue protection. It applies to all departments involved in the reservation process, including the front desk, reservations, and revenue management teams.",
+  "policy_body": "## Cancellation Policy Framework\n\n### Objective\nThe objective of this policy is to establish a clear and consistent framework for handling reservation cancellations across all our hotel properties in Egypt. This framework aims to optimize occupancy rates and RevPAR while maintaining high levels of guest satisfaction.\n\n### Policy Details\n1. **Standard Cancellation Window**: Guests may cancel their reservations without penalty up to 48 hours before the scheduled check-in time. Cancellations made within 48 hours of check-in will incur a fee equivalent to one night's stay at the ADR.\n\n2. **Non-Refundable Rates**: Reservations made under non-refundable rates are not eligible for cancellation or refund. Guests are advised to consider travel insurance to cover unforeseen circumstances.\n\n3. **Group Bookings**: Group bookings of 10 or more rooms must be cancelled at least 14 days in advance to avoid penalties. Cancellations within 14 days will incur a fee of 50% of the total booking value.\n\n4. **OTA Bookings**: Cancellations for bookings made via OTAs must adhere to the cancellation policy specified at the time of booking. The hotel will honor the terms agreed upon with the OTA.\n\n5. **Exceptional Circumstances**: In cases of force majeure or other exceptional circumstances, the hotel management reserves the right to waive cancellation fees at their discretion.\n\n### Enforcement\nThis policy is mandatory and will be enforced by the reservations and front desk teams. Compliance will be monitored through regular audits and guest feedback.\n\n### Review and Updates\nThis policy will be reviewed annually and updated as necessary to reflect changes in market conditions, guest expectations, and regulatory requirements.",
+  "compliance_frameworks": [
+    "PCI-DSS",
+    "GDPR"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "cancellation-policy-framework"
+  ],
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-09-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "compliance@organization.com",
+  "source_url": "https://www.organization.com/policies/cancellation",
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Requests for exceptions to this policy must be submitted in writing to the hotel management team at least 7 days prior to the reservation date. The management team will review and respond to exception requests within 3 business days.",
+  "penalties": "Non-compliance with this policy may result in disciplinary action, including potential termination of employment for staff, and financial penalties for guests as outlined in the policy details.",
+  "legal_refs": [
+    "Egyptian Tourism Law",
+    "Consumer Protection Law"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:bd8f3bbf7ee054d18ef54c293136d36b5e7b3989a81e31b29183188369e99285"
+}

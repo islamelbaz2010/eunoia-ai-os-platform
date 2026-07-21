@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d3c4b5f2-8a7e-4c9b-9b3e-2f5b6a7d9c8e",
+  "title": "Luxury Hotel Event Marketing Campaign for Egyptian Tourism Boost",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "campaign_type": "event",
+  "objective": "To increase brand awareness and drive room bookings by hosting a series of cultural and luxury events targeting international and domestic tourists in Egypt.",
+  "target_audience_ref": "persona-12345",
+  "channels": [
+    "social",
+    "email",
+    "content",
+    "paid-search",
+    "display"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2023-12-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "social": 15000,
+      "email": 5000,
+      "content": 10000,
+      "paid-search": 15000,
+      "display": 5000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "event-marketing",
+    "tourism",
+    "luxury"
+  ],
+  "description": "This campaign is designed to leverage Egypt's rich cultural heritage and luxury hospitality offerings by organizing exclusive events at top hotels. The events will include cultural showcases, culinary experiences, and luxury accommodations, aimed at attracting high-value tourists and increasing occupancy rates during the peak travel season.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-01-01",
+  "review_date": "2023-12-15",
+  "created_by": "marketing@organization.com",
+  "approved_by": "director@organization.com",
+  "source_url": "https://organization.com/campaigns/luxury-event-marketing",
+  "attachments": [],
+  "external_id": "ext-56789",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "room_nights_booked",
+      "target": 1000,
+      "unit": "nights"
+    },
+    {
+      "metric": "social_engagement",
+      "target": 50000,
+      "unit": "interactions"
+    },
+    {
+      "metric": "email_open_rate",
+      "target": 25,
+      "unit": "percentage"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "conversion"
+  ],
+  "utm_parameters": {
+    "utm_source": "social",
+    "utm_medium": "paid",
+    "utm_campaign": "luxury_event_egypt"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:f476c5da7fc8dbff916722685dc563dc1bb2b59dc863eb91fdaa565ec01fd796"
+}

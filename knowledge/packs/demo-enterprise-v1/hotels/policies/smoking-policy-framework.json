@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f9b1b4e-8d2f-4c9a-b8a3-9f2b9a4f3c8d",
+  "title": "Smoking Policy Framework for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "policy_number": "HT-2023-001",
+  "scope": "This smoking policy applies to all guests, employees, and visitors within the hotel premises, including guest rooms, public areas, F&B outlets, and any designated smoking areas. It is applicable to all properties under the hotel's management in Egypt.",
+  "policy_body": "## Smoking Policy Framework\n\n### Objective\nThe objective of this policy is to ensure a safe, healthy, and comfortable environment for all guests and staff by regulating smoking within the hotel premises.\n\n### Policy Details\n1. **Designated Smoking Areas**: Smoking is only permitted in designated smoking areas. These areas are clearly marked and equipped with appropriate ventilation systems to minimize smoke exposure to non-smokers.\n\n2. **Guest Rooms**: Smoking is prohibited in all non-smoking guest rooms. A cleaning fee will be charged to guests who violate this policy to cover the cost of restoring the room to a smoke-free condition.\n\n3. **Public Areas**: Smoking is strictly prohibited in all indoor public areas, including lobbies, restaurants, meeting rooms, and corridors.\n\n4. **Employee Areas**: Employees are only allowed to smoke in designated smoking areas during their breaks. Smoking is not permitted in any work areas or while performing job duties.\n\n5. **Signage**: Clear signage indicating smoking and non-smoking areas will be displayed throughout the hotel to inform guests and staff of the policy.\n\n6. **Enforcement**: The hotel management reserves the right to enforce this policy through appropriate measures, including fines and guest removal for repeated violations.\n\n### Exceptions\nExceptions to this policy may be granted on a case-by-case basis for medical or cultural reasons, subject to approval by hotel management.\n\n### Penalties\nViolations of this policy may result in penalties, including fines, cleaning fees, and potential eviction from the hotel premises for guests. Employees may face disciplinary action in accordance with the hotel's HR policies.\n\n### Review and Updates\nThis policy will be reviewed annually to ensure compliance with local regulations and to incorporate feedback from guests and staff.",
+  "compliance_frameworks": [
+    "GDPR",
+    "PCI-DSS",
+    "ISO-27001"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "smoking-policy-framework"
+  ],
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2025-11-01",
+  "review_date": "2024-11-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "management@organization.com",
+  "source_url": "https://www.example.com/policies/smoking-policy",
+  "attachments": [],
+  "external_id": "EG-HTL-2023-001",
+  "locale_overrides": {},
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Requests for exceptions must be submitted in writing to hotel management, detailing the reasons for the exception and any supporting documentation. Management will review and respond within 7 business days.",
+  "penalties": "Penalties for non-compliance include fines up to EGP 1000, cleaning fees for room restoration, and possible eviction from the premises for guests. Employees may face disciplinary actions including warnings and termination.",
+  "legal_refs": [
+    "Egyptian Law No. 154 of 2007 on Smoking",
+    "Local health and safety regulations"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:fc71991ef17483976ffa566ed5210a4def1448754ceb76492062bf431ddef892"
+}

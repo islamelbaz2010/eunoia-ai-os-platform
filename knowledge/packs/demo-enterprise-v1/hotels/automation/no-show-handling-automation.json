@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Automated No-Show Handling for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "tags": [
+    "hotels",
+    "automation",
+    "no-show-handling"
+  ],
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "automation_type": "trigger-action",
+  "trigger": {
+    "type": "event",
+    "event": "reservation-no-show",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "reservation_status",
+        "operator": "eq",
+        "value": "no-show"
+      },
+      {
+        "field": "payment_status",
+        "operator": "eq",
+        "value": "unpaid"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "notify-front-desk",
+      "type": "notify",
+      "target": "front desk",
+      "parameters": {
+        "message": "A reservation has been marked as no-show. Please review and update the PMS accordingly."
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "update-reservation-status",
+      "type": "update",
+      "target": "PMS",
+      "parameters": {
+        "reservation_id": "{{reservation_id}}",
+        "new_status": "no-show"
+      },
+      "on_failure": "retry"
+    },
+    {
+      "action_id": "charge-no-show-fee",
+      "type": "call-api",
+      "target": "payment-gateway",
+      "parameters": {
+        "reservation_id": "{{reservation_id}}",
+        "amount": "{{no_show_fee}}",
+        "currency": "EGP"
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "log-no-show-event",
+      "type": "log",
+      "target": "audit-log",
+      "parameters": {
+        "event": "no-show",
+        "reservation_id": "{{reservation_id}}",
+        "timestamp": "{{current_timestamp}}"
+      },
+      "on_failure": "continue"
+    }
+  ],
+  "description": "This document outlines the automated workflow for handling no-shows in hotels in Egypt. The automation triggers when a reservation is marked as a no-show in the PMS, and performs a series of actions including notifying the front desk, updating the reservation status, charging a no-show fee, and logging the event for audit purposes.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "automation@organization.com",
+  "approved_by": "manager@organization.com",
+  "source_url": "https://organization.com/docs/no-show-handling",
+  "attachments": [],
+  "external_id": "no-show-automation-eg",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 100,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "manual-review"
+  },
+  "integrations": [
+    "PMS",
+    "payment-gateway",
+    "audit-log"
+  ],
+  "checksum": "sha256:288d5e67d22e99b72ca35ef6f2a1354f06f33ed66ec51294e7b77b7823a5cdf8"
+}

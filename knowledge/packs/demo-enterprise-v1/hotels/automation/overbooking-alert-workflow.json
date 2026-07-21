@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Overbooking Alert Workflow for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "automation_type": "event-driven",
+  "trigger": {
+    "type": "event",
+    "event": "room_booking_confirmation",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "occupancy_rate",
+        "operator": "gte",
+        "value": 100
+      },
+      {
+        "field": "room_nights",
+        "operator": "gt",
+        "value": 0
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "notify_front_desk",
+      "type": "notify",
+      "target": "front_desk_system",
+      "parameters": {
+        "message": "Alert: Overbooking detected. Review and manage room allocations immediately.",
+        "priority": "high"
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "update_inventory",
+      "type": "update",
+      "target": "PMS",
+      "parameters": {
+        "field": "available_rooms",
+        "operation": "decrement",
+        "value": 1
+      },
+      "on_failure": "retry"
+    },
+    {
+      "action_id": "log_event",
+      "type": "log",
+      "target": "audit_log",
+      "parameters": {
+        "event": "overbooking_alert_triggered",
+        "details": "An overbooking alert was triggered due to full occupancy."
+      },
+      "on_failure": "continue"
+    }
+  ],
+  "description": "This workflow is designed to automatically alert the front desk and update the Property Management System (PMS) when an overbooking situation is detected in Egyptian hotels. The workflow ensures prompt notification and inventory adjustment to manage guest expectations and maintain operational efficiency.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "automation_team@organization.com",
+  "approved_by": "head_of_operations@organization.com",
+  "source_url": "https://organization.com/automation/overbooking-alert",
+  "attachments": [],
+  "external_id": "overbooking-alert-2023",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 10,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "notify_admin"
+  },
+  "integrations": [
+    "PMS",
+    "front_desk_system",
+    "audit_log"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "overbooking-alert-workflow"
+  ],
+  "checksum": "sha256:f3f60b74c1711fcd0c1f7c9f5f3291c3dace9effd87efd81ebd7181f48026996"
+}

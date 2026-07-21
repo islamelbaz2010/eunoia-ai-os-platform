@@ -1,0 +1,40 @@
+{
+  "runId": "2134c267-47d9-44fa-bbd4-20916c3e39e1",
+  "startedAt": "2026-07-21T04:10:36.037Z",
+  "completedAt": "2026-07-21T04:10:36.063Z",
+  "durationMs": 26,
+  "mode": "single",
+  "scope": {
+    "industry": "hotels",
+    "department": "faq",
+    "topic": "hotel-faq-basics",
+    "language": "en",
+    "country": "EG"
+  },
+  "provider": "openai",
+  "dryRun": false,
+  "summary": {
+    "total": 1,
+    "succeeded": 0,
+    "failed": 1,
+    "quarantined": 0,
+    "skipped": 0,
+    "dryRun": 0
+  },
+  "documents": [
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "hotel-faq-basics",
+      "filePath": "",
+      "documentId": "a13e8727-005c-4e10-b71c-1f3c7ab3fa93",
+      "qualityScore": 0,
+      "status": "failed",
+      "error": "Topic not found: hotels/faq/hotel-faq-basics",
+      "durationMs": 0
+    }
+  ],
+  "errors": [
+    "hotels/faq/hotel-faq-basics: Topic not found: hotels/faq/hotel-faq-basics"
+  ]
+}

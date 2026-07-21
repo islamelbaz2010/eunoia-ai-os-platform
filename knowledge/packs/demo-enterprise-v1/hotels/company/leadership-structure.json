@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "title": "Leadership Structure for Hotel Operations in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "company",
+  "tags": [
+    "hotels",
+    "company",
+    "leadership-structure",
+    "management",
+    "hospitality"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-11-29T12:00:00Z",
+  "department_code": "CMP",
+  "parent_department": "HQ",
+  "cost_center": "CC1001",
+  "roles": [
+    {
+      "role_id": "1",
+      "title": "General Manager",
+      "level": "executive",
+      "reports_to": "Board of Directors",
+      "headcount": 1
+    },
+    {
+      "role_id": "2",
+      "title": "Director of Operations",
+      "level": "senior",
+      "reports_to": "General Manager",
+      "headcount": 1
+    },
+    {
+      "role_id": "3",
+      "title": "Director of Sales and Marketing",
+      "level": "senior",
+      "reports_to": "General Manager",
+      "headcount": 1
+    },
+    {
+      "role_id": "4",
+      "title": "Director of Finance",
+      "level": "senior",
+      "reports_to": "General Manager",
+      "headcount": 1
+    },
+    {
+      "role_id": "5",
+      "title": "Front Office Manager",
+      "level": "mid",
+      "reports_to": "Director of Operations",
+      "headcount": 3
+    },
+    {
+      "role_id": "6",
+      "title": "Housekeeping Manager",
+      "level": "mid",
+      "reports_to": "Director of Operations",
+      "headcount": 5
+    },
+    {
+      "role_id": "7",
+      "title": "F&B Manager",
+      "level": "mid",
+      "reports_to": "Director of Operations",
+      "headcount": 4
+    }
+  ],
+  "description": "This document outlines the leadership structure for hotel operations in Egypt, focusing on key roles and reporting lines essential for operational excellence and guest satisfaction. The structure is designed to ensure efficient management, strategic oversight, and alignment with brand standards.",
+  "status": "draft",
+  "effective_date": "2023-12-01",
+  "expiry_date": "2025-12-01",
+  "review_date": "2024-12-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "board@organization.com",
+  "source_url": "https://www.organization.com/leadership-structure",
+  "attachments": [],
+  "external_id": "LS-EG-2023",
+  "locale_overrides": {},
+  "kpi_refs": [
+    "RevPAR",
+    "ADR",
+    "occupancy_rate"
+  ],
+  "budget_owner": "finance@organization.com",
+  "functional_area": "revenue",
+  "checksum": "sha256:faae73521ad6856a1a0ddd28f19ca77131f56cd6684d59dddd6e1dfc0cb569b0"
+}

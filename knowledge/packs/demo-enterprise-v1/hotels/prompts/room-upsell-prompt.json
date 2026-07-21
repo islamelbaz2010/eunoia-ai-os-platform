@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f50c5e2-8b7d-4b8b-9f3f-8c7d4e8a9b6d",
+  "title": "Room Upsell Prompt for Enhanced Guest Experience",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "prompts",
+  "tags": [
+    "hotels",
+    "prompts",
+    "room-upsell-prompt",
+    "guest-experience",
+    "revenue-optimization"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "prompt_type": "system",
+  "prompt_body": "Generate a personalized room upsell message for a guest staying at a hotel in Egypt. Consider the guest's current room type, preferences, and any special occasions. The message should highlight the benefits of upgrading, such as enhanced views, additional amenities, and exclusive services. Ensure the tone is inviting and aligns with the hotel's brand standards. Include a call to action that encourages the guest to upgrade their room.",
+  "model_target": "gpt-4o",
+  "variables": [
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "The name of the guest",
+      "required": true,
+      "examples": [
+        "Mr. Ahmed",
+        "Ms. Fatima"
+      ]
+    },
+    {
+      "name": "current_room_type",
+      "type": "string",
+      "description": "The type of room the guest is currently staying in",
+      "required": true,
+      "examples": [
+        "Standard Room",
+        "Deluxe Room"
+      ]
+    },
+    {
+      "name": "upgrade_room_type",
+      "type": "string",
+      "description": "The type of room available for upgrade",
+      "required": true,
+      "examples": [
+        "Suite",
+        "Executive Room"
+      ]
+    },
+    {
+      "name": "special_occasion",
+      "type": "string",
+      "description": "Any special occasion the guest is celebrating",
+      "required": false,
+      "examples": [
+        "Anniversary",
+        "Birthday"
+      ]
+    },
+    {
+      "name": "additional_amenities",
+      "type": "array",
+      "description": "List of additional amenities available in the upgraded room",
+      "required": true,
+      "examples": [
+        [
+          "Sea view",
+          "Complimentary breakfast",
+          "Access to executive lounge"
+        ]
+      ]
+    },
+    {
+      "name": "brand_tone",
+      "type": "string",
+      "description": "The tone of the message that aligns with the hotel's brand",
+      "required": true,
+      "examples": [
+        "luxurious",
+        "welcoming"
+      ]
+    }
+  ],
+  "description": "This document provides a structured prompt for generating personalized room upsell messages in the hotel industry, specifically tailored for the Egyptian market. It aims to enhance guest experience and optimize revenue through strategic upselling.",
+  "status": "draft",
+  "effective_date": "2023-10-20",
+  "expiry_date": "2024-10-20",
+  "review_date": "2024-04-20",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://eunoiaai.com/hotels/room-upsell",
+  "attachments": [],
+  "external_id": "EG-HOTELS-ROOM-UPSELL-001",
+  "locale_overrides": {},
+  "temperature": 0.7,
+  "max_tokens": 1500,
+  "output_format": "text",
+  "chain_of_thought": false,
+  "examples": [
+    {
+      "input": {
+        "guest_name": "Mr. Ahmed",
+        "current_room_type": "Standard Room",
+        "upgrade_room_type": "Suite",
+        "special_occasion": "Anniversary",
+        "additional_amenities": [
+          "Sea view",
+          "Complimentary breakfast",
+          "Access to executive lounge"
+        ],
+        "brand_tone": "luxurious"
+      },
+      "output": "Dear Mr. Ahmed, we hope you're enjoying your stay with us. To make your anniversary truly unforgettable, we invite you to upgrade to our luxurious Suite. Enjoy breathtaking sea views, a complimentary breakfast, and exclusive access to our executive lounge. Let us enhance your special occasion with unparalleled comfort and elegance. Contact our front desk to upgrade your experience today!"
+    }
+  ],
+  "guardrails": {
+    "max_input_tokens": 500,
+    "forbidden_topics": [
+      "politics",
+      "religion"
+    ],
+    "required_disclaimers": [
+      "Prices are subject to availability and may change."
+    ]
+  },
+  "checksum": "sha256:e75daf3ee2e6d23cde770e7fbc9baff9449be610db0b278b4d68c95c7bbff197"
+}

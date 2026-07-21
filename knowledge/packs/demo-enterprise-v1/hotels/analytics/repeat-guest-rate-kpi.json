@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Repeat Guest Rate KPI for Hotel Analytics in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "metric_name": "Repeat Guest Rate",
+  "metric_category": "customer",
+  "formula": "Repeat Guest Rate = (Number of Repeat Guests / Total Number of Guests) * 100",
+  "unit": "%",
+  "measurement_frequency": "monthly",
+  "target": {
+    "value": 25,
+    "direction": "higher-is-better"
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "repeat-guest-rate-kpi"
+  ],
+  "description": "This KPI measures the percentage of guests who return to the hotel for another stay. A higher repeat guest rate indicates strong customer loyalty and satisfaction, which is crucial for maximizing RevPAR and ADR. This metric is particularly important in the Egyptian market where personalized guest experiences and repeat business are key drivers of success.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "review_date": "2024-10-11",
+  "created_by": "operations@organization.com",
+  "data_source": "PMS and CRM systems",
+  "alert_thresholds": {
+    "warning": 15,
+    "critical": 10
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "customer-satisfaction-score",
+    "net-promoter-score",
+    "average-daily-rate"
+  ],
+  "checksum": "sha256:ab8bbb219ac8c24cb727fd169fe015c5f199254183c65da6ed4d7b5b9f4bd2a6"
+}

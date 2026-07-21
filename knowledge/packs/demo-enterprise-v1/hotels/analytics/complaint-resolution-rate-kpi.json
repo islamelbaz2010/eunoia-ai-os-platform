@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Complaint Resolution Rate KPI for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "metric_name": "Complaint Resolution Rate",
+  "metric_category": "customer",
+  "formula": "(Number of Complaints Resolved within Target Timeframe / Total Number of Complaints Received) * 100",
+  "unit": "%",
+  "measurement_frequency": "monthly",
+  "target": {
+    "value": 90,
+    "direction": "higher-is-better"
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "complaint-resolution-rate-kpi",
+    "customer-satisfaction",
+    "service-quality"
+  ],
+  "description": "This KPI measures the efficiency and effectiveness of the hotel's ability to resolve guest complaints within a specified timeframe. It is a critical metric for ensuring high levels of customer satisfaction and maintaining brand reputation in the competitive hospitality market in Egypt. The target resolution rate is set at 90%, reflecting the industry's commitment to addressing guest concerns promptly.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "review_date": "2024-10-05",
+  "created_by": "operations@organization.com",
+  "data_source": "PMS and CRM systems",
+  "alert_thresholds": {
+    "warning": 80,
+    "critical": 70
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "Guest Satisfaction Score",
+    "Net Promoter Score",
+    "Average Response Time"
+  ],
+  "checksum": "sha256:a04d19e252bb88f45c010ff83720e5b94069a99520ee0e3efd7c431b0cbd2557"
+}

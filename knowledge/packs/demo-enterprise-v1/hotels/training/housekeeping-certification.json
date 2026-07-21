@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Housekeeping Certification Program for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "training",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T14:30:00Z",
+  "content_type": "guide",
+  "body": "### Housekeeping Certification Program\n\n#### Introduction\nThe Housekeeping Certification Program is designed to enhance the skills and knowledge of housekeeping staff in hotels across Egypt. This program aims to ensure that all housekeeping personnel are equipped to deliver exceptional guest experiences, maintain operational excellence, and adhere to brand standards.\n\n#### Learning Objectives\n1. Understand the importance of cleanliness and hygiene in guest satisfaction.\n2. Master the use of cleaning tools and products safely and effectively.\n3. Learn efficient time management and task prioritization.\n4. Familiarize with hotel-specific standards and procedures.\n5. Develop skills in communication and teamwork.\n\n#### Module Structure\n- **Module 1: Introduction to Housekeeping**\n  - Overview of housekeeping roles and responsibilities.\n  - Importance of housekeeping in guest satisfaction and hotel reputation.\n\n- **Module 2: Cleaning Techniques and Safety**\n  - Proper use of cleaning equipment and chemicals.\n  - Safety protocols and emergency procedures.\n\n- **Module 3: Room Preparation and Maintenance**\n  - Steps for preparing guest rooms and public areas.\n  - Maintenance of linen and inventory management.\n\n- **Module 4: Communication and Guest Interaction**\n  - Effective communication with guests and team members.\n  - Handling guest requests and complaints professionally.\n\n- **Module 5: Quality Assurance and Standards**\n  - Understanding and implementing hotel quality standards.\n  - Conducting self-assessments and peer reviews.\n\n#### Assessment Structure\n- **Written Test:** Evaluate understanding of theoretical concepts.\n- **Practical Demonstration:** Assess cleaning techniques and safety practices.\n- **Role-Playing Exercises:** Test communication and problem-solving skills.\n\n#### Certification Process\n1. Completion of all modules with a minimum attendance of 90%.\n2. Passing scores in both written and practical assessments.\n3. Final evaluation by the housekeeping manager.\n\n#### Skill Progression\n- **Beginner Level:** Basic understanding of housekeeping tasks and safety.\n- **Intermediate Level:** Proficient in cleaning techniques and guest interaction.\n- **Advanced Level:** Capable of leading a team and ensuring quality compliance.\n\n#### Conclusion\nThe Housekeeping Certification Program is a vital component in maintaining high standards of cleanliness and service in hotels. By investing in staff training, hotels can improve guest satisfaction, optimize operations, and uphold brand reputation.",
+  "tags": [
+    "hotels",
+    "training",
+    "housekeeping-certification"
+  ],
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2025-11-01",
+  "review_date": "2024-10-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "training.manager@organization.com",
+  "word_count": 400,
+  "reading_time_minutes": 3,
+  "checksum": "sha256:2ea7d26f9995be04d7c9ea3bd2781a96d03c1c94e4c8d0c411cb2f0f10d000b7"
+}

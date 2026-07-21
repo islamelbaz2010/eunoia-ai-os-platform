@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Comprehensive Room Inspection Protocol for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Scheduled room inspection following guest checkout or prior to guest check-in.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Preparation for Inspection",
+      "action": "Gather necessary tools such as inspection checklist, camera for documentation, and cleaning supplies. Ensure the room is vacant and the 'Do Not Disturb' sign is not displayed.",
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Inspection checklist",
+        "Camera",
+        "Cleaning supplies"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Initial Room Assessment",
+      "action": "Enter the room and conduct an initial assessment. Check for any visible damages, cleanliness, and ensure all amenities are present.",
+      "responsible_role": "Housekeeping Staff",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Inspection checklist"
+      ],
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If damages are found",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "If no damages are found",
+          "next_step_id": "4"
+        }
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Report and Document Damages",
+      "action": "Document any damages using the camera and update the inspection checklist. Report the damages to the maintenance department for immediate action.",
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Camera",
+        "Inspection checklist"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Detailed Inspection",
+      "action": "Inspect all room elements including bedding, bathroom, electronics, and F&B items. Ensure everything is in working order and meets brand standards.",
+      "responsible_role": "Housekeeping Staff",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Inspection checklist"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Final Approval",
+      "action": "Review the completed checklist and ensure all issues have been addressed. Approve the room for guest occupancy.",
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Inspection checklist"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "tags": [
+    "hotels",
+    "operations",
+    "room-inspection",
+    "housekeeping",
+    "quality-control"
+  ],
+  "description": "This playbook outlines the step-by-step process for conducting room inspections in hotels, ensuring operational excellence and adherence to brand standards in Egypt.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://example.com/room-inspection-protocol",
+  "attachments": [],
+  "external_id": "EG-HOT-OPS-ROOM-001",
+  "locale_overrides": {},
+  "audience": [
+    "Housekeeping Staff",
+    "Housekeeping Supervisors",
+    "Operations Managers"
+  ],
+  "prerequisites": [
+    "Completion of housekeeping training",
+    "Familiarity with brand standards"
+  ],
+  "escalation_path": "Report to Operations Manager if room fails inspection twice consecutively.",
+  "related_playbooks": [
+    "EG-HOT-OPS-CLEAN-001",
+    "EG-HOT-OPS-MAINT-001"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:504016400187f9b0a0b6a92d4ad388f0737f97fffa45509645f71ca2fec56c99"
+}

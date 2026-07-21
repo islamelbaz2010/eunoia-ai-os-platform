@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d3b07384-8d9f-4c3d-9f2f-7f2e5f2f9b9e",
+  "title": "Hotel Guest Check-Out Process",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-25T12:00:00Z",
+  "trigger": "Guest requests to check out or reaches scheduled departure date.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Greet Guest and Confirm Departure",
+      "action": "The front desk agent greets the guest warmly and confirms their departure date and time. Verify any special requests or transportation needs.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Review Guest Folio",
+      "action": "Access the guest's folio in the PMS to review all charges, including room rate, F&B, and any additional services. Ensure all charges are accurate and complete.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Charges are accurate",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Discrepancies found",
+          "next_step_id": "2a"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2a",
+      "title": "Resolve Billing Discrepancies",
+      "action": "Discuss any discrepancies with the guest and resolve them promptly. Adjust the folio as necessary and update the PMS.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Process Payment",
+      "action": "Request payment from the guest. Accept payment via credit card, cash, or other accepted methods. Ensure PCI-DSS compliance during the transaction.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Payment Terminal"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Finalize Check-Out",
+      "action": "Print or email the final invoice to the guest. Confirm the guest's contact information for future correspondence and loyalty programs.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Update Room Status",
+      "action": "Update the room status in the PMS to 'vacant' and notify housekeeping to prepare the room for the next guest.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Offer Farewell and Assistance",
+      "action": "Thank the guest for their stay and offer assistance with luggage or transportation. Provide feedback forms or encourage online reviews.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 5,
+      "tools_required": []
+    }
+  ],
+  "expected_duration_minutes": 50,
+  "description": "This playbook outlines the standard operating procedures for the guest check-out process at hotels in Egypt. It ensures a smooth and efficient departure experience, maintaining high guest satisfaction and operational excellence.",
+  "status": "draft",
+  "effective_date": "2023-10-25",
+  "expiry_date": "2024-10-25",
+  "review_date": "2024-04-25",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "operations",
+    "check-out-process"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:18fe17e547ed7abe2e6ee4844991de8eeab545d55662cbbd80fd2bd6df70ce29"
+}

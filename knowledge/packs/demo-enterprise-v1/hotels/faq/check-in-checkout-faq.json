@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f4e3c9a-1b7e-4e4e-8c9f-2d6f5c8e7b9a",
+  "title": "Check-In and Check-Out Procedures FAQ for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-25T14:30:00Z",
+  "question": "What are the standard check-in and check-out times at hotels in Egypt?",
+  "answer": "The standard check-in time at most hotels in Egypt is typically around 3:00 PM, while the check-out time is usually by 12:00 PM. However, these times can vary depending on the hotel's policy. Guests are encouraged to confirm the specific times with their hotel prior to arrival. Early check-in and late check-out may be available upon request, subject to room availability and may incur additional charges.",
+  "category": "check-in-checkout-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "check-in-checkout-faq"
+  ],
+  "status": "draft",
+  "checksum": "sha256:64c16b43969b4e3233d6316d896e714fb276b989cefd08315634cca34f8b1292"
+}

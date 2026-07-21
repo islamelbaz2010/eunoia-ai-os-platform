@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Guest Feedback Request Email Template for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "template_type": "email",
+  "subject_template": "Your Opinion Matters, {{guest_name}}!",
+  "body_template": "<p>Dear {{guest_name}},</p><p>We hope you enjoyed your stay at {{hotel_name}}. Your feedback is crucial in helping us maintain the highest standards of service. Please take a moment to share your experience with us.</p><p>Click the link below to leave your review:</p><p><a href=\"{{review_link}}\">Share Your Feedback</a></p><p>Thank you for your time and we look forward to welcoming you back to {{hotel_name}} in the future.</p><p>Warm regards,<br>{{sender_name}}<br>{{hotel_name}} Team</p>",
+  "variables": [
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "The name of the guest",
+      "required": true
+    },
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "The name of the hotel",
+      "required": true
+    },
+    {
+      "name": "review_link",
+      "type": "string",
+      "description": "URL link to the review page",
+      "required": true,
+      "format": "uri"
+    },
+    {
+      "name": "sender_name",
+      "type": "string",
+      "description": "Name of the person sending the email",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "review-request-template"
+  ],
+  "checksum": "sha256:1ff648c6f9bb90c2bf4a152800dd960810718e826d7d16c4ea720e1a6089c9cf"
+}

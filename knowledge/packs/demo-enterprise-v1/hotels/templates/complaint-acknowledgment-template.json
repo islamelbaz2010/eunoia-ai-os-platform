@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f7a1e2b-5b6c-4a3d-8f2f-4b9e8e6c2d7a",
+  "title": "Guest Complaint Acknowledgment Email Template",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "template_type": "email",
+  "subject_template": "Acknowledgment of Your Recent Experience at {{hotel_name}}",
+  "body_template": "<p>Dear {{guest_name}},</p>\n<p>Thank you for taking the time to share your feedback regarding your recent stay at {{hotel_name}}. We are committed to providing exceptional service and ensuring our guests have a memorable experience.</p>\n<p>We sincerely apologize for any inconvenience you encountered during your stay. Please rest assured that your concerns have been forwarded to the relevant department for immediate review and action.</p>\n<p>Our team is dedicated to addressing your feedback and ensuring that your next visit exceeds your expectations. We value your patronage and hope to welcome you back soon.</p>\n<p>Should you have any further questions or require assistance, please do not hesitate to contact us directly at {{contact_email}} or {{contact_phone}}.</p>\n<p>Warm regards,</p>\n<p>{{sender_name}}<br>{{hotel_name}}<br>{{hotel_address}}<br>{{hotel_contact_info}}</p>",
+  "variables": [
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "contact_email",
+      "type": "string",
+      "description": "Contact email for guest inquiries",
+      "required": true
+    },
+    {
+      "name": "contact_phone",
+      "type": "string",
+      "description": "Contact phone number for guest inquiries",
+      "required": true
+    },
+    {
+      "name": "sender_name",
+      "type": "string",
+      "description": "Name of the person sending the email",
+      "required": true
+    },
+    {
+      "name": "hotel_address",
+      "type": "string",
+      "description": "Physical address of the hotel",
+      "required": true
+    },
+    {
+      "name": "hotel_contact_info",
+      "type": "string",
+      "description": "General contact information for the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "complaint-acknowledgment-template"
+  ],
+  "status": "draft",
+  "checksum": "sha256:dc773f2d5864d38cf203727ccf95ed6639b494ef8d3e00fb9dcea68ae35eccae"
+}

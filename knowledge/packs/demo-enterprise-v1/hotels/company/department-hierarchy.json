@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Department Hierarchy for Hotel Company Operations in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "company",
+  "tags": [
+    "hotels",
+    "company",
+    "department-hierarchy",
+    "operations",
+    "management"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "department_code": "COMP",
+  "parent_department": "CORP",
+  "cost_center": "CC1001",
+  "roles": [
+    {
+      "role_id": "CEO",
+      "title": "Chief Executive Officer",
+      "level": "executive",
+      "reports_to": null,
+      "headcount": 1
+    },
+    {
+      "role_id": "COO",
+      "title": "Chief Operating Officer",
+      "level": "executive",
+      "reports_to": "CEO",
+      "headcount": 1
+    },
+    {
+      "role_id": "CFO",
+      "title": "Chief Financial Officer",
+      "level": "executive",
+      "reports_to": "CEO",
+      "headcount": 1
+    },
+    {
+      "role_id": "HRD",
+      "title": "Human Resources Director",
+      "level": "senior",
+      "reports_to": "COO",
+      "headcount": 1
+    },
+    {
+      "role_id": "MKT",
+      "title": "Marketing Director",
+      "level": "senior",
+      "reports_to": "COO",
+      "headcount": 1
+    },
+    {
+      "role_id": "OPS",
+      "title": "Operations Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 3
+    },
+    {
+      "role_id": "FIN",
+      "title": "Finance Manager",
+      "level": "mid",
+      "reports_to": "CFO",
+      "headcount": 2
+    },
+    {
+      "role_id": "HRM",
+      "title": "Human Resources Manager",
+      "level": "mid",
+      "reports_to": "HRD",
+      "headcount": 2
+    }
+  ],
+  "description": "This document outlines the department hierarchy for the company operations within the hotel industry in Egypt. It details the roles and reporting structure essential for maintaining operational excellence, optimizing revenue, and ensuring compliance with local regulations.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2025-10-11",
+  "review_date": "2024-10-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "ceo@organization.com",
+  "source_url": "https://organization.com/department-hierarchy",
+  "attachments": [],
+  "external_id": "COMP-DEPT-001",
+  "locale_overrides": {},
+  "kpi_refs": [
+    "RevPAR",
+    "ADR",
+    "occupancy_rate"
+  ],
+  "budget_owner": "CFO",
+  "functional_area": "support",
+  "checksum": "sha256:1b02aafacf8f10c884d13f94be8225a9221cd55debd529dc03e8297ba17216bd"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "id": "c1a1b2c3-d4e5-4f67-8a9b-0c1d2e3f4a5b",
+  "title": "Hotel Guest Damage Liability Policy",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-25T14:30:00Z",
+  "policy_number": "HL-2023-001",
+  "scope": "This policy applies to all guests staying at the hotel and covers any damage caused to hotel property, including but not limited to guest rooms, common areas, and facilities. It is applicable to all hotel staff involved in guest interactions, including front desk, housekeeping, and management, to ensure proper enforcement and communication of the policy.",
+  "policy_body": "### Policy Overview\nThe Hotel Guest Damage Liability Policy is designed to protect hotel assets and ensure a safe and pleasant environment for all guests. This policy outlines the responsibilities of guests regarding damage to hotel property and the procedures for assessing and recovering costs associated with such damage.\n\n### Guest Responsibilities\nGuests are expected to maintain the condition of their assigned rooms and any hotel property they use. Any damage caused by a guest, whether intentional or accidental, will be the financial responsibility of the guest.\n\n### Damage Assessment\nUpon discovery of damage, hotel staff will document the incident, including photographs and a detailed description. The Property Management System (PMS) will be updated with this information, and an assessment will be conducted to estimate repair or replacement costs.\n\n### Cost Recovery\nGuests will be informed of the damage and associated costs via the contact information provided at check-in. Charges will be applied to the guest's credit card on file, in compliance with PCI-DSS standards. If the guest disputes the charges, the hotel will provide documentation and offer a resolution process.\n\n### Enforcement\nThis policy is enforced by hotel management and staff, with training provided to ensure consistent application. Any staff member who identifies damage should report it immediately to their supervisor.\n\n### Compliance\nThis policy aligns with local hospitality licensing requirements and fire safety codes. It also respects guest privacy in accordance with GDPR regulations.\n\n### Exceptions\nExceptions to this policy may be granted in cases of natural disasters or other extraordinary circumstances, subject to management approval.\n\n### Penalties\nFailure to comply with this policy may result in penalties, including additional charges or legal action, depending on the severity of the damage.",
+  "compliance_frameworks": [
+    "PCI-DSS",
+    "GDPR"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "damage-liability-policy"
+  ],
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-11-01",
+  "review_date": "2024-10-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "legal@organization.com",
+  "source_url": "https://www.organization.com/policies/damage-liability",
+  "attachments": [],
+  "external_id": "HL-DLP-2023",
+  "locale_overrides": {},
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Requests for exceptions must be submitted in writing to hotel management, detailing the circumstances and justification for the exception. Management will review and respond within 5 business days.",
+  "penalties": "Guests found liable for damage will incur charges equivalent to the repair or replacement costs. Repeated offenses may result in a ban from future stays at the hotel.",
+  "legal_refs": [
+    "Egyptian Civil Code",
+    "Hotel Licensing Regulations"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:ff38258cf48bacf78eaae461c6c4a7343fb3f40460f4a8fb3b2c78283f2f0713"
+}

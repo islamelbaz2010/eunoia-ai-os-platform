@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Lost and Found Management Procedure for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "trigger": "Discovery of a lost item by staff or guest report of a lost item.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Item Discovery and Initial Documentation",
+      "action": "When a lost item is discovered, the staff member must immediately notify the front desk and document the item in the Lost and Found log. Include details such as item description, location found, date, and time.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Lost and Found logbook",
+        "Camera for item photograph"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Secure Storage of Lost Item",
+      "action": "Place the item in a secure location designated for Lost and Found items. Ensure the item is tagged with a unique identifier matching the log entry.",
+      "decision_point": false,
+      "responsible_role": "Front Desk",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Secure storage area",
+        "Tagging materials"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Guest Notification",
+      "action": "If the owner of the item is known or can be identified, attempt to contact them using the contact information available in the PMS. Document all attempts to contact the guest.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Owner identified and contacted",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Owner not identified",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Return of Item to Guest",
+      "action": "Arrange for the guest to collect the item from the front desk. Verify the guest's identity before handing over the item. Update the Lost and Found log to reflect the return.",
+      "decision_point": false,
+      "responsible_role": "Front Desk",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Lost and Found logbook"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Unclaimed Items Procedure",
+      "action": "If the item remains unclaimed for 30 days, follow the hotel's policy for unclaimed items, which may include donation or disposal. Ensure all actions are documented in the Lost and Found log.",
+      "decision_point": false,
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 1440,
+      "tools_required": [
+        "Lost and Found logbook"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "tags": [
+    "hotels",
+    "operations",
+    "lost-and-found"
+  ],
+  "description": "This playbook outlines the procedure for managing lost and found items within a hotel setting in Egypt. It ensures that all items are handled securely and returned to their rightful owners whenever possible.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "review_cycle_days": 180,
+  "checksum": "sha256:2cfc299a652703825811de49c2bf11781cd6573a27b32956c71f96fb0751dc71"
+}

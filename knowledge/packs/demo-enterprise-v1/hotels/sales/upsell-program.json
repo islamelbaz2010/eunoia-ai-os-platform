@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Enhanced Guest Experience Upsell Program",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "tags": [
+    "hotels",
+    "sales",
+    "upsell-program",
+    "guest-experience",
+    "revenue-optimization"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "guest-experience-enhancement",
+  "pricing": {
+    "model": "tiered",
+    "currency": "EGP",
+    "tiers": [
+      {
+        "from": 1,
+        "to": 10,
+        "price": 200
+      },
+      {
+        "from": 11,
+        "to": 20,
+        "price": 180
+      },
+      {
+        "from": 21,
+        "to": 50,
+        "price": 150
+      }
+    ]
+  },
+  "validity": {
+    "start_date": "2023-10-10",
+    "end_date": "2024-10-10",
+    "limited_quantity": 100
+  },
+  "description": "This upsell program is designed to enhance the guest experience by offering premium room upgrades, exclusive spa packages, and personalized concierge services. The program aims to increase RevPAR and ADR by providing guests with value-added services that enhance their stay. This offer is tailored for the Egyptian market, focusing on cultural and regional preferences to ensure maximum guest satisfaction and loyalty.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "operations@organization.com",
+  "approved_by": "sales-director@organization.com",
+  "source_url": "https://www.organization.com/upsell-program",
+  "attachments": [],
+  "external_id": "EG-Upsell-2023",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Guests must have a minimum booking of 2 nights.",
+    "Offer applicable only for direct bookings and not through OTAs."
+  ],
+  "exclusions": [
+    "Not applicable during public holidays and special events."
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:1f26712dc95c9436b7de986956de9ddf02ae4bacb1ef484fe0582fbc868426c4"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Noise Disturbance Policy for Hotel Operations in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "tags": [
+    "hotels",
+    "policies",
+    "noise-disturbance-policy",
+    "guest-experience",
+    "operational-excellence"
+  ],
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-03T12:00:00Z",
+  "policy_number": "EG-2023-001",
+  "scope": "This policy applies to all hotel properties operating under our brand within Egypt. It is relevant to all staff members, including front desk, housekeeping, F&B, and security personnel, as well as any third-party contractors. The policy aims to ensure a peaceful and comfortable environment for all guests by minimizing noise disturbances.",
+  "policy_body": "## Objective\nTo maintain a serene and enjoyable atmosphere for our guests by managing and mitigating noise disturbances within hotel premises.\n\n## Policy Details\n1. **Quiet Hours**: Quiet hours are enforced from 10:00 PM to 7:00 AM daily. During this time, guests and staff are expected to minimize noise levels in all public areas, including corridors, lobbies, and outdoor spaces.\n\n2. **Guest Rooms**: Guests are requested to keep noise to a minimum in their rooms, especially during quiet hours. Any complaints regarding noise from guest rooms will be addressed promptly by the front desk.\n\n3. **Events and Functions**: All events and functions must conclude by 10:00 PM unless prior approval is obtained from hotel management. Sound levels must comply with local regulations and hotel standards.\n\n4. **Staff Conduct**: Staff must conduct their duties quietly and efficiently, particularly during room service, housekeeping, and maintenance operations.\n\n5. **Noise Complaints**: All noise complaints must be logged and addressed immediately by the front desk. Security personnel may be involved if necessary to ensure compliance.\n\n6. **Enforcement**: Repeated violations of this policy by guests may result in additional charges or eviction from the property. Staff violations will be subject to disciplinary action.\n\n## Monitoring and Review\nThis policy will be reviewed annually to ensure its effectiveness and compliance with local regulations.\n\n## Responsibilities\n- **Front Desk**: Responsible for logging and addressing noise complaints.\n- **Security**: Assists in enforcing quiet hours and resolving disturbances.\n- **Management**: Reviews and updates the policy as necessary.",
+  "compliance_frameworks": [
+    "ISO-27001",
+    "PCI-DSS"
+  ],
+  "description": "This document outlines the Noise Disturbance Policy for hotel operations in Egypt, focusing on maintaining a peaceful environment for guests by managing noise levels effectively.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-09-10",
+  "created_by": "operations@organization.com",
+  "approved_by": "management@organization.com",
+  "source_url": "https://www.organization.com/policies/noise-disturbance",
+  "attachments": [],
+  "external_id": "EG-HOTEL-NOISE-2023",
+  "locale_overrides": {},
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Any requests for exceptions to this policy must be submitted in writing to hotel management for review and approval.",
+  "penalties": "Non-compliance with this policy may result in disciplinary action for staff and additional charges or eviction for guests.",
+  "legal_refs": [
+    "Egyptian Tourism Law",
+    "Local Noise Ordinances"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:a47c8d5414561d12413d639ec7c6b3e66bc91b6988c9ee99ab5d58f03edb9f4f"
+}

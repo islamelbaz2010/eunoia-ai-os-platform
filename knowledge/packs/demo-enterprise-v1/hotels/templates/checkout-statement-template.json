@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Hotel Checkout Statement Template",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "template_type": "email",
+  "subject_template": "Your Checkout Statement from {{hotel_name}}",
+  "body_template": "<html>\n<head>\n    <title>Checkout Statement</title>\n</head>\n<body>\n    <p>Dear {{guest_name}},</p>\n    <p>Thank you for staying with us at {{hotel_name}}. We hope you had a pleasant experience. Please find below the details of your stay and the final statement.</p>\n    <h2>Stay Details</h2>\n    <ul>\n        <li>Check-in Date: {{checkin_date}}</li>\n        <li>Check-out Date: {{checkout_date}}</li>\n        <li>Room Number: {{room_number}}</li>\n        <li>Total Room Nights: {{total_room_nights}}</li>\n    </ul>\n    <h2>Billing Summary</h2>\n    <ul>\n        <li>Room Charges: {{room_charges}} EGP</li>\n        <li>F&B Charges: {{fnb_charges}} EGP</li>\n        <li>Other Charges: {{other_charges}} EGP</li>\n        <li>Total Charges: {{total_charges}} EGP</li>\n    </ul>\n    <p>If you have any questions regarding this statement, please contact our front desk at {{hotel_contact}}.</p>\n    <p>We look forward to welcoming you back to {{hotel_name}} in the future.</p>\n    <p>Best regards,</p>\n    <p>{{hotel_name}} Team</p>\n</body>\n</html>",
+  "variables": [
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "checkin_date",
+      "type": "date",
+      "description": "Check-in date",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "checkout_date",
+      "type": "date",
+      "description": "Check-out date",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "room_number",
+      "type": "string",
+      "description": "Room number assigned to the guest",
+      "required": true
+    },
+    {
+      "name": "total_room_nights",
+      "type": "number",
+      "description": "Total number of room nights stayed",
+      "required": true
+    },
+    {
+      "name": "room_charges",
+      "type": "number",
+      "description": "Total room charges in EGP",
+      "required": true
+    },
+    {
+      "name": "fnb_charges",
+      "type": "number",
+      "description": "Total food and beverage charges in EGP",
+      "required": true
+    },
+    {
+      "name": "other_charges",
+      "type": "number",
+      "description": "Any other charges in EGP",
+      "required": true
+    },
+    {
+      "name": "total_charges",
+      "type": "number",
+      "description": "Total charges in EGP",
+      "required": true
+    },
+    {
+      "name": "hotel_contact",
+      "type": "string",
+      "description": "Contact information for the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "checkout-statement-template"
+  ],
+  "checksum": "sha256:ca5d02c28b58414a3ed15c2d730336c953c6397871010adf695a6ab7929da0ed"
+}

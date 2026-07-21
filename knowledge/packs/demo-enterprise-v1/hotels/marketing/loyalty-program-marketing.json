@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Enhancing Guest Loyalty through Personalized Rewards in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "campaign_type": "retention",
+  "objective": "To increase guest retention by 20% through the implementation of a personalized loyalty program that offers tailored rewards and experiences to frequent guests.",
+  "target_audience_ref": "persona-loyal-guests-eg",
+  "channels": [
+    "email",
+    "sms",
+    "social",
+    "whatsapp"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-01-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "email": 10000,
+      "sms": 5000,
+      "social": 20000,
+      "whatsapp": 15000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "loyalty-program-marketing",
+    "guest-experience",
+    "retention"
+  ],
+  "description": "This campaign aims to strengthen guest loyalty by offering a personalized rewards program in Egyptian hotels. The program will focus on delivering unique experiences and benefits that cater to the preferences and behaviors of frequent guests. By leveraging data analytics and guest feedback, the program will provide tailored offers that enhance the overall guest experience, increase repeat bookings, and improve brand loyalty.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-02-01",
+  "review_date": "2024-01-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "marketing-director@organization.com",
+  "source_url": "https://www.organization.com/loyalty-program-eg",
+  "attachments": [],
+  "external_id": "LP2023EG",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "guest_retention_rate",
+      "target": 20,
+      "unit": "%"
+    },
+    {
+      "metric": "program_enrollment",
+      "target": 1000,
+      "unit": "members"
+    },
+    {
+      "metric": "average_stay_increase",
+      "target": 1.5,
+      "unit": "nights"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "conversion",
+    "loyalty"
+  ],
+  "utm_parameters": {
+    "utm_source": "newsletter",
+    "utm_medium": "email",
+    "utm_campaign": "loyalty_program_2023"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:26e88e43efdf9899f15298a64142a9c624f27259265a6b9114a15728ecc65bd5"
+}

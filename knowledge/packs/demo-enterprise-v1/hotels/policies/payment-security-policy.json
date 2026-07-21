@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "title": "Payment Security Policy for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "policy_number": "PSP-2023-001",
+  "scope": "This policy applies to all payment processing activities within hotel properties in Egypt, including front desk transactions, online bookings via OTAs, and any other payment channels. It encompasses all staff involved in handling payment data, including front desk, concierge, and finance departments.",
+  "policy_body": "## Payment Security Policy\n\n### Objective\nTo ensure the security of guest payment information and compliance with applicable regulations, including PCI-DSS, across all hotel operations in Egypt.\n\n### Policy Statement\nAll payment data must be processed securely and in compliance with PCI-DSS standards. This includes safeguarding cardholder data during transactions at the front desk, online reservations, and any other payment interactions.\n\n### Responsibilities\n- **Front Desk Staff**: Ensure that all payment transactions are processed through secure, PCI-DSS compliant systems.\n- **IT Department**: Maintain and update payment processing systems to ensure compliance with security standards.\n- **Finance Department**: Regularly audit payment processes and systems for compliance and report any breaches immediately.\n\n### Procedures\n1. **Data Encryption**: All payment data must be encrypted during transmission and storage.\n2. **Access Control**: Only authorized personnel should have access to payment processing systems.\n3. **Regular Audits**: Conduct quarterly audits of payment systems to ensure compliance with PCI-DSS.\n4. **Incident Response**: In case of a data breach, follow the incident response plan to mitigate risks and notify affected parties.\n\n### Training\nAll employees handling payment data must undergo annual training on data security practices and compliance requirements.\n\n### Monitoring and Review\nThis policy will be reviewed annually or as required by changes in regulations or business operations.",
+  "compliance_frameworks": [
+    "PCI-DSS",
+    "GDPR"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "payment-security-policy"
+  ],
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2025-11-01",
+  "review_date": "2024-10-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "compliance@organization.com",
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Any exceptions to this policy must be approved by the Compliance Department and documented with a risk assessment.",
+  "penalties": "Non-compliance with this policy may result in disciplinary action, up to and including termination of employment.",
+  "legal_refs": [
+    "Egyptian Data Protection Law",
+    "PCI-DSS"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:05b82f0b9be7c4062a8bc7ba743f6ed9b22bec1ecb74d10acad254bcfacf03e4"
+}

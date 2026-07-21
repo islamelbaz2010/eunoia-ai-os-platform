@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Housekeeping Turnover Management Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "trigger": "High turnover rate identified in the housekeeping department, impacting service quality and operational efficiency.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Conduct Exit Interviews",
+      "action": "Schedule and conduct exit interviews with departing housekeeping staff to identify reasons for leaving. Use structured questionnaires to gather consistent data.",
+      "decision_point": false,
+      "responsible_role": "HR Manager",
+      "time_limit_minutes": 60,
+      "tools_required": [
+        "Interview Questionnaire",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Analyze Turnover Data",
+      "action": "Compile and analyze data from exit interviews and HR records to identify common themes and patterns in turnover reasons.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "High salary dissatisfaction",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Poor working conditions",
+          "next_step_id": "4"
+        }
+      ],
+      "responsible_role": "Operations Analyst",
+      "time_limit_minutes": 120,
+      "tools_required": [
+        "Data Analysis Software"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Review Compensation Packages",
+      "action": "Benchmark current compensation packages against industry standards in Egypt and propose adjustments if necessary.",
+      "decision_point": false,
+      "responsible_role": "Compensation Specialist",
+      "time_limit_minutes": 180,
+      "tools_required": [
+        "Compensation Benchmark Reports"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Improve Working Conditions",
+      "action": "Assess current working conditions and implement improvements such as better equipment, ergonomic tools, and enhanced safety measures.",
+      "decision_point": false,
+      "responsible_role": "Facilities Manager",
+      "time_limit_minutes": 240,
+      "tools_required": [
+        "Safety Equipment",
+        "Ergonomic Tools"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Implement Training Programs",
+      "action": "Develop and implement training programs to improve skills and job satisfaction among housekeeping staff.",
+      "decision_point": false,
+      "responsible_role": "Training Coordinator",
+      "time_limit_minutes": 300,
+      "tools_required": [
+        "Training Materials",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Monitor Turnover Rates",
+      "action": "Regularly monitor turnover rates post-implementation of changes to assess effectiveness and make further adjustments as needed.",
+      "decision_point": false,
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 60,
+      "tools_required": [
+        "HR Software"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 960,
+  "tags": [
+    "hotels",
+    "operations",
+    "housekeeping-turnover",
+    "HR",
+    "employee-retention"
+  ],
+  "description": "This playbook provides a structured approach to managing and reducing turnover in the housekeeping department of hotels in Egypt. It includes steps for identifying turnover causes, implementing solutions, and monitoring outcomes.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://www.example.com/housekeeping-turnover-management",
+  "attachments": [],
+  "external_id": "HTM-2023-001",
+  "locale_overrides": {},
+  "audience": [
+    "Operations Managers",
+    "HR Managers",
+    "Housekeeping Supervisors"
+  ],
+  "prerequisites": [
+    "Access to HR records",
+    "Exit interview data"
+  ],
+  "escalation_path": "Report to General Manager if turnover rate does not decrease after implementation.",
+  "related_playbooks": [
+    "Employee Engagement Strategies",
+    "Operational Efficiency Improvement"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:7043b10e93dbe43889cc8a4b59208a408b6c8667597a7639ecfe1c3a48019aa4"
+}

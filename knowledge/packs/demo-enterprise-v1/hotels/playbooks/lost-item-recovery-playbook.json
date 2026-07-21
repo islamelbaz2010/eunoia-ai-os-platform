@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Lost Item Recovery Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-25T12:00:00Z",
+  "trigger": "A guest reports a lost item or a staff member finds an unclaimed item within the hotel premises.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Initial Report Handling",
+      "action": "When a guest reports a lost item, the front desk staff must record the details in the Lost and Found logbook, including the guest's contact information, item description, and date of loss.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Lost and Found Logbook",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Search and Verification",
+      "action": "Notify housekeeping and security to conduct a search in the relevant areas. Verify the found item against the guest's description.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Item is found",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Item is not found",
+          "next_step_id": "4"
+        }
+      ],
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "Communication Devices"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Item Return Process",
+      "action": "If the item is found, contact the guest to arrange for collection or delivery. Verify the guest's identity before handing over the item.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Guest ID Verification System"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Escalation and Follow-Up",
+      "action": "If the item is not found, escalate the issue to the hotel manager and update the guest with the status. Schedule a follow-up call within 24 hours.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Documentation and Closure",
+      "action": "Document the outcome in the Lost and Found logbook and close the case. Ensure all records are updated in the PMS.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Lost and Found Logbook",
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 70,
+  "description": "This playbook outlines the procedures for handling lost item reports in hotels, ensuring efficient recovery and return of items to guests, while maintaining high standards of guest service and operational efficiency.",
+  "status": "draft",
+  "effective_date": "2023-10-25",
+  "expiry_date": "2024-10-25",
+  "review_date": "2024-04-25",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "playbooks",
+    "lost-item-recovery-playbook"
+  ],
+  "escalation_path": "Escalate to the hotel manager if the item is not found within the initial search period.",
+  "related_playbooks": [
+    "guest-complaint-handling-playbook",
+    "security-incident-response-playbook"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:ab271ddd2251b9549cd6356281bd10490eb1afab52d5001f4b03045cbbdd94ed"
+}

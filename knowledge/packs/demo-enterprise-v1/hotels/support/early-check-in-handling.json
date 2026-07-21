@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3d6f0a4e-9c5b-4c2c-8f3c-2b7d4e9a3b6f",
+  "title": "Early Check-In Handling Procedures for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-11-23T12:00:00Z",
+  "trigger": "Guest requests an early check-in prior to the standard check-in time.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Verify Early Check-In Request",
+      "action": "Confirm the guest's request for early check-in via phone, email, or in-person at the front desk. Check the reservation details in the PMS to ensure accuracy.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Room available for early check-in",
+          "next_step_id": "2"
+        },
+        {
+          "condition": "Room not available for early check-in",
+          "next_step_id": "3"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Prepare Room for Early Check-In",
+      "action": "Coordinate with housekeeping to prioritize room cleaning and preparation. Update the PMS to reflect the room's readiness for early check-in.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Housekeeping Management System"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Offer Alternatives for Early Check-In",
+      "action": "If the room is not available, offer the guest alternative options such as waiting in the lounge, using hotel amenities, or storing luggage. Inform the guest of the estimated time for room availability.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Guest accepts alternative",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Guest declines alternative",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Concierge Services"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Facilitate Guest Comfort",
+      "action": "Ensure the guest is comfortable while waiting. Offer complimentary refreshments or access to hotel facilities such as the spa or pool.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "F&B Services",
+        "Guest Services"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Escalate Unresolved Early Check-In Request",
+      "action": "If the guest is dissatisfied with the alternatives, escalate the issue to the Duty Manager for further resolution.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Communication System"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "description": "This playbook outlines the procedures for handling early check-in requests at hotels in Egypt, ensuring guest satisfaction while maintaining operational efficiency.",
+  "status": "draft",
+  "effective_date": "2023-11-23",
+  "expiry_date": "2024-11-23",
+  "review_date": "2024-05-23",
+  "created_by": "operations@organization.com",
+  "approved_by": "manager@organization.com",
+  "tags": [
+    "hotels",
+    "support",
+    "early-check-in-handling"
+  ],
+  "escalation_path": "Duty Manager",
+  "related_playbooks": [
+    "Late Check-Out Handling",
+    "Room Upgrade Procedures"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:f80dfab5e01903b3773ace6c6af4c5c35b0ba5ae1e366125d29c01b28124bd0d"
+}

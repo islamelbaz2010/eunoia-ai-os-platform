@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Pre-Arrival Communication Automation for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "automation_type": "trigger-action",
+  "trigger": {
+    "type": "event",
+    "event": "booking-confirmed",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "booking_date",
+        "operator": "gte",
+        "value": "2023-10-05"
+      },
+      {
+        "field": "country",
+        "operator": "eq",
+        "value": "EG"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "send-pre-arrival-email",
+      "type": "notify",
+      "target": "guest-email-system",
+      "parameters": {
+        "template_id": "pre-arrival-eg",
+        "subject": "Your Upcoming Stay at Our Hotel",
+        "body": "Dear Guest, we are excited to welcome you soon. Here are some details to enhance your stay...",
+        "attachments": [
+          {
+            "name": "welcome-guide.pdf",
+            "path": "/assets/guides/welcome-guide-eg.pdf",
+            "mime_type": "application/pdf",
+            "size_bytes": 204800,
+            "checksum": "sha256:3b5d5c3712955042212316173ccf37be8005e6a7d5c6d9e6d5c6d9e6d5c6d9e6"
+          }
+        ]
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "update-guest-profile",
+      "type": "update",
+      "target": "CRM",
+      "parameters": {
+        "fields": {
+          "pre_arrival_email_sent": true,
+          "last_contact_date": "2023-10-05T12:00:00Z"
+        }
+      },
+      "on_failure": "retry"
+    }
+  ],
+  "description": "This automation handles pre-arrival communication for hotel guests in Egypt. Upon booking confirmation, it sends a personalized email with essential information and updates the guest profile in the CRM.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "automation-team@organization.com",
+  "approved_by": "head-of-operations@organization.com",
+  "source_url": "https://organization.com/automation/pre-arrival-eg",
+  "attachments": [
+    {
+      "name": "automation-flowchart.png",
+      "path": "/assets/flowcharts/automation-flowchart.png",
+      "mime_type": "image/png",
+      "size_bytes": 51200,
+      "checksum": "sha256:9a5d5c3712955042212316173ccf37be8005e6a7d5c6d9e6d5c6d9e6d5c6d9e6"
+    }
+  ],
+  "external_id": "pre-arrival-communication-eg",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 100,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "log"
+  },
+  "integrations": [
+    "PMS",
+    "CRM",
+    "guest-email-system"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "pre-arrival-communication"
+  ],
+  "checksum": "sha256:9e9836d019d1f49e57765fbd2a629184d324247337773c2c2ef873a710379442"
+}

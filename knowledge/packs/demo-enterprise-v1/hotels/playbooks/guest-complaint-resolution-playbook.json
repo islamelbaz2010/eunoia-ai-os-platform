@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Guest Complaint Resolution Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "trigger": "A guest lodges a complaint at the front desk or through any hotel communication channel.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Acknowledge the Complaint",
+      "action": "The front desk agent or concierge should immediately acknowledge the guest's complaint with empathy and understanding. Use phrases like 'I understand how this could be frustrating for you' to validate their feelings.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Guest Feedback Form"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Gather Details",
+      "action": "Politely ask the guest for more information regarding their complaint. Document the details in the PMS and ensure all relevant information is captured, including time, location, and nature of the issue.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Evaluate the Complaint",
+      "action": "Assess the severity of the complaint. Determine if it can be resolved immediately or if it requires escalation. Use the hotel's SOPs to guide this evaluation.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Complaint is minor and can be resolved immediately",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Complaint is severe or requires management intervention",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Hotel SOP Manual"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Resolve the Complaint",
+      "action": "If the complaint can be resolved immediately, take the necessary actions to address the issue. Offer a small token of apology, such as a complimentary service or discount, if appropriate.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Discount Voucher"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Escalate the Complaint",
+      "action": "If the complaint is severe or cannot be resolved at the front desk, escalate it to the Duty Manager. Provide all documented details and any actions taken so far.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Communication Device"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Follow-up with the Guest",
+      "action": "After resolution or escalation, follow up with the guest to ensure their satisfaction with the outcome. Document the follow-up in the PMS and note any additional feedback.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Guest Feedback Form"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 50,
+  "description": "This playbook provides a structured approach for hotel staff in Egypt to handle guest complaints effectively, ensuring guest satisfaction and maintaining high service standards.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "manager@organization.com",
+  "tags": [
+    "hotels",
+    "playbooks",
+    "guest-complaint-resolution-playbook"
+  ],
+  "escalation_path": "Front Desk Supervisor -> Duty Manager -> General Manager",
+  "related_playbooks": [
+    "guest-feedback-collection-playbook",
+    "service-recovery-playbook"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:2b1ee005b2a1071a228c890c3f17f205762600ef182e2f5e547cd81b72cf83fe"
+}

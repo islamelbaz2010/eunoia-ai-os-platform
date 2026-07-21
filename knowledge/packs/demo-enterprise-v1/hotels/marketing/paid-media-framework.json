@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Paid Media Strategy for Enhancing Hotel Visibility in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "campaign_type": "awareness",
+  "objective": "Increase brand awareness and visibility for hotels in Egypt through targeted paid media channels, focusing on driving traffic to direct booking platforms and reducing dependency on OTAs.",
+  "target_audience_ref": "persona-eg-travelers-2023",
+  "channels": [
+    "social",
+    "paid-search",
+    "display",
+    "content"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-01-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "social": 20000,
+      "paid-search": 15000,
+      "display": 10000,
+      "content": 5000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "paid-media-framework",
+    "brand-awareness",
+    "egypt-market"
+  ],
+  "description": "This campaign aims to leverage paid media channels to enhance the visibility of hotels in Egypt. By focusing on social media, paid search, and display advertising, the campaign seeks to increase direct bookings and reduce reliance on OTAs. The strategy will include targeted content to appeal to both domestic and international travelers, highlighting unique hotel experiences and cultural attractions.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-02-01",
+  "review_date": "2024-01-15",
+  "created_by": "marketing-team@organization.com",
+  "approved_by": "director@organization.com",
+  "source_url": "https://www.organization.com/marketing/campaigns/egypt-hotels-2023",
+  "attachments": [],
+  "external_id": "campaign-eg-2023-001",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "impressions",
+      "target": 1000000,
+      "unit": "views"
+    },
+    {
+      "metric": "click-through-rate",
+      "target": 2.5,
+      "unit": "percentage"
+    },
+    {
+      "metric": "direct-bookings",
+      "target": 5000,
+      "unit": "bookings"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "conversion"
+  ],
+  "utm_parameters": {
+    "utm_source": "paid_media",
+    "utm_medium": "cpc",
+    "utm_campaign": "egypt_hotels_awareness_2023"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:4c987ee6e0cb12259c5dbcbebcdfcc08d12c35e43a15f9deeaf880517a5b46db"
+}

@@ -1,0 +1,1035 @@
+{
+  "runId": "b750a844-d126-4b32-9431-ffd36b246014",
+  "startedAt": "2026-07-21T04:10:56.502Z",
+  "completedAt": "2026-07-21T04:24:32.066Z",
+  "durationMs": 815564,
+  "mode": "industry",
+  "scope": {
+    "industry": "hotels",
+    "language": "en",
+    "country": "EG"
+  },
+  "provider": "openai",
+  "dryRun": false,
+  "summary": {
+    "total": 101,
+    "succeeded": 100,
+    "failed": 0,
+    "quarantined": 0,
+    "skipped": 1,
+    "dryRun": 0
+  },
+  "documents": [
+    {
+      "industry": "hotels",
+      "department": "company",
+      "topic": "company-profile",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/company-profile.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 8700
+    },
+    {
+      "industry": "hotels",
+      "department": "company",
+      "topic": "department-hierarchy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/department-hierarchy.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 5801
+    },
+    {
+      "industry": "hotels",
+      "department": "company",
+      "topic": "brand-standards-framework",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/brand-standards-framework.json",
+      "documentId": "a3f5e4c2-7b9d-4f3d-8e2f-5c2b4d2e9a1f",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5863
+    },
+    {
+      "industry": "hotels",
+      "department": "company",
+      "topic": "culture-values-structure",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/culture-values-structure.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 7222
+    },
+    {
+      "industry": "hotels",
+      "department": "company",
+      "topic": "leadership-structure",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/leadership-structure.json",
+      "documentId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 8226
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "check-in-process",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/check-in-process.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 12755
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "check-out-process",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/check-out-process.json",
+      "documentId": "d3b07384-8d9f-4c3d-9f2f-7f2e5f2f9b9e",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 8649
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "housekeeping-turnover",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/housekeeping-turnover.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9444
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "room-inspection",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/room-inspection.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 7344
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "maintenance-request",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/maintenance-request.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 7840
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "emergency-procedures",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/emergency-procedures.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9778
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "vip-arrival",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/vip-arrival.json",
+      "documentId": "d4e8f2b7-8c3a-4b0d-9f0e-2b6e4f9a8c7d",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 8430
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "late-checkout",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/late-checkout.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 9319
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "lost-and-found",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/lost-and-found.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 7318
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "cleaning-standards",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/cleaning-standards.json",
+      "documentId": "3e5b7c4a-8f2e-4c3e-9b5a-3d2a5f6b9c1d",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9083
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "shift-handover",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/shift-handover.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 8308
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "key-management",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/key-management.json",
+      "documentId": "3f8f2e1e-9c6d-4b1e-8c3b-0c5e4f9d6b8a",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 8705
+    },
+    {
+      "industry": "hotels",
+      "department": "operations",
+      "topic": "room-service-delivery",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/room-service-delivery.json",
+      "documentId": "3e9f1a7b-4c3d-4d2b-8b9f-9a8f5e6c7d2e",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 7321
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "room-types-catalog",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/room-types-catalog.json",
+      "documentId": "3b2f5c4e-9d8b-4b6b-8f3e-1c2f4e6b7a9d",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6074
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "rate-plans",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/rate-plans.json",
+      "documentId": "d4f8c5a2-8e4f-4e2b-bf4d-3e3b9c8f5a9e",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6322
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "upsell-program",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/upsell-program.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5557
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "group-booking-process",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/group-booking-process.json",
+      "documentId": "f3b9c1e4-8d4b-4c3b-9f3b-2a4f8d9b7c2a",
+      "qualityScore": 96,
+      "status": "success",
+      "durationMs": 6039
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "corporate-rate-negotiation",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/corporate-rate-negotiation.json",
+      "documentId": "3f8c9e1b-9c4a-4f8c-bb5b-4e9a8d5c7f2a",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5829
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "ota-channel-strategy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/ota-channel-strategy.json",
+      "documentId": "f8b8f8d0-3b4c-4a8f-8b9f-4c8f8b9f4c8f",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5443
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "revenue-optimization",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/revenue-optimization.json",
+      "documentId": "b3d5c5f4-8f6c-4e2e-9f8d-2b4e8f9c2b3d",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6274
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "loyalty-tier-benefits",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/loyalty-tier-benefits.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6251
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "seasonal-pricing",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/seasonal-pricing.json",
+      "documentId": "c1f3e8a2-9b4a-4f7b-8d6b-3f2f6e9a9c5d",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5982
+    },
+    {
+      "industry": "hotels",
+      "department": "sales",
+      "topic": "package-creation",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/package-creation.json",
+      "documentId": "3d6f7c5e-8f4f-4a3c-9d3b-2e8c9f4a6d8b",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 5145
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "brand-voice-guidelines",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/brand-voice-guidelines.json",
+      "documentId": "e3b0c442-98fc-4f8f-bf0d-8cd3b8c3b4a1",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6320
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "social-media-strategy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/social-media-strategy.json",
+      "documentId": "f3a1c4b5-9d7e-4c3b-8f4d-2b6e9a6f7c8d",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 7059
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "email-campaign-structure",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/email-campaign-structure.json",
+      "documentId": "3f9c9b2e-1d3f-4c5e-8e2b-9f3e9a2f4b6c",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6754
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "paid-media-framework",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/paid-media-framework.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6476
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "photography-standards",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/photography-standards.json",
+      "documentId": "f3b9d3c2-4e5f-4a9b-8f2a-1a6e2d9f9c3e",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6060
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "loyalty-program-marketing",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/loyalty-program-marketing.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5909
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "event-marketing",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/event-marketing.json",
+      "documentId": "d3c4b5f2-8a7e-4c9b-9b3e-2f5b6a7d9c8e",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 9602
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "reputation-management",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/reputation-management.json",
+      "documentId": "5d3c9a6e-8f2b-4a5b-9a7f-3b8c9e2e5f6a",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 10730
+    },
+    {
+      "industry": "hotels",
+      "department": "marketing",
+      "topic": "seasonal-campaigns",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/seasonal-campaigns.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 89,
+      "status": "success",
+      "durationMs": 3296
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "complaint-handling-process",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/complaint-handling-process.json",
+      "documentId": "6a1f4e7d-3f6e-4b7a-8b3f-9d5e1a2c1b4e",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9833
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "concierge-service-model",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/concierge-service-model.json",
+      "documentId": "d3f5c9b2-1c8e-4f7b-9b8e-5e9f3b2a8d9a",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 10632
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "special-needs-accommodation",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/special-needs-accommodation.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 9000
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "transportation-coordination",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/transportation-coordination.json",
+      "documentId": "3e7f5a1b-6b4d-4d3e-9f8b-2d4f4c5b8f9e",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 8468
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "amenity-request-handling",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/amenity-request-handling.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 6676
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "escalation-matrix",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/escalation-matrix.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 8076
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "disability-services",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/disability-services.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 7037
+    },
+    {
+      "industry": "hotels",
+      "department": "support",
+      "topic": "early-check-in-handling",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/early-check-in-handling.json",
+      "documentId": "3d6f0a4e-9c5b-4c2c-8f3c-2b7d4e9a3b6f",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 8531
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "general-information",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/general-information.json",
+      "documentId": "c4375042-8f0f-4515-90ce-4bac5682712c",
+      "qualityScore": 0,
+      "status": "skipped",
+      "durationMs": 1
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "check-in-checkout-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/check-in-checkout-faq.json",
+      "documentId": "3f4e3c9a-1b7e-4e4e-8c9f-2d6f5c8e7b9a",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 2653
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "room-amenities-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/room-amenities-faq.json",
+      "documentId": "3f6b1c2d-8b4f-4a6b-9f1d-2c3e4f5a6b7c",
+      "qualityScore": 94,
+      "status": "success",
+      "durationMs": 4051
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "dining-options-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/dining-options-faq.json",
+      "documentId": "a3b7c9d4-5e6f-4f8b-9a1c-2d3e4f5a6b7c",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 2546
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "parking-transportation-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/parking-transportation-faq.json",
+      "documentId": "3f5c9a8b-2e4f-4d8a-9b1d-7c3d5f8a9e2f",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 6175
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "pet-policy-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/pet-policy-faq.json",
+      "documentId": "3a4f7c2b-9b5e-4f2e-8f3a-2b5c4d8e9f1a",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 3918
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "cancellation-refund-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/cancellation-refund-faq.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 3106
+    },
+    {
+      "industry": "hotels",
+      "department": "faq",
+      "topic": "accessibility-faq",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/accessibility-faq.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 2804
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "booking-confirmation-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/booking-confirmation-template.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 5681
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "pre-arrival-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/pre-arrival-template.json",
+      "documentId": "e4f0b1a0-3b6f-4e5b-9f2d-8f5c9a1e0e3d",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 6861
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "welcome-letter-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/welcome-letter-template.json",
+      "documentId": "3f1c4d6e-9f3d-4b3a-a9e8-2d3f5c8e5b8f",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 6418
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "checkout-statement-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/checkout-statement-template.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 7416
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "complaint-acknowledgment-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/complaint-acknowledgment-template.json",
+      "documentId": "3f7a1e2b-5b6c-4a3d-8f2f-4b9e8e6c2d7a",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 6386
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "review-request-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/review-request-template.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 11295
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "group-proposal-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/group-proposal-template.json",
+      "documentId": "f3b7c5e8-9a2b-4f4b-8d4f-3c1a2b6d7e9f",
+      "qualityScore": 92,
+      "status": "success",
+      "durationMs": 9085
+    },
+    {
+      "industry": "hotels",
+      "department": "templates",
+      "topic": "special-occasion-template",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/special-occasion-template.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 8074
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "guest-greeting-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/guest-greeting-prompt.json",
+      "documentId": "3f8b0f4e-5c6b-4a8b-9f3d-1e2c3d4e5f6a",
+      "qualityScore": 98,
+      "status": "success",
+      "durationMs": 5361
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "concierge-assistant-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/concierge-assistant-prompt.json",
+      "documentId": "3d6f7b2c-9f4b-4b8d-bd8e-5c8f8e4d9a2a",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 5949
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "complaint-resolution-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/complaint-resolution-prompt.json",
+      "documentId": "3e5f9d5a-8c4b-4f1a-9e3a-8a7b5c9d4f2b",
+      "qualityScore": 98,
+      "status": "success",
+      "durationMs": 5925
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "room-upsell-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/room-upsell-prompt.json",
+      "documentId": "3f50c5e2-8b7d-4b8b-9f3f-8c7d4e8a9b6d",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 8632
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "review-response-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/review-response-prompt.json",
+      "documentId": "3f9f8e4b-8c4a-4d5b-9f6e-2c8b4c5d6a7e",
+      "qualityScore": 98,
+      "status": "success",
+      "durationMs": 10756
+    },
+    {
+      "industry": "hotels",
+      "department": "prompts",
+      "topic": "booking-assistant-prompt",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/booking-assistant-prompt.json",
+      "documentId": "3f5f9b8e-7c6c-4f9e-9f5b-8e3f9b8e7c6c",
+      "qualityScore": 98,
+      "status": "success",
+      "durationMs": 7897
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "cancellation-policy-framework",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/cancellation-policy-framework.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 98,
+      "status": "success",
+      "durationMs": 7565
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "pet-policy-framework",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/pet-policy-framework.json",
+      "documentId": "3f8e1b68-8f2b-4c3e-bf9e-9d5b9c2d9f3b",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 7689
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "smoking-policy-framework",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/smoking-policy-framework.json",
+      "documentId": "3f9b1b4e-8d2f-4c9a-b8a3-9f2b9a4f3c8d",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 7675
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "noise-disturbance-policy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/noise-disturbance-policy.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9373
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "pool-safety-policy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/pool-safety-policy.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 91,
+      "status": "success",
+      "durationMs": 6855
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "payment-security-policy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/payment-security-policy.json",
+      "documentId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 6289
+    },
+    {
+      "industry": "hotels",
+      "department": "policies",
+      "topic": "damage-liability-policy",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/damage-liability-policy.json",
+      "documentId": "c1a1b2c3-d4e5-4f67-8a9b-0c1d2e3f4a5b",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 7106
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "check-in-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/check-in-playbook.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 8070
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "emergency-evacuation-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/emergency-evacuation-playbook.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 9268
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "guest-complaint-resolution-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/guest-complaint-resolution-playbook.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 9321
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "vip-arrival-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/vip-arrival-playbook.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 8431
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "overbooking-management-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/overbooking-management-playbook.json",
+      "documentId": "f3a5c2d4-9b8c-4e2b-9e3b-5c9f8e4a8b7d",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 8208
+    },
+    {
+      "industry": "hotels",
+      "department": "playbooks",
+      "topic": "lost-item-recovery-playbook",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/lost-item-recovery-playbook.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 7202
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "front-desk-onboarding",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/front-desk-onboarding.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 7668
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "housekeeping-certification",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/housekeeping-certification.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 7378
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "concierge-skills-training",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/concierge-skills-training.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 8718
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "safety-compliance-training",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/safety-compliance-training.json",
+      "documentId": "3f5b2d4a-6c3e-4b9d-8a0f-1a2b3c4d5e6f",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 7895
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "service-excellence-program",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/service-excellence-program.json",
+      "documentId": "f3a1c9b2-5d4e-4b7e-8f9b-7e4f9d9a6b1c",
+      "qualityScore": 100,
+      "status": "success",
+      "durationMs": 10319
+    },
+    {
+      "industry": "hotels",
+      "department": "training",
+      "topic": "upsell-techniques-training",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/upsell-techniques-training.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 97,
+      "status": "success",
+      "durationMs": 9280
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "booking-confirmation-workflow",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/booking-confirmation-workflow.json",
+      "documentId": "d4f5a9b7-3b2a-4c8f-8e6d-9f2a4b7e9c3f",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 7855
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "pre-arrival-communication",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/pre-arrival-communication.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6847
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "post-stay-survey-workflow",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/post-stay-survey-workflow.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6183
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "review-request-automation",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/review-request-automation.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5960
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "maintenance-request-routing",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/maintenance-request-routing.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5765
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "overbooking-alert-workflow",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/overbooking-alert-workflow.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 5677
+    },
+    {
+      "industry": "hotels",
+      "department": "automation",
+      "topic": "no-show-handling-automation",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/no-show-handling-automation.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 99,
+      "status": "success",
+      "durationMs": 6849
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "occupancy-rate-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/occupancy-rate-kpi.json",
+      "documentId": "f3a8b7c4-5d1e-4f9a-9a2d-7c3e5b6d8f9e",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 4399
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "average-daily-rate-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/average-daily-rate-kpi.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 5056
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "revpar-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/revpar-kpi.json",
+      "documentId": "e7a1c2f4-8b3d-4f3f-bd4e-8f7d9a3c5e2b",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 4820
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "net-promoter-score-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/net-promoter-score-kpi.json",
+      "documentId": "9f8b7c2d-3e4a-4f7b-b8d5-5c6e7a8f9b10",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 4024
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "complaint-resolution-rate-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/complaint-resolution-rate-kpi.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 93,
+      "status": "success",
+      "durationMs": 3980
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "housekeeping-score-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/housekeeping-score-kpi.json",
+      "documentId": "a3f5b6c7-89d0-4e12-8f3a-5a6b7c8d9e0f",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 4082
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "channel-mix-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/channel-mix-kpi.json",
+      "documentId": "3f5e1c8b-9c6e-4f7a-8e4d-2a4f5a1c9b3e",
+      "qualityScore": 95,
+      "status": "success",
+      "durationMs": 4772
+    },
+    {
+      "industry": "hotels",
+      "department": "analytics",
+      "topic": "repeat-guest-rate-kpi",
+      "filePath": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/repeat-guest-rate-kpi.json",
+      "documentId": "b750a844-d126-4b32-9431-ffd36b246014",
+      "qualityScore": 93,
+      "status": "success",
+      "durationMs": 3563
+    }
+  ],
+  "errors": []
+}

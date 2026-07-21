@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Special Needs Accommodation Support Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "A guest requests special needs accommodation at the hotel.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive and Acknowledge Request",
+      "action": "Upon receiving a request for special needs accommodation, the front desk staff should acknowledge the request immediately and assure the guest of our commitment to their comfort and safety.",
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Guest Profile System"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Assess Accommodation Requirements",
+      "action": "Consult with the guest to understand their specific needs. This may include mobility assistance, visual or auditory aids, or dietary requirements. Document these needs in the PMS.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Mobility assistance required",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Visual or auditory aids required",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Dietary requirements",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Communication Device"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Arrange Mobility Assistance",
+      "action": "Coordinate with housekeeping to ensure the room is equipped with necessary mobility aids such as wheelchair ramps or shower chairs. Confirm availability and readiness with the guest.",
+      "responsible_role": "Housekeeping Manager",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Housekeeping Checklist"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Provide Visual or Auditory Aids",
+      "action": "Ensure that devices such as text telephones (TTY) or visual alert systems are available and functional in the guest's room. Confirm with the guest that these meet their needs.",
+      "responsible_role": "IT Support",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "IT Support Tools"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Address Dietary Requirements",
+      "action": "Inform the F&B team of any specific dietary needs. Ensure that the kitchen staff is aware and prepared to accommodate these requests during meal preparations.",
+      "responsible_role": "F&B Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "F&B Order System"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Confirm Arrangements with Guest",
+      "action": "Once all accommodations are arranged, contact the guest to confirm that their needs have been met and offer any additional assistance if required.",
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Document and Follow-Up",
+      "action": "Document the accommodations provided in the guest's profile for future reference. Schedule a follow-up call or visit to ensure ongoing satisfaction.",
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "CRM System"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "tags": [
+    "hotels",
+    "support",
+    "special-needs-accommodation"
+  ],
+  "description": "This playbook outlines the steps for accommodating special needs requests from hotel guests in Egypt, ensuring compliance with local regulations and enhancing guest satisfaction.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "escalation_path": "If any step cannot be completed, escalate to the Support Manager for immediate resolution.",
+  "related_playbooks": [
+    "emergency-response",
+    "guest-feedback-management"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:09abeef9a24c2868c86f0928f594565d4e7211decece372c9ec5a144b8009210"
+}

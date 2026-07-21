@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Critical Maintenance Request Handling in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T14:30:00Z",
+  "trigger": "A maintenance issue is reported by a guest or staff member that requires immediate attention to ensure guest safety and satisfaction.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive and Log Maintenance Request",
+      "action": "The front desk receives the maintenance request from a guest or staff member and logs it into the PMS. Ensure all details such as room number, nature of the issue, and urgency are recorded accurately.",
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Telephone"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Assess the Urgency of the Request",
+      "action": "Evaluate the request to determine if it is critical (e.g., water leakage, electrical failure) or non-critical. Prioritize based on guest safety and hotel operations impact.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If critical",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "If non-critical",
+          "next_step_id": "4"
+        }
+      ],
+      "responsible_role": "Maintenance Supervisor",
+      "time_limit_minutes": 10
+    },
+    {
+      "step_id": "3",
+      "title": "Dispatch Maintenance Team Immediately",
+      "action": "Contact the on-duty maintenance team via radio or phone and provide them with the details of the critical issue. Ensure they have the necessary tools and access to the affected area.",
+      "responsible_role": "Maintenance Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Radio",
+        "Phone"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Schedule Non-Critical Maintenance",
+      "action": "Log the non-critical issue in the maintenance schedule for the day. Inform the guest of the expected time for resolution and ensure they are comfortable.",
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Conduct Maintenance and Resolve Issue",
+      "action": "The maintenance team addresses the issue using appropriate tools and techniques. Ensure the problem is resolved to standard and verify with the guest if applicable.",
+      "responsible_role": "Maintenance Technician",
+      "time_limit_minutes": 60,
+      "tools_required": [
+        "Tool Kit",
+        "Safety Equipment"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Update Maintenance Log and Notify Relevant Parties",
+      "action": "Once the issue is resolved, update the maintenance log in the PMS. Notify the front desk and, if necessary, the guest about the completion of the maintenance work.",
+      "responsible_role": "Maintenance Technician",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 90,
+  "tags": [
+    "hotels",
+    "operations",
+    "maintenance-request"
+  ],
+  "description": "This playbook outlines the critical procedures for handling maintenance requests in hotels operating in Egypt. It ensures prompt and efficient resolution of maintenance issues to maintain guest satisfaction and operational integrity.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "review_cycle_days": 180,
+  "checksum": "sha256:4a194d0fac8f7bc23442c126e6a96dc2d77a54ed3b6f72b4a890337589b6959a"
+}

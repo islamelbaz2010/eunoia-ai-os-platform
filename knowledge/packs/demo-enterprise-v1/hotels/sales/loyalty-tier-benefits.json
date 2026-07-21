@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Loyalty Tier Benefits for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "tags": [
+    "hotels",
+    "sales",
+    "loyalty-tier-benefits"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "loyalty-program-eg",
+  "pricing": {
+    "model": "tiered",
+    "currency": "EGP",
+    "tiers": [
+      {
+        "from": 0,
+        "to": 999,
+        "price": 0
+      },
+      {
+        "from": 1000,
+        "to": 4999,
+        "price": 100
+      },
+      {
+        "from": 5000,
+        "to": 9999,
+        "price": 200
+      },
+      {
+        "from": 10000,
+        "price": 300
+      }
+    ]
+  },
+  "validity": {
+    "start_date": "2023-10-01",
+    "end_date": "2024-09-30",
+    "limited_quantity": 1000
+  },
+  "description": "This document outlines the loyalty tier benefits available to guests in Egyptian hotels. The program is designed to enhance guest experience by offering tiered benefits based on accumulated points. Benefits include room upgrades, complimentary F&B services, and exclusive concierge access. The program aims to optimize guest retention and increase RevPAR through enhanced customer loyalty.",
+  "status": "draft",
+  "effective_date": "2023-10-01",
+  "expiry_date": "2024-09-30",
+  "review_date": "2024-06-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "sales@organization.com",
+  "source_url": "https://www.example.com/loyalty-program-eg",
+  "attachments": [],
+  "external_id": "loyalty-tier-2023-eg",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Guest must be enrolled in the loyalty program.",
+    "Points are earned based on room nights and F&B spend.",
+    "Benefits are subject to availability and blackout dates."
+  ],
+  "exclusions": [
+    "Non-refundable bookings are not eligible for points.",
+    "Benefits cannot be combined with other promotions."
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:a4145c2b25783ca2a13b022dcba87ae8ba78cc45edcbf373a62ad7e7587b2506"
+}

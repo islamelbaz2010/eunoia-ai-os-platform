@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3a4f7c2b-9b5e-4f2e-8f3a-2b5c4d8e9f1a",
+  "title": "Pet Policy FAQ for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "question": "What is the pet policy for guests staying at hotels in Egypt?",
+  "answer": "Our hotel welcomes pets to ensure a comfortable stay for all guests. We allow small to medium-sized pets, with a maximum of two pets per room. A non-refundable cleaning fee is applied per pet, per stay. Pets must be kept on a leash in public areas and are not allowed in the F&B outlets or pool area. Guests are responsible for any damage caused by their pets. Please contact the front desk for more details or specific inquiries regarding our pet-friendly accommodations.",
+  "category": "pet-policy-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "pet-policy-faq"
+  ],
+  "status": "draft",
+  "checksum": "sha256:120a1e5467c0c1f0f95432bb18de9c484bcf2a0e1a55975d079714380824e48e"
+}

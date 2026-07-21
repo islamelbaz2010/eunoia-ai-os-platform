@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f9c9b2e-1d3f-4c5e-8e2b-9f3e9a2f4b6c",
+  "title": "Guest Engagement Email Campaign for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-12T14:30:00Z",
+  "campaign_type": "retention",
+  "objective": "Enhance guest loyalty and increase repeat bookings by engaging past guests with personalized offers and updates about hotel amenities and local attractions.",
+  "target_audience_ref": "persona_egyptian_guests",
+  "channels": [
+    "email"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2023-12-31",
+  "budget": {
+    "total": 5000,
+    "currency": "EGP",
+    "breakdown": {
+      "email_marketing_software": 1500,
+      "creative_design": 1000,
+      "data_analysis": 500,
+      "content_creation": 1000,
+      "miscellaneous": 1000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "email-campaign-structure"
+  ],
+  "description": "This campaign aims to retain and engage previous guests of hotels in Egypt by sending personalized emails that highlight exclusive offers, new amenities, and local events. The focus is on increasing guest loyalty and encouraging repeat stays through targeted communication.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-01-01",
+  "review_date": "2023-12-15",
+  "created_by": "marketing_team@organization.com",
+  "approved_by": "head_of_marketing@organization.com",
+  "source_url": "https://organization.com/campaigns/guest-engagement-egypt",
+  "attachments": [],
+  "external_id": "EG-HOTELS-EMAIL-2023",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "open_rate",
+      "target": 25,
+      "unit": "%"
+    },
+    {
+      "metric": "click_through_rate",
+      "target": 5,
+      "unit": "%"
+    },
+    {
+      "metric": "conversion_rate",
+      "target": 3,
+      "unit": "%"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "conversion"
+  ],
+  "utm_parameters": {
+    "utm_source": "email",
+    "utm_medium": "campaign",
+    "utm_campaign": "guest_engagement_egypt"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:ecebbd8c1dd61be2fc114f802e0e27b6dc922598693c9a809aa203de3144e941"
+}

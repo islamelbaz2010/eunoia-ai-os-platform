@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Automated Guest Review Request Workflow for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-14T12:00:00Z",
+  "automation_type": "event-driven",
+  "trigger": {
+    "type": "event",
+    "event": "guest_checkout",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "stay_duration",
+        "operator": "gte",
+        "value": 1
+      },
+      {
+        "field": "guest_email",
+        "operator": "neq",
+        "value": null
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "send_review_request_email",
+      "type": "notify",
+      "target": "email_service",
+      "parameters": {
+        "template_id": "guest_review_request",
+        "recipient_email": "{{guest_email}}",
+        "subject": "We Value Your Feedback!",
+        "body": "Dear {{guest_name}}, thank you for staying with us at {{hotel_name}}. We would appreciate it if you could take a moment to review your experience. Your feedback helps us improve our services."
+      },
+      "on_failure": "retry"
+    },
+    {
+      "action_id": "log_review_request",
+      "type": "log",
+      "target": "PMS",
+      "parameters": {
+        "log_message": "Review request email sent to {{guest_email}} for stay at {{hotel_name}} on {{checkout_date}}."
+      },
+      "on_failure": "alert"
+    }
+  ],
+  "description": "This automation workflow is designed to enhance guest engagement by automatically sending a review request email to guests upon checkout. The system triggers when a guest checks out, ensuring that only guests with valid email addresses receive the request. This process helps hotels in Egypt gather valuable feedback to improve guest satisfaction and operational excellence.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-04-15",
+  "created_by": "automation@organization.com",
+  "approved_by": "manager@organization.com",
+  "source_url": "https://organization.com/automation/review-request",
+  "attachments": [],
+  "external_id": "review-request-automation-eg",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 100,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "log_error"
+  },
+  "integrations": [
+    "PMS",
+    "email_service"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "review-request-automation"
+  ],
+  "checksum": "sha256:fa664535f1e8561128f061447636afbf2897f09f56d25a6f456031b0a484be6c"
+}

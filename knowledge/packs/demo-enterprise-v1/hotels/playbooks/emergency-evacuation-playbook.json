@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Emergency Evacuation Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "trigger": "Activation of the fire alarm system or detection of a critical emergency requiring evacuation.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Initiate Evacuation Protocol",
+      "action": "Upon hearing the fire alarm or receiving an emergency alert, the front desk manager must immediately announce the evacuation over the PA system, instructing guests and staff to proceed to the nearest exit.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 2,
+      "tools_required": [
+        "PA system"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Guide Guests to Exits",
+      "action": "Concierge and available staff should guide guests to the nearest safe exit, ensuring that all guests are moving calmly and quickly. Staff should be positioned at key points to direct traffic and assist those needing help.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Flashlights"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Assist Persons with Disabilities",
+      "action": "Housekeeping staff should assist guests with disabilities or special needs, ensuring they are safely evacuated using designated routes and equipment.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping Staff",
+      "time_limit_minutes": 7,
+      "tools_required": [
+        "Evacuation chairs"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Conduct Headcount at Assembly Point",
+      "action": "Once at the designated assembly point, the operations manager should conduct a headcount to ensure all guests and staff are accounted for. Any missing persons should be reported immediately to emergency services.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "All accounted for",
+          "next_step_id": "5"
+        },
+        {
+          "condition": "Missing persons",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Guest list",
+        "Staff roster"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Await Clearance from Authorities",
+      "action": "Remain at the assembly point until the emergency services provide clearance to re-enter the building or move to an alternative location.",
+      "decision_point": false,
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 30,
+      "tools_required": []
+    },
+    {
+      "step_id": "6",
+      "title": "Report Missing Persons to Emergency Services",
+      "action": "Provide emergency services with details of any missing persons, including last known location and any relevant personal information.",
+      "decision_point": false,
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Communication device"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "tags": [
+    "hotels",
+    "playbooks",
+    "emergency-evacuation-playbook"
+  ],
+  "description": "This playbook outlines the step-by-step procedures for safely evacuating a hotel in Egypt during an emergency. It includes roles, responsibilities, and tools required to ensure the safety of guests and staff.",
+  "status": "draft",
+  "effective_date": "2023-10-21",
+  "expiry_date": "2025-10-21",
+  "review_date": "2024-10-21",
+  "created_by": "operations@organization.com",
+  "approved_by": "safety@organization.com",
+  "source_url": "https://example.com/emergency-evacuation-playbook",
+  "attachments": [],
+  "external_id": "EVAC2023EG",
+  "locale_overrides": {},
+  "audience": [
+    "Hotel Staff",
+    "Management"
+  ],
+  "prerequisites": [
+    "Staff training on emergency procedures",
+    "Regular fire drills"
+  ],
+  "escalation_path": "Contact local emergency services if the situation escalates beyond control.",
+  "related_playbooks": [
+    "fire-safety-playbook",
+    "guest-safety-playbook"
+  ],
+  "review_cycle_days": 365,
+  "checksum": "sha256:b2665900d518dc3ed7bab33f22283376f019fbeb66f4e525e921a41a6b2c5e65"
+}

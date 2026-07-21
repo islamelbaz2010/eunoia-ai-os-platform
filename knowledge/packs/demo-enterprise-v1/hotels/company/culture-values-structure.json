@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Cultural Values and Organizational Structure for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "company",
+  "tags": [
+    "hotels",
+    "company",
+    "culture-values-structure",
+    "hospitality",
+    "Egypt"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "department_code": "CMP",
+  "parent_department": "CORP",
+  "cost_center": "CC1001",
+  "roles": [
+    {
+      "role_id": "CEO",
+      "title": "Chief Executive Officer",
+      "level": "executive",
+      "reports_to": null,
+      "headcount": 1
+    },
+    {
+      "role_id": "COO",
+      "title": "Chief Operating Officer",
+      "level": "executive",
+      "reports_to": "CEO",
+      "headcount": 1
+    },
+    {
+      "role_id": "HRD",
+      "title": "Human Resources Director",
+      "level": "senior",
+      "reports_to": "COO",
+      "headcount": 1
+    },
+    {
+      "role_id": "FOM",
+      "title": "Front Office Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 5
+    },
+    {
+      "role_id": "HSM",
+      "title": "Housekeeping Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 10
+    },
+    {
+      "role_id": "FBD",
+      "title": "Food and Beverage Director",
+      "level": "senior",
+      "reports_to": "COO",
+      "headcount": 1
+    }
+  ],
+  "description": "This document outlines the cultural values and organizational structure for the hotel industry in Egypt. It focuses on enhancing guest experience, operational excellence, and adherence to brand standards. The structure is designed to support strategic goals, including optimizing RevPAR and ADR, while maintaining compliance with local regulations such as PCI-DSS and GDPR.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "board@organization.com",
+  "source_url": "https://www.organization.com/documents/hotel-culture-values-structure",
+  "attachments": [],
+  "external_id": "EG-HOTELS-CULTURE-2023",
+  "locale_overrides": {},
+  "kpi_refs": [
+    "RevPAR",
+    "ADR",
+    "Occupancy Rate"
+  ],
+  "budget_owner": "finance@organization.com",
+  "functional_area": "growth",
+  "checksum": "sha256:782836ff3ccf7eff0098789a041589b6e40ae452ab3f9b3262ac35202046c25d"
+}

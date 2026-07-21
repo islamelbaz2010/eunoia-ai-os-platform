@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d4f8c5a2-8e4f-4e2b-bf4d-3e3b9c8f5a9e",
+  "title": "Dynamic Rate Plans for Enhanced Guest Experience",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "tags": [
+    "hotels",
+    "sales",
+    "rate-plans",
+    "guest-experience",
+    "revenue-optimization"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-24T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "dynamic-rate-plans-eg",
+  "pricing": {
+    "model": "tiered",
+    "currency": "EGP",
+    "tiers": [
+      {
+        "from": 1,
+        "to": 10,
+        "price": 1000
+      },
+      {
+        "from": 11,
+        "to": 20,
+        "price": 900
+      },
+      {
+        "from": 21,
+        "to": 50,
+        "price": 850
+      }
+    ]
+  },
+  "validity": {
+    "start_date": "2023-11-01",
+    "end_date": "2024-12-31",
+    "limited_quantity": 100
+  },
+  "description": "This document outlines the dynamic rate plans designed to optimize revenue and enhance guest satisfaction for hotels operating in Egypt. The rate plans are structured to offer competitive pricing based on booking volume, encouraging longer stays and higher occupancy rates. The tiered pricing model allows for flexibility and adaptability to market demands, ensuring that hotels can maximize their RevPAR and ADR while providing value to guests. The offer is valid for a limited time and subject to availability, ensuring exclusivity and urgency in booking.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-12-31",
+  "review_date": "2024-06-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://www.example.com/hotels/rate-plans",
+  "attachments": [],
+  "external_id": "rate-plans-2023-eg",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Applicable to direct bookings only",
+    "Minimum stay of 2 nights required",
+    "Valid for stays from Sunday to Thursday"
+  ],
+  "exclusions": [
+    "Not applicable during public holidays",
+    "Excludes group bookings"
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:ba87bdb8a70735c79498a773d5960bb097cc6e78757fe13e9a3ac8a448067137"
+}

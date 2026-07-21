@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Automated Maintenance Request Routing for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "automation_type": "event-driven",
+  "trigger": {
+    "type": "event",
+    "event": "maintenance_request_created",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "request_priority",
+        "operator": "eq",
+        "value": "high"
+      },
+      {
+        "field": "room_status",
+        "operator": "eq",
+        "value": "occupied"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "notify_maintenance_team",
+      "type": "notify",
+      "target": "maintenance_team_system",
+      "parameters": {
+        "message": "A high-priority maintenance request has been created for an occupied room.",
+        "room_number": "{{room_number}}",
+        "request_details": "{{request_details}}"
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "log_request",
+      "type": "log",
+      "target": "maintenance_log",
+      "parameters": {
+        "entry": "Maintenance request for room {{room_number}} logged with priority: {{request_priority}}."
+      },
+      "on_failure": "continue"
+    },
+    {
+      "action_id": "update_request_status",
+      "type": "update",
+      "target": "PMS",
+      "parameters": {
+        "request_id": "{{request_id}}",
+        "status": "in-progress"
+      },
+      "on_failure": "retry"
+    }
+  ],
+  "description": "This document outlines the automation workflow for routing maintenance requests in hotels located in Egypt. The workflow is triggered by the creation of a maintenance request in the PMS, specifically targeting high-priority requests for occupied rooms. The automation ensures timely notification to the maintenance team, logs the request, and updates the request status in the PMS.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2025-10-05",
+  "review_date": "2024-10-05",
+  "created_by": "automation@organization.com",
+  "approved_by": "manager@organization.com",
+  "source_url": "https://organization.com/automation/maintenance-request-routing",
+  "attachments": [],
+  "external_id": "EG-MAINT-ROUTE-001",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 50,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "notify_admin"
+  },
+  "integrations": [
+    "PMS",
+    "maintenance_team_system",
+    "notification_service"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "maintenance-request-routing"
+  ],
+  "checksum": "sha256:43054dd6055b66c8412b0253092e2160af3f7a8b263416285e13f5a091a4e7b5"
+}

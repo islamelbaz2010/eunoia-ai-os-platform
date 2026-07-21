@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f8c9e1b-9c4a-4f8c-bb5b-4e9a8d5c7f2a",
+  "title": "Corporate Rate Negotiation Framework for Egypt Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-06T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "corporate-rate-negotiation-eg",
+  "pricing": {
+    "model": "custom",
+    "currency": "EGP",
+    "base_price": 0,
+    "unit": "room night",
+    "billing_cycle": "annual",
+    "tiers": [
+      {
+        "from": 1,
+        "to": 50,
+        "price": 1000
+      },
+      {
+        "from": 51,
+        "to": 100,
+        "price": 950
+      },
+      {
+        "from": 101,
+        "to": 200,
+        "price": 900
+      }
+    ]
+  },
+  "validity": {
+    "start_date": "2023-10-15",
+    "end_date": "2024-10-14",
+    "limited_quantity": 500
+  },
+  "tags": [
+    "hotels",
+    "sales",
+    "corporate-rate-negotiation"
+  ],
+  "description": "This document outlines the corporate rate negotiation framework for hotels in Egypt, focusing on providing competitive room rates for corporate clients. The offer includes tiered pricing based on the volume of room nights booked annually, ensuring value for both the hotel and corporate clients. The framework is designed to optimize RevPAR and ADR while maintaining high occupancy rates.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-14",
+  "review_date": "2024-09-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "sales-director@organization.com",
+  "source_url": "https://www.organization.com/corporate-rate-negotiation",
+  "attachments": [],
+  "external_id": "CRN-EG-2023",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Must be a registered business entity in Egypt",
+    "Minimum annual booking of 50 room nights",
+    "Subject to credit approval"
+  ],
+  "exclusions": [
+    "Not applicable during peak holiday seasons",
+    "Excludes special event dates"
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:035839760b5d88367e7ec3888007f09e13909d926528ea037fcd39f2482bd16e"
+}

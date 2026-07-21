@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Emergency Procedures for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Activation of emergency alarm or notification of an emergency situation within the hotel premises.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Activate Emergency Alarm",
+      "action": "Immediately activate the emergency alarm system to alert all guests and staff of the emergency situation.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 1,
+      "tools_required": [
+        "Emergency Alarm System"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Contact Emergency Services",
+      "action": "Call the local emergency services (e.g., police, fire department, ambulance) and provide details of the emergency, including location, nature of the emergency, and any injuries.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 3,
+      "tools_required": [
+        "Telephone",
+        "Emergency Contact List"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Evacuate Guests and Staff",
+      "action": "Guide all guests and staff to the nearest emergency exits and ensure they proceed to the designated assembly points. Use the hotel's evacuation plan to assist in directing traffic.",
+      "decision_point": false,
+      "responsible_role": "Security Team",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Evacuation Plan",
+        "Megaphone"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Conduct Roll Call",
+      "action": "At the assembly points, conduct a roll call to ensure all guests and staff are accounted for. Use the guest registry and staff attendance records to verify.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If any person is unaccounted for",
+          "next_step_id": "5"
+        },
+        {
+          "condition": "If all persons are accounted for",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Operations Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Guest Registry",
+        "Staff Attendance Records"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Search for Missing Persons",
+      "action": "Coordinate with emergency services to search for any missing persons within the hotel premises. Provide last known locations and descriptions if available.",
+      "decision_point": false,
+      "responsible_role": "Security Team",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Two-way Radios",
+        "Flashlights"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Provide First Aid",
+      "action": "Administer first aid to any injured persons at the assembly points until emergency medical services arrive. Use the hotel's first aid kits and trained personnel.",
+      "decision_point": false,
+      "responsible_role": "First Aid Team",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "First Aid Kit"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Communicate with Guests",
+      "action": "Provide updates to guests regarding the situation, ensuring clear communication about safety measures and expected timelines for resolution.",
+      "decision_point": false,
+      "responsible_role": "Public Relations Officer",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Public Address System"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "tags": [
+    "hotels",
+    "operations",
+    "emergency-procedures"
+  ],
+  "description": "This playbook outlines the emergency procedures for hotels in Egypt, detailing the steps to be taken in the event of an emergency to ensure the safety of guests and staff.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2025-10-05",
+  "review_date": "2024-10-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://example.com/emergency-procedures",
+  "attachments": [],
+  "external_id": "EG-HOTELS-OPS-EMERGENCY-001",
+  "locale_overrides": {},
+  "audience": [
+    "Hotel Staff",
+    "Security Personnel",
+    "Management"
+  ],
+  "prerequisites": [
+    "Staff trained in emergency procedures",
+    "Operational emergency alarm system"
+  ],
+  "escalation_path": "If the situation escalates beyond control, contact the regional operations director for further instructions.",
+  "related_playbooks": [
+    "fire-safety-procedures",
+    "medical-emergency-procedures"
+  ],
+  "review_cycle_days": 365,
+  "checksum": "sha256:89879c3c12db1e37c696e2306ce471cca616197e146ca239076c5ffe1cf54994"
+}

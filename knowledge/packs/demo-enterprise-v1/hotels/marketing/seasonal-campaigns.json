@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Egyptian Hotels Winter Wonderland Campaign",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "campaign_type": "seasonal",
+  "objective": "To increase hotel occupancy rates during the winter season by attracting both local and international tourists to experience the unique winter offerings in Egypt.",
+  "target_audience_ref": "persona_winter_travelers_eg",
+  "channels": [
+    "email",
+    "social",
+    "display",
+    "content"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-02-28",
+  "budget": {
+    "total": 50000,
+    "currency": "USD",
+    "breakdown": {
+      "email": 10000,
+      "social": 15000,
+      "display": 15000,
+      "content": 10000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "seasonal-campaigns",
+    "winter",
+    "Egypt",
+    "occupancy",
+    "tourism"
+  ],
+  "status": "draft",
+  "checksum": "sha256:606acb75ac9a43443f6ff54b3e97a34a506f76d878f6c902f17d9d0191c596bb"
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Guest Support Escalation Matrix for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "trigger": "Guest issue unresolved after initial support contact",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Initial Guest Contact and Issue Logging",
+      "action": "Front desk staff receives guest complaint and logs the issue in the PMS. Ensure all relevant details are captured including guest name, room number, and nature of the complaint.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Attempt Resolution at First Contact",
+      "action": "Front desk staff attempts to resolve the issue immediately if possible. This includes providing information, offering alternatives, or compensating with amenities.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Issue resolved",
+          "next_step_id": "5"
+        },
+        {
+          "condition": "Issue unresolved",
+          "next_step_id": "3"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Guest Services Manual"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Escalate to Supervisor",
+      "action": "If the issue is not resolved at the first contact, escalate to the shift supervisor. The supervisor reviews the case details and contacts the guest to offer further assistance.",
+      "responsible_role": "Shift Supervisor",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "PMS",
+        "Communication Tools"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Escalate to Hotel Manager",
+      "action": "If the supervisor is unable to resolve the issue, escalate to the hotel manager. The manager will assess the situation and determine an appropriate course of action, which may include offering compensation or further investigation.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Issue resolved",
+          "next_step_id": "5"
+        },
+        {
+          "condition": "Issue unresolved",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Hotel Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Hotel Policies"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Resolution Confirmation and Guest Follow-Up",
+      "action": "Confirm resolution with the guest and ensure satisfaction. Follow up with a courtesy call or email to thank the guest for their patience and to confirm that the issue has been resolved to their satisfaction.",
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Email System",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Escalate to Corporate Support",
+      "action": "If the hotel manager cannot resolve the issue, escalate to corporate support for further assistance. Provide all documentation and communication records to corporate support for review.",
+      "responsible_role": "Hotel Manager",
+      "time_limit_minutes": 60,
+      "tools_required": [
+        "PMS",
+        "Corporate Communication Channels"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 120,
+  "tags": [
+    "hotels",
+    "support",
+    "escalation-matrix"
+  ],
+  "description": "This playbook outlines the escalation matrix for handling guest complaints in hotels operating in Egypt. It ensures timely resolution of issues and enhances guest satisfaction by providing a structured approach to problem-solving.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "review_cycle_days": 180,
+  "checksum": "sha256:06915c4dde369df5c15dd0e04dd2934ade4fbaa3b7c7c884a1e5db74169ca824"
+}

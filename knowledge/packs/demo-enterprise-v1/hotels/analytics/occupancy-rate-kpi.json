@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f3a8b7c4-5d1e-4f9a-9a2d-7c3e5b6d8f9e",
+  "title": "Occupancy Rate KPI for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "metric_name": "Occupancy Rate",
+  "metric_category": "operational",
+  "formula": "(Total Number of Room Nights Sold / Total Number of Available Room Nights) * 100",
+  "unit": "%",
+  "measurement_frequency": "daily",
+  "target": {
+    "value": 75,
+    "direction": "higher-is-better",
+    "min": 60,
+    "max": 90,
+    "baseline": 70
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "occupancy-rate-kpi",
+    "operational",
+    "performance",
+    "Egypt",
+    "hospitality"
+  ],
+  "description": "The Occupancy Rate KPI measures the percentage of available rooms that are occupied over a specific period. It is a critical indicator of hotel performance, reflecting demand and efficiency in room sales. In the Egyptian market, maintaining a high occupancy rate is essential for maximizing revenue and ensuring competitive positioning, particularly in popular tourist destinations like Cairo and Sharm El Sheikh.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "analytics@organization.com",
+  "approved_by": "management@organization.com",
+  "data_source": "PMS",
+  "alert_thresholds": {
+    "warning": 65,
+    "critical": 55
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "RevPAR",
+    "ADR",
+    "GOP"
+  ],
+  "checksum": "sha256:a884a7b3b33e2f0f071b6d88e436296aafbd71b1ee2d66fb88c0741fbef3f94b"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f5e1c8b-9c6e-4f7a-8e4d-2a4f5a1c9b3e",
+  "title": "Channel Mix KPI for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "metric_name": "Channel Mix",
+  "metric_category": "operational",
+  "formula": "Channel Mix = (Room Nights from Channel / Total Room Nights) * 100",
+  "unit": "%",
+  "measurement_frequency": "monthly",
+  "target": {
+    "value": 30,
+    "direction": "within-range",
+    "min": 25,
+    "max": 35,
+    "baseline": 28
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "channel-mix-kpi"
+  ],
+  "description": "This KPI measures the distribution of room nights across different booking channels such as direct bookings, OTAs, and corporate bookings. It helps in understanding the effectiveness of each channel and optimizing the channel strategy to maximize revenue and occupancy. A balanced channel mix ensures a healthy distribution of bookings, reducing dependency on any single channel and improving overall profitability.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-04-15",
+  "created_by": "analytics@organization.com",
+  "approved_by": "director@organization.com",
+  "data_source": "PMS and OTA reports",
+  "alert_thresholds": {
+    "warning": 20,
+    "critical": 15
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "RevPAR",
+    "ADR",
+    "Occupancy Rate"
+  ],
+  "checksum": "sha256:9937e66f23956e3ea5a1d7397c07328ccd2c549669c13fd4709f5af16175aa8b"
+}

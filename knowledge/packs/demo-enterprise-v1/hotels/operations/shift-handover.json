@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Shift Handover Protocol for Hotel Operations",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "tags": [
+    "hotels",
+    "operations",
+    "shift-handover",
+    "guest-experience",
+    "front-desk"
+  ],
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "trigger": "End of shift requiring handover to the next team",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Preparation for Handover",
+      "action": "Ensure all guest requests and issues are documented in the PMS. Verify that all financial transactions are closed and logged. Prepare a summary of the shift activities, including occupancy rate, ADR, and any notable incidents.",
+      "decision_point": false,
+      "responsible_role": "Shift Supervisor",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Shift Log"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Conduct Handover Meeting",
+      "action": "Meet with the incoming shift team to discuss the shift summary. Highlight any pending guest requests, maintenance issues, and VIP arrivals. Ensure all team members understand their roles for the upcoming shift.",
+      "decision_point": false,
+      "responsible_role": "Shift Supervisor",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Shift Log",
+        "Daily Briefing Notes"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Update Communication Boards",
+      "action": "Update the communication boards with key information such as occupancy rate, ADR, and any special events. Ensure all team members have access to this information.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Communication Board",
+        "Marker"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Verify Handover Completion",
+      "action": "Confirm with the incoming shift that all necessary information has been communicated. Address any questions or concerns they may have. Document the completion of the handover in the shift log.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If there are unresolved issues",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Shift Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Shift Log"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Escalate Unresolved Issues",
+      "action": "If there are unresolved issues, escalate them to the Operations Manager. Provide a detailed report of the issue and any actions taken so far.",
+      "decision_point": false,
+      "responsible_role": "Shift Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Issue Report",
+        "Email"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 60,
+  "description": "This playbook outlines the standard procedures for conducting a shift handover in hotel operations, ensuring continuity and efficiency in guest services.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://example.com/hotel-shift-handover",
+  "attachments": [],
+  "external_id": "SHO-2023-001",
+  "locale_overrides": {},
+  "audience": [
+    "Hotel Operations Team",
+    "Shift Supervisors",
+    "Front Desk Managers"
+  ],
+  "prerequisites": [
+    "Familiarity with the Property Management System (PMS)",
+    "Understanding of daily hotel operations"
+  ],
+  "escalation_path": "Operations Manager",
+  "related_playbooks": [
+    "Guest Check-In Procedure",
+    "Emergency Response Protocol"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:ae7b5fe4bc897870ec3449fcadee7f513eaca24cbb1963e96a9db99a3bdd6d6c"
+}

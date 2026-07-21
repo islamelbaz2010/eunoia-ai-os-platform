@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "id": "a3f5b6c7-89d0-4e12-8f3a-5a6b7c8d9e0f",
+  "title": "Housekeeping Efficiency and Quality Score KPI for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "metric_name": "Housekeeping Efficiency and Quality Score",
+  "metric_category": "operational",
+  "formula": "((Number of Rooms Cleaned * Quality Score) / Total Hours Worked) * 100",
+  "unit": "score",
+  "measurement_frequency": "monthly",
+  "target": {
+    "value": 85,
+    "direction": "higher-is-better",
+    "min": 70,
+    "max": 100,
+    "baseline": 80
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "housekeeping-score-kpi"
+  ],
+  "description": "This KPI measures the efficiency and quality of housekeeping services in hotels, focusing on the balance between the number of rooms cleaned, the quality of cleaning, and the time spent. It is crucial for maintaining high guest satisfaction and operational efficiency in the Egyptian hotel market.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "analytics@organization.com",
+  "approved_by": "director@organization.com",
+  "data_source": "PMS and Quality Audit Reports",
+  "alert_thresholds": {
+    "warning": 75,
+    "critical": 70
+  },
+  "dashboard_ref": "housekeeping-performance-dashboard",
+  "related_kpis": [
+    "guest-satisfaction-score",
+    "room-occupancy-rate"
+  ],
+  "checksum": "sha256:202ed58a4c28169657f2541a37d7ac9ef27908ce4b44136e9443ce66304088dc"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Amenity Request Handling Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "trigger": "A guest requests an amenity through the front desk, concierge, or digital platform.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive and Acknowledge Request",
+      "action": "Upon receiving a request for an amenity, acknowledge the guest's request immediately. Confirm the details of the request including the type of amenity, room number, and any special instructions.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Communication System"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Verify Amenity Availability",
+      "action": "Check the availability of the requested amenity in the inventory system. If the amenity is available, proceed to the next step. If not, inform the guest and offer alternatives.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Amenity available",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Amenity not available",
+          "next_step_id": "4"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Inventory Management System"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Prepare and Deliver Amenity",
+      "action": "Coordinate with housekeeping or relevant department to prepare the amenity. Ensure that the amenity is delivered to the guest's room promptly and confirm delivery with the guest.",
+      "responsible_role": "Housekeeping",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Internal Communication System"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Communicate Alternatives",
+      "action": "If the requested amenity is unavailable, communicate this to the guest and offer suitable alternatives. Ensure guest satisfaction by providing a complimentary service if necessary.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Communication System"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Follow-Up and Feedback",
+      "action": "After the amenity is delivered or an alternative is provided, follow up with the guest to ensure satisfaction. Record feedback in the PMS for future reference.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 55,
+  "description": "This playbook outlines the steps for handling guest amenity requests in hotels, ensuring a seamless and satisfactory experience for guests in Egypt.",
+  "status": "draft",
+  "effective_date": "2023-10-21",
+  "expiry_date": "2024-10-21",
+  "review_date": "2024-04-21",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "support",
+    "amenity-request-handling"
+  ],
+  "escalation_path": "If the guest is dissatisfied at any point, escalate the issue to the Duty Manager for immediate resolution.",
+  "related_playbooks": [
+    "Guest Complaint Resolution",
+    "Housekeeping Service Standards"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:58988e4ee78fbc10a034bc44bd6ce17580b7e0080813c965bc2c00be02b51418"
+}

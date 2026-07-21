@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "VIP Guest Arrival Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Notification of VIP guest arrival received via PMS or OTA",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Pre-Arrival Preparation",
+      "action": "Verify VIP guest details in the PMS, including preferences and special requests. Coordinate with housekeeping to ensure the room is prepared to VIP standards.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Housekeeping Checklist"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Welcome Arrangement",
+      "action": "Arrange for a personalized welcome note and complimentary amenities in the room. Ensure F&B has prepared any requested items.",
+      "decision_point": false,
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Guest Preferences List",
+        "F&B Coordination Tool"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Arrival Notification",
+      "action": "Notify the concierge and front desk team of the VIP guest's expected arrival time. Ensure all staff are briefed on the guest's profile.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Internal Communication System"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "VIP Check-In Process",
+      "action": "Greet the VIP guest upon arrival. Offer express check-in and escort the guest to their room. Provide a brief overview of hotel facilities and services.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Guest Welcome Kit"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Post-Arrival Follow-Up",
+      "action": "Contact the guest within an hour of arrival to ensure satisfaction with the room and amenities. Address any immediate concerns.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Guest is satisfied",
+          "next_step_id": "6"
+        },
+        {
+          "condition": "Guest has concerns",
+          "next_step_id": "7"
+        }
+      ],
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 60,
+      "tools_required": [
+        "PMS",
+        "Guest Feedback Form"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "VIP Stay Enhancement",
+      "action": "Offer personalized services or experiences based on guest preferences, such as spa appointments or dining reservations.",
+      "decision_point": false,
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "Guest Preferences List",
+        "Reservation System"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Issue Resolution",
+      "action": "Address any guest concerns promptly. Coordinate with relevant departments to resolve issues and follow up with the guest.",
+      "decision_point": false,
+      "responsible_role": "Duty Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "Issue Tracking System",
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 165,
+  "tags": [
+    "hotels",
+    "playbooks",
+    "vip-arrival-playbook"
+  ],
+  "description": "This playbook outlines the step-by-step process for managing the arrival of VIP guests in hotels, ensuring a seamless and personalized experience. It includes preparation, arrival, and follow-up actions tailored to the Egyptian hospitality context.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "escalation_path": "Contact the General Manager if VIP guest issues are unresolved after initial intervention.",
+  "related_playbooks": [
+    "guest-check-in-playbook",
+    "guest-feedback-playbook"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:29e53bb6856aab5a63dd1b7c240398dc5ebd0de7a91aeb8c213e168075692a9f"
+}

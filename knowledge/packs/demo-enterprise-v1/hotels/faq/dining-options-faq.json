@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "id": "a3b7c9d4-5e6f-4f8b-9a1c-2d3e4f5a6b7c",
+  "title": "Dining Options FAQ for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-25T12:00:00Z",
+  "question": "What dining options are available at your hotel?",
+  "answer": "Our hotel offers a variety of dining options to cater to different tastes and preferences. Guests can enjoy our all-day dining restaurant featuring international cuisine, a specialty restaurant serving authentic Egyptian dishes, and a casual café for light snacks and beverages. Room service is also available 24/7 for those who prefer dining in the comfort of their room.",
+  "category": "dining-options-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "dining-options-faq",
+    "Egypt",
+    "hospitality"
+  ],
+  "status": "draft",
+  "checksum": "sha256:98a2b915338e119ccfc6ece6a5cf31579f8464e3da9aae706a20787a983fdf65"
+}

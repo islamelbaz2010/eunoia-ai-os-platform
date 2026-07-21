@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d4e8f2b7-8c3a-4b0d-9f0e-2b6e4f9a8c7d",
+  "title": "VIP Guest Arrival Procedure for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-21T14:30:00Z",
+  "trigger": "Notification of VIP guest arrival received from the reservation system or front desk.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Pre-Arrival Preparation",
+      "action": "Verify the VIP guest's booking details in the PMS, including room preferences, special requests, and arrival time. Coordinate with housekeeping to ensure the room is prepared to VIP standards, including any requested amenities.",
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Housekeeping Checklist"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Welcome Package Preparation",
+      "action": "Prepare a personalized welcome package including a welcome letter, local guide, and any promotional materials. Ensure any requested items, such as flowers or fruit baskets, are included.",
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Welcome Package Template",
+        "Guest Preferences List"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Arrival Coordination",
+      "action": "Coordinate with the bell service to ensure timely greeting at the entrance. Confirm with security for any special instructions regarding the guest's arrival.",
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Radio Communication",
+        "Guest Arrival Schedule"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "VIP Check-In Process",
+      "action": "Greet the VIP guest personally at the entrance. Escort the guest to a dedicated check-in area. Complete the check-in process swiftly, ensuring all preferences are confirmed and any additional requests are noted.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Guest Registration Form"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Room Escort and Orientation",
+      "action": "Escort the guest to their room, providing a brief orientation of the room features and hotel facilities. Highlight any special amenities prepared for the guest.",
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Room Key",
+        "Hotel Map"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Post-Arrival Follow-Up",
+      "action": "After the guest has settled, follow up with a courtesy call to ensure satisfaction with the room and services. Address any immediate concerns or requests.",
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Telephone",
+        "Guest Feedback Form"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 100,
+  "description": "This playbook outlines the procedures for managing the arrival of VIP guests at hotels in Egypt, ensuring a seamless and personalized experience from arrival to room orientation.",
+  "status": "draft",
+  "effective_date": "2023-10-21",
+  "expiry_date": "2024-10-21",
+  "review_date": "2024-04-21",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "operations",
+    "vip-arrival"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:23e6af8ec4afcf71bb9b4e4cdb014a4b8a99447923439ae7f00b38bd25833a0f"
+}

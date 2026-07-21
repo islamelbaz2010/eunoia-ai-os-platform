@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "id": "e7a1c2f4-8b3d-4f3f-bd4e-8f7d9a3c5e2b",
+  "title": "RevPAR KPI Definition for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "metric_name": "Revenue Per Available Room (RevPAR)",
+  "metric_category": "financial",
+  "formula": "RevPAR = Total Room Revenue / Total Available Room Nights",
+  "unit": "EGP",
+  "measurement_frequency": "daily",
+  "target": {
+    "value": 800,
+    "direction": "higher-is-better",
+    "min": 600,
+    "max": 1200,
+    "baseline": 750
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "revpar-kpi"
+  ],
+  "description": "This document defines the RevPAR KPI for hotels in Egypt, which measures the average revenue generated per available room. It is a critical financial metric used to assess a hotel's ability to fill its available rooms at an average rate. The target values are set considering the local market conditions and competitive benchmarks.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-04-15",
+  "created_by": "analytics@organization.com",
+  "approved_by": "finance@organization.com",
+  "source_url": "https://www.example.com/revpar-kpi-definition",
+  "data_source": "PMS and financial reporting systems",
+  "alert_thresholds": {
+    "warning": 650,
+    "critical": 600
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "ADR",
+    "Occupancy Rate",
+    "GOP"
+  ],
+  "checksum": "sha256:d5f8b5cc2999a20dcf6e51f22819eaf8a3453545f9a302b72cc9cf3131a28a9d"
+}

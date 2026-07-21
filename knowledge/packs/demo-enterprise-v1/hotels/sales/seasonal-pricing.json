@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "id": "c1f3e8a2-9b4a-4f7b-8d6b-3f2f6e9a9c5d",
+  "title": "Seasonal Pricing Strategy for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "offer_type": "promotion",
+  "service_ref": "seasonal-pricing-2023",
+  "pricing": {
+    "model": "tiered",
+    "currency": "EGP",
+    "tiers": [
+      {
+        "from": 1,
+        "to": 10,
+        "price": 1000
+      },
+      {
+        "from": 11,
+        "to": 20,
+        "price": 900
+      },
+      {
+        "from": 21,
+        "to": 30,
+        "price": 800
+      }
+    ]
+  },
+  "validity": {
+    "start_date": "2023-11-01",
+    "end_date": "2024-02-28",
+    "limited_quantity": 100
+  },
+  "tags": [
+    "hotels",
+    "sales",
+    "seasonal-pricing"
+  ],
+  "description": "This document outlines the seasonal pricing strategy for hotels in Egypt, focusing on optimizing revenue during peak tourist seasons. The strategy includes tiered pricing based on room nights booked, encouraging longer stays with discounted rates. This approach aims to enhance occupancy rates and RevPAR by aligning pricing with demand fluctuations typical in the Egyptian tourism market.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-02-28",
+  "review_date": "2024-01-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "sales-director@organization.com",
+  "source_url": "https://organization.com/seasonal-pricing-strategy",
+  "attachments": [],
+  "external_id": "SP2023-EG",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Offer valid only for direct bookings through official hotel website.",
+    "Applicable for stays between November 1, 2023, and February 28, 2024."
+  ],
+  "exclusions": [
+    "Not applicable to group bookings.",
+    "Cannot be combined with other promotions."
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:42898e9a290ac8c82d9afef6de1a9d7e8f40657e4bc2e1115b9510502b42ec77"
+}

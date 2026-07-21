@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Comprehensive Pool Safety Policy for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "policy_number": "PSP-2023-001",
+  "scope": "This policy applies to all hotel properties operating in Egypt that provide swimming pool facilities to guests. It is applicable to hotel management, staff, and guests, ensuring safety and compliance with local regulations. The policy covers operational procedures, safety measures, and emergency response protocols to prevent accidents and ensure a safe environment for all pool users.",
+  "policy_body": "### Introduction\nThe Pool Safety Policy is designed to ensure the safety and well-being of guests and staff at all hotel swimming pool facilities. This policy outlines the responsibilities of hotel management and staff in maintaining a safe pool environment and provides guidelines for guests to follow.\n\n### Responsibilities\n- **Hotel Management**: Ensure compliance with local safety regulations, provide adequate training for staff, and maintain pool facilities in a safe condition.\n- **Staff**: Monitor pool activities, enforce safety rules, and respond to emergencies.\n- **Guests**: Adhere to posted safety guidelines and instructions from staff.\n\n### Safety Measures\n- **Lifeguards**: Certified lifeguards must be on duty during pool operating hours.\n- **Signage**: Clear safety signage must be displayed, including depth markers and emergency contact information.\n- **Equipment**: Safety equipment such as life rings and first aid kits must be readily available.\n\n### Operational Procedures\n- **Water Quality**: Regular testing and treatment of pool water to maintain hygiene standards.\n- **Access Control**: Restricted access to pool areas after hours to prevent unauthorized use.\n\n### Emergency Protocols\n- **Incident Reporting**: All incidents must be documented and reported to management immediately.\n- **Emergency Response**: Staff must be trained in CPR and first aid, and emergency services must be contacted in the event of a serious incident.\n\n### Compliance\nThis policy aligns with local Egyptian safety regulations and international best practices for hotel pool safety.",
+  "compliance_frameworks": [
+    "ISO-27001",
+    "PCI-DSS"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "pool-safety-policy"
+  ],
+  "status": "draft",
+  "checksum": "sha256:6f9c1a7753826de5808fb820446c4fd54b36d8f408ac8b04de72f0cfeedd8220"
+}

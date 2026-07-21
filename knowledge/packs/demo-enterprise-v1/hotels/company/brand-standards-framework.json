@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "id": "a3f5e4c2-7b9d-4f3d-8e2f-5c2b4d2e9a1f",
+  "title": "Brand Standards Framework for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "company",
+  "tags": [
+    "hotels",
+    "company",
+    "brand-standards-framework",
+    "hospitality",
+    "guest-experience"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-30T12:00:00Z",
+  "department_code": "CMP",
+  "parent_department": "CORP",
+  "cost_center": "CC1001",
+  "roles": [
+    {
+      "role_id": "BRD001",
+      "title": "Brand Standards Manager",
+      "level": "senior",
+      "reports_to": "VP Brand Management",
+      "headcount": 1
+    },
+    {
+      "role_id": "BRD002",
+      "title": "Brand Standards Specialist",
+      "level": "mid",
+      "reports_to": "Brand Standards Manager",
+      "headcount": 3
+    },
+    {
+      "role_id": "BRD003",
+      "title": "Brand Compliance Officer",
+      "level": "junior",
+      "reports_to": "Brand Standards Specialist",
+      "headcount": 2
+    }
+  ],
+  "description": "This document outlines the Brand Standards Framework for hotels operating in Egypt. It provides guidelines and protocols to ensure brand consistency, enhance guest experience, and maintain operational excellence. The framework includes standards for guest services, room amenities, F&B offerings, and compliance with local regulations. It aims to align all properties with the brand's mission and values, ensuring a cohesive and high-quality experience across all touchpoints.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2025-11-01",
+  "review_date": "2024-11-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "ceo@organization.com",
+  "source_url": "https://organization.com/brand-standards-framework",
+  "attachments": [
+    {
+      "name": "Brand_Standards_Guide.pdf",
+      "path": "/docs/Brand_Standards_Guide.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 2048000,
+      "checksum": "sha256:3b8f2e8d7c2b4e8f9a2d4f5e6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c"
+    }
+  ],
+  "external_id": "BRD-STND-2023",
+  "locale_overrides": {},
+  "kpi_refs": [
+    "RevPAR",
+    "ADR",
+    "Occupancy Rate"
+  ],
+  "budget_owner": "finance@organization.com",
+  "functional_area": "compliance",
+  "checksum": "sha256:8c8e5b5ecb8087ab06044f45cc62044dc1bc61d6ead1431404f08a328f45ecdd"
+}

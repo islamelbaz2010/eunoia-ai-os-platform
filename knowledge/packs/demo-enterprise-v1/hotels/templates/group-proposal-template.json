@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f3b7c5e8-9a2b-4f4b-8d4f-3c1a2b6d7e9f",
+  "title": "Group Booking Proposal Template for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "template_type": "proposal",
+  "subject_template": "Exclusive Group Booking Proposal for {{group_name}}",
+  "body_template": "<html>\n<head>\n  <style>\n    body {font-family: Arial, sans-serif;}\n    .header {background-color: #f8f9fa; padding: 20px; text-align: center;}\n    .content {padding: 20px;}\n    .footer {background-color: #f8f9fa; padding: 10px; text-align: center;}\n  </style>\n</head>\n<body>\n  <div class=\"header\">\n    <h1>Group Booking Proposal</h1>\n    <p>For {{group_name}}</p>\n  </div>\n  <div class=\"content\">\n    <p>Dear {{contact_name}},</p>\n    <p>We are delighted to present our proposal for hosting your group at our hotel. Below are the details of the offer:</p>\n    <ul>\n      <li><strong>Hotel Name:</strong> {{hotel_name}}</li>\n      <li><strong>Check-in Date:</strong> {{check_in_date}}</li>\n      <li><strong>Check-out Date:</strong> {{check_out_date}}</li>\n      <li><strong>Total Room Nights:</strong> {{room_nights}}</li>\n      <li><strong>Room Types:</strong> {{room_types}}</li>\n      <li><strong>ADR (Average Daily Rate):</strong> {{adr}}</li>\n      <li><strong>F&B Options:</strong> {{fnb_options}}</li>\n      <li><strong>Additional Services:</strong> {{additional_services}}</li>\n    </ul>\n    <p>We are committed to providing an exceptional experience for your group, ensuring comfort and satisfaction throughout their stay. Please let us know if you have any specific requirements or if there are any adjustments needed to this proposal.</p>\n    <p>Looking forward to welcoming your group to our hotel.</p>\n    <p>Best regards,</p>\n    <p>{{sender_name}}</p>\n    <p>{{hotel_contact_info}}</p>\n  </div>\n  <div class=\"footer\">\n    <p>Thank you for considering our hotel for your group booking.</p>\n  </div>\n</body>\n</html>",
+  "variables": [
+    {
+      "name": "group_name",
+      "type": "string",
+      "description": "Name of the group making the booking",
+      "required": true
+    },
+    {
+      "name": "contact_name",
+      "type": "string",
+      "description": "Name of the contact person for the group",
+      "required": true
+    },
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel offering the proposal",
+      "required": true
+    },
+    {
+      "name": "check_in_date",
+      "type": "date",
+      "description": "Check-in date for the group",
+      "required": true
+    },
+    {
+      "name": "check_out_date",
+      "type": "date",
+      "description": "Check-out date for the group",
+      "required": true
+    },
+    {
+      "name": "room_nights",
+      "type": "number",
+      "description": "Total number of room nights booked",
+      "required": true
+    },
+    {
+      "name": "room_types",
+      "type": "string",
+      "description": "Types of rooms offered in the proposal",
+      "required": true
+    },
+    {
+      "name": "adr",
+      "type": "number",
+      "description": "Average Daily Rate for the rooms",
+      "required": true
+    },
+    {
+      "name": "fnb_options",
+      "type": "string",
+      "description": "Food and Beverage options included in the proposal",
+      "required": false
+    },
+    {
+      "name": "additional_services",
+      "type": "string",
+      "description": "Any additional services or amenities offered",
+      "required": false
+    },
+    {
+      "name": "sender_name",
+      "type": "string",
+      "description": "Name of the person sending the proposal",
+      "required": true
+    },
+    {
+      "name": "hotel_contact_info",
+      "type": "string",
+      "description": "Contact information for the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "group-proposal-template"
+  ],
+  "description": "A template for creating group booking proposals tailored for hotels in Egypt, focusing on providing detailed offers to potential group clients.",
+  "status": "draft",
+  "checksum": "sha256:b3c2cf9da0025cd8b17e14afb6f1c38b331f3fe540e966fe4058661a33a70374"
+}

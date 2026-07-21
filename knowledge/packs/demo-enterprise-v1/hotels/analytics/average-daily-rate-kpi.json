@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Average Daily Rate KPI for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "analytics",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "metric_name": "Average Daily Rate",
+  "metric_category": "financial",
+  "formula": "ADR = Total Room Revenue / Number of Rooms Sold",
+  "unit": "EGP",
+  "measurement_frequency": "daily",
+  "target": {
+    "value": 1200,
+    "direction": "higher-is-better"
+  },
+  "tags": [
+    "hotels",
+    "analytics",
+    "average-daily-rate-kpi"
+  ],
+  "description": "The Average Daily Rate (ADR) is a key performance indicator used in the hotel industry to measure the average rental income per paid occupied room in a given time period. It is a critical metric for assessing the financial performance of a hotel. In the context of Egypt's hotel market, ADR helps in understanding the revenue-generating capability of the hotel and is essential for pricing strategies and revenue management. This KPI is particularly important for hotels in tourist-heavy regions like Cairo, Alexandria, and Sharm El-Sheikh, where pricing strategies can significantly impact overall profitability.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "analytics@organization.com",
+  "approved_by": "finance@organization.com",
+  "data_source": "PMS and financial reporting systems",
+  "alert_thresholds": {
+    "warning": 1000,
+    "critical": 800
+  },
+  "dashboard_ref": "hotel-analytics-dashboard",
+  "related_kpis": [
+    "RevPAR",
+    "Occupancy Rate",
+    "GOP"
+  ],
+  "checksum": "sha256:52fa81e064c384083d14af82b0128a3d3e3632cbdff051ab5b1b6261574bf5d9"
+}

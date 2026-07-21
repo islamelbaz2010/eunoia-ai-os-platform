@@ -1,0 +1,217 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> eunoia-ai-os-platform@0.1.0 knowledge:generate
+> tsx scripts/knowledge/generate.ts --mode industry --industry hotels --provider openai
+
+[runner] runId=b750a844-d126-4b32-9431-ffd36b246014 mode=industry dryRun=false
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/company-profile.json","ts":"2026-07-21T04:11:05.303Z"}
+[runner] 1/101 (1%) success company-profile
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/department-hierarchy.json","ts":"2026-07-21T04:11:12.106Z"}
+[runner] 2/101 (2%) success department-hierarchy
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/brand-standards-framework.json","ts":"2026-07-21T04:11:18.987Z"}
+[runner] 3/101 (3%) success brand-standards-framework
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/culture-values-structure.json","ts":"2026-07-21T04:11:27.212Z"}
+[runner] 4/101 (4%) success culture-values-structure
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/company/leadership-structure.json","ts":"2026-07-21T04:11:36.439Z"}
+[runner] 5/101 (5%) success leadership-structure
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/check-in-process.json","ts":"2026-07-21T04:11:50.205Z"}
+[runner] 6/101 (6%) success check-in-process
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/check-out-process.json","ts":"2026-07-21T04:11:59.858Z"}
+[runner] 7/101 (7%) success check-out-process
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/housekeeping-turnover.json","ts":"2026-07-21T04:12:10.302Z"}
+[runner] 8/101 (8%) success housekeeping-turnover
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/room-inspection.json","ts":"2026-07-21T04:12:18.649Z"}
+[runner] 9/101 (9%) success room-inspection
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/maintenance-request.json","ts":"2026-07-21T04:12:27.506Z"}
+[runner] 10/101 (10%) success maintenance-request
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/emergency-procedures.json","ts":"2026-07-21T04:12:39.288Z"}
+[runner] 11/101 (11%) success emergency-procedures
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/vip-arrival.json","ts":"2026-07-21T04:12:48.719Z"}
+[runner] 12/101 (12%) success vip-arrival
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/late-checkout.json","ts":"2026-07-21T04:12:59.041Z"}
+[runner] 13/101 (13%) success late-checkout
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/lost-and-found.json","ts":"2026-07-21T04:13:07.381Z"}
+[runner] 14/101 (14%) success lost-and-found
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/cleaning-standards.json","ts":"2026-07-21T04:13:17.465Z"}
+[runner] 15/101 (15%) success cleaning-standards
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/shift-handover.json","ts":"2026-07-21T04:13:26.771Z"}
+[runner] 16/101 (16%) success shift-handover
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/key-management.json","ts":"2026-07-21T04:13:36.479Z"}
+[runner] 17/101 (17%) success key-management
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/operations/room-service-delivery.json","ts":"2026-07-21T04:13:44.801Z"}
+[runner] 18/101 (18%) success room-service-delivery
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/room-types-catalog.json","ts":"2026-07-21T04:13:51.879Z"}
+[runner] 19/101 (19%) success room-types-catalog
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/rate-plans.json","ts":"2026-07-21T04:13:59.203Z"}
+[runner] 20/101 (20%) success rate-plans
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/upsell-program.json","ts":"2026-07-21T04:14:06.757Z"}
+[runner] 21/101 (21%) success upsell-program
+{"level":"info","message":"Written (score=96): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/group-booking-process.json","ts":"2026-07-21T04:14:13.804Z"}
+[runner] 22/101 (22%) success group-booking-process
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/corporate-rate-negotiation.json","ts":"2026-07-21T04:14:20.635Z"}
+[runner] 23/101 (23%) success corporate-rate-negotiation
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/ota-channel-strategy.json","ts":"2026-07-21T04:14:27.079Z"}
+[runner] 24/101 (24%) success ota-channel-strategy
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/revenue-optimization.json","ts":"2026-07-21T04:14:34.354Z"}
+[runner] 25/101 (25%) success revenue-optimization
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/loyalty-tier-benefits.json","ts":"2026-07-21T04:14:41.613Z"}
+[runner] 26/101 (26%) success loyalty-tier-benefits
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/seasonal-pricing.json","ts":"2026-07-21T04:14:48.597Z"}
+[runner] 27/101 (27%) success seasonal-pricing
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/sales/package-creation.json","ts":"2026-07-21T04:14:54.835Z"}
+[runner] 28/101 (28%) success package-creation
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/brand-voice-guidelines.json","ts":"2026-07-21T04:15:02.165Z"}
+[runner] 29/101 (29%) success brand-voice-guidelines
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/social-media-strategy.json","ts":"2026-07-21T04:15:10.351Z"}
+[runner] 30/101 (30%) success social-media-strategy
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/email-campaign-structure.json","ts":"2026-07-21T04:15:19.107Z"}
+[runner] 31/101 (31%) success email-campaign-structure
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/paid-media-framework.json","ts":"2026-07-21T04:15:26.585Z"}
+[runner] 32/101 (32%) success paid-media-framework
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/photography-standards.json","ts":"2026-07-21T04:15:33.648Z"}
+[runner] 33/101 (33%) success photography-standards
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/loyalty-program-marketing.json","ts":"2026-07-21T04:15:40.559Z"}
+[runner] 34/101 (34%) success loyalty-program-marketing
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/event-marketing.json","ts":"2026-07-21T04:15:51.163Z"}
+[runner] 35/101 (35%) success event-marketing
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/reputation-management.json","ts":"2026-07-21T04:16:02.893Z"}
+[runner] 36/101 (36%) success reputation-management
+{"level":"info","message":"Written (score=89): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/marketing/seasonal-campaigns.json","ts":"2026-07-21T04:16:07.187Z"}
+[runner] 37/101 (37%) success seasonal-campaigns
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/complaint-handling-process.json","ts":"2026-07-21T04:16:18.028Z"}
+[runner] 38/101 (38%) success complaint-handling-process
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/concierge-service-model.json","ts":"2026-07-21T04:16:29.662Z"}
+[runner] 39/101 (39%) success concierge-service-model
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/special-needs-accommodation.json","ts":"2026-07-21T04:16:39.780Z"}
+[runner] 40/101 (40%) success special-needs-accommodation
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/transportation-coordination.json","ts":"2026-07-21T04:16:50.250Z"}
+[runner] 41/101 (41%) success transportation-coordination
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/amenity-request-handling.json","ts":"2026-07-21T04:16:57.934Z"}
+[runner] 42/101 (42%) success amenity-request-handling
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/escalation-matrix.json","ts":"2026-07-21T04:17:07.012Z"}
+[runner] 43/101 (43%) success escalation-matrix
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/disability-services.json","ts":"2026-07-21T04:17:15.050Z"}
+[runner] 44/101 (44%) success disability-services
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/support/early-check-in-handling.json","ts":"2026-07-21T04:17:24.579Z"}
+[runner] 45/101 (45%) success early-check-in-handling
+[runner] 46/101 (46%) skipped general-information
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/check-in-checkout-faq.json","ts":"2026-07-21T04:17:29.244Z"}
+[runner] 47/101 (47%) success check-in-checkout-faq
+{"level":"info","message":"Written (score=94): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/room-amenities-faq.json","ts":"2026-07-21T04:17:34.296Z"}
+[runner] 48/101 (48%) success room-amenities-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/dining-options-faq.json","ts":"2026-07-21T04:17:37.843Z"}
+[runner] 49/101 (49%) success dining-options-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/parking-transportation-faq.json","ts":"2026-07-21T04:17:45.024Z"}
+[runner] 50/101 (50%) success parking-transportation-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/pet-policy-faq.json","ts":"2026-07-21T04:17:50.945Z"}
+[runner] 51/101 (50%) success pet-policy-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/cancellation-refund-faq.json","ts":"2026-07-21T04:17:55.052Z"}
+[runner] 52/101 (51%) success cancellation-refund-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/faq/accessibility-faq.json","ts":"2026-07-21T04:17:58.857Z"}
+[runner] 53/101 (52%) success accessibility-faq
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/booking-confirmation-template.json","ts":"2026-07-21T04:18:05.543Z"}
+[runner] 54/101 (53%) success booking-confirmation-template
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/pre-arrival-template.json","ts":"2026-07-21T04:18:13.412Z"}
+[runner] 55/101 (54%) success pre-arrival-template
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/welcome-letter-template.json","ts":"2026-07-21T04:18:20.860Z"}
+[runner] 56/101 (55%) success welcome-letter-template
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/checkout-statement-template.json","ts":"2026-07-21T04:18:29.277Z"}
+[runner] 57/101 (56%) success checkout-statement-template
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/complaint-acknowledgment-template.json","ts":"2026-07-21T04:18:36.675Z"}
+[runner] 58/101 (57%) success complaint-acknowledgment-template
+{"level":"warn","message":"Attempt 1 validation failed (1 errors)","ts":"2026-07-21T04:18:43.236Z"}
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/review-request-template.json","ts":"2026-07-21T04:18:48.971Z"}
+[runner] 59/101 (58%) success review-request-template
+{"level":"info","message":"Written (score=92): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/group-proposal-template.json","ts":"2026-07-21T04:18:59.059Z"}
+[runner] 60/101 (59%) success group-proposal-template
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/templates/special-occasion-template.json","ts":"2026-07-21T04:19:09.139Z"}
+[runner] 61/101 (60%) success special-occasion-template
+{"level":"info","message":"Written (score=98): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/guest-greeting-prompt.json","ts":"2026-07-21T04:19:15.546Z"}
+[runner] 62/101 (61%) success guest-greeting-prompt
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/concierge-assistant-prompt.json","ts":"2026-07-21T04:19:22.495Z"}
+[runner] 63/101 (62%) success concierge-assistant-prompt
+{"level":"info","message":"Written (score=98): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/complaint-resolution-prompt.json","ts":"2026-07-21T04:19:29.422Z"}
+[runner] 64/101 (63%) success complaint-resolution-prompt
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/room-upsell-prompt.json","ts":"2026-07-21T04:19:39.054Z"}
+[runner] 65/101 (64%) success room-upsell-prompt
+{"level":"info","message":"Written (score=98): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/review-response-prompt.json","ts":"2026-07-21T04:19:50.810Z"}
+[runner] 66/101 (65%) success review-response-prompt
+{"level":"info","message":"Written (score=98): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/prompts/booking-assistant-prompt.json","ts":"2026-07-21T04:19:59.708Z"}
+[runner] 67/101 (66%) success booking-assistant-prompt
+{"level":"info","message":"Written (score=98): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/cancellation-policy-framework.json","ts":"2026-07-21T04:20:08.339Z"}
+[runner] 68/101 (67%) success cancellation-policy-framework
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/pet-policy-framework.json","ts":"2026-07-21T04:20:17.030Z"}
+[runner] 69/101 (68%) success pet-policy-framework
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/smoking-policy-framework.json","ts":"2026-07-21T04:20:25.706Z"}
+[runner] 70/101 (69%) success smoking-policy-framework
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/noise-disturbance-policy.json","ts":"2026-07-21T04:20:37.081Z"}
+[runner] 71/101 (70%) success noise-disturbance-policy
+{"level":"info","message":"Written (score=91): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/pool-safety-policy.json","ts":"2026-07-21T04:20:44.942Z"}
+[runner] 72/101 (71%) success pool-safety-policy
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/payment-security-policy.json","ts":"2026-07-21T04:20:52.232Z"}
+[runner] 73/101 (72%) success payment-security-policy
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/policies/damage-liability-policy.json","ts":"2026-07-21T04:21:00.339Z"}
+[runner] 74/101 (73%) success damage-liability-policy
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/check-in-playbook.json","ts":"2026-07-21T04:21:09.410Z"}
+[runner] 75/101 (74%) success check-in-playbook
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/emergency-evacuation-playbook.json","ts":"2026-07-21T04:21:19.679Z"}
+[runner] 76/101 (75%) success emergency-evacuation-playbook
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/guest-complaint-resolution-playbook.json","ts":"2026-07-21T04:21:30.016Z"}
+[runner] 77/101 (76%) success guest-complaint-resolution-playbook
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/vip-arrival-playbook.json","ts":"2026-07-21T04:21:39.447Z"}
+[runner] 78/101 (77%) success vip-arrival-playbook
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/overbooking-management-playbook.json","ts":"2026-07-21T04:21:48.659Z"}
+[runner] 79/101 (78%) success overbooking-management-playbook
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/playbooks/lost-item-recovery-playbook.json","ts":"2026-07-21T04:21:56.864Z"}
+[runner] 80/101 (79%) success lost-item-recovery-playbook
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/front-desk-onboarding.json","ts":"2026-07-21T04:22:06.555Z"}
+[runner] 81/101 (80%) success front-desk-onboarding
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/housekeeping-certification.json","ts":"2026-07-21T04:22:14.963Z"}
+[runner] 82/101 (81%) success housekeeping-certification
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/concierge-skills-training.json","ts":"2026-07-21T04:22:24.683Z"}
+[runner] 83/101 (82%) success concierge-skills-training
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/safety-compliance-training.json","ts":"2026-07-21T04:22:33.577Z"}
+[runner] 84/101 (83%) success safety-compliance-training
+{"level":"info","message":"Written (score=100): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/service-excellence-program.json","ts":"2026-07-21T04:22:44.897Z"}
+[runner] 85/101 (84%) success service-excellence-program
+{"level":"info","message":"Written (score=97): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/training/upsell-techniques-training.json","ts":"2026-07-21T04:22:55.180Z"}
+[runner] 86/101 (85%) success upsell-techniques-training
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/booking-confirmation-workflow.json","ts":"2026-07-21T04:23:04.038Z"}
+[runner] 87/101 (86%) success booking-confirmation-workflow
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/pre-arrival-communication.json","ts":"2026-07-21T04:23:11.887Z"}
+[runner] 88/101 (87%) success pre-arrival-communication
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/post-stay-survey-workflow.json","ts":"2026-07-21T04:23:19.071Z"}
+[runner] 89/101 (88%) success post-stay-survey-workflow
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/review-request-automation.json","ts":"2026-07-21T04:23:26.032Z"}
+[runner] 90/101 (89%) success review-request-automation
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/maintenance-request-routing.json","ts":"2026-07-21T04:23:33.805Z"}
+[runner] 91/101 (90%) success maintenance-request-routing
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/overbooking-alert-workflow.json","ts":"2026-07-21T04:23:40.484Z"}
+[runner] 92/101 (91%) success overbooking-alert-workflow
+{"level":"info","message":"Written (score=99): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/automation/no-show-handling-automation.json","ts":"2026-07-21T04:23:48.341Z"}
+[runner] 93/101 (92%) success no-show-handling-automation
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/occupancy-rate-kpi.json","ts":"2026-07-21T04:23:53.756Z"}
+[runner] 94/101 (93%) success occupancy-rate-kpi
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/average-daily-rate-kpi.json","ts":"2026-07-21T04:23:59.812Z"}
+[runner] 95/101 (94%) success average-daily-rate-kpi
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/revpar-kpi.json","ts":"2026-07-21T04:24:05.634Z"}
+[runner] 96/101 (95%) success revpar-kpi
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/net-promoter-score-kpi.json","ts":"2026-07-21T04:24:10.660Z"}
+[runner] 97/101 (96%) success net-promoter-score-kpi
+{"level":"info","message":"Written (score=93): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/complaint-resolution-rate-kpi.json","ts":"2026-07-21T04:24:15.641Z"}
+[runner] 98/101 (97%) success complaint-resolution-rate-kpi
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/housekeeping-score-kpi.json","ts":"2026-07-21T04:24:20.727Z"}
+[runner] 99/101 (98%) success housekeeping-score-kpi
+{"level":"info","message":"Written (score=95): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/channel-mix-kpi.json","ts":"2026-07-21T04:24:26.500Z"}
+[runner] 100/101 (99%) success channel-mix-kpi
+{"level":"info","message":"Written (score=93): /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/packs/demo-enterprise-v1/hotels/analytics/repeat-guest-rate-kpi.json","ts":"2026-07-21T04:24:32.065Z"}
+[runner] 101/101 (100%) success repeat-guest-rate-kpi
+[runner] Run report: /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/knowledge/logs/run-reports/run-b750a844-d126-4b32-9431-ffd36b246014-2026-07-21.json
+{
+  "total": 101,
+  "succeeded": 100,
+  "failed": 0,
+  "quarantined": 0,
+  "skipped": 1,
+  "dryRun": 0
+}

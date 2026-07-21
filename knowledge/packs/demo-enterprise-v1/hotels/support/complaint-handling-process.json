@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "id": "6a1f4e7d-3f6e-4b7a-8b3f-9d5e1a2c1b4e",
+  "title": "Hotel Guest Complaint Handling Process",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "tags": [
+    "hotels",
+    "support",
+    "complaint-handling-process",
+    "guest-experience",
+    "customer-service"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "trigger": "A guest submits a complaint through any channel (front desk, email, phone, OTA review).",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Acknowledge Receipt of Complaint",
+      "action": "Immediately acknowledge the receipt of the complaint to the guest, thanking them for their feedback. Ensure the guest feels heard and valued.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Log Complaint in PMS",
+      "action": "Record the complaint details in the Property Management System (PMS) to ensure it is tracked and can be referenced in future interactions.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Investigate Complaint",
+      "action": "Conduct a thorough investigation of the complaint by gathering information from relevant departments such as housekeeping, F&B, or maintenance.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Complaint is valid",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Complaint is not valid",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Duty Manager",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Communication Tools"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Resolve Valid Complaint",
+      "action": "Implement a solution to resolve the complaint, such as offering a room upgrade, complimentary service, or a discount. Communicate the resolution to the guest.",
+      "decision_point": false,
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Communicate Findings for Invalid Complaint",
+      "action": "Politely communicate the findings to the guest, explaining why the complaint is not valid. Offer a gesture of goodwill if appropriate.",
+      "decision_point": false,
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Escalate Unresolved Complaints",
+      "action": "If the complaint cannot be resolved at the current level, escalate it to the Hotel Manager or relevant department head for further action.",
+      "decision_point": false,
+      "responsible_role": "Duty Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Communication Tools"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Follow-Up with Guest",
+      "action": "After resolution, follow up with the guest to ensure satisfaction and reinforce the hotel's commitment to guest experience.",
+      "decision_point": false,
+      "responsible_role": "Guest Relations Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Email System"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 100,
+  "description": "This playbook outlines the process for handling guest complaints in a hotel setting, ensuring timely and effective resolution to maintain high guest satisfaction.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-04-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "quality@organization.com",
+  "source_url": "https://www.organization.com/playbooks/complaint-handling",
+  "attachments": [],
+  "external_id": "CHP-2023-EG",
+  "locale_overrides": {},
+  "audience": [
+    "Front Desk Staff",
+    "Duty Managers",
+    "Guest Relations Managers"
+  ],
+  "prerequisites": [
+    "Training on PMS usage",
+    "Customer service training"
+  ],
+  "escalation_path": "Unresolved complaints escalate to the Hotel Manager.",
+  "related_playbooks": [
+    "Guest Satisfaction Survey Process",
+    "Service Recovery Procedures"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:7ea2403433e36db00622472172670d8d63d4f9a956f865604f53d324c5cda5b1"
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Hotel Check-In Process for Egypt Operations",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Guest arrival at the hotel front desk for check-in.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Greet the Guest",
+      "action": "Welcome the guest warmly and inquire about their reservation details. Confirm the guest's identity by checking their ID or passport.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "ID Scanner"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Verify Reservation Details",
+      "action": "Access the PMS to verify the reservation details including room type, dates of stay, and any special requests. Confirm with the guest.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Reservation details are correct",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Reservation details are incorrect",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Process Payment",
+      "action": "Request payment for the stay if not already prepaid. Ensure compliance with PCI-DSS standards during payment processing.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Payment Terminal"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Assign Room and Issue Key",
+      "action": "Assign a room in the PMS and issue a key card. Provide the guest with information about hotel amenities and services.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Key Card Encoder"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Escort to Room (if necessary)",
+      "action": "Offer to have a concierge or bellboy escort the guest to their room, especially if they have luggage or require assistance.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": []
+    },
+    {
+      "step_id": "6",
+      "title": "Resolve Reservation Issues",
+      "action": "If there is a discrepancy in the reservation details, attempt to resolve it by checking with the guest and the reservation system. Offer alternatives if necessary.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Issue resolved",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Issue unresolved",
+          "next_step_id": "7"
+        }
+      ],
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS",
+        "OTA Portal"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Escalate Unresolved Issues",
+      "action": "If the reservation issue cannot be resolved, escalate to the Front Desk Manager for further action.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 40,
+  "tags": [
+    "hotels",
+    "operations",
+    "check-in-process"
+  ],
+  "description": "This playbook outlines the standard operating procedure for the check-in process at hotels in Egypt, ensuring a seamless and efficient experience for guests while maintaining operational excellence.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://www.example.com/hotel-check-in-process",
+  "attachments": [],
+  "external_id": "EG-HOTEL-CHECKIN-2023",
+  "locale_overrides": {},
+  "audience": [
+    "Front Desk Staff",
+    "Concierge",
+    "Hotel Management"
+  ],
+  "prerequisites": [
+    "Staff trained in PMS usage",
+    "PCI-DSS compliance training"
+  ],
+  "escalation_path": "Front Desk Manager -> Operations Manager",
+  "related_playbooks": [
+    "Guest Checkout Process",
+    "Reservation Management"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:4a93d167404aeabe82e2501a102100244278d25ec007581c553aceb14586683c"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f8e1b68-8f2b-4c3e-bf9e-9d5b9c2d9f3b",
+  "title": "Pet Accommodation and Services Policy Framework for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "policies",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-23T12:00:00Z",
+  "policy_number": "HT-2023-001",
+  "scope": "This policy applies to all hotel properties operating under our brand within Egypt. It covers the accommodation and services provided to guests with pets, ensuring compliance with local regulations and enhancing guest experience. The policy is applicable to front desk operations, housekeeping, and concierge services, and includes guidelines for pet-friendly room allocation, cleaning protocols, and guest communication.",
+  "policy_body": "### Introduction\nThis policy outlines the procedures and standards for accommodating guests with pets at our hotel properties in Egypt. It aims to ensure a harmonious experience for all guests while maintaining operational efficiency and compliance with local regulations.\n\n### Pet Accommodation\n- **Room Allocation**: Designated pet-friendly rooms must be clearly marked in the PMS. These rooms should be located in specific areas to minimize disturbances to other guests.\n- **Room Amenities**: Pet-friendly rooms should include amenities such as pet beds, bowls, and waste disposal bags.\n\n### Guest Communication\n- **Front Desk**: Upon check-in, guests with pets should be informed of the hotel’s pet policies, including areas where pets are allowed and any additional fees.\n- **Concierge Services**: Provide information on local pet services, such as veterinary clinics and pet-friendly parks.\n\n### Housekeeping Protocols\n- **Cleaning Standards**: Enhanced cleaning procedures must be followed for pet-friendly rooms to ensure hygiene and comfort for subsequent guests.\n- **Staff Training**: Housekeeping staff should be trained on handling pet-related incidents and maintaining cleanliness standards.\n\n### Compliance and Safety\n- **Local Regulations**: Ensure compliance with Egyptian hospitality licensing and health regulations concerning pets.\n- **Fire Safety**: Pet-friendly rooms should be equipped with appropriate fire safety measures, considering the presence of animals.\n\n### Enforcement and Monitoring\n- **Regular Audits**: Conduct regular audits to ensure adherence to this policy and address any compliance issues promptly.\n- **Feedback Mechanism**: Implement a system for guests to provide feedback on their pet accommodation experience.\n\n### Conclusion\nThis policy is designed to enhance the guest experience for pet owners while ensuring operational excellence and compliance with local regulations. All staff members are expected to familiarize themselves with this policy and adhere to its guidelines.",
+  "compliance_frameworks": [
+    "PCI-DSS",
+    "GDPR"
+  ],
+  "tags": [
+    "hotels",
+    "policies",
+    "pet-policy-framework",
+    "guest-experience",
+    "compliance"
+  ],
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2025-11-01",
+  "review_date": "2024-11-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "compliance@organization.com",
+  "enforcement_level": "mandatory",
+  "exceptions_process": "Exceptions to this policy must be approved by the General Manager and documented in the PMS. Requests for exceptions should be submitted in writing at least 48 hours in advance.",
+  "penalties": "Non-compliance with this policy may result in disciplinary action, up to and including termination of employment for staff, and fines or additional charges for guests.",
+  "legal_refs": [
+    "Egyptian Hospitality Licensing Regulations",
+    "Local Health and Safety Standards"
+  ],
+  "jurisdictions": [
+    "Egypt"
+  ],
+  "checksum": "sha256:9c312723e2e5549cffc67bc765196b94d05981f94abdf14a1433c735abfc98a2"
+}

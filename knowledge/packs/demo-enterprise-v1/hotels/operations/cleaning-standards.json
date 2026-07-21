@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3e5b7c4a-8f2e-4c3e-9b5a-3d2a5f6b9c1d",
+  "title": "Hotel Cleaning Standards Playbook for Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "tags": [
+    "hotels",
+    "operations",
+    "cleaning-standards",
+    "housekeeping",
+    "guest-experience"
+  ],
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-23T12:00:00Z",
+  "trigger": "Initiated when a guest checks out or when a room requires cleaning as per the schedule.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Preparation and Safety Check",
+      "action": "Ensure all cleaning equipment and supplies are ready and in good condition. Conduct a safety check to ensure compliance with local fire safety codes and ADA requirements.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Cleaning checklist",
+        "Safety equipment"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Room Inspection",
+      "action": "Inspect the room for any maintenance issues or items left behind by guests. Report any issues to the maintenance department immediately.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If maintenance issues are found",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "If no maintenance issues are found",
+          "next_step_id": "4"
+        }
+      ],
+      "responsible_role": "Housekeeper",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Inspection checklist"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Report Maintenance Issues",
+      "action": "Log maintenance issues in the PMS and notify the maintenance team for immediate action.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS access"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Cleaning and Sanitization",
+      "action": "Clean and sanitize the room following the hotel's cleaning standards. Pay special attention to high-touch areas such as door handles, light switches, and remote controls.",
+      "decision_point": false,
+      "responsible_role": "Housekeeper",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "Cleaning supplies",
+        "Sanitizing agents"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Final Inspection and Setup",
+      "action": "Conduct a final inspection to ensure the room meets the hotel's quality standards. Set up the room with fresh linens and amenities.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Final inspection checklist"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Update Room Status",
+      "action": "Update the room status in the PMS to 'Clean' and ready for the next guest.",
+      "decision_point": false,
+      "responsible_role": "Housekeeper",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS access"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 65,
+  "description": "This playbook outlines the cleaning standards and procedures for hotel rooms in Egypt, ensuring compliance with local regulations and enhancing guest satisfaction.",
+  "status": "draft",
+  "effective_date": "2023-10-23",
+  "expiry_date": "2024-10-23",
+  "review_date": "2024-04-23",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://example.com/hotel-cleaning-standards-eg",
+  "attachments": [],
+  "external_id": "cleaning-standards-eg-2023",
+  "locale_overrides": {},
+  "audience": [
+    "Housekeeping Staff",
+    "Operations Managers"
+  ],
+  "prerequisites": [
+    "Completion of housekeeping training",
+    "Familiarity with PMS"
+  ],
+  "escalation_path": "Report any issues to the Operations Manager if they cannot be resolved by the Housekeeping Supervisor.",
+  "related_playbooks": [
+    "maintenance-standards",
+    "guest-services-protocol"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:4631d378d9639236e2b6fe664047abd7bb29cf02bf059f61906a209eeec52a1c"
+}

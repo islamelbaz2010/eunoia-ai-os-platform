@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "id": "5d3c9a6e-8f2b-4a5b-9a7f-3b8c9e2e5f6a",
+  "title": "Reputation Management Campaign for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "campaign_type": "retention",
+  "objective": "Enhance online reputation and increase positive guest reviews for hotels in Egypt by leveraging guest feedback and improving service quality.",
+  "target_audience_ref": "persona-egyptian-travelers",
+  "channels": [
+    "email",
+    "social",
+    "content",
+    "whatsapp"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-01-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "email": 10000,
+      "social": 15000,
+      "content": 15000,
+      "whatsapp": 10000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "reputation-management",
+    "guest-experience",
+    "service-quality"
+  ],
+  "description": "This campaign aims to improve the online reputation of hotels in Egypt by actively engaging with guests through multiple channels, encouraging positive reviews, and addressing any negative feedback promptly. The focus will be on enhancing the overall guest experience to foster loyalty and increase repeat bookings.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-02-01",
+  "review_date": "2024-01-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "marketing@organization.com",
+  "source_url": "https://www.organization.com/campaigns/reputation-management-eg",
+  "attachments": [],
+  "external_id": "RM2023EG",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "increase_positive_reviews",
+      "target": 20,
+      "unit": "percent"
+    },
+    {
+      "metric": "reduce_negative_reviews",
+      "target": 10,
+      "unit": "percent"
+    },
+    {
+      "metric": "guest_satisfaction_score",
+      "target": 85,
+      "unit": "score"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "engagement",
+    "conversion",
+    "retention"
+  ],
+  "utm_parameters": {
+    "utm_source": "email",
+    "utm_medium": "campaign",
+    "utm_campaign": "reputation_management_egypt"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:6ee49fd9a3ff00920b48c63b511cabfc3e01b113addc24234e9f421f60f4a840"
+}

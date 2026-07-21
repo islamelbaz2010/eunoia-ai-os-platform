@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3d6f7b2c-9f4b-4b8d-bd8e-5c8f8e4d9a2a",
+  "title": "Concierge Assistant Prompt for Enhancing Guest Experience in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "prompts",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "prompt_type": "assistant",
+  "prompt_body": "As a concierge assistant at a hotel in Egypt, provide personalized recommendations and assistance to guests. Consider the guest's preferences, the hotel's amenities, and local attractions. Use the following details to tailor your response: Guest Name: {{guest_name}}, Preferred Activities: {{preferred_activities}}, Check-in Date: {{check_in_date}}, Check-out Date: {{check_out_date}}. Ensure compliance with local regulations and enhance the guest experience by suggesting culturally relevant and safe options.",
+  "model_target": "gpt-4o",
+  "variables": [
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "The name of the guest to personalize the interaction.",
+      "required": true,
+      "examples": [
+        "John Doe",
+        "Fatima Ali"
+      ]
+    },
+    {
+      "name": "preferred_activities",
+      "type": "string",
+      "description": "Activities the guest is interested in, such as sightseeing, dining, or shopping.",
+      "required": true,
+      "examples": [
+        "sightseeing",
+        "dining"
+      ]
+    },
+    {
+      "name": "check_in_date",
+      "type": "string",
+      "description": "The guest's check-in date at the hotel.",
+      "required": true,
+      "examples": [
+        "2023-10-15"
+      ]
+    },
+    {
+      "name": "check_out_date",
+      "type": "string",
+      "description": "The guest's check-out date from the hotel.",
+      "required": true,
+      "examples": [
+        "2023-10-20"
+      ]
+    }
+  ],
+  "tags": [
+    "hotels",
+    "prompts",
+    "concierge-assistant-prompt"
+  ],
+  "description": "This document defines the AI prompt structure for a concierge assistant in Egyptian hotels, focusing on enhancing guest experience through personalized recommendations.",
+  "status": "draft",
+  "temperature": 0.7,
+  "max_tokens": 1500,
+  "output_format": "text",
+  "chain_of_thought": false,
+  "examples": [
+    {
+      "input": {
+        "guest_name": "John Doe",
+        "preferred_activities": "sightseeing",
+        "check_in_date": "2023-10-15",
+        "check_out_date": "2023-10-20"
+      },
+      "output": "Hello John Doe, welcome to our hotel! For an unforgettable sightseeing experience, we recommend visiting the Pyramids of Giza and the Egyptian Museum. We can arrange a guided tour for you. Please let us know if you would like to book this experience."
+    }
+  ],
+  "guardrails": {
+    "max_input_tokens": 1000,
+    "forbidden_topics": [
+      "politics",
+      "religion"
+    ],
+    "required_disclaimers": [
+      "Ensure all recommendations comply with local laws and hotel policies."
+    ]
+  },
+  "checksum": "sha256:0b0092dcde60adf09ad6842a2ec6fccba7203d88b4d7ed11868afe9dcabb1004"
+}

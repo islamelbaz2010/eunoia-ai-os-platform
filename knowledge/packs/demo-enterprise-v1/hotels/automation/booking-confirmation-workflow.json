@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d4f5a9b7-3b2a-4c8f-8e6d-9f2a4b7e9c3f",
+  "title": "Automated Booking Confirmation Workflow for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "automation_type": "trigger-action",
+  "trigger": {
+    "type": "event",
+    "event": "booking-confirmation",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "booking_status",
+        "operator": "eq",
+        "value": "confirmed"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "notify-guest",
+      "type": "notify",
+      "target": "guest-email",
+      "parameters": {
+        "subject": "Your Booking Confirmation",
+        "template_id": "booking-confirmation-template",
+        "variables": {
+          "guest_name": "{{guest_name}}",
+          "check_in_date": "{{check_in_date}}",
+          "check_out_date": "{{check_out_date}}",
+          "hotel_name": "{{hotel_name}}"
+        }
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "update-ota",
+      "type": "call-api",
+      "target": "OTA-system",
+      "parameters": {
+        "endpoint": "https://api.ota.com/updateBooking",
+        "method": "POST",
+        "body": {
+          "booking_id": "{{booking_id}}",
+          "status": "confirmed"
+        }
+      },
+      "on_failure": "retry"
+    },
+    {
+      "action_id": "log-confirmation",
+      "type": "log",
+      "target": "PMS",
+      "parameters": {
+        "message": "Booking confirmation sent for booking ID: {{booking_id}}"
+      },
+      "on_failure": "continue"
+    }
+  ],
+  "description": "This document outlines the automated workflow for confirming hotel bookings in Egypt. The workflow triggers upon a booking status change to 'confirmed' in the PMS. It sends a confirmation email to the guest, updates the OTA system, and logs the confirmation in the PMS.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2025-10-05",
+  "review_date": "2024-10-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "automation-lead@organization.com",
+  "source_url": "https://internaldocs.organization.com/booking-confirmation-workflow",
+  "attachments": [],
+  "external_id": "booking-confirmation-automation-eg",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 100,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "manual-review"
+  },
+  "integrations": [
+    "PMS",
+    "OTA-system",
+    "email-service"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "booking-confirmation-workflow"
+  ],
+  "checksum": "sha256:85c909dbb10514f70075b7305c92203d0ff66bb9469ac6dfdb76e58f28002e92"
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Comprehensive Company Profile for Hotel Operations in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "company",
+  "tags": [
+    "hotels",
+    "company",
+    "company-profile",
+    "hospitality",
+    "Egypt"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "department_code": "COMP",
+  "parent_department": "CORP",
+  "cost_center": "CC1001",
+  "roles": [
+    {
+      "role_id": "CEO",
+      "title": "Chief Executive Officer",
+      "level": "executive",
+      "reports_to": "Board of Directors",
+      "headcount": 1
+    },
+    {
+      "role_id": "COO",
+      "title": "Chief Operating Officer",
+      "level": "executive",
+      "reports_to": "CEO",
+      "headcount": 1
+    },
+    {
+      "role_id": "CFO",
+      "title": "Chief Financial Officer",
+      "level": "executive",
+      "reports_to": "CEO",
+      "headcount": 1
+    },
+    {
+      "role_id": "HRD",
+      "title": "Human Resources Director",
+      "level": "senior",
+      "reports_to": "COO",
+      "headcount": 1
+    },
+    {
+      "role_id": "MKT",
+      "title": "Marketing Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 2
+    },
+    {
+      "role_id": "FD",
+      "title": "Front Desk Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 5
+    },
+    {
+      "role_id": "HK",
+      "title": "Housekeeping Manager",
+      "level": "mid",
+      "reports_to": "COO",
+      "headcount": 10
+    }
+  ],
+  "description": "This document outlines the company profile for a hotel operating in Egypt, focusing on organizational structure, mission, vision, and core values. The company is dedicated to enhancing guest experience, achieving operational excellence, optimizing revenue, and maintaining brand standards. The structure supports strategic goals in the competitive Egyptian hospitality market.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2024-10-15",
+  "review_date": "2024-04-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "board@organization.com",
+  "source_url": "https://organization.com/company-profile",
+  "attachments": [],
+  "external_id": "EG-HOTEL-COMP-001",
+  "locale_overrides": {},
+  "kpi_refs": [
+    "RevPAR",
+    "ADR",
+    "occupancy_rate"
+  ],
+  "budget_owner": "CFO",
+  "functional_area": "growth",
+  "checksum": "sha256:4e5b390b5f2d9a0354ce238d2ce38d538e973e54350ca7a6439904d7d5f1d1a2"
+}

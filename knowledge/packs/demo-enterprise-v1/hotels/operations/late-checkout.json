@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Late Checkout Procedure for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:00:00Z",
+  "trigger": "Guest requests a late checkout beyond the standard checkout time.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive Late Checkout Request",
+      "action": "Front desk staff receives a late checkout request from the guest either via phone, in-person, or through the PMS.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Room availability confirmed",
+          "next_step_id": "2"
+        },
+        {
+          "condition": "Room not available",
+          "next_step_id": "3"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Confirm Late Checkout Availability",
+      "action": "Check the PMS for room availability and occupancy rate to determine if a late checkout can be accommodated.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Late checkout approved",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Late checkout denied",
+          "next_step_id": "3"
+        }
+      ],
+      "responsible_role": "Front Desk Supervisor",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Inform Guest of Unavailability",
+      "action": "Politely inform the guest that a late checkout cannot be accommodated due to full occupancy and offer alternatives such as luggage storage or use of hotel facilities.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": []
+    },
+    {
+      "step_id": "4",
+      "title": "Process Late Checkout",
+      "action": "Update the PMS to reflect the new checkout time and inform housekeeping of the adjusted schedule. Apply any additional charges to the guest's account as per hotel policy.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Confirm with Guest",
+      "action": "Contact the guest to confirm the late checkout approval and inform them of any additional charges incurred.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Telephone",
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 30,
+  "tags": [
+    "hotels",
+    "operations",
+    "late-checkout"
+  ],
+  "description": "This playbook outlines the procedure for handling late checkout requests in hotels operating in Egypt, ensuring guest satisfaction while optimizing room availability and revenue.",
+  "status": "draft",
+  "effective_date": "2023-10-05",
+  "expiry_date": "2024-10-05",
+  "review_date": "2024-04-05",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "escalation_path": "Escalate to the Front Desk Manager if the guest is dissatisfied with the late checkout decision.",
+  "related_playbooks": [
+    "early-checkin",
+    "room-upgrade"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:cceebe8c6234fa9158413afee8ea216a0befcf3f4939fb56516ca230243cc003"
+}

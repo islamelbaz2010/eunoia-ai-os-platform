@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f6b1c2d-8b4f-4a6b-9f1d-2c3e4f5a6b7c",
+  "title": "Comprehensive Guide to Room Amenities in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T14:48:00Z",
+  "question": "What amenities are typically available in hotel rooms in Egypt?",
+  "answer": "Hotel rooms in Egypt generally offer a range of amenities to enhance guest comfort and convenience. Standard amenities include air conditioning, complimentary Wi-Fi, a flat-screen TV with satellite channels, a minibar, and an in-room safe. Additionally, guests can expect to find tea and coffee making facilities, a hairdryer, and a telephone. Many hotels provide complimentary toiletries and bathrobes in the en-suite bathrooms. For business travelers, a work desk and a comfortable chair are often available. Some hotels may offer additional amenities such as a pillow menu, ironing facilities, and a welcome fruit basket. It is advisable to check with the specific hotel for a detailed list of available room amenities.",
+  "category": "room-amenities-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "room-amenities-faq",
+    "guest-experience",
+    "egypt"
+  ],
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "review_date": "2024-10-10",
+  "created_by": "operations@organization.com",
+  "ai_generated": false,
+  "checksum": "sha256:8c160ffd35f6b7c4d8333a6c6299f838a0bf8a3e360730ce09db08db83f69502"
+}

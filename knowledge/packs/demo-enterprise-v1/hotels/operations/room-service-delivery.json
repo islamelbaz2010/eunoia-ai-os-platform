@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3e9f1a7b-4c3d-4d2b-8b9f-9a8f5e6c7d2e",
+  "title": "Efficient Room Service Delivery in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "trigger": "Guest places a room service order via in-room phone or hotel app.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Order Reception",
+      "action": "Receive the room service order through the PMS or directly via the in-room phone. Confirm the order details with the guest, including any special requests or dietary restrictions.",
+      "decision_point": false,
+      "responsible_role": "Room Service Attendant",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "In-room phone"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Order Preparation",
+      "action": "Transmit the order to the kitchen staff. Ensure that the kitchen is aware of any special requests or dietary restrictions. Monitor the preparation process to ensure timely completion.",
+      "decision_point": false,
+      "responsible_role": "Kitchen Staff",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Kitchen Order System"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Quality Check",
+      "action": "Conduct a quality check of the prepared items to ensure they meet hotel standards. Verify the order against the guest's request.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Order meets quality standards",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Order does not meet quality standards",
+          "next_step_id": "2"
+        }
+      ],
+      "responsible_role": "Room Service Supervisor",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Order Checklist"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Order Delivery",
+      "action": "Deliver the order to the guest's room. Ensure courteous interaction and confirm the guest's satisfaction upon delivery.",
+      "decision_point": false,
+      "responsible_role": "Room Service Attendant",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Service Tray",
+        "Guest Satisfaction Form"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Post-Delivery Follow-Up",
+      "action": "Follow up with the guest after 30 minutes to ensure satisfaction with the service and address any further needs.",
+      "decision_point": false,
+      "responsible_role": "Front Desk",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 45,
+  "description": "This playbook outlines the steps for efficient room service delivery in hotels, ensuring high guest satisfaction and operational excellence.",
+  "status": "draft",
+  "effective_date": "2023-10-21",
+  "expiry_date": "2024-10-21",
+  "review_date": "2024-04-21",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "operations",
+    "room-service-delivery"
+  ],
+  "escalation_path": "If issues arise during any step, escalate to the Room Service Manager.",
+  "review_cycle_days": 180,
+  "checksum": "sha256:0b2d9b90592d0b53fed95a00f20ec3f85e74e52996e0f465df9d459b27ddc6ab"
+}

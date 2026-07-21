@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3d6f7c5e-8f4f-4a3c-9d3b-2e8c9f4a6d8b",
+  "title": "Exclusive Nile View Stay Package",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "tags": [
+    "hotels",
+    "sales",
+    "package-creation",
+    "guest-experience",
+    "revenue-optimization"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-11-29T12:00:00Z",
+  "offer_type": "package",
+  "service_ref": "nile-view-stay",
+  "pricing": {
+    "model": "fixed",
+    "currency": "EGP",
+    "base_price": 5000,
+    "billing_cycle": "one-time"
+  },
+  "validity": {
+    "start_date": "2023-12-01",
+    "end_date": "2024-01-31",
+    "limited_quantity": 100
+  },
+  "description": "This exclusive Nile View Stay Package offers guests a luxurious experience with a breathtaking view of the Nile. The package includes a two-night stay in a deluxe room, daily breakfast at our signature restaurant, a complimentary dinner for two, and a guided tour of the nearby historical sites. Designed to enhance guest satisfaction and optimize revenue, this package is ideal for couples and families seeking a memorable stay in Cairo.",
+  "status": "draft",
+  "effective_date": "2023-12-01",
+  "expiry_date": "2024-01-31",
+  "review_date": "2023-12-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "salesdirector@organization.com",
+  "source_url": "https://organization.com/offers/nile-view-stay",
+  "eligibility_rules": [
+    "Must book at least 7 days in advance",
+    "Valid for new reservations only",
+    "Subject to availability"
+  ],
+  "exclusions": [
+    "Not combinable with other promotions",
+    "Excludes public holidays"
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:143301135697f0e4d658cb48a72320fd1cbb37ef1a3eaac7f5778d3bff64a640"
+}

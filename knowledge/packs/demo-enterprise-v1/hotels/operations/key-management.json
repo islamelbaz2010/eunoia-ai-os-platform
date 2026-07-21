@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f8f2e1e-9c6d-4b1e-8c3b-0c5e4f9d6b8a",
+  "title": "Hotel Key Management Procedures",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "operations",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-18T12:00:00Z",
+  "trigger": "Initiation of guest check-in or check-out process.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Receive Guest Check-In Notification",
+      "action": "The front desk receives a notification from the PMS indicating a guest is ready to check-in. Verify the guest's reservation details and prepare the key card or physical key.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Key Card Encoder"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Verify Guest Identity",
+      "action": "Request a valid form of identification from the guest. Ensure the ID matches the reservation details in the PMS.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "ID matches reservation",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "ID does not match reservation",
+          "next_step_id": "7"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 3,
+      "tools_required": [
+        "PMS",
+        "ID Scanner"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Encode Key Card",
+      "action": "Use the key card encoder to program the guest's room key. Ensure the key is set for the correct duration of stay.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 2,
+      "tools_required": [
+        "Key Card Encoder"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Issue Key to Guest",
+      "action": "Hand the encoded key card to the guest along with a welcome package. Provide any necessary instructions for using the key card.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 3,
+      "tools_required": [
+        "Welcome Package"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Record Key Issuance",
+      "action": "Log the issuance of the key in the PMS, noting the key number and the guest's details.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 2,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Monitor Key Usage",
+      "action": "Regularly monitor key usage through the PMS to ensure security and address any anomalies.",
+      "responsible_role": "Security Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Security Software"
+      ]
+    },
+    {
+      "step_id": "7",
+      "title": "Resolve ID Mismatch",
+      "action": "If the guest's ID does not match the reservation, escalate the issue to the Front Desk Supervisor for resolution.",
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Communication Tools"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 30,
+  "tags": [
+    "hotels",
+    "operations",
+    "key-management"
+  ],
+  "description": "This playbook outlines the procedures for managing guest key issuance and control within a hotel setting in Egypt. It ensures secure and efficient handling of keys to enhance guest experience and operational security.",
+  "status": "draft",
+  "effective_date": "2023-10-18",
+  "expiry_date": "2024-10-18",
+  "review_date": "2024-04-18",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "escalation_path": "Front Desk Supervisor > Operations Manager > General Manager",
+  "related_playbooks": [
+    "Guest Check-In Procedures",
+    "Security Protocols"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:fb000bb4c737683d0537e6e4f13152b8cd5053cae6eab99922c24f75b9007936"
+}

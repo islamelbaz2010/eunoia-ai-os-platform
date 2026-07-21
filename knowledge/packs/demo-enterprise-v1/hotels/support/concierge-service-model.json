@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "id": "d3f5c9b2-1c8e-4f7b-9b8e-5e9f3b2a8d9a",
+  "title": "Concierge Service Excellence Model for Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "tags": [
+    "hotels",
+    "support",
+    "concierge-service-model",
+    "guest-experience",
+    "hospitality",
+    "customer-service"
+  ],
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T14:48:00Z",
+  "trigger": "Guest requests concierge service for personalized assistance or local recommendations.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Initial Guest Interaction",
+      "action": "Greet the guest warmly and inquire about their specific needs or requests. Use the PMS to check guest details for personalized service.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Guest Profile"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Assess Guest Needs",
+      "action": "Listen carefully to the guest's requirements and ask clarifying questions if needed. Determine if the request involves local recommendations, reservations, or special arrangements.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Request involves local recommendations",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "Request involves reservations",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "Request involves special arrangements",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Guest Profile"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Provide Local Recommendations",
+      "action": "Offer tailored recommendations for dining, attractions, and activities based on the guest's preferences and current local events. Use the hotel's curated list of partners and local attractions.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Local Guide",
+        "Partner List"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Make Reservations",
+      "action": "Contact the desired venue or service provider to make reservations on behalf of the guest. Confirm details with the guest and update the PMS with reservation information.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Telephone",
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Arrange Special Services",
+      "action": "Coordinate with relevant departments (e.g., housekeeping, F&B) to arrange special services such as in-room dining, spa appointments, or transportation. Confirm arrangements with the guest.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "PMS",
+        "Internal Communication System"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Follow-Up and Feedback",
+      "action": "After the service has been provided, follow up with the guest to ensure satisfaction. Solicit feedback to improve future services and update guest preferences in the PMS.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "PMS",
+        "Feedback Form"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 90,
+  "description": "This playbook outlines the concierge service model for hotels in Egypt, focusing on delivering exceptional guest experiences through personalized service and local expertise.",
+  "status": "draft",
+  "effective_date": "2023-10-06",
+  "expiry_date": "2024-10-06",
+  "review_date": "2024-04-06",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "source_url": "https://example.com/concierge-service-model",
+  "attachments": [],
+  "external_id": "CSM-EG-2023",
+  "locale_overrides": {},
+  "audience": [
+    "Concierge Staff",
+    "Front Desk Staff",
+    "Hotel Management"
+  ],
+  "prerequisites": [
+    "Concierge staff must be trained in local culture and attractions.",
+    "Access to the PMS and guest profiles."
+  ],
+  "escalation_path": "If guest requests cannot be fulfilled, escalate to the Guest Relations Manager.",
+  "related_playbooks": [
+    "Guest Check-In Process",
+    "Handling Guest Complaints"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:9ac6cfb0b65e8a79c16a88017cfd461994a71d5bfc5cbb1b82940daa6a21c8cd"
+}

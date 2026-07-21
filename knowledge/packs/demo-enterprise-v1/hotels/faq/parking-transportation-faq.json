@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "id": "3f5c9a8b-2e4f-4d8a-9b1d-7c3d5f8a9e2f",
+  "title": "Parking and Transportation FAQ for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-18T12:00:00Z",
+  "question": "Can I rent a car through the hotel?",
+  "answer": "Yes, our hotel offers car rental services in partnership with a reputable local agency. Guests can choose from a variety of vehicles to suit their needs. To arrange a rental, please contact the concierge desk, where our staff will assist you with the booking process and provide information on rates and availability.",
+  "category": "parking-transportation-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "parking-transportation-faq"
+  ],
+  "status": "draft",
+  "checksum": "sha256:7b965ff9302e992e09439328273a5ec10bd8372bdbcee067b7390532782d67ff"
+}

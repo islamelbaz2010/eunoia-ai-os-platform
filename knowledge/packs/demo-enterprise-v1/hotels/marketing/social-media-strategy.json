@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f3a1c4b5-9d7e-4c3b-8f4d-2b6e9a6f7c8d",
+  "title": "Enhancing Guest Engagement through Social Media in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-11-24T10:00:00Z",
+  "campaign_type": "awareness",
+  "objective": "To increase brand awareness and guest engagement for hotels in Egypt by leveraging social media platforms to showcase unique experiences, local culture, and exclusive offers.",
+  "target_audience_ref": "persona_egyptian_travelers",
+  "channels": [
+    "social",
+    "content",
+    "whatsapp"
+  ],
+  "start_date": "2023-12-01",
+  "end_date": "2024-03-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "social": 20000,
+      "content": 15000,
+      "whatsapp": 15000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "social-media-strategy",
+    "Egypt",
+    "guest-engagement"
+  ],
+  "description": "This campaign aims to leverage social media platforms such as Facebook, Instagram, and WhatsApp to enhance guest engagement and increase brand visibility for hotels in Egypt. By showcasing local experiences, cultural insights, and exclusive hotel offers, the campaign seeks to attract both domestic and international travelers. The strategy includes content creation, influencer partnerships, and targeted promotions to drive traffic and bookings.",
+  "status": "draft",
+  "effective_date": "2023-12-01",
+  "expiry_date": "2024-04-30",
+  "review_date": "2024-03-01",
+  "created_by": "marketing@organization.com",
+  "approved_by": "director@organization.com",
+  "source_url": "https://www.organization.com/campaigns/egypt-social-media-strategy",
+  "attachments": [],
+  "external_id": "EG-SOCIAL-2023",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "engagement_rate",
+      "target": 5,
+      "unit": "%"
+    },
+    {
+      "metric": "follower_growth",
+      "target": 10000,
+      "unit": "followers"
+    },
+    {
+      "metric": "booking_inquiries",
+      "target": 500,
+      "unit": "inquiries"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "conversion"
+  ],
+  "utm_parameters": {
+    "utm_source": "social",
+    "utm_medium": "campaign",
+    "utm_campaign": "egypt_hotel_awareness"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:4645f5e9cc49d40041a60c5a9589d5c723ee631ddb6dad3ac413e5025c3f619e"
+}

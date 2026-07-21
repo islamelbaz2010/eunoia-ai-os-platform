@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Hotel Booking Confirmation Email Template",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-05T12:34:56Z",
+  "template_type": "email",
+  "subject_template": "Booking Confirmation - {{hotel_name}}",
+  "body_template": "<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; }\n  </style>\n</head>\n<body>\n  <h2>Booking Confirmation</h2>\n  <p>Dear {{guest_name}},</p>\n  <p>Thank you for choosing {{hotel_name}} for your stay in Egypt. We are pleased to confirm your booking as follows:</p>\n  <ul>\n    <li><strong>Check-in Date:</strong> {{check_in_date}}</li>\n    <li><strong>Check-out Date:</strong> {{check_out_date}}</li>\n    <li><strong>Room Type:</strong> {{room_type}}</li>\n    <li><strong>Number of Guests:</strong> {{number_of_guests}}</li>\n    <li><strong>Total Price:</strong> {{total_price}} EGP</li>\n  </ul>\n  <p>If you have any questions or need further assistance, please feel free to contact our front desk at {{hotel_contact_number}} or email us at {{hotel_email}}.</p>\n  <p>We look forward to welcoming you to {{hotel_name}} and wish you a pleasant stay.</p>\n  <p>Best regards,</p>\n  <p>{{hotel_name}} Team</p>\n</body>\n</html>",
+  "variables": [
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "check_in_date",
+      "type": "date",
+      "description": "Check-in date for the booking",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "check_out_date",
+      "type": "date",
+      "description": "Check-out date for the booking",
+      "required": true,
+      "format": "date"
+    },
+    {
+      "name": "room_type",
+      "type": "string",
+      "description": "Type of room booked",
+      "required": true
+    },
+    {
+      "name": "number_of_guests",
+      "type": "number",
+      "description": "Number of guests included in the booking",
+      "required": true
+    },
+    {
+      "name": "total_price",
+      "type": "number",
+      "description": "Total price of the booking in Egyptian Pounds",
+      "required": true
+    },
+    {
+      "name": "hotel_contact_number",
+      "type": "string",
+      "description": "Contact number of the hotel",
+      "required": true
+    },
+    {
+      "name": "hotel_email",
+      "type": "string",
+      "description": "Email address of the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "booking-confirmation-template"
+  ],
+  "checksum": "sha256:d0fd8fb9c36c05844af79804acff8d07e493699437b74eda58e8dea48fae71f1"
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Disability Services Support Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "support",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "trigger": "A guest with a disability requests assistance or accommodation.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Initial Guest Interaction",
+      "action": "Greet the guest warmly and inquire about specific needs or assistance required. Ensure communication is clear and respectful.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "Guest requires mobility assistance",
+          "next_step_id": "2"
+        },
+        {
+          "condition": "Guest requires visual or auditory assistance",
+          "next_step_id": "3"
+        }
+      ],
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 5,
+      "tools_required": []
+    },
+    {
+      "step_id": "2",
+      "title": "Provide Mobility Assistance",
+      "action": "Offer a wheelchair or other mobility aids. Escort the guest to their room or desired location, ensuring all pathways are accessible.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Wheelchair",
+        "Accessibility Map"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Provide Visual or Auditory Assistance",
+      "action": "Offer braille menus or visual aids. If needed, provide a staff member to assist with navigation or communication.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Braille Menus",
+        "Visual Aids"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Room Accommodation Check",
+      "action": "Ensure the guest's room is equipped with necessary accessibility features such as grab bars, lowered switches, and emergency communication devices.",
+      "decision_point": false,
+      "responsible_role": "Housekeeping",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Room Accessibility Checklist"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Follow-Up and Feedback",
+      "action": "Contact the guest after initial assistance to ensure their needs are met and gather feedback for service improvement.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "Feedback Form"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 45,
+  "description": "This playbook outlines the steps for hotel staff to effectively support guests with disabilities, ensuring a comfortable and accessible experience.",
+  "status": "draft",
+  "effective_date": "2023-10-15",
+  "expiry_date": "2025-10-15",
+  "review_date": "2024-10-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "manager@organization.com",
+  "source_url": "https://www.organization.com/playbooks/disability-services",
+  "attachments": [],
+  "external_id": "DS-001-EG",
+  "locale_overrides": {},
+  "audience": [
+    "Front Desk Staff",
+    "Concierge",
+    "Housekeeping",
+    "Front Desk Manager"
+  ],
+  "prerequisites": [
+    "Staff training on disability awareness",
+    "Availability of accessibility tools and aids"
+  ],
+  "escalation_path": "If guest needs are not met, escalate to the Duty Manager for immediate resolution.",
+  "related_playbooks": [
+    "Emergency Evacuation Procedures",
+    "Guest Feedback Collection"
+  ],
+  "review_cycle_days": 365,
+  "tags": [
+    "hotels",
+    "support",
+    "disability-services",
+    "guest-experience",
+    "accessibility"
+  ],
+  "checksum": "sha256:874fd76e3c06f6e2c57737896017fc5895cf75daa18f28b46b3a53d177488821"
+}

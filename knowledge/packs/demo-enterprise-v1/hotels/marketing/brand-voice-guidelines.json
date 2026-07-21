@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "id": "e3b0c442-98fc-4f8f-bf0d-8cd3b8c3b4a1",
+  "title": "Brand Voice Guidelines for Enhancing Guest Experience in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T14:48:00Z",
+  "campaign_type": "awareness",
+  "objective": "To establish a consistent and engaging brand voice that resonates with both local and international guests, enhancing their experience and increasing brand loyalty.",
+  "target_audience_ref": "persona-guest-experience-seekers",
+  "channels": [
+    "social",
+    "email",
+    "content",
+    "display"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-01-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "social": 15000,
+      "email": 10000,
+      "content": 15000,
+      "display": 10000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "brand-voice-guidelines",
+    "guest-experience",
+    "Egypt"
+  ],
+  "description": "This campaign focuses on developing and implementing brand voice guidelines that align with the cultural and hospitality standards of Egypt. The guidelines will help hotels communicate effectively with guests through various channels, ensuring a memorable and culturally rich experience.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-01-31",
+  "review_date": "2024-01-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "marketing@organization.com",
+  "source_url": "https://www.organization.com/brand-voice-guidelines",
+  "attachments": [],
+  "external_id": "campaign-2023-11-brand-voice",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "brand-awareness",
+      "target": 20,
+      "unit": "percent increase"
+    },
+    {
+      "metric": "guest-satisfaction",
+      "target": 85,
+      "unit": "percent"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "engagement"
+  ],
+  "utm_parameters": {
+    "utm_source": "social",
+    "utm_medium": "campaign",
+    "utm_campaign": "brand_voice_egypt"
+  },
+  "a_b_test": true,
+  "checksum": "sha256:247baa6e74ebe17fa659dca64294a1ffc557fdb070b153990916dd6f2c62ec02"
+}

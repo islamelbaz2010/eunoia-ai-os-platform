@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Accessibility Features in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-22T14:30:00Z",
+  "question": "What accessibility features are available for guests with disabilities in Egyptian hotels?",
+  "answer": "Egyptian hotels are committed to providing accessible accommodations for guests with disabilities. Common features include wheelchair-accessible entrances, elevators, and rooms equipped with grab bars and roll-in showers. Additionally, many hotels offer visual and auditory aids for guests with sensory impairments. Guests are encouraged to contact the front desk or concierge for specific accessibility needs and to ensure a comfortable stay.",
+  "category": "accessibility-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "accessibility-faq",
+    "Egypt",
+    "guest-experience"
+  ],
+  "status": "draft",
+  "checksum": "sha256:81aad406bacd268d1d281276e664ca96d950862599089c82fe0c213f8f2f8822"
+}

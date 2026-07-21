@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Hotel Cancellation and Refund Policy FAQ for Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "faq",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "question": "What is the cancellation and refund policy for hotel bookings in Egypt?",
+  "answer": "Our cancellation and refund policy varies depending on the rate plan you selected at the time of booking. Generally, bookings can be cancelled without charge up to 24 hours before the check-in date. Cancellations made within 24 hours of check-in may incur a fee equivalent to one night's stay. Refunds, if applicable, will be processed within 7-10 business days. For bookings made through OTAs, please refer to their specific cancellation policies. For group bookings or special events, different terms may apply. Please contact our front desk or reservations team for detailed information.",
+  "category": "cancellation-refund-faq",
+  "tags": [
+    "hotels",
+    "faq",
+    "cancellation-refund-faq"
+  ],
+  "status": "draft",
+  "checksum": "sha256:7c80dbd796fb7f5f6474aec42abb8eee9e95f69eb0c7fae9068f708dc85b1aa3"
+}

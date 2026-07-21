@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f8b8f8d0-3b4c-4a8f-8b9f-4c8f8b9f4c8f",
+  "title": "Optimizing OTA Channel Strategy for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-18T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "ota-channel-strategy-service",
+  "pricing": {
+    "model": "custom",
+    "currency": "EGP",
+    "base_price": 0,
+    "billing_cycle": "monthly"
+  },
+  "validity": {
+    "start_date": "2023-11-01",
+    "end_date": "2024-11-01",
+    "limited_quantity": 100
+  },
+  "tags": [
+    "hotels",
+    "sales",
+    "ota-channel-strategy",
+    "revenue-optimization",
+    "guest-experience"
+  ],
+  "description": "This document outlines a strategic approach for optimizing OTA channels to enhance hotel visibility and increase bookings in the Egyptian market. The strategy focuses on leveraging data analytics to optimize channel mix, improve RevPAR, and enhance ADR through effective rate management and promotional offers. It also includes guidelines for maintaining brand standards and ensuring compliance with local regulations.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-11-01",
+  "review_date": "2024-05-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "sales-director@organization.com",
+  "source_url": "https://www.organization.com/ota-channel-strategy",
+  "attachments": [],
+  "external_id": "ota-strategy-eg-2023",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Applicable to hotels operating in Egypt",
+    "Requires integration with a compatible PMS"
+  ],
+  "exclusions": [
+    "Not applicable to non-hotel accommodations",
+    "Excludes properties not compliant with local licensing"
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:e24415253b7e4282712d986e4435a75cd34e38fab2036173c924f3522da13f78"
+}

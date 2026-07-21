@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f3b9d3c2-4e5f-4a9b-8f2a-1a6e2d9f9c3e",
+  "title": "Photography Standards for Enhancing Guest Experience in Egyptian Hotels",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "marketing",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-20T12:00:00Z",
+  "campaign_type": "awareness",
+  "objective": "To establish consistent photography standards across all marketing channels to enhance guest experience and brand perception in the Egyptian hotel market.",
+  "target_audience_ref": "persona-hotel-guests-egypt",
+  "channels": [
+    "social",
+    "email",
+    "display",
+    "content"
+  ],
+  "start_date": "2023-11-01",
+  "end_date": "2024-01-31",
+  "budget": {
+    "total": 50000,
+    "currency": "EGP",
+    "breakdown": {
+      "social": 15000,
+      "email": 10000,
+      "display": 15000,
+      "content": 10000
+    }
+  },
+  "tags": [
+    "hotels",
+    "marketing",
+    "photography-standards"
+  ],
+  "description": "This campaign aims to implement a standardized approach to hotel photography that aligns with brand guidelines and enhances the visual appeal of marketing materials. By focusing on high-quality imagery that captures the essence of Egyptian hospitality, the campaign seeks to improve guest engagement and satisfaction.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-02-01",
+  "review_date": "2024-01-15",
+  "created_by": "operations@organization.com",
+  "approved_by": "marketing@organization.com",
+  "source_url": "https://www.organization.com/campaigns/photography-standards-eg",
+  "attachments": [],
+  "external_id": "campaign-2023-photography-standards-eg",
+  "locale_overrides": {},
+  "kpis": [
+    {
+      "metric": "engagement_rate",
+      "target": 15,
+      "unit": "percent"
+    },
+    {
+      "metric": "brand_awareness",
+      "target": 20,
+      "unit": "percent"
+    }
+  ],
+  "funnel_stages": [
+    "awareness",
+    "consideration",
+    "decision"
+  ],
+  "utm_parameters": {
+    "utm_source": "social",
+    "utm_medium": "campaign",
+    "utm_campaign": "photography_standards_egypt"
+  },
+  "a_b_test": false,
+  "checksum": "sha256:bba7289fb59f98fe34ce6bb0a637680ab653a5d7c0781e8a35adf32d9f53bab2"
+}

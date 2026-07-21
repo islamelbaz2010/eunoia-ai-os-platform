@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Post Stay Survey Workflow for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "automation",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T14:48:00Z",
+  "automation_type": "event-driven",
+  "trigger": {
+    "type": "event",
+    "event": "guest_checkout_completed",
+    "source": "PMS",
+    "conditions": [
+      {
+        "field": "guest_stay_duration",
+        "operator": "gte",
+        "value": 1
+      },
+      {
+        "field": "guest_email_consent",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "send_post_stay_survey",
+      "type": "notify",
+      "target": "email_service",
+      "parameters": {
+        "template_id": "post_stay_survey_template",
+        "recipient_field": "guest_email",
+        "subject": "We Value Your Feedback!",
+        "body": "Dear [Guest Name], thank you for staying with us. Please take a moment to complete our survey."
+      },
+      "on_failure": "alert"
+    },
+    {
+      "action_id": "log_survey_sent",
+      "type": "log",
+      "target": "PMS",
+      "parameters": {
+        "message": "Post-stay survey sent to guest",
+        "guest_id_field": "guest_id"
+      },
+      "on_failure": "continue"
+    }
+  ],
+  "description": "This workflow automates the process of sending a post-stay survey to guests who have completed their stay at the hotel. The survey is triggered upon guest checkout, provided the guest has consented to receive emails. The workflow ensures feedback collection to enhance guest experience and operational excellence.",
+  "status": "draft",
+  "effective_date": "2023-10-11",
+  "expiry_date": "2024-10-11",
+  "review_date": "2024-04-11",
+  "created_by": "automation_team@organization.com",
+  "approved_by": "qa_team@organization.com",
+  "source_url": "https://organization.com/workflows/post-stay-survey",
+  "attachments": [],
+  "external_id": "post_stay_survey_workflow_001",
+  "locale_overrides": {},
+  "enabled": true,
+  "rate_limit": {
+    "max_runs_per_hour": 100,
+    "cooldown_minutes": 5
+  },
+  "error_handling": {
+    "retry_count": 3,
+    "retry_delay_seconds": 60,
+    "alert_on_failure": true,
+    "fallback_action": "log_survey_failed"
+  },
+  "integrations": [
+    "PMS",
+    "email_service"
+  ],
+  "tags": [
+    "hotels",
+    "automation",
+    "post-stay-survey-workflow"
+  ],
+  "checksum": "sha256:f21f3b2760b4b47319d555f1aa6963d4819d1a3164eeb5a7800762fbf23475e1"
+}

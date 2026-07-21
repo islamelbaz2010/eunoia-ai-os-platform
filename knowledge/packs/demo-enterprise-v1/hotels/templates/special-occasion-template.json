@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Special Occasion Guest Welcome Email Template",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "templates",
+  "priority": "medium",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-11T12:00:00Z",
+  "template_type": "email",
+  "subject_template": "Celebrate Your Special Occasion with Us at {{hotel_name}}!",
+  "body_template": "<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; }\n    .header { background-color: #f8f8f8; padding: 20px; text-align: center; }\n    .content { margin: 20px; }\n    .footer { background-color: #f8f8f8; padding: 10px; text-align: center; font-size: 12px; }\n  </style>\n</head>\n<body>\n  <div class=\"header\">\n    <h1>Welcome to {{hotel_name}}</h1>\n  </div>\n  <div class=\"content\">\n    <p>Dear {{guest_name}},</p>\n    <p>We are thrilled to have you with us at {{hotel_name}} as you celebrate your special occasion. Our team is dedicated to ensuring your stay is memorable and enjoyable.</p>\n    <p>As part of our special package, you will enjoy:</p>\n    <ul>\n      <li>A complimentary room upgrade to {{room_type}}</li>\n      <li>Special amenities including {{amenities_list}}</li>\n      <li>A personalized greeting from our concierge team</li>\n    </ul>\n    <p>Should you need any assistance during your stay, please do not hesitate to contact our front desk at {{front_desk_phone}} or reach out to our concierge at {{concierge_email}}.</p>\n    <p>We hope you have a wonderful time celebrating with us.</p>\n    <p>Warm regards,</p>\n    <p>The {{hotel_name}} Team</p>\n  </div>\n  <div class=\"footer\">\n    <p>{{hotel_address}} | Phone: {{hotel_phone}} | Email: {{hotel_email}}</p>\n  </div>\n</body>\n</html>",
+  "variables": [
+    {
+      "name": "hotel_name",
+      "type": "string",
+      "description": "Name of the hotel",
+      "required": true
+    },
+    {
+      "name": "guest_name",
+      "type": "string",
+      "description": "Name of the guest",
+      "required": true
+    },
+    {
+      "name": "room_type",
+      "type": "string",
+      "description": "Type of room upgraded to",
+      "required": true
+    },
+    {
+      "name": "amenities_list",
+      "type": "string",
+      "description": "List of special amenities provided",
+      "required": true
+    },
+    {
+      "name": "front_desk_phone",
+      "type": "string",
+      "description": "Front desk contact phone number",
+      "required": true
+    },
+    {
+      "name": "concierge_email",
+      "type": "string",
+      "description": "Email address for the concierge",
+      "required": true
+    },
+    {
+      "name": "hotel_address",
+      "type": "string",
+      "description": "Physical address of the hotel",
+      "required": true
+    },
+    {
+      "name": "hotel_phone",
+      "type": "string",
+      "description": "Contact phone number for the hotel",
+      "required": true
+    },
+    {
+      "name": "hotel_email",
+      "type": "string",
+      "description": "Contact email for the hotel",
+      "required": true
+    }
+  ],
+  "channel": "email",
+  "tags": [
+    "hotels",
+    "templates",
+    "special-occasion-template"
+  ],
+  "checksum": "sha256:95bce33fb473e81fd4663105d2b938fb1f50367c50711e795f049bb966910907"
+}

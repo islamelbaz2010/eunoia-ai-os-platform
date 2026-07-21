@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b750a844-d126-4b32-9431-ffd36b246014",
+  "title": "Hotel Guest Check-In Playbook for Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-15T12:00:00Z",
+  "trigger": "Guest arrival at the hotel front desk for check-in",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Greet the Guest",
+      "action": "Welcome the guest warmly with a smile and a traditional Egyptian greeting. Confirm the guest's reservation details in the PMS.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 3,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Verify Guest Identity",
+      "action": "Request the guest's identification and verify it against the reservation details in the PMS. Ensure compliance with local hospitality licensing requirements.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "ID matches reservation",
+          "next_step_id": "3"
+        },
+        {
+          "condition": "ID does not match reservation",
+          "next_step_id": "6"
+        }
+      ],
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Process Payment",
+      "action": "Confirm the payment method and process the transaction using PCI-DSS compliant systems. Ensure the payment is recorded in the PMS.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS",
+        "Payment Terminal"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Assign Room",
+      "action": "Assign a room based on the reservation details and guest preferences. Update the room status in the PMS and provide the guest with the room key card.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 4,
+      "tools_required": [
+        "PMS",
+        "Key Card Encoder"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Provide Hotel Information",
+      "action": "Inform the guest about hotel amenities, breakfast timings, Wi-Fi access, and emergency procedures. Offer concierge services if needed.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 3,
+      "tools_required": [
+        "Hotel Information Brochure"
+      ]
+    },
+    {
+      "step_id": "6",
+      "title": "Handle ID Discrepancy",
+      "action": "Politely inform the guest of the discrepancy and ask for additional identification or reservation confirmation. If unresolved, escalate to the Front Desk Manager.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Agent",
+      "time_limit_minutes": 5,
+      "tools_required": [
+        "PMS"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 25,
+  "description": "This playbook outlines the step-by-step process for checking in guests at a hotel in Egypt, ensuring compliance with local regulations and enhancing guest experience.",
+  "status": "draft",
+  "effective_date": "2023-10-16",
+  "expiry_date": "2024-10-16",
+  "review_date": "2024-04-16",
+  "created_by": "operations@organization.com",
+  "approved_by": "manager@organization.com",
+  "tags": [
+    "hotels",
+    "playbooks",
+    "check-in-playbook"
+  ],
+  "escalation_path": "Front Desk Manager",
+  "related_playbooks": [
+    "Guest Checkout Playbook",
+    "Room Service Playbook"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:2456b122aa99c1680604c0101071da225dae73eb102bfcf0dc0e4e5b90e1badf"
+}

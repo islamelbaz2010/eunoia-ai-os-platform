@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f3a5c2d4-9b8c-4e2b-9e3b-5c9f8e4a8b7d",
+  "title": "Overbooking Management Playbook for Hotels in Egypt",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "playbooks",
+  "priority": "critical",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-10T12:00:00Z",
+  "trigger": "Triggered when the hotel's PMS indicates overbooking for a specific date.",
+  "steps": [
+    {
+      "step_id": "1",
+      "title": "Verify Overbooking Status",
+      "action": "Check the PMS to confirm the overbooking status and identify the number of excess bookings.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If overbooking is confirmed",
+          "next_step_id": "2"
+        },
+        {
+          "condition": "If no overbooking",
+          "next_step_id": "end"
+        }
+      ],
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "PMS"
+      ]
+    },
+    {
+      "step_id": "2",
+      "title": "Identify Alternative Accommodation",
+      "action": "Contact partner hotels to check availability and negotiate rates for relocating guests.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 30,
+      "tools_required": [
+        "Telephone",
+        "OTA platforms"
+      ]
+    },
+    {
+      "step_id": "3",
+      "title": "Communicate with Affected Guests",
+      "action": "Inform guests about the overbooking situation and offer alternative accommodation options.",
+      "decision_point": true,
+      "next_steps": [
+        {
+          "condition": "If guest accepts alternative",
+          "next_step_id": "4"
+        },
+        {
+          "condition": "If guest refuses",
+          "next_step_id": "5"
+        }
+      ],
+      "responsible_role": "Front Desk Staff",
+      "time_limit_minutes": 20,
+      "tools_required": [
+        "Telephone",
+        "Email"
+      ]
+    },
+    {
+      "step_id": "4",
+      "title": "Arrange Transportation",
+      "action": "Coordinate transportation for guests to the alternative accommodation.",
+      "decision_point": false,
+      "responsible_role": "Concierge",
+      "time_limit_minutes": 15,
+      "tools_required": [
+        "Transportation service contacts"
+      ]
+    },
+    {
+      "step_id": "5",
+      "title": "Escalate to Management",
+      "action": "If the guest refuses all alternatives, escalate the issue to the Hotel Manager for further resolution.",
+      "decision_point": false,
+      "responsible_role": "Front Desk Manager",
+      "time_limit_minutes": 10,
+      "tools_required": [
+        "Telephone"
+      ]
+    }
+  ],
+  "expected_duration_minutes": 90,
+  "description": "This playbook provides a structured approach for managing overbooking situations in hotels, ensuring guest satisfaction and operational efficiency.",
+  "status": "draft",
+  "effective_date": "2023-10-10",
+  "expiry_date": "2024-10-10",
+  "review_date": "2024-04-10",
+  "created_by": "operations@organization.com",
+  "approved_by": "operations@organization.com",
+  "tags": [
+    "hotels",
+    "playbooks",
+    "overbooking-management-playbook"
+  ],
+  "escalation_path": "Hotel Manager",
+  "related_playbooks": [
+    "guest-complaint-management-playbook",
+    "emergency-response-playbook"
+  ],
+  "review_cycle_days": 180,
+  "checksum": "sha256:345b9eae7166ca01a7c1d40aaae1585a7f2ec9f68c5fabbeaac18a2219b2e125"
+}

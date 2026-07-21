@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "id": "b3d5c5f4-8f6c-4e2e-9f8d-2b4e8f9c2b3d",
+  "title": "Dynamic Pricing Strategy for Enhanced Revenue Optimization",
+  "version": "1.0.0",
+  "language": "en",
+  "country": "EG",
+  "industry": "hotels",
+  "department": "sales",
+  "priority": "high",
+  "owner": "operations@organization.com",
+  "last_updated": "2023-10-14T12:00:00Z",
+  "offer_type": "service",
+  "service_ref": "dynamic-pricing-revopt",
+  "pricing": {
+    "model": "custom",
+    "currency": "EGP",
+    "base_price": 0,
+    "billing_cycle": "monthly"
+  },
+  "validity": {
+    "start_date": "2023-11-01",
+    "end_date": "2024-11-01",
+    "limited_quantity": 100
+  },
+  "tags": [
+    "hotels",
+    "sales",
+    "revenue-optimization",
+    "dynamic-pricing",
+    "RevPAR",
+    "ADR"
+  ],
+  "description": "This offer provides a comprehensive dynamic pricing strategy designed to optimize revenue for hotels in Egypt. By leveraging data analytics and market trends, this service adjusts room rates in real-time to maximize occupancy and increase RevPAR. The strategy includes integration with PMS and OTAs to ensure seamless rate updates and alignment with market demand.",
+  "status": "draft",
+  "effective_date": "2023-11-01",
+  "expiry_date": "2024-11-01",
+  "review_date": "2024-05-01",
+  "created_by": "operations@organization.com",
+  "approved_by": "salesdirector@organization.com",
+  "source_url": "https://www.organization.com/services/dynamic-pricing",
+  "attachments": [
+    {
+      "name": "DynamicPricingGuide.pdf",
+      "path": "/docs/DynamicPricingGuide.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 204800,
+      "checksum": "sha256:3b2f1e2c7a9b4d8f2e5c3a7f8b9c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c"
+    }
+  ],
+  "external_id": "DP-2023-001",
+  "locale_overrides": {},
+  "eligibility_rules": [
+    "Hotel must be located in Egypt",
+    "PMS integration capability required",
+    "Minimum 50 rooms capacity"
+  ],
+  "exclusions": [
+    "Does not apply to non-accommodation services",
+    "Not applicable during public holidays"
+  ],
+  "discount": {
+    "type": "percentage",
+    "value": 10
+  },
+  "checksum": "sha256:22cbc939725b83bb9ba1edc43e43ace1b0aeebb0145bfe91c7871519a62ecf88"
+}
