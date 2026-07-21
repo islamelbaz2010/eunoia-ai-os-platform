@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travel Agencies — Marketing Schema",
+  "description": "Schema for Marketing campaigns, brand guidelines, persona definitions, and content strategy in the Travel Agencies industry. Extends the canonical campaign schema.",
+  "$ref": "../../../schemas/campaign.schema.json",
+  "x-industry": "travel-agencies",
+  "x-department": "marketing",
+  "x-schema-version": "1.0.0",
+  "x-extends": "campaign.schema.json",
+  "x-document-types": [
+    "campaign",
+    "persona",
+    "brand-guide",
+    "content-calendar"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "travel-agencies"
+    },
+    "department": {
+      "const": "marketing"
+    }
+  },
+  "additionalProperties": false
+}

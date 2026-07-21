@@ -1,0 +1,115 @@
+{
+  "$schema": "https://eunoia.ai/schemas/knowledge-manifest/v1",
+  "manifest_version": "1.0.0",
+  "name": "Eunoia AI OS — Knowledge Cloud",
+  "created_at": "2026-07-13T00:00:00.000Z",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "packs": [
+    {
+      "pack_id": "demo-enterprise-v1",
+      "pack_version": "1.0.0",
+      "path": "packs/demo-enterprise-v1",
+      "status": "active",
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "schema_id": "document",
+      "path": "schemas/document.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "metadata",
+      "path": "schemas/metadata.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "faq",
+      "path": "schemas/faq.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "playbook",
+      "path": "schemas/playbook.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "policy",
+      "path": "schemas/policy.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "prompt",
+      "path": "schemas/prompt.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "automation",
+      "path": "schemas/automation.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "template",
+      "path": "schemas/template.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "campaign",
+      "path": "schemas/campaign.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "persona",
+      "path": "schemas/persona.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "offer",
+      "path": "schemas/offer.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "service",
+      "path": "schemas/service.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "department",
+      "path": "schemas/department.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "kpi",
+      "path": "schemas/kpi.schema.json",
+      "version": "1.0.0"
+    },
+    {
+      "schema_id": "checklist",
+      "path": "schemas/checklist.schema.json",
+      "version": "1.0.0"
+    }
+  ],
+  "import_formats": [
+    "json",
+    "markdown",
+    "pdf",
+    "docx",
+    "csv",
+    "excel",
+    "notion",
+    "gdocs"
+  ],
+  "statistics": {
+    "total_packs": 1,
+    "total_schemas": 15,
+    "total_industries": 5,
+    "total_departments": 13
+  }
+}

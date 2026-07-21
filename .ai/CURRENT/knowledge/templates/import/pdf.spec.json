@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "PDF",
+  "format_id": "pdf",
+  "mime_type": "application/pdf",
+  "description": "Import specification for PDF documents. Text is extracted and structured. Requires OCR for scanned documents.",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "pdf_metadata.Title",
+      "target_field": "title",
+      "required": false
+    },
+    {
+      "source_field": "pdf_metadata.Author",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "pdf_metadata.CreationDate",
+      "target_field": "last_updated",
+      "required": false
+    },
+    {
+      "source_field": "extracted_text",
+      "target_field": "body",
+      "required": true,
+      "transform": "clean-whitespace"
+    },
+    {
+      "source_field": "pdf_metadata.Keywords",
+      "target_field": "tags",
+      "required": false,
+      "transform": "split-comma"
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Password-protected PDFs must be decrypted before import",
+    "OCR is applied to image-only PDFs (requires Tesseract or cloud OCR)",
+    "Tables are preserved as Markdown tables where possible",
+    "Maximum file size: 50MB"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}

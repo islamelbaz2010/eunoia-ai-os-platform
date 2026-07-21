@@ -1,0 +1,165 @@
+{
+  "version": "1.0.0",
+  "totalCountries": 12,
+  "countries": [
+    {
+      "code": "US",
+      "name": "United States",
+      "region": "Americas",
+      "defaultLanguage": "en",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "region": "Europe",
+      "defaultLanguage": "en",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "region": "Middle East",
+      "defaultLanguage": "ar",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "EG",
+      "name": "Egypt",
+      "region": "Middle East & Africa",
+      "defaultLanguage": "ar",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "region": "Middle East",
+      "defaultLanguage": "ar",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "region": "Europe",
+      "defaultLanguage": "fr",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "region": "Europe",
+      "defaultLanguage": "de",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate"
+      ]
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "region": "Asia Pacific",
+      "defaultLanguage": "en",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "region": "Americas",
+      "defaultLanguage": "en",
+      "enabled": true,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "region": "Asia Pacific",
+      "defaultLanguage": "en",
+      "enabled": false,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "QA",
+      "name": "Qatar",
+      "region": "Middle East",
+      "defaultLanguage": "ar",
+      "enabled": false,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "real-estate",
+        "travel-agencies"
+      ]
+    },
+    {
+      "code": "MA",
+      "name": "Morocco",
+      "region": "Africa",
+      "defaultLanguage": "fr",
+      "enabled": false,
+      "industries": [
+        "hotels",
+        "restaurants",
+        "travel-agencies"
+      ]
+    }
+  ]
+}

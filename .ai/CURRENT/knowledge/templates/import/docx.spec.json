@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "DOCX",
+  "format_id": "docx",
+  "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "description": "Import specification for Microsoft Word (.docx) documents.",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "core_properties.title",
+      "target_field": "title",
+      "required": false
+    },
+    {
+      "source_field": "core_properties.creator",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "core_properties.modified",
+      "target_field": "last_updated",
+      "required": false
+    },
+    {
+      "source_field": "core_properties.keywords",
+      "target_field": "tags",
+      "required": false,
+      "transform": "split-semicolon"
+    },
+    {
+      "source_field": "body_content",
+      "target_field": "body",
+      "required": true,
+      "transform": "docx-to-markdown"
+    },
+    {
+      "source_field": "core_properties.description",
+      "target_field": "description",
+      "required": false
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Styles are converted to Markdown equivalents (Heading 1 → #, Heading 2 → ##)",
+    "Tracked changes are resolved to final state before import",
+    "Embedded images are extracted and stored in assets/",
+    "Comments are stripped by default"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}

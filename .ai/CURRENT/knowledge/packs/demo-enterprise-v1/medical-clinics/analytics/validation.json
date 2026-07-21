@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "context": {
+    "industry": "medical-clinics",
+    "department": "analytics",
+    "schema_ref": "kpi.schema.json"
+  },
+  "rules": [
+    {
+      "rule_id": "REQ-001",
+      "name": "required_fields_present",
+      "description": "All required fields must be present and non-null",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ],
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-002",
+      "name": "industry_match",
+      "description": "industry field must equal \"medical-clinics\"",
+      "field": "industry",
+      "operator": "eq",
+      "value": "medical-clinics",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-003",
+      "name": "department_match",
+      "description": "department field must equal \"analytics\"",
+      "field": "department",
+      "operator": "eq",
+      "value": "analytics",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-004",
+      "name": "valid_language_code",
+      "description": "language must be a valid BCP-47 code",
+      "field": "language",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-005",
+      "name": "valid_country_code",
+      "description": "country must be a valid ISO 3166-1 alpha-2 code",
+      "field": "country",
+      "pattern": "^[A-Z]{2}$",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-006",
+      "name": "valid_uuid",
+      "description": "id must be a valid UUID v4",
+      "field": "id",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-007",
+      "name": "valid_semver",
+      "description": "version must be a valid semantic version",
+      "field": "version",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$",
+      "severity": "error"
+    },
+    {
+      "rule_id": "REQ-008",
+      "name": "valid_priority",
+      "description": "priority must be one of: critical, high, medium, low",
+      "field": "priority",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ],
+      "severity": "error"
+    },
+    {
+      "rule_id": "OPT-001",
+      "name": "checksum_format",
+      "description": "checksum must follow sha256:hex format when present",
+      "field": "checksum",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "condition": "field_present",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "OPT-002",
+      "name": "tags_count",
+      "description": "tags array should not exceed 20 items",
+      "field": "tags",
+      "max_items": 20,
+      "condition": "field_present",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "BUS-001",
+      "name": "title_not_placeholder",
+      "description": "title must not contain placeholder brackets [ ]",
+      "field": "title",
+      "not_pattern": "\\[.*\\]",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "BUS-002",
+      "name": "owner_is_email",
+      "description": "owner should be a valid email address",
+      "field": "owner",
+      "pattern": "^[^@]+@[^@]+\\.[^@]+$",
+      "condition": "field_present",
+      "severity": "info"
+    }
+  ],
+  "pass_threshold": {
+    "max_errors": 0,
+    "max_warnings": 5
+  }
+}

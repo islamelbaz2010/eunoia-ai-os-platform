@@ -1,0 +1,75 @@
+{
+  "_comment": "EMPTY EXAMPLE — This file defines the expected structure only. Content is populated by Gemini.",
+  "schema_version": "1.0.0",
+  "schema_ref": "faq.schema.json",
+  "industry": "travel-agencies",
+  "department": "faq",
+  "example_document": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "title": "[Travel Agencies FAQ Document Title]",
+    "version": "1.0.0",
+    "language": "en",
+    "country": "[ISO-3166-1-alpha-2]",
+    "industry": "travel-agencies",
+    "department": "faq",
+    "tags": [
+      "[tag-1]",
+      "[tag-2]"
+    ],
+    "priority": "medium",
+    "owner": "[owner@organization.com]",
+    "last_updated": "[ISO-8601-DATETIME]",
+    "checksum": "sha256:[64-hex-chars]",
+    "status": "draft"
+  },
+  "field_notes": [
+    {
+      "document_type": "faq-item",
+      "description": "[Gemini populates faq content for faq-item type in Travel Agencies context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "faq-category",
+      "description": "[Gemini populates faq content for faq-category type in Travel Agencies context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "faq-collection",
+      "description": "[Gemini populates faq content for faq-collection type in Travel Agencies context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    }
+  ]
+}

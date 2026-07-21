@@ -1,0 +1,256 @@
+{
+  "package_spec": "1.0",
+  "schema_version": "1.0",
+  "name": "eunoia-ai-os-platform",
+  "root_path": "/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform",
+  "repo_type": "product_service",
+  "repo_type_evidence": "Source files and/or dependency manifests present",
+  "size_profile": "large",
+  "scanned_at": "2026-07-17T07:33:19.518237+00:00",
+  "scan_duration_seconds": 1.262,
+  "input_checksum": "ef0eb62f8f08a8a6cb461a23e0b8ee77",
+  "token_measurement": "characters / 4 (rounded up)",
+  "statistics": {
+    "file_count": 1040,
+    "total_size_bytes": 36311393,
+    "total_size_kb": 35460.34,
+    "total_dependencies": 33,
+    "language_counts": {
+      "conf": 1,
+      "css": 1,
+      "csv": 20,
+      "docx": 2,
+      "ico": 1,
+      "js": 7,
+      "json": 381,
+      "md": 336,
+      "mjs": 2,
+      "none": 8,
+      "pdf": 16,
+      "png": 4,
+      "pptx": 1,
+      "ps1": 1,
+      "sh": 20,
+      "sql": 18,
+      "ts": 134,
+      "tsbuildinfo": 1,
+      "tsx": 81,
+      "txt": 1,
+      "xlsx": 1,
+      "yml": 3
+    }
+  },
+  "tech_stack": {
+    "primary_language": "TypeScript",
+    "languages": [
+      "TypeScript",
+      "Shell",
+      "CSS"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React"
+    ],
+    "package_managers": [
+      "npm"
+    ],
+    "testing_frameworks": [
+      "Vitest"
+    ],
+    "ci_cd": [
+      "GitHub Actions"
+    ],
+    "containerization": [
+      "Docker"
+    ],
+    "cloud_providers": [
+      "Vercel"
+    ],
+    "databases": [
+      "Supabase (PostgreSQL)"
+    ]
+  },
+  "git": {
+    "is_git_repo": true,
+    "current_branch": "main",
+    "remote_url": "https://github.com/islamelbaz2010/eunoia-ai-os-platform.git",
+    "last_commit_hash": "e6c64504",
+    "last_commit_message": "fix(exhibition): harden all automation — fix 13 bugs, make seed idempotent, pass verify 5x",
+    "last_commit_date": "2026-07-12T21:43:04+00:00",
+    "total_commits": 74,
+    "contributors": [
+      "islamelbaz2010",
+      "Claude"
+    ],
+    "tags": [
+      "sprint1-production"
+    ],
+    "is_dirty": true
+  },
+  "dependencies": [
+    {
+      "source_file": "package.json",
+      "package_manager": "npm",
+      "production": [
+        {
+          "name": "@sentry/nextjs",
+          "version": "^10.62.0"
+        },
+        {
+          "name": "@supabase/ssr",
+          "version": "^0.12.0"
+        },
+        {
+          "name": "@supabase/supabase-js",
+          "version": "^2.108.2"
+        },
+        {
+          "name": "chokidar",
+          "version": "^5.0.0"
+        },
+        {
+          "name": "fast-glob",
+          "version": "^3.3.3"
+        },
+        {
+          "name": "file-type",
+          "version": "^22.0.1"
+        },
+        {
+          "name": "gray-matter",
+          "version": "^4.0.3"
+        },
+        {
+          "name": "lucide-react",
+          "version": "^1.21.0"
+        },
+        {
+          "name": "mammoth",
+          "version": "^1.12.0"
+        },
+        {
+          "name": "mime-types",
+          "version": "^3.0.2"
+        },
+        {
+          "name": "natural",
+          "version": "^8.1.1"
+        },
+        {
+          "name": "next",
+          "version": "16.2.9"
+        },
+        {
+          "name": "openai",
+          "version": "^6.44.0"
+        },
+        {
+          "name": "pdf-parse",
+          "version": "^2.4.5"
+        },
+        {
+          "name": "react",
+          "version": "19.2.4"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.2.4"
+        },
+        {
+          "name": "recharts",
+          "version": "^3.8.1"
+        },
+        {
+          "name": "resend",
+          "version": "^6.16.0"
+        },
+        {
+          "name": "sonner",
+          "version": "^2.0.7"
+        },
+        {
+          "name": "stripe",
+          "version": "^22.3.0"
+        },
+        {
+          "name": "zod",
+          "version": "^4.4.3"
+        }
+      ],
+      "development": [
+        {
+          "name": "@tailwindcss/postcss",
+          "version": "^4"
+        },
+        {
+          "name": "@types/node",
+          "version": "^20"
+        },
+        {
+          "name": "@types/react",
+          "version": "^19"
+        },
+        {
+          "name": "@types/react-dom",
+          "version": "^19"
+        },
+        {
+          "name": "@vitest/coverage-v8",
+          "version": "^4.1.9"
+        },
+        {
+          "name": "eslint",
+          "version": "^9"
+        },
+        {
+          "name": "eslint-config-next",
+          "version": "16.2.9"
+        },
+        {
+          "name": "tailwindcss",
+          "version": "^4"
+        },
+        {
+          "name": "tsx",
+          "version": "^4.23.0"
+        },
+        {
+          "name": "typescript",
+          "version": "^5"
+        },
+        {
+          "name": "vitest",
+          "version": "^4.1.9"
+        },
+        {
+          "name": "xlsx",
+          "version": "^0.18.5"
+        }
+      ]
+    }
+  ],
+  "per_file_tokens": [
+    {
+      "path": "PROJECT_BRIEF.md",
+      "tokens": 686,
+      "budget": 10000
+    },
+    {
+      "path": "SOURCE_INDEX.md",
+      "tokens": 4013,
+      "budget": 4000
+    },
+    {
+      "path": "SYSTEM_MAP.md",
+      "tokens": 1263,
+      "budget": 14000
+    },
+    {
+      "path": "DECISIONS.md",
+      "tokens": 2405,
+      "budget": 5000
+    }
+  ],
+  "errors": [],
+  "trust_domain": "public"
+}

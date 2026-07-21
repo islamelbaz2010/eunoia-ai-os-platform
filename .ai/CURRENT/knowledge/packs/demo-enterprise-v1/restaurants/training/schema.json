@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Restaurants — Training Schema",
+  "description": "Schema for Staff training materials, onboarding guides, and skill development resources in the Restaurants industry. Extends the canonical document schema.",
+  "$ref": "../../../schemas/document.schema.json",
+  "x-industry": "restaurants",
+  "x-department": "training",
+  "x-schema-version": "1.0.0",
+  "x-extends": "document.schema.json",
+  "x-document-types": [
+    "module",
+    "quiz",
+    "onboarding-plan",
+    "competency-map"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "restaurants"
+    },
+    "department": {
+      "const": "training"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,20 @@
+2026-07-17 10:33:19 [INFO] ai_context_builder.application.orchestrator: Discovering projects under /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform …
+2026-07-17 10:33:19 [INFO] ai_context_builder.application.orchestrator: Found 1 project(s)
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.scanner: Collected 1040 files (20 important) from /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'version'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=None, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'version'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=None, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.util: sys.platform='darwin', git_executable='git'
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'cat-file', '--batch-check'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=<valid stream>, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'rev-list', '--max-count=200', 'e6c6450497466169e5bfad68ede5b9dc7aaef4ae', '--'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=None, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'cat-file', '--batch'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=<valid stream>, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=None, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] git.cmd: Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform, stdin=None, shell=False, universal_newlines=False)
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.orchestrator: Wrote /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform/PROJECT_BRIEF.md
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.orchestrator: Wrote /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform/SOURCE_INDEX.md
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.orchestrator: Wrote /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform/SYSTEM_MAP.md
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.orchestrator: Wrote /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform/DECISIONS.md
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.application.orchestrator: Wrote /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform/MANIFEST.json
+2026-07-17 10:33:20 [DEBUG] ai_context_builder.infrastructure.archiver: Created /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform/AI_READY/eunoia-ai-os-platform_context.zip (12.1 KB)
+2026-07-20 18:03:27 [INFO] ai_context_builder.application.orchestrator: Discovering projects under /Users/ahmed/Documents/Projects/02-Eunoia-AI-OS/eunoia-ai-os-platform …
+2026-07-20 18:03:27 [INFO] ai_context_builder.application.orchestrator: Found 1 project(s)
+2026-07-20 18:03:27 [INFO] ai_context_builder.application.orchestrator: Resume: skipping 1 valid project(s), regenerating 0

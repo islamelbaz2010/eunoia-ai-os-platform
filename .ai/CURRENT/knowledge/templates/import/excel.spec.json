@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "Excel",
+  "format_id": "excel",
+  "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "description": "Import specification for Microsoft Excel (.xlsx) files. Sheet name defines the document type.",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "column:A",
+      "target_field": "title",
+      "required": true
+    },
+    {
+      "source_field": "column:B",
+      "target_field": "body",
+      "required": false
+    },
+    {
+      "source_field": "column:C",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "column:D",
+      "target_field": "tags",
+      "required": false,
+      "transform": "split-comma"
+    },
+    {
+      "source_field": "column:E",
+      "target_field": "priority",
+      "required": false,
+      "default": "medium"
+    },
+    {
+      "source_field": "column:F",
+      "target_field": "last_updated",
+      "required": false,
+      "transform": "excel-date-serial"
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Sheet name is used as department if it matches a known department id",
+    "Only the first sheet is imported by default",
+    "Merged cells are expanded before import",
+    "Formulas are resolved to their computed values"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}

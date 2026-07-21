@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Real Estate — Marketing Schema",
+  "description": "Schema for Marketing campaigns, brand guidelines, persona definitions, and content strategy in the Real Estate industry. Extends the canonical campaign schema.",
+  "$ref": "../../../schemas/campaign.schema.json",
+  "x-industry": "real-estate",
+  "x-department": "marketing",
+  "x-schema-version": "1.0.0",
+  "x-extends": "campaign.schema.json",
+  "x-document-types": [
+    "campaign",
+    "persona",
+    "brand-guide",
+    "content-calendar"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "real-estate"
+    },
+    "department": {
+      "const": "marketing"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "industry": "restaurants",
+  "industry_name": "Restaurants",
+  "industry_code": "RST",
+  "department": "operations",
+  "department_name": "Operations",
+  "description": "Operational procedures, workflows, and standard operating guidelines",
+  "document_types": [
+    "sop",
+    "workflow",
+    "procedure",
+    "checklist"
+  ],
+  "schema_ref": "playbook.schema.json",
+  "status": "framework-ready",
+  "content_status": "empty",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "owner": null,
+  "language": "en",
+  "country": null,
+  "tags": [
+    "restaurants",
+    "operations",
+    "framework",
+    "demo-enterprise-v1"
+  ],
+  "priority": "medium",
+  "checksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "statistics": {
+    "document_count": 0,
+    "word_count": 0,
+    "last_ingested": null
+  }
+}

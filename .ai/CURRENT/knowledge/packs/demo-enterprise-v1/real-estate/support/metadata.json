@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "industry": "real-estate",
+  "industry_name": "Real Estate",
+  "industry_code": "REA",
+  "department": "support",
+  "department_name": "Support",
+  "description": "Customer support procedures, escalation paths, and resolution workflows",
+  "document_types": [
+    "escalation",
+    "resolution-flow",
+    "script",
+    "sla-definition"
+  ],
+  "schema_ref": "playbook.schema.json",
+  "status": "framework-ready",
+  "content_status": "empty",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "owner": null,
+  "language": "en",
+  "country": null,
+  "tags": [
+    "real-estate",
+    "support",
+    "framework",
+    "demo-enterprise-v1"
+  ],
+  "priority": "medium",
+  "checksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "statistics": {
+    "document_count": 0,
+    "word_count": 0,
+    "last_ingested": null
+  }
+}

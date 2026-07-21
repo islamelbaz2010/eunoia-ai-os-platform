@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "CSV",
+  "format_id": "csv",
+  "mime_type": "text/csv",
+  "description": "Import specification for CSV files. Each row becomes one document. First row must be headers.",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "title",
+      "target_field": "title",
+      "required": true
+    },
+    {
+      "source_field": "content",
+      "target_field": "body",
+      "required": false
+    },
+    {
+      "source_field": "owner",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "tags",
+      "target_field": "tags",
+      "required": false,
+      "transform": "split-pipe"
+    },
+    {
+      "source_field": "priority",
+      "target_field": "priority",
+      "required": false,
+      "default": "medium"
+    },
+    {
+      "source_field": "language",
+      "target_field": "language",
+      "required": false,
+      "default": "en"
+    },
+    {
+      "source_field": "updated_at",
+      "target_field": "last_updated",
+      "required": false,
+      "transform": "iso8601"
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Delimiter: comma (,) — pipe (|) and tab supported via config",
+    "Encoding: UTF-8 with BOM handling",
+    "Empty rows are skipped",
+    "Maximum 10,000 rows per import batch"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}

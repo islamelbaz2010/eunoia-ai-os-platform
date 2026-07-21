@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travel Agencies — Support Schema",
+  "description": "Schema for Customer support procedures, escalation paths, and resolution workflows in the Travel Agencies industry. Extends the canonical playbook schema.",
+  "$ref": "../../../schemas/playbook.schema.json",
+  "x-industry": "travel-agencies",
+  "x-department": "support",
+  "x-schema-version": "1.0.0",
+  "x-extends": "playbook.schema.json",
+  "x-document-types": [
+    "escalation",
+    "resolution-flow",
+    "script",
+    "sla-definition"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "travel-agencies"
+    },
+    "department": {
+      "const": "support"
+    }
+  },
+  "additionalProperties": false
+}

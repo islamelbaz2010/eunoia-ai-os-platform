@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "pack_version": "1.0.0",
+  "knowledge_cloud_version": "1.0.0",
+  "created_at": "2026-07-13T00:00:00.000Z",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-13",
+      "type": "initial",
+      "description": "Demo Enterprise Pack v1 — framework structure created",
+      "industries_added": [
+        "hotels",
+        "restaurants",
+        "medical-clinics",
+        "real-estate",
+        "travel-agencies"
+      ],
+      "schemas_added": [
+        "document",
+        "metadata",
+        "faq",
+        "playbook",
+        "policy",
+        "prompt",
+        "automation",
+        "template",
+        "campaign",
+        "persona",
+        "offer",
+        "service",
+        "department",
+        "kpi",
+        "checklist"
+      ]
+    }
+  ]
+}

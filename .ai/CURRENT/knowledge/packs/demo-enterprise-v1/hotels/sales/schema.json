@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hotels — Sales Schema",
+  "description": "Schema for Sales processes, pipelines, offers, and customer acquisition frameworks in the Hotels industry. Extends the canonical offer schema.",
+  "$ref": "../../../schemas/offer.schema.json",
+  "x-industry": "hotels",
+  "x-department": "sales",
+  "x-schema-version": "1.0.0",
+  "x-extends": "offer.schema.json",
+  "x-document-types": [
+    "pipeline",
+    "offer",
+    "script",
+    "proposal"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "hotels"
+    },
+    "department": {
+      "const": "sales"
+    }
+  },
+  "additionalProperties": false
+}

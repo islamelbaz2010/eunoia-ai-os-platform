@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "Notion Export",
+  "format_id": "notion-export",
+  "mime_type": "application/zip",
+  "description": "Import specification for Notion workspace exports. Supports both Markdown+CSV and HTML export formats.",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "page.title",
+      "target_field": "title",
+      "required": true
+    },
+    {
+      "source_field": "page.properties.Tags",
+      "target_field": "tags",
+      "required": false
+    },
+    {
+      "source_field": "page.properties.Owner",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "page.properties.Status",
+      "target_field": "status",
+      "required": false,
+      "transform": "notion-status-map"
+    },
+    {
+      "source_field": "page.last_edited_time",
+      "target_field": "last_updated",
+      "required": false
+    },
+    {
+      "source_field": "page.content_blocks",
+      "target_field": "body",
+      "required": false,
+      "transform": "notion-blocks-to-markdown"
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Export must be in Markdown + CSV format (not HTML)",
+    "Database views are imported as CSV tables",
+    "Nested pages become child documents",
+    "Notion callout blocks become blockquotes in Markdown",
+    "Media files are extracted to assets/"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}

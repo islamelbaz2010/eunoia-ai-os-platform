@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Restaurants — Templates Schema",
+  "description": "Schema for Reusable document and communication templates in the Restaurants industry. Extends the canonical template schema.",
+  "$ref": "../../../schemas/template.schema.json",
+  "x-industry": "restaurants",
+  "x-department": "templates",
+  "x-schema-version": "1.0.0",
+  "x-extends": "template.schema.json",
+  "x-document-types": [
+    "email",
+    "sms",
+    "letter",
+    "contract",
+    "report"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "restaurants"
+    },
+    "department": {
+      "const": "templates"
+    }
+  },
+  "additionalProperties": false
+}

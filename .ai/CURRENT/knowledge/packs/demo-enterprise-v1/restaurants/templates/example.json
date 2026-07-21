@@ -1,0 +1,107 @@
+{
+  "_comment": "EMPTY EXAMPLE — This file defines the expected structure only. Content is populated by Gemini.",
+  "schema_version": "1.0.0",
+  "schema_ref": "template.schema.json",
+  "industry": "restaurants",
+  "department": "templates",
+  "example_document": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "title": "[Restaurants Templates Document Title]",
+    "version": "1.0.0",
+    "language": "en",
+    "country": "[ISO-3166-1-alpha-2]",
+    "industry": "restaurants",
+    "department": "templates",
+    "tags": [
+      "[tag-1]",
+      "[tag-2]"
+    ],
+    "priority": "medium",
+    "owner": "[owner@organization.com]",
+    "last_updated": "[ISO-8601-DATETIME]",
+    "checksum": "sha256:[64-hex-chars]",
+    "status": "draft"
+  },
+  "field_notes": [
+    {
+      "document_type": "email",
+      "description": "[Gemini populates templates content for email type in Restaurants context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "sms",
+      "description": "[Gemini populates templates content for sms type in Restaurants context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "letter",
+      "description": "[Gemini populates templates content for letter type in Restaurants context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "contract",
+      "description": "[Gemini populates templates content for contract type in Restaurants context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "report",
+      "description": "[Gemini populates templates content for report type in Restaurants context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    }
+  ]
+}

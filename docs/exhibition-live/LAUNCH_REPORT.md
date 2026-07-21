@@ -1,7 +1,7 @@
 # Exhibition Launch Report
-**Generated**: 2026-07-13 00:34:40 EEST
-**Duration**: 24s
-**Git SHA**: cb57eb3
+**Generated**: 2026-07-13 00:53:37 EEST
+**Duration**: 152s
+**Git SHA**: e6c6450
 **Branch**: main
 **Production**: https://eunoia-ai-os-platform.vercel.app
 
@@ -25,6 +25,7 @@ None.
 - Email invites disabled
 - Billing disabled
 - Prometheus open
+- Vercel env sync skipped
 - Stripe verification skipped
 - Resend verification skipped
 

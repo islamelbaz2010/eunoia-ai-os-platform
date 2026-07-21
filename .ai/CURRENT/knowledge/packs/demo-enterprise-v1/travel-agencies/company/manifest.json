@@ -1,0 +1,59 @@
+{
+  "$schema": "https://eunoia.ai/schemas/pack-manifest/v1",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "created_at": "2026-07-13T00:00:00.000Z",
+  "industry": "travel-agencies",
+  "department": "company",
+  "path": "packs/demo-enterprise-v1/travel-agencies/company",
+  "schema_ref": "department.schema.json",
+  "document_types": [
+    "profile",
+    "org-chart",
+    "mission-statement",
+    "values-framework"
+  ],
+  "components": [],
+  "provenance": {
+    "generator": "eunoia-knowledge-architect",
+    "generator_version": "1.0.0",
+    "author": "eunoia-ai-os",
+    "generation_run_id": "00000000-0000-4000-8000-000000000000",
+    "timestamp": "2026-07-13T00:00:00.000Z"
+  },
+  "compatibility": {
+    "minimum": "1.0",
+    "maximum": "1.9"
+  },
+  "taxonomy": {
+    "industries": [
+      "travel-agencies"
+    ],
+    "departments": [
+      "company"
+    ],
+    "languages": [
+      "en"
+    ],
+    "document_types": [
+      "profile",
+      "org-chart",
+      "mission-statement",
+      "values-framework"
+    ],
+    "tags": [
+      "travel-agencies",
+      "company",
+      "framework"
+    ]
+  },
+  "license": {
+    "license_ref": "proprietary",
+    "license_url": null
+  },
+  "statistics": {
+    "total_documents": 0,
+    "total_size_bytes": 0,
+    "last_updated": "2026-07-13T00:00:00.000Z"
+  }
+}

@@ -45,3 +45,4 @@ secrets/
 .env.production.master
 tools/bootstrap/.bootstrap.lock.json
 tools/bootstrap/BOOTSTRAP_REPORT.md
+.aider*

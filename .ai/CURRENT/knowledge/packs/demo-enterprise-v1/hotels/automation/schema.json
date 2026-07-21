@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hotels — Automation Schema",
+  "description": "Schema for Workflow automation specifications, trigger definitions, and action mappings in the Hotels industry. Extends the canonical automation schema.",
+  "$ref": "../../../schemas/automation.schema.json",
+  "x-industry": "hotels",
+  "x-department": "automation",
+  "x-schema-version": "1.0.0",
+  "x-extends": "automation.schema.json",
+  "x-document-types": [
+    "trigger",
+    "action",
+    "workflow-spec",
+    "integration-map"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "hotels"
+    },
+    "department": {
+      "const": "automation"
+    }
+  },
+  "additionalProperties": false
+}

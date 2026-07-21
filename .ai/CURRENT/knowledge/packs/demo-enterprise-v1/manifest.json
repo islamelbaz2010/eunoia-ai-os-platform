@@ -1,0 +1,199 @@
+{
+  "$schema": "https://eunoia.ai/schemas/pack-manifest/v1",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "name": "Demo Enterprise Pack v1",
+  "description": "Production-ready enterprise knowledge framework for 5 industries. Structure and schemas only — content populated by Gemini.",
+  "created_at": "2026-07-13T00:00:00.000Z",
+  "content_status": "framework-only",
+  "industries": [
+    {
+      "id": "hotels",
+      "name": "Hotels",
+      "code": "HTL",
+      "naics_code": "721110",
+      "departments": [
+        "company",
+        "operations",
+        "sales",
+        "marketing",
+        "support",
+        "faq",
+        "templates",
+        "prompts",
+        "policies",
+        "playbooks",
+        "training",
+        "automation",
+        "analytics"
+      ]
+    },
+    {
+      "id": "restaurants",
+      "name": "Restaurants",
+      "code": "RST",
+      "naics_code": "722511",
+      "departments": [
+        "company",
+        "operations",
+        "sales",
+        "marketing",
+        "support",
+        "faq",
+        "templates",
+        "prompts",
+        "policies",
+        "playbooks",
+        "training",
+        "automation",
+        "analytics"
+      ]
+    },
+    {
+      "id": "medical-clinics",
+      "name": "Medical Clinics",
+      "code": "MED",
+      "naics_code": "621111",
+      "departments": [
+        "company",
+        "operations",
+        "sales",
+        "marketing",
+        "support",
+        "faq",
+        "templates",
+        "prompts",
+        "policies",
+        "playbooks",
+        "training",
+        "automation",
+        "analytics"
+      ]
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate",
+      "code": "REA",
+      "naics_code": "531210",
+      "departments": [
+        "company",
+        "operations",
+        "sales",
+        "marketing",
+        "support",
+        "faq",
+        "templates",
+        "prompts",
+        "policies",
+        "playbooks",
+        "training",
+        "automation",
+        "analytics"
+      ]
+    },
+    {
+      "id": "travel-agencies",
+      "name": "Travel Agencies",
+      "code": "TRV",
+      "naics_code": "561510",
+      "departments": [
+        "company",
+        "operations",
+        "sales",
+        "marketing",
+        "support",
+        "faq",
+        "templates",
+        "prompts",
+        "policies",
+        "playbooks",
+        "training",
+        "automation",
+        "analytics"
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "file": "../../../schemas/document.schema.json",
+      "schema_id": "document"
+    },
+    {
+      "file": "../../../schemas/metadata.schema.json",
+      "schema_id": "metadata"
+    },
+    {
+      "file": "../../../schemas/faq.schema.json",
+      "schema_id": "faq"
+    },
+    {
+      "file": "../../../schemas/playbook.schema.json",
+      "schema_id": "playbook"
+    },
+    {
+      "file": "../../../schemas/policy.schema.json",
+      "schema_id": "policy"
+    },
+    {
+      "file": "../../../schemas/prompt.schema.json",
+      "schema_id": "prompt"
+    },
+    {
+      "file": "../../../schemas/automation.schema.json",
+      "schema_id": "automation"
+    },
+    {
+      "file": "../../../schemas/template.schema.json",
+      "schema_id": "template"
+    },
+    {
+      "file": "../../../schemas/campaign.schema.json",
+      "schema_id": "campaign"
+    },
+    {
+      "file": "../../../schemas/persona.schema.json",
+      "schema_id": "persona"
+    },
+    {
+      "file": "../../../schemas/offer.schema.json",
+      "schema_id": "offer"
+    },
+    {
+      "file": "../../../schemas/service.schema.json",
+      "schema_id": "service"
+    },
+    {
+      "file": "../../../schemas/department.schema.json",
+      "schema_id": "department"
+    },
+    {
+      "file": "../../../schemas/kpi.schema.json",
+      "schema_id": "kpi"
+    },
+    {
+      "file": "../../../schemas/checklist.schema.json",
+      "schema_id": "checklist"
+    }
+  ],
+  "provenance": {
+    "generator": "eunoia-knowledge-architect",
+    "generator_version": "1.0.0",
+    "author": "eunoia-ai-os",
+    "generation_run_id": "00000000-0000-4000-8000-000000000000",
+    "timestamp": "2026-07-13T00:00:00.000Z"
+  },
+  "compatibility": {
+    "minimum": "1.0",
+    "maximum": "1.9"
+  },
+  "license": {
+    "license_ref": "proprietary"
+  },
+  "statistics": {
+    "total_industries": 5,
+    "total_departments": 13,
+    "total_document_slots": 65,
+    "total_documents": 0,
+    "framework_files": 0
+  }
+}

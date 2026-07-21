@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "industry": "real-estate",
+  "industry_name": "Real Estate",
+  "industry_code": "REA",
+  "department": "training",
+  "department_name": "Training",
+  "description": "Staff training materials, onboarding guides, and skill development resources",
+  "document_types": [
+    "module",
+    "quiz",
+    "onboarding-plan",
+    "competency-map"
+  ],
+  "schema_ref": "document.schema.json",
+  "status": "framework-ready",
+  "content_status": "empty",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "owner": null,
+  "language": "en",
+  "country": null,
+  "tags": [
+    "real-estate",
+    "training",
+    "framework",
+    "demo-enterprise-v1"
+  ],
+  "priority": "medium",
+  "checksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "statistics": {
+    "document_count": 0,
+    "word_count": 0,
+    "last_ingested": null
+  }
+}

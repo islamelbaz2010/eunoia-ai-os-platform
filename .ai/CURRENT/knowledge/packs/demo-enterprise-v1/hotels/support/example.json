@@ -1,0 +1,91 @@
+{
+  "_comment": "EMPTY EXAMPLE — This file defines the expected structure only. Content is populated by Gemini.",
+  "schema_version": "1.0.0",
+  "schema_ref": "playbook.schema.json",
+  "industry": "hotels",
+  "department": "support",
+  "example_document": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "title": "[Hotels Support Document Title]",
+    "version": "1.0.0",
+    "language": "en",
+    "country": "[ISO-3166-1-alpha-2]",
+    "industry": "hotels",
+    "department": "support",
+    "tags": [
+      "[tag-1]",
+      "[tag-2]"
+    ],
+    "priority": "medium",
+    "owner": "[owner@organization.com]",
+    "last_updated": "[ISO-8601-DATETIME]",
+    "checksum": "sha256:[64-hex-chars]",
+    "status": "draft"
+  },
+  "field_notes": [
+    {
+      "document_type": "escalation",
+      "description": "[Gemini populates support content for escalation type in Hotels context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "resolution-flow",
+      "description": "[Gemini populates support content for resolution-flow type in Hotels context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "script",
+      "description": "[Gemini populates support content for script type in Hotels context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    },
+    {
+      "document_type": "sla-definition",
+      "description": "[Gemini populates support content for sla-definition type in Hotels context]",
+      "required_fields": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "country",
+        "industry",
+        "department",
+        "priority",
+        "owner",
+        "last_updated"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Medical Clinics — Playbooks Schema",
+  "description": "Schema for Step-by-step operational playbooks and decision trees in the Medical Clinics industry. Extends the canonical playbook schema.",
+  "$ref": "../../../schemas/playbook.schema.json",
+  "x-industry": "medical-clinics",
+  "x-department": "playbooks",
+  "x-schema-version": "1.0.0",
+  "x-extends": "playbook.schema.json",
+  "x-document-types": [
+    "runbook",
+    "decision-tree",
+    "scenario",
+    "escalation-path"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "medical-clinics"
+    },
+    "department": {
+      "const": "playbooks"
+    }
+  },
+  "additionalProperties": false
+}

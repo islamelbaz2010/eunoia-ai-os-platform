@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Real Estate — Prompts Schema",
+  "description": "Schema for AI prompt structures, system instructions, and prompt engineering guidelines in the Real Estate industry. Extends the canonical prompt schema.",
+  "$ref": "../../../schemas/prompt.schema.json",
+  "x-industry": "real-estate",
+  "x-department": "prompts",
+  "x-schema-version": "1.0.0",
+  "x-extends": "prompt.schema.json",
+  "x-document-types": [
+    "system-prompt",
+    "user-prompt",
+    "chain",
+    "persona-prompt"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "real-estate"
+    },
+    "department": {
+      "const": "prompts"
+    }
+  },
+  "additionalProperties": false
+}

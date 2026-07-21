@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Restaurants — Analytics Schema",
+  "description": "Schema for KPI definitions, reporting structures, and performance metric frameworks in the Restaurants industry. Extends the canonical kpi schema.",
+  "$ref": "../../../schemas/kpi.schema.json",
+  "x-industry": "restaurants",
+  "x-department": "analytics",
+  "x-schema-version": "1.0.0",
+  "x-extends": "kpi.schema.json",
+  "x-document-types": [
+    "kpi",
+    "dashboard-spec",
+    "report-template",
+    "metric-definition"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "restaurants"
+    },
+    "department": {
+      "const": "analytics"
+    }
+  },
+  "additionalProperties": false
+}

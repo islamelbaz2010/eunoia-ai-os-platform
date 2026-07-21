@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-13T00:00:00.000Z",
+  "period": "all-time",
+  "packs": {
+    "total": 1,
+    "active": 1,
+    "archived": 0
+  },
+  "industries": {
+    "total": 5,
+    "list": [
+      {
+        "id": "hotels",
+        "name": "Hotels",
+        "document_count": 0
+      },
+      {
+        "id": "restaurants",
+        "name": "Restaurants",
+        "document_count": 0
+      },
+      {
+        "id": "medical-clinics",
+        "name": "Medical Clinics",
+        "document_count": 0
+      },
+      {
+        "id": "real-estate",
+        "name": "Real Estate",
+        "document_count": 0
+      },
+      {
+        "id": "travel-agencies",
+        "name": "Travel Agencies",
+        "document_count": 0
+      }
+    ]
+  },
+  "departments": {
+    "total": 13,
+    "list": [
+      {
+        "id": "company",
+        "name": "Company",
+        "document_count": 0
+      },
+      {
+        "id": "operations",
+        "name": "Operations",
+        "document_count": 0
+      },
+      {
+        "id": "sales",
+        "name": "Sales",
+        "document_count": 0
+      },
+      {
+        "id": "marketing",
+        "name": "Marketing",
+        "document_count": 0
+      },
+      {
+        "id": "support",
+        "name": "Support",
+        "document_count": 0
+      },
+      {
+        "id": "faq",
+        "name": "FAQ",
+        "document_count": 0
+      },
+      {
+        "id": "templates",
+        "name": "Templates",
+        "document_count": 0
+      },
+      {
+        "id": "prompts",
+        "name": "Prompts",
+        "document_count": 0
+      },
+      {
+        "id": "policies",
+        "name": "Policies",
+        "document_count": 0
+      },
+      {
+        "id": "playbooks",
+        "name": "Playbooks",
+        "document_count": 0
+      },
+      {
+        "id": "training",
+        "name": "Training",
+        "document_count": 0
+      },
+      {
+        "id": "automation",
+        "name": "Automation",
+        "document_count": 0
+      },
+      {
+        "id": "analytics",
+        "name": "Analytics",
+        "document_count": 0
+      }
+    ]
+  },
+  "documents": {
+    "total": 0,
+    "by_status": {
+      "draft": 0,
+      "review": 0,
+      "approved": 0,
+      "published": 0,
+      "archived": 0
+    },
+    "by_language": {},
+    "by_priority": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "schemas": {
+    "total": 15,
+    "list": [
+      "document",
+      "metadata",
+      "faq",
+      "playbook",
+      "policy",
+      "prompt",
+      "automation",
+      "template",
+      "campaign",
+      "persona",
+      "offer",
+      "service",
+      "department",
+      "kpi",
+      "checklist"
+    ]
+  },
+  "imports": {
+    "total_runs": 0,
+    "successful": 0,
+    "failed": 0,
+    "documents_imported": 0,
+    "last_import": null
+  }
+}

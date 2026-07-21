@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "demo-enterprise-v1",
+  "pack_version": "1.0.0",
+  "industry": "medical-clinics",
+  "industry_name": "Medical Clinics",
+  "industry_code": "MED",
+  "department": "sales",
+  "department_name": "Sales",
+  "description": "Sales processes, pipelines, offers, and customer acquisition frameworks",
+  "document_types": [
+    "pipeline",
+    "offer",
+    "script",
+    "proposal"
+  ],
+  "schema_ref": "offer.schema.json",
+  "status": "framework-ready",
+  "content_status": "empty",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "owner": null,
+  "language": "en",
+  "country": null,
+  "tags": [
+    "medical-clinics",
+    "sales",
+    "framework",
+    "demo-enterprise-v1"
+  ],
+  "priority": "medium",
+  "checksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "statistics": {
+    "document_count": 0,
+    "word_count": 0,
+    "last_ingested": null
+  }
+}

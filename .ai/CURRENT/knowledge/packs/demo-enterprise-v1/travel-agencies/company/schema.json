@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travel Agencies — Company Schema",
+  "description": "Schema for Company profile, mission, vision, values, and organizational structure in the Travel Agencies industry. Extends the canonical department schema.",
+  "$ref": "../../../schemas/department.schema.json",
+  "x-industry": "travel-agencies",
+  "x-department": "company",
+  "x-schema-version": "1.0.0",
+  "x-extends": "department.schema.json",
+  "x-document-types": [
+    "profile",
+    "org-chart",
+    "mission-statement",
+    "values-framework"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "travel-agencies"
+    },
+    "department": {
+      "const": "company"
+    }
+  },
+  "additionalProperties": false
+}

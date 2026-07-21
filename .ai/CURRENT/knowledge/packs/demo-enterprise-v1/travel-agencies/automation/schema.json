@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travel Agencies — Automation Schema",
+  "description": "Schema for Workflow automation specifications, trigger definitions, and action mappings in the Travel Agencies industry. Extends the canonical automation schema.",
+  "$ref": "../../../schemas/automation.schema.json",
+  "x-industry": "travel-agencies",
+  "x-department": "automation",
+  "x-schema-version": "1.0.0",
+  "x-extends": "automation.schema.json",
+  "x-document-types": [
+    "trigger",
+    "action",
+    "workflow-spec",
+    "integration-map"
+  ],
+  "x-required-overrides": {
+    "industry": {
+      "const": "travel-agencies"
+    },
+    "department": {
+      "const": "automation"
+    }
+  },
+  "additionalProperties": false
+}

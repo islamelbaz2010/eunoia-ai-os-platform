@@ -1,0 +1,529 @@
+{
+  "schema_version": "1.0.0",
+  "index_version": "1.0.0",
+  "generated_at": "2026-07-13T00:00:00.000Z",
+  "entries": [
+    {
+      "path": "packs/demo-enterprise-v1/hotels/company",
+      "industry": "hotels",
+      "department": "company",
+      "schema_ref": "department.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/operations",
+      "industry": "hotels",
+      "department": "operations",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/sales",
+      "industry": "hotels",
+      "department": "sales",
+      "schema_ref": "offer.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/marketing",
+      "industry": "hotels",
+      "department": "marketing",
+      "schema_ref": "campaign.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/support",
+      "industry": "hotels",
+      "department": "support",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/faq",
+      "industry": "hotels",
+      "department": "faq",
+      "schema_ref": "faq.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/templates",
+      "industry": "hotels",
+      "department": "templates",
+      "schema_ref": "template.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/prompts",
+      "industry": "hotels",
+      "department": "prompts",
+      "schema_ref": "prompt.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/policies",
+      "industry": "hotels",
+      "department": "policies",
+      "schema_ref": "policy.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/playbooks",
+      "industry": "hotels",
+      "department": "playbooks",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/training",
+      "industry": "hotels",
+      "department": "training",
+      "schema_ref": "document.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/automation",
+      "industry": "hotels",
+      "department": "automation",
+      "schema_ref": "automation.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/hotels/analytics",
+      "industry": "hotels",
+      "department": "analytics",
+      "schema_ref": "kpi.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/company",
+      "industry": "restaurants",
+      "department": "company",
+      "schema_ref": "department.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/operations",
+      "industry": "restaurants",
+      "department": "operations",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/sales",
+      "industry": "restaurants",
+      "department": "sales",
+      "schema_ref": "offer.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/marketing",
+      "industry": "restaurants",
+      "department": "marketing",
+      "schema_ref": "campaign.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/support",
+      "industry": "restaurants",
+      "department": "support",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/faq",
+      "industry": "restaurants",
+      "department": "faq",
+      "schema_ref": "faq.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/templates",
+      "industry": "restaurants",
+      "department": "templates",
+      "schema_ref": "template.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/prompts",
+      "industry": "restaurants",
+      "department": "prompts",
+      "schema_ref": "prompt.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/policies",
+      "industry": "restaurants",
+      "department": "policies",
+      "schema_ref": "policy.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/playbooks",
+      "industry": "restaurants",
+      "department": "playbooks",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/training",
+      "industry": "restaurants",
+      "department": "training",
+      "schema_ref": "document.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/automation",
+      "industry": "restaurants",
+      "department": "automation",
+      "schema_ref": "automation.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/restaurants/analytics",
+      "industry": "restaurants",
+      "department": "analytics",
+      "schema_ref": "kpi.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/company",
+      "industry": "medical-clinics",
+      "department": "company",
+      "schema_ref": "department.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/operations",
+      "industry": "medical-clinics",
+      "department": "operations",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/sales",
+      "industry": "medical-clinics",
+      "department": "sales",
+      "schema_ref": "offer.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/marketing",
+      "industry": "medical-clinics",
+      "department": "marketing",
+      "schema_ref": "campaign.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/support",
+      "industry": "medical-clinics",
+      "department": "support",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/faq",
+      "industry": "medical-clinics",
+      "department": "faq",
+      "schema_ref": "faq.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/templates",
+      "industry": "medical-clinics",
+      "department": "templates",
+      "schema_ref": "template.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/prompts",
+      "industry": "medical-clinics",
+      "department": "prompts",
+      "schema_ref": "prompt.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/policies",
+      "industry": "medical-clinics",
+      "department": "policies",
+      "schema_ref": "policy.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/playbooks",
+      "industry": "medical-clinics",
+      "department": "playbooks",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/training",
+      "industry": "medical-clinics",
+      "department": "training",
+      "schema_ref": "document.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/automation",
+      "industry": "medical-clinics",
+      "department": "automation",
+      "schema_ref": "automation.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/medical-clinics/analytics",
+      "industry": "medical-clinics",
+      "department": "analytics",
+      "schema_ref": "kpi.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/company",
+      "industry": "real-estate",
+      "department": "company",
+      "schema_ref": "department.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/operations",
+      "industry": "real-estate",
+      "department": "operations",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/sales",
+      "industry": "real-estate",
+      "department": "sales",
+      "schema_ref": "offer.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/marketing",
+      "industry": "real-estate",
+      "department": "marketing",
+      "schema_ref": "campaign.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/support",
+      "industry": "real-estate",
+      "department": "support",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/faq",
+      "industry": "real-estate",
+      "department": "faq",
+      "schema_ref": "faq.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/templates",
+      "industry": "real-estate",
+      "department": "templates",
+      "schema_ref": "template.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/prompts",
+      "industry": "real-estate",
+      "department": "prompts",
+      "schema_ref": "prompt.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/policies",
+      "industry": "real-estate",
+      "department": "policies",
+      "schema_ref": "policy.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/playbooks",
+      "industry": "real-estate",
+      "department": "playbooks",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/training",
+      "industry": "real-estate",
+      "department": "training",
+      "schema_ref": "document.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/automation",
+      "industry": "real-estate",
+      "department": "automation",
+      "schema_ref": "automation.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/real-estate/analytics",
+      "industry": "real-estate",
+      "department": "analytics",
+      "schema_ref": "kpi.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/company",
+      "industry": "travel-agencies",
+      "department": "company",
+      "schema_ref": "department.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/operations",
+      "industry": "travel-agencies",
+      "department": "operations",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/sales",
+      "industry": "travel-agencies",
+      "department": "sales",
+      "schema_ref": "offer.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/marketing",
+      "industry": "travel-agencies",
+      "department": "marketing",
+      "schema_ref": "campaign.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/support",
+      "industry": "travel-agencies",
+      "department": "support",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/faq",
+      "industry": "travel-agencies",
+      "department": "faq",
+      "schema_ref": "faq.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/templates",
+      "industry": "travel-agencies",
+      "department": "templates",
+      "schema_ref": "template.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/prompts",
+      "industry": "travel-agencies",
+      "department": "prompts",
+      "schema_ref": "prompt.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/policies",
+      "industry": "travel-agencies",
+      "department": "policies",
+      "schema_ref": "policy.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/playbooks",
+      "industry": "travel-agencies",
+      "department": "playbooks",
+      "schema_ref": "playbook.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/training",
+      "industry": "travel-agencies",
+      "department": "training",
+      "schema_ref": "document.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/automation",
+      "industry": "travel-agencies",
+      "department": "automation",
+      "schema_ref": "automation.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    },
+    {
+      "path": "packs/demo-enterprise-v1/travel-agencies/analytics",
+      "industry": "travel-agencies",
+      "department": "analytics",
+      "schema_ref": "kpi.schema.json",
+      "document_count": 0,
+      "status": "empty"
+    }
+  ],
+  "total_entries": 65,
+  "total_documents": 0
+}

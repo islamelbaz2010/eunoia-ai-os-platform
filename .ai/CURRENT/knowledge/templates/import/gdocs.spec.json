@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "format_name": "Google Docs Export",
+  "format_id": "google-docs-export",
+  "mime_type": "application/zip",
+  "description": "Import specification for Google Docs exports (.docx or .odt format from Google Drive).",
+  "version": "1.0.0",
+  "last_updated": "2026-07-13T00:00:00.000Z",
+  "supported_features": {
+    "nested_objects": true,
+    "arrays": true,
+    "binary_content": false,
+    "streaming": false
+  },
+  "field_mappings": [
+    {
+      "source_field": "document.title",
+      "target_field": "title",
+      "required": true
+    },
+    {
+      "source_field": "document.lastModifyingUser.displayName",
+      "target_field": "owner",
+      "required": false
+    },
+    {
+      "source_field": "document.modifiedTime",
+      "target_field": "last_updated",
+      "required": false
+    },
+    {
+      "source_field": "document.body",
+      "target_field": "body",
+      "required": true,
+      "transform": "gdocs-to-markdown"
+    },
+    {
+      "source_field": "document.description",
+      "target_field": "description",
+      "required": false
+    }
+  ],
+  "transformation_rules": [
+    {
+      "rule": "strip_html",
+      "description": "Remove HTML tags from text fields"
+    },
+    {
+      "rule": "normalize_dates",
+      "description": "Convert all dates to ISO 8601 format"
+    },
+    {
+      "rule": "trim_whitespace",
+      "description": "Remove leading/trailing whitespace from strings"
+    },
+    {
+      "rule": "normalize_encoding",
+      "description": "Convert all text to UTF-8"
+    }
+  ],
+  "validation_on_import": {
+    "required_fields": [
+      "title",
+      "industry",
+      "department"
+    ],
+    "schema_ref": "document.schema.json",
+    "fail_on_invalid": false,
+    "quarantine_invalid": true
+  },
+  "import_notes": [
+    "Export via \"Download as .docx\" from Google Docs",
+    "Google-specific styles are normalized to standard Markdown",
+    "Comments and suggestions are stripped",
+    "Drive folder structure maps to department hierarchy"
+  ],
+  "error_handling": {
+    "on_missing_required": "quarantine",
+    "on_invalid_type": "coerce",
+    "on_unknown_field": "ignore",
+    "max_errors_before_abort": 100
+  }
+}
